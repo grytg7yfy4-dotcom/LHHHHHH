@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>廖恒 · 学习进度</title>
+<meta name="description" content="8 周通关计划、任务进度与学习笔记。">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>廖恒 · 学习进度</b>
+      <span id="saved-at">加载中…</span>
+    </div>
+    <nav class="tabs">
+      <a href="#/progress" data-view="progress" class="on">进度</a>
+      <a href="#/plan" data-view="plan">计划</a>
+      <a href="#/notes" data-view="notes">笔记</a>
+      <a href="#/about" data-view="about">说明</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============================================================ 进度 -->
+  <section id="view-progress">
+
+    <div class="card" id="hero"></div>
+
+    <h2 class="sec">三条线 · 现在到哪了</h2>
+    <div class="lines" id="lines"></div>
+
+    <h2 class="sec">本周</h2>
+    <div id="thisweek"></div>
+
+    <h2 class="sec">答辩前自测 <span class="tag" id="checklist-pct"></span></h2>
+    <div class="card" id="checklist"></div>
+
+    <div class="btns">
+      <button class="btn primary" id="btn-export">导出进度</button>
+      <button class="btn" id="btn-import">导入进度</button>
+      <button class="btn ghost" id="btn-reset">清空勾选</button>
+    </div>
+    <p class="hint">
+      勾选先存在这台浏览器里；点「导出进度」下载 <code>progress.js</code>，
+      覆盖仓库里的 <code>data/progress.js</code> 并提交，进度就真正存进 GitHub 了 ——
+      换电脑、清缓存都不怕。换设备时点「导入进度」把文件读回来即可。
+    </p>
+
+  </section>
+
+  <!-- ============================================================ 计划 -->
+  <section id="view-plan" class="hidden">
+    <h2 class="sec">8 周节奏 · 点标题展开</h2>
+    <div id="weeks"></div>
+    <p class="hint">
+      判据只有一条：<b>周日的验收物达成了才算这周过</b>。落后超过 2 天就砍加分项保保命线，
+      别想着下周补回来。
+    </p>
+  </section>
+
+  <!-- ============================================================ 笔记 -->
+  <section id="view-notes" class="hidden">
+    <div class="toolbar">
+      <input type="search" id="note-q" placeholder="搜标题、正文、标签…">
+      <select id="note-cat"></select>
+      <span class="hint" id="note-count"></span>
+    </div>
+    <div id="notes"></div>
+  </section>
+
+  <!-- ============================================================ 说明 -->
+  <section id="view-about" class="hidden">
+    <div class="card">
+      <h1 style="margin:0 0 6px;font-size:21px;">这个站怎么用</h1>
+      <p class="hint" style="margin-top:0;">
+        纯静态站，没有框架、没有构建步骤：数据在 <code>data/</code>，逻辑在 <code>js/</code>，
+        双击 <code>index.html</code> 就能打开，推到 GitHub 就自动变成网址。
+      </p>
+
+      <div class="md">
+        <h3>1. 每天要做的最小动作</h3>
+        <ul>
+          <li>做完一个任务 → 在「进度」或「计划」里打勾</li>
+          <li>写一篇笔记 → 在 <code>data/notes.js</code> 的数组里加一段</li>
+          <li>提交一次 Git（commit message 写清做了什么）</li>
+        </ul>
+
+        <h3>2. 进度怎么跨设备</h3>
+        <ol>
+          <li>在页面里勾任务，点 <b>导出进度</b> 下载 <code>progress.js</code></li>
+          <li>用它覆盖仓库里的 <code>data/progress.js</code></li>
+          <li>提交推送，等一分钟 Pages 重新部署</li>
+        </ol>
+        <p>什么时候需要这么做：换电脑、清浏览器数据之前、每周日复盘的时候。</p>
+
+        <h3>3. 加一篇笔记</h3>
+        <p>打开 <code>data/notes.js</code>，复制一个 <code>{ ... }</code> 块，改四样东西：</p>
+        <pre><code>{
+  "id": "n-20261027-1",        // 唯一，别和别的重复
+  "date": "2026-10-27",        // 决定它归到哪个月
+  "category": "FastAPI",       // 决定左侧分类筛选
+  "title": "day1：第一个接口",
+  "tags": ["路由", "Pydantic"],
+  "content": "正文，支持 Markdown"
+}</code></pre>
+        <p>也可以在 GitHub 网页上直接编辑这个文件，提交后自动部署。</p>
+
+        <h3>4. 部署（只需做一次）</h3>
+        <p>仓库 → Settings → Pages → Source 选 <b>Deploy from a branch</b>，
+        Branch 选 <code>main</code>、目录选 <code>/ (root)</code>，保存。
+        等一分钟，网址就是 <code>https://你的用户名.github.io/仓库名/</code>。</p>
+
+        <h3>5. 改配色 / 改内容</h3>
+        <ul>
+          <li>主色：<code>css/style.css</code> 最上面的 <code>--accent</code></li>
+          <li>计划任务：<code>data/plan.js</code></li>
+          <li>笔记：<code>data/notes.js</code></li>
+        </ul>
+      </div>
+
+      <div class="btns">
+        <button class="btn primary" id="btn-export2">导出进度</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>廖恒 · 8 周通关计划</span>
+    <a href="https://github.com/grytg7yfy4-dotcom/LHHHHHH" target="_blank" rel="noopener">仓库</a>
+    <span>纯静态 · 数据驱动 · 双击可离线打开</span>
+  </footer>
+
+</main>
+
+<div class="toast" id="toast"></div>
+<input type="file" id="file-import" accept=".js,.json,text/javascript" class="hidden">
+
+<script src="data/plan.js"></script>
+<script src="data/notes.js"></script>
+<script src="data/progress.js"></script>
+<script src="js/md.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
