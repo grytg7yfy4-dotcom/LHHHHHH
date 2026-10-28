@@ -162,33 +162,33 @@
   }
 
   function buildList(items) {
-    var top = [];
+    // 按缩进搭成树：缩进比上一项大就是它的子项，支持任意层嵌套
+    var root = { children: [], indent: -1 };
+    var stack = [root];
     items.forEach(function (it) {
-      if (it.indent >= 2 && top.length) top[top.length - 1].sub.push(it);
-      else top.push({ text: it.text, ordered: it.ordered, sub: [] });
+      while (stack.length > 1 && it.indent <= stack[stack.length - 1].indent) stack.pop();
+      var node = { text: it.text, ordered: it.ordered, indent: it.indent, children: [] };
+      stack[stack.length - 1].children.push(node);
+      stack.push(node);
     });
+    return renderNodes(root.children);
+  }
 
-    var isOrdered = top.length && top[0].ordered;
-    var html = isOrdered ? '<ol>' : '<ul>';
-    top.forEach(function (it) {
-      var task = it.text.match(/^\[([ xX])\]\s+(.*)$/);
-      var body;
-      if (task) {
-        body = '<li class="task-item"><input type="checkbox" disabled' +
-          (task[1].toLowerCase() === 'x' ? ' checked' : '') + '> ' + inline(task[2]) + '</li>';
-      } else {
-        body = '<li>' + inline(it.text);
-      }
-      if (it.sub.length) {
-        var t = it.sub[0].ordered;
-        body += (t ? '<ol>' : '<ul>') + it.sub.map(function (s) {
-          return '<li>' + inline(s.text) + '</li>';
-        }).join('') + (t ? '</ol>' : '</ul>');
-      }
-      if (!task) body += '</li>';
-      html += body;
+  function renderNodes(nodes) {
+    if (!nodes.length) return '';
+    var isOrdered = nodes[0].ordered;
+    var tag = isOrdered ? 'ol' : 'ul';
+    var html = '<' + tag + '>';
+    nodes.forEach(function (n) {
+      var task = n.text.match(/^\[([ xX])\]\s+(.*)$/);
+      var inner = task
+        ? '<input type="checkbox" disabled' + (task[1].toLowerCase() === 'x' ? ' checked' : '') +
+          '> ' + inline(task[2])
+        : inline(n.text);
+      if (n.children.length) inner += renderNodes(n.children);
+      html += (task ? '<li class="task-item">' : '<li>') + inner + '</li>';
     });
-    return html + (isOrdered ? '</ol>' : '</ul>');
+    return html + '</' + tag + '>';
   }
 
   global.MD = { render: render, esc: esc };
