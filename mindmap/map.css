@@ -1,0 +1,187 @@
+/* ============================================================================
+ *  知识地图样式 —— 复用 ../css/style.css 的变量
+ * ========================================================================== */
+
+.map-page { max-width: 1280px; margin: 0 auto; padding: 18px 20px 48px; }
+
+/* ------------------------------------------------------------ 工具条 */
+
+.map-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.seg {
+  display: flex; gap: 3px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 11px; padding: 3px;
+}
+.seg button {
+  font: inherit; font-size: 13px; cursor: pointer; border: 0; background: none;
+  color: var(--muted); padding: 6px 14px; border-radius: 8px; transition: .15s;
+}
+.seg button:hover { color: var(--text); }
+.seg button.on { background: var(--accent); color: #fff; font-weight: 500; }
+
+.tools { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.tools button {
+  font: inherit; font-size: 13px; cursor: pointer; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 9px;
+  min-width: 32px; height: 32px; padding: 0 10px; transition: .15s;
+}
+.tools button:hover { border-color: var(--accent); color: var(--accent); }
+.tools span {
+  font: 12px var(--mono); color: var(--faint); min-width: 42px; text-align: center;
+}
+
+/* ------------------------------------------------------------ 画布 */
+
+.map-stage {
+  position: relative; overflow: hidden;
+  height: calc(100vh - 210px); min-height: 480px;
+  background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+  cursor: grab;
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.map-stage.dragging { cursor: grabbing; }
+
+.world {
+  position: absolute; left: 0; top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.bands { position: absolute; left: 0; top: 0; }
+
+.band {
+  position: absolute; border-radius: 16px;
+  border: 1px dashed color-mix(in srgb, currentColor 26%, transparent);
+}
+.band b {
+  position: absolute; top: 12px; left: 14px;
+  font: 600 11.5px/1.4 var(--mono); letter-spacing: .10em;
+  text-transform: uppercase; color: currentColor; opacity: .85;
+}
+.band i {
+  position: absolute; top: 28px; left: 14px;
+  font-style: normal; font-size: 11.5px; color: var(--faint);
+}
+
+svg.edges { position: absolute; left: 0; top: 0; overflow: visible; }
+svg.edges path {
+  fill: none; stroke: var(--line); stroke-width: 1.6;
+  transition: stroke .15s, stroke-width .15s, opacity .15s;
+}
+svg.edges path.on { stroke: var(--accent); stroke-width: 2.4; }
+svg.edges path.dim { opacity: .25; }
+
+/* ------------------------------------------------------------ 节点 */
+
+.nodes { position: absolute; left: 0; top: 0; }
+
+.node {
+  position: absolute; width: 196px; padding: 10px 13px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: var(--shadow); cursor: pointer;
+  transition: transform .15s, box-shadow .15s, opacity .15s, border-color .15s;
+  user-select: none;
+}
+.node:hover { transform: translateY(-2px); border-color: var(--accent); }
+.node.on { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+.node.dim { opacity: .32; }
+
+.node .label {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13.5px; font-weight: 600; line-height: 1.35;
+}
+.node .dot { width: 7px; height: 7px; border-radius: 99px; flex: 0 0 7px; }
+.node .desc {
+  margin-top: 4px; font-size: 11.5px; color: var(--faint); line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* ------------------------------------------------------------ 图例 */
+
+.legend {
+  position: absolute; left: 14px; bottom: 12px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line); border-radius: 10px; padding: 7px 11px;
+  font-size: 11.5px; color: var(--muted);
+}
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend i { width: 7px; height: 7px; border-radius: 99px; display: inline-block; }
+
+/* ------------------------------------------------------------ 按阶段 */
+
+.stage-list { display: grid; gap: 22px; }
+.stage-block { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 16px 18px; }
+.stage-block h3 {
+  margin: 0 0 2px; font-size: 15px;
+  display: flex; align-items: center; gap: 8px;
+}
+.stage-block h3 em { font-style: normal; font: 11.5px var(--mono); color: var(--faint); }
+.stage-block .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-top: 12px; }
+.stage-block .cell {
+  border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+  cursor: pointer; transition: .15s;
+}
+.stage-block .cell:hover { border-color: var(--accent); }
+.stage-block .cell b { font-size: 13.5px; display: block; }
+.stage-block .cell p { margin: 4px 0 0; font-size: 12px; color: var(--faint); line-height: 1.5; }
+
+/* ------------------------------------------------------------ 详情抽屉 */
+
+.panel {
+  position: fixed; top: 0; right: 0; z-index: 60;
+  width: 392px; max-width: 94vw; height: 100vh;
+  background: var(--card); border-left: 1px solid var(--line);
+  box-shadow: -12px 0 40px rgba(16, 24, 40, .14);
+  transform: translateX(102%); transition: transform .26s ease;
+  display: flex; flex-direction: column;
+}
+.panel.open { transform: none; }
+
+.panel .phead {
+  padding: 18px 20px 12px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.panel .phead .stage-tag {
+  font: 11px var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  border-radius: 99px; padding: 2px 9px; white-space: nowrap; margin-top: 3px;
+}
+.panel .phead h2 { margin: 0; font-size: 17px; line-height: 1.4; flex: 1; }
+.panel .phead button {
+  font: inherit; font-size: 20px; line-height: 1; cursor: pointer; color: var(--faint);
+  background: none; border: 0; padding: 0 2px;
+}
+.panel .phead button:hover { color: var(--text); }
+
+.panel .pbody { padding: 16px 20px 26px; overflow: auto; flex: 1; }
+.panel .pbody .md p:first-child { margin-top: 0; }
+.panel .plinks { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+.panel .plinks a {
+  font-size: 12.5px; text-decoration: none; color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  background: var(--accent-soft); border-radius: 99px; padding: 4px 11px;
+}
+
+.scrim {
+  position: fixed; inset: 0; z-index: 55; background: rgba(10, 12, 18, .38);
+  opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.scrim.on { opacity: 1; pointer-events: auto; }
+
+/* ------------------------------------------------------------ 窄屏 */
+
+@media (max-width: 760px) {
+  .map-page { padding: 12px 14px 40px; }
+  .map-stage { height: calc(100vh - 250px); min-height: 400px; }
+  .tools span { display: none; }
+  .panel { width: 100%; max-width: none; height: 76vh; top: auto; bottom: 0; right: 0;
+    border-left: 0; border-top: 1px solid var(--line); border-radius: 16px 16px 0 0;
+    transform: translateY(102%); }
+  .panel.open { transform: none; }
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>廖恒 · 笔记博客</title>
+<meta name="description" content="按时间归档的学习笔记：C 语言、数据结构、JavaWeb、项目复盘。">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>廖恒 · 笔记博客</b>
+      <span id="stat">加载中…</span>
+    </div>
+    <nav class="tabs">
+      <a href="../index.html#/progress">主页</a>
+      <a href="./" class="on">博客</a>
+      <a href="../mindmap/">知识地图</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap blog">
+
+  <aside class="side">
+    <div class="side-box">
+      <input type="search" id="q" placeholder="搜标题、正文、标签…" autocomplete="off">
+    </div>
+    <div class="side-box">
+      <h4>分类</h4>
+      <div id="cats" class="chips"></div>
+    </div>
+    <div class="side-box">
+      <h4>归档</h4>
+      <div id="months" class="archive"></div>
+    </div>
+    <p class="hint">
+      笔记就是文章：在 <code>data/notes.js</code> 里加一段，这一页自动多一篇。
+    </p>
+  </aside>
+
+  <section class="main">
+    <div id="list"></div>
+    <article id="post" class="hidden"></article>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>廖恒 · 学习笔记</span>
+  <a href="../index.html">主页</a>
+  <a href="../mindmap/">知识地图</a>
+  <a href="https://github.com/grytg7yfy4-dotcom/LHHHHHH" target="_blank" rel="noopener">仓库</a>
+  <span>纯静态 · 双击可离线打开</span>
+</footer>
+
+<script src="../data/notes.js"></script>
+<script src="../js/md.js"></script>
+<script src="blog.js"></script>
+</body>
+</html>

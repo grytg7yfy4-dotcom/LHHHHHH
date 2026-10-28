@@ -21,6 +21,8 @@
       <a href="#/plan" data-view="plan">计划</a>
       <a href="#/notes" data-view="notes">笔记</a>
       <a href="#/about" data-view="about">说明</a>
+      <a href="blog/">博客</a>
+      <a href="mindmap/">知识地图</a>
     </nav>
   </div>
 </header>
@@ -122,6 +124,15 @@
           <li>计划任务：<code>data/plan.js</code></li>
           <li>笔记：<code>data/notes.js</code></li>
         </ul>
+
+        <h3>6. 三个页面各自管什么</h3>
+        <ul>
+          <li><b>主页</b>（这一页）：进度勾选、8 周计划、笔记速览</li>
+          <li><b><a href="blog/">博客</a></b>：把 <code>data/notes.js</code> 当文章读，按月份和分类归档，
+            每篇文章有独立链接（<code>blog/#p/笔记id</code>），可以直接发给别人</li>
+          <li><b><a href="mindmap/">知识地图</a></b>：节点和依赖写在 <code>mindmap/data.js</code>，
+            点节点看说明与验收标准，手机上自动切成「按阶段」列表</li>
+        </ul>
       </div>
 
       <div class="btns">
@@ -132,6 +143,8 @@
 
   <footer>
     <span>廖恒 · 8 周通关计划</span>
+    <a href="blog/">博客</a>
+    <a href="mindmap/">知识地图</a>
     <a href="https://github.com/grytg7yfy4-dotcom/LHHHHHH" target="_blank" rel="noopener">仓库</a>
     <span>纯静态 · 数据驱动 · 双击可离线打开</span>
   </footer>

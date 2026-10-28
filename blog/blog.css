@@ -1,0 +1,120 @@
+/* ============================================================================
+ *  博客页样式 —— 复用 ../css/style.css 的变量与 .md 排版
+ * ========================================================================== */
+
+.blog {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+  padding-top: 26px;
+}
+
+/* ------------------------------------------------------------ 左侧栏 */
+
+.side { position: sticky; top: 78px; }
+
+.side-box { margin-bottom: 20px; }
+
+.side-box h4 {
+  font-size: 11.5px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--faint); margin: 0 0 9px;
+}
+
+.side input[type=search] { width: 100%; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chip {
+  font: inherit; font-size: 12.5px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--card); color: var(--muted);
+  border-radius: 99px; padding: 3px 10px; transition: .15s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip i { font-style: normal; opacity: .65; margin-left: 4px; font-size: 11px; }
+
+.archive a {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 5px 9px; border-radius: 8px; text-decoration: none;
+  color: var(--text); font-size: 13.5px; transition: .15s;
+}
+.archive a:hover { background: var(--accent-soft); }
+.archive a.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.archive a span { font: 12px var(--mono); color: var(--faint); }
+.archive a.on span { color: var(--accent); }
+
+/* ------------------------------------------------------------ 列表 */
+
+.month-h {
+  font: 600 12px var(--mono); color: var(--faint);
+  letter-spacing: .08em; margin: 26px 0 2px;
+}
+.month-h:first-child { margin-top: 4px; }
+
+.post-item {
+  display: block; text-decoration: none; color: inherit;
+  padding: 16px 2px; border-bottom: 1px solid var(--line);
+}
+.post-item:last-child { border-bottom: 0; }
+.post-item h3 { margin: 0 0 5px; font-size: 16.5px; line-height: 1.45; }
+.post-item:hover h3 { color: var(--accent); }
+
+.post-meta {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font: 12px var(--mono); color: var(--faint);
+}
+.post-meta .cat {
+  font-family: inherit; color: var(--accent); background: var(--accent-soft);
+  border-radius: 99px; padding: 1px 9px;
+}
+
+.post-excerpt {
+  margin: 7px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.65;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.empty {
+  padding: 40px 4px; color: var(--muted); font-size: 14px;
+  border: 1px dashed var(--line); border-radius: 12px; text-align: center;
+}
+
+/* ------------------------------------------------------------ 正文 */
+
+.btn-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: inherit; font-size: 13px; cursor: pointer; color: var(--muted);
+  background: none; border: 0; padding: 0; margin: 0 0 10px;
+}
+.btn-back:hover { color: var(--accent); }
+
+article.post h1 {
+  font-size: 25px; line-height: 1.35; letter-spacing: -.2px;
+  margin: 4px 0 10px;
+}
+
+article.post .post-tags { margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+.pager {
+  display: flex; gap: 18px; margin-top: 36px; padding-top: 18px;
+  border-top: 1px solid var(--line); font-size: 13.5px;
+}
+.pager a { color: var(--accent); text-decoration: none; max-width: 48%; }
+.pager a small { display: block; color: var(--faint); font-size: 11.5px; }
+.pager .next { margin-left: auto; text-align: right; }
+
+/* ------------------------------------------------------------ 窄屏 */
+
+@media (max-width: 860px) {
+  .blog { grid-template-columns: 1fr; gap: 18px; padding-top: 16px; }
+  .side { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .side .side-box:first-child { grid-column: 1 / -1; }
+  .side .hint { display: none; }
+  .archive { max-height: 168px; overflow: auto; }
+}
+
+@media (max-width: 520px) {
+  .side { grid-template-columns: 1fr; }
+  article.post h1 { font-size: 21px; }
+}

@@ -1,9 +1,22 @@
 # 廖恒 · 学习进度
 
-网安所 8 周通关计划的任务勾选、验收物跟踪和学习笔记。纯静态站，没有框架、没有构建步骤，推上 GitHub Pages 就是一个网址。
+网安所 8 周通关计划的任务勾选、验收物跟踪、学习笔记，外加一个博客和一个知识地图。
+纯静态站，没有框架、没有构建步骤，推上 GitHub Pages 就是一个网址。
 
 - 站点：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/>
+- 博客：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/blog/>
+- 知识地图：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/mindmap/>
 - 计划：2026-10-26 → 2026-12-26
+
+## 三个页面
+
+| 页面 | 入口 | 管什么 | 数据在哪 |
+| --- | --- | --- | --- |
+| 主页 | `/` | 进度勾选、8 周计划、笔记速览 | `data/plan.js`、`data/notes.js`、`data/progress.js` |
+| 博客 | `/blog/` | 把笔记当文章读：按月份归档、分类筛选、全文搜索，每篇有独立链接 | 复用 `data/notes.js` |
+| 知识地图 | `/mindmap/` | 阶段 → 节点的依赖图，点节点看说明与验收标准 | `mindmap/data.js` |
+
+博客和主页用的是**同一份笔记数据**，不会出现「主页有、博客没有」。加一篇笔记，两边同时多一篇。
 
 ## 目录
 
@@ -11,11 +24,21 @@
 .
 ├─ index.html            页面骨架（进度 / 计划 / 笔记 / 说明 四个标签）
 ├─ css/style.css         全部样式，改主色只动最上面的 --accent
-├─ js/md.js              极简 Markdown 渲染器（无依赖）
+├─ js/md.js              极简 Markdown 渲染器（无依赖，三个页面共用）
 ├─ js/app.js             渲染逻辑、进度存储、导入导出
 ├─ data/plan.js          8 周计划：任务、验收物、常见坑、三条线、自测清单
-├─ data/notes.js         笔记
+├─ data/notes.js         笔记（＝博客的文章）
 ├─ data/progress.js      进度存档（跨设备的载体）
+├─ blog/
+│  ├─ index.html         博客页骨架
+│  ├─ blog.css           博客页样式（复用 css/style.css 的变量）
+│  └─ blog.js            归档、筛选、搜索、正文渲染
+├─ mindmap/
+│  ├─ index.html         知识地图骨架
+│  ├─ map.css            画布、节点、详情抽屉的样式
+│  ├─ map.js             布局、缩放拖拽、选中高亮
+│  └─ data.js            阶段 / 节点 / 连线（唯一要改的数据文件）
+├─ .github/workflows/pages.yml   推 main 就自动发布到 Pages
 ├─ .nojekyll             让 GitHub Pages 跳过 Jekyll 处理
 └─ 启动预览.bat          本地起个服务，方便手机连同一个 WiFi 看
 ```
@@ -41,11 +64,31 @@
 }
 ```
 
-## 首次部署
+加完刷新博客页就多一篇；点开某篇，地址栏是 `blog/#p/n-20261027-1`，可以直接发给别人。
 
-Settings → Pages → Source 选 **Deploy from a branch** → Branch `main`、目录 `/ (root)` → Save。
+## 加一个知识节点
 
-等一分钟，地址是 `https://<用户名>.github.io/LHHHHHH/`。
+打开 `mindmap/data.js`：在 `nodes` 里加一条（`stage` 选已有的阶段），再在 `edges` 里接上它：
+
+```js
+{ "id": "pydantic", "stage": "be", "kind": "todo", "label": "Pydantic 校验",
+  "detail": "请求体校验、字段约束、422 错误的含义。", "links": [] }
+
+// edges 里加：
+["fastapi", "pydantic"]
+```
+
+`kind` 只有三种：`done`（绿）、`doing`（黄）、`todo`（灰）。
+
+## 部署
+
+推送到 `main` 就自动发布，`.github/workflows/pages.yml` 会做三件事：检出、打包整个仓库、发到 Pages。
+
+- 首次推送时，workflow 里的 `enablement: true` 会顺带把 Pages 打开，不用手动点；
+- 如果 Actions 因为权限没跑起来：仓库 → **Settings** → **Pages** → Source 选 **GitHub Actions**，再手动 Run 一次 workflow；
+- 想换回「分支发布」也行：Source 改成 **Deploy from a branch**，Branch `main`、目录 `/ (root)`。
+
+等 Actions 出现绿色对勾，打开 <https://grytg7yfy4-dotcom.github.io/LHHHHHH/> 就是最新版。
 
 ## 本地预览（可选）
 
@@ -60,6 +103,8 @@ python -m http.server 8000
 | 想改什么 | 改哪个文件 |
 | --- | --- |
 | 任务、验收物、坑 | `data/plan.js` |
-| 笔记 | `data/notes.js` |
+| 笔记（＝博客文章） | `data/notes.js` |
+| 知识地图的节点与依赖 | `mindmap/data.js` |
+| 博客的排版 | `blog/blog.css` |
 | 主色、间距 | `css/style.css` 顶部的变量 |
-| 页面结构 | `index.html` |
+| 页面结构 | `index.html` / `blog/index.html` / `mindmap/index.html` |
