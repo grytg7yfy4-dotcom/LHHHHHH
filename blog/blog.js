@@ -6,10 +6,6 @@
   'use strict';
 
   var NOTES = ((window.NOTES_DATA || {}).notes || []).slice();
-  // 导图文章单独一个文件：主页「笔记」不加载它，博客这里合并进来
-  if (window.NOTES_XMIND && window.NOTES_XMIND.notes) {
-    NOTES = NOTES.concat(window.NOTES_XMIND.notes);
-  }
   NOTES.sort(function (a, b) { return String(b.date || '').localeCompare(String(a.date || '')); });
 
   var state = { q: '', cat: '', month: '', id: '' };
