@@ -1,10 +1,9 @@
-# 推送到 main 就自动发布到 GitHub Pages。
-# 首次运行时会顺带把 Pages 打开（enablement: true），之后每次 push 都重新部署。
+# 只在手动触发时运行：仓库默认用「Deploy from a branch」发布（见 README）。
+# 想改成 Actions 发布：Settings → Pages → Source 选 GitHub Actions，然后在这个
+# workflow 上点 Run workflow 一次；之后每次 push 都会自动发布。
 name: pages
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -26,8 +25,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:

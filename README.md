@@ -80,13 +80,17 @@
 
 `kind` 只有三种：`done`（绿）、`doing`（黄）、`todo`（灰）。
 
-## 部署
+## 部署（设置一次，之后每次 push 自动重建）
 
-推送到 `main` 就自动发布，`.github/workflows/pages.yml` 会做三件事：检出、打包整个仓库、发到 Pages。
+1. 仓库 → **Settings** → 左侧 **Pages**
+2. **Build and deployment** 的 Source 选 **Deploy from a branch**
+3. Branch 选 `main`，目录选 `/ (root)`，Save
+4. 等一分钟，打开 <https://grytg7yfy4-dotcom.github.io/LHHHHHH/> 就是最新版
 
-- 首次推送时，workflow 里的 `enablement: true` 会顺带把 Pages 打开，不用手动点；
-- 如果 Actions 因为权限没跑起来：仓库 → **Settings** → **Pages** → Source 选 **GitHub Actions**，再手动 Run 一次 workflow；
-- 想换回「分支发布」也行：Source 改成 **Deploy from a branch**，Branch `main`、目录 `/ (root)`。
+以后 `git push` 到 `main`，Pages 会自己重新构建，不用再管设置。
+
+> 想改用 Actions 发布也行：Source 改成 **GitHub Actions**，再去 Actions 页面手动 Run 一次 `pages`。
+> 那个 workflow 平时不自动跑，避免在 Pages 还没开的时候每次 push 都报红。
 
 等 Actions 出现绿色对勾，打开 <https://grytg7yfy4-dotcom.github.io/LHHHHHH/> 就是最新版。
 
