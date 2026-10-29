@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>廖恒 · Python 1-123 导图</title>
-<meta name="description" content="黑马程序员 Python 1-123 集思维导图：13 章、90 个小节，可拖动缩放。">
+<title>廖恒 · Python 学习地图</title>
+<meta name="description" content="黑马程序员 Python 1-123 集：13 章 90 个知识点，点开看解析、语法和示例代码。">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="python.css">
@@ -14,8 +14,8 @@
 <header class="top">
   <div class="top-inner">
     <div class="brand">
-      <b>廖恒 · Python 导图</b>
-      <span id="sub">黑马程序员 1-123 集 · 13 章 90 个小节</span>
+      <b>廖恒 · Python 学习地图</b>
+      <span id="sub">黑马程序员 1-123 集 · 13 章 · 90 个知识点</span>
     </div>
     <nav class="tabs">
       <a href="../index.html#/progress">主页</a>
@@ -29,36 +29,76 @@
 <main class="map-page">
 
   <div class="map-bar">
-    <select id="chapter" class="chapter-select" aria-label="选择章节"></select>
-    <button id="prev" class="ghost" title="上一张" aria-label="上一张">←</button>
-    <button id="next" class="ghost" title="下一张" aria-label="下一张">→</button>
+    <div class="search-wrap">
+      <input id="q" type="search" placeholder="搜知识点：切片 / 异常 / lambda / 封装 …" autocomplete="off" aria-label="搜索知识点">
+      <kbd>Enter</kbd>
+    </div>
+    <button id="expand" class="btn">展开全部</button>
+    <button id="collapse" class="btn">收起</button>
+    <div class="stat">已掌握 <b id="done-n">0</b> / <span id="sec-n">0</span></div>
     <div class="tools">
       <button id="zoom-out" title="缩小">−</button>
       <span id="zoom">100%</span>
       <button id="zoom-in" title="放大">＋</button>
-      <button id="fit" title="缩放到刚好放得下">适应窗口</button>
-      <a id="raw" class="raw" href="python/00-overview.svg" target="_blank" rel="noopener">原图</a>
+      <button id="fit" title="缩放到刚好放得下">适应</button>
     </div>
   </div>
 
   <div class="map-stage" id="stage">
-    <div class="world" id="world"><img id="img" src="python/00-overview.svg" alt="Python 思维导图" draggable="false"></div>
-    <div class="hint">拖动平移 · 滚轮缩放 · 左上角切换章节</div>
+    <div class="world" id="world">
+      <svg class="edges" id="edges" aria-hidden="true"></svg>
+      <div class="nodes" id="nodes"></div>
+    </div>
+    <div class="hint" id="hint">点章节展开 · 点知识点看解析和代码 · 滚轮缩放 · 拖动平移</div>
   </div>
-
-  <noscript>
-    <p class="wrap">这张图需要 JavaScript 才能拖动缩放，直接看原图：<a href="python/00-overview.svg">总览</a></p>
-  </noscript>
 
 </main>
 
 <footer class="wrap">
-  <span>廖恒 · Python 导图</span>
+  <span>廖恒 · Python 学习地图</span>
   <a href="../index.html#/progress">主页</a>
   <a href="../blog/">博客</a>
   <a href="./">知识地图</a>
 </footer>
 
+<div class="scrim" id="scrim"></div>
+
+<aside class="panel" id="panel" aria-hidden="true">
+  <div class="phead">
+    <span class="tag" id="p-tag"></span>
+    <h2 id="p-title"></h2>
+    <button id="p-close" aria-label="关闭">×</button>
+  </div>
+  <div class="pbody" id="p-body">
+    <p class="lead" id="p-desc"></p>
+
+    <section class="block" id="b-syn">
+      <h4>语法</h4>
+      <pre><code id="p-syn"></code></pre>
+    </section>
+
+    <section class="block" id="b-code">
+      <h4>示例代码
+        <button class="copy" id="p-copy" data-target="p-code">复制</button>
+      </h4>
+      <pre><code id="p-code"></code></pre>
+    </section>
+
+    <section class="block" id="b-tips">
+      <h4>注意</h4>
+      <ul id="p-tips"></ul>
+    </section>
+  </div>
+  <div class="pfoot">
+    <a id="p-video" target="_blank" rel="noopener">看这章的视频 ↗</a>
+    <button id="p-done" class="btn">标记已掌握</button>
+  </div>
+</aside>
+
+<script src="python/data-a.js"></script>
+<script src="python/data-b.js"></script>
+<script src="python/data-c.js"></script>
+<script src="python/data-d.js"></script>
 <script src="python.js"></script>
 </body>
 </html>
