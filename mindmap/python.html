@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>廖恒 · Python 1-123 导图</title>
+<meta name="description" content="黑马程序员 Python 1-123 集思维导图：13 章、90 个小节，可拖动缩放。">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="python.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>廖恒 · Python 导图</b>
+      <span id="sub">黑马程序员 1-123 集 · 13 章 90 个小节</span>
+    </div>
+    <nav class="tabs">
+      <a href="../index.html#/progress">主页</a>
+      <a href="../blog/">博客</a>
+      <a href="./">知识地图</a>
+      <a href="python.html" class="on">Python 导图</a>
+    </nav>
+  </div>
+</header>
+
+<main class="map-page">
+
+  <div class="map-bar">
+    <select id="chapter" class="chapter-select" aria-label="选择章节"></select>
+    <button id="prev" class="ghost" title="上一张" aria-label="上一张">←</button>
+    <button id="next" class="ghost" title="下一张" aria-label="下一张">→</button>
+    <div class="tools">
+      <button id="zoom-out" title="缩小">−</button>
+      <span id="zoom">100%</span>
+      <button id="zoom-in" title="放大">＋</button>
+      <button id="fit" title="缩放到刚好放得下">适应窗口</button>
+      <a id="raw" class="raw" href="python/00-overview.svg" target="_blank" rel="noopener">原图</a>
+    </div>
+  </div>
+
+  <div class="map-stage" id="stage">
+    <div class="world" id="world"><img id="img" src="python/00-overview.svg" alt="Python 思维导图" draggable="false"></div>
+    <div class="hint">拖动平移 · 滚轮缩放 · 左上角切换章节</div>
+  </div>
+
+  <noscript>
+    <p class="wrap">这张图需要 JavaScript 才能拖动缩放，直接看原图：<a href="python/00-overview.svg">总览</a></p>
+  </noscript>
+
+</main>
+
+<footer class="wrap">
+  <span>廖恒 · Python 导图</span>
+  <a href="../index.html#/progress">主页</a>
+  <a href="../blog/">博客</a>
+  <a href="./">知识地图</a>
+</footer>
+
+<script src="python.js"></script>
+</body>
+</html>

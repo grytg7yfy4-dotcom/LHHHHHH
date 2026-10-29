@@ -1,0 +1,80 @@
+/* ============================================================================
+ *  Python 1-123 集导图 —— 复用 ../css/style.css 的变量
+ *  一张 SVG 铺在画布上，自己实现拖动 / 缩放
+ * ========================================================================== */
+
+.map-page { max-width: 1280px; margin: 0 auto; padding: 18px 20px 48px; }
+
+.map-bar {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.chapter-select {
+  font: inherit; font-size: 13px; padding: 8px 12px; max-width: 340px;
+  color: var(--text); background: var(--card);
+  border: 1px solid var(--line); border-radius: 10px;
+  cursor: pointer;
+}
+.chapter-select:hover { border-color: var(--accent); }
+
+.ghost {
+  font: inherit; font-size: 13px; width: 32px; height: 32px;
+  color: var(--text); background: var(--card);
+  border: 1px solid var(--line); border-radius: 9px;
+  cursor: pointer; transition: .15s;
+}
+.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.tools { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.tools button {
+  font: inherit; font-size: 13px; cursor: pointer; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 9px;
+  min-width: 32px; height: 32px; padding: 0 10px; transition: .15s;
+}
+.tools button:hover { border-color: var(--accent); color: var(--accent); }
+.tools span {
+  font: 12px var(--mono); color: var(--faint); min-width: 42px; text-align: center;
+}
+.tools .raw {
+  font-size: 12.5px; color: var(--muted); text-decoration: none;
+  height: 32px; padding: 0 12px; display: inline-flex; align-items: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: 9px;
+}
+.tools .raw:hover { border-color: var(--accent); color: var(--accent); }
+
+.map-stage {
+  position: relative; overflow: hidden;
+  height: calc(100vh - 232px); min-height: 520px;
+  background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: grab;
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.map-stage.dragging { cursor: grabbing; }
+
+.world {
+  position: absolute; left: 0; top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.world img {
+  display: block; background: #fff; border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, .10);
+}
+
+.hint {
+  position: absolute; left: 14px; bottom: 12px;
+  font-size: 12px; color: var(--muted);
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+  border: 1px solid var(--line); border-radius: 99px;
+  padding: 4px 12px; pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .map-stage { height: calc(100vh - 300px); min-height: 380px; }
+  .hint { display: none; }
+  .chapter-select { max-width: 100%; flex: 1; }
+}
