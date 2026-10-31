@@ -1,0 +1,134 @@
+/* ============================================================================
+ *  Python 案例库 —— 左侧目录 + 右侧题目 / 思路 / 代码 / 截图位
+ * ========================================================================== */
+
+.cases-page {
+  display: grid; grid-template-columns: 286px minmax(0, 1fr);
+  gap: 20px; max-width: 1240px; margin: 0 auto; padding: 18px 20px 60px;
+}
+
+/* ------------------------------------------------------------ 左侧目录 */
+
+.case-side {
+  position: sticky; top: 82px; align-self: start;
+  max-height: calc(100vh - 104px); overflow: auto;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 12px;
+}
+
+.back {
+  display: inline-block; font-size: 12.5px; color: var(--muted);
+  text-decoration: none; padding: 4px 8px; border-radius: 8px;
+}
+.back:hover { color: var(--accent); background: var(--bg); }
+
+#filter {
+  width: 100%; margin: 8px 0 10px; padding: 8px 10px;
+  font: inherit; font-size: 12.5px; color: var(--text);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 9px;
+  outline: none;
+}
+#filter:focus { border-color: var(--accent); background: var(--card); }
+
+.case-list { display: flex; flex-direction: column; gap: 2px; }
+
+.group-title {
+  margin: 12px 8px 4px; font: 11px var(--mono); letter-spacing: .06em;
+  color: var(--faint); text-transform: uppercase;
+}
+
+.item {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 7px 9px; border-radius: 8px;
+  font-size: 13px; color: var(--text); text-decoration: none;
+}
+.item:hover { background: var(--bg); }
+.item.on { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+.item .p { font: 11px var(--mono); color: var(--faint); flex: 0 0 auto; }
+.item.on .p { color: var(--accent); }
+.item .t { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.item.hide { display: none; }
+
+/* ------------------------------------------------------------ 右侧正文 */
+
+.case-main {
+  min-width: 0;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 26px 30px 30px;
+}
+
+.case-head { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 6px; }
+.pill {
+  display: inline-block; font: 11px var(--mono); letter-spacing: .04em;
+  color: var(--accent); background: var(--accent-soft);
+  padding: 3px 9px; border-radius: 6px;
+}
+.case-head h1 { margin: 10px 0 6px; font-size: 23px; line-height: 1.35; }
+.case-head .meta { margin: 0; font-size: 12.5px; color: var(--muted); }
+
+.case-main h3 {
+  display: flex; align-items: center; gap: 10px;
+  margin: 24px 0 9px; font-size: 13.5px; font-weight: 600;
+}
+
+.case-main p { margin: 0; font-size: 14px; line-height: 1.85; }
+.case-main ol, .case-main ul { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.9; }
+
+pre {
+  margin: 0; padding: 15px 16px; border-radius: 10px;
+  background: #0f172a; color: #e2e8f0;
+  font: 12.5px/1.68 var(--mono); overflow: auto;
+}
+pre code { font: inherit; white-space: pre; }
+
+pre.out {
+  background: var(--bg); color: var(--text);
+  border: 1px dashed var(--line);
+}
+
+.copy {
+  margin-left: auto; padding: 2px 10px;
+  font: 11.5px var(--mono); color: var(--muted); cursor: pointer;
+  background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+}
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+
+.tip {
+  margin-top: 10px; padding: 10px 12px;
+  font-size: 13px; line-height: 1.75; color: var(--muted);
+  background: var(--bg); border-left: 3px solid var(--warn); border-radius: 0 8px 8px 0;
+}
+.tip code { font: 12px var(--mono); color: var(--accent); }
+
+/* 截图区 */
+
+.shot { margin-top: 4px; }
+.shot figure { margin: 0; }
+.shot img {
+  display: block; max-width: 100%; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--bg);
+}
+.shot-empty {
+  display: none; padding: 30px 18px; text-align: center;
+  border: 1.5px dashed var(--line); border-radius: 12px;
+  background: var(--bg); color: var(--muted); font-size: 13px; line-height: 1.9;
+}
+.shot-empty code { font: 12px var(--mono); color: var(--accent); }
+
+.case-foot {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.case-foot a { color: var(--accent); text-decoration: none; }
+.case-foot a:hover { text-decoration: underline; }
+.case-foot .spacer { flex: 1; }
+
+@media (max-width: 900px) {
+  .cases-page { grid-template-columns: 1fr; gap: 14px; }
+  .case-side { position: static; max-height: 300px; }
+  .case-main { padding: 20px 18px 24px; }
+  .case-head h1 { font-size: 20px; }
+}
