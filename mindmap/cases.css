@@ -1,4 +1,4 @@
-/* ============================================================================
+﻿/* ============================================================================
  *  Python 案例库 —— 左侧目录 + 右侧题目 / 思路 / 代码 / 截图位
  * ========================================================================== */
 
@@ -101,21 +101,6 @@ pre.out {
   background: var(--bg); border-left: 3px solid var(--warn); border-radius: 0 8px 8px 0;
 }
 .tip code { font: 12px var(--mono); color: var(--accent); }
-
-/* 截图区 */
-
-.shot { margin-top: 4px; }
-.shot figure { margin: 0; }
-.shot img {
-  display: block; max-width: 100%; border-radius: 10px;
-  border: 1px solid var(--line); background: var(--bg);
-}
-.shot-empty {
-  display: none; padding: 30px 18px; text-align: center;
-  border: 1.5px dashed var(--line); border-radius: 12px;
-  background: var(--bg); color: var(--muted); font-size: 13px; line-height: 1.9;
-}
-.shot-empty code { font: 12px var(--mono); color: var(--accent); }
 
 .case-foot {
   display: flex; align-items: center; gap: 14px; flex-wrap: wrap;

@@ -1,4 +1,4 @@
-/* ============================================================================
+﻿/* ============================================================================
  *  Python 案例库 —— 目录、筛选、案例详情、复制代码、截图位
  * ========================================================================== */
 (function () {
@@ -67,11 +67,6 @@
 
       (c.note ? '<div class="tip">' + esc(c.note) + '</div>' : '') +
 
-      '<section class="shot"><h3>视频截图</h3>' +
-        '<div id="shot-wrap"></div>' +
-        '<div class="shot-empty" id="shot-empty">截图位：把这一集的案例画面存成 <code>shots/p' + c.p + '.png</code>，刷新页面就会显示在这里。</div>' +
-      '</section>' +
-
       '<div class="case-foot">' +
         '<a href="#p' + CASES[(i - 1 + CASES.length) % CASES.length].p + '">← 上一题</a>' +
         '<a href="#p' + CASES[(i + 1) % CASES.length].p + '">下一题 →</a>' +
@@ -79,7 +74,6 @@
         '<a href="' + videoUrl(c) + '" target="_blank" rel="noopener">看视频 P' + c.p + ' ↗</a>' +
       '</div>';
 
-    bindShot(c);
     bindCopy(c);
     markActive(i);
     if (location.hash !== '#p' + c.p) {
@@ -108,27 +102,6 @@
         document.body.removeChild(ta);
       }
     };
-  }
-
-  function bindShot(c) {
-    var wrap = document.getElementById('shot-wrap');
-    var empty = document.getElementById('shot-empty');
-    var img = document.createElement('img');
-    img.alt = 'P' + c.p + ' 视频截图';
-
-    img.onload = function () {
-      empty.style.display = 'none';
-      img.style.display = 'block';
-    };
-    img.onerror = function () {
-      img.style.display = 'none';
-      empty.style.display = 'block';
-    };
-
-    img.style.display = 'block';
-    empty.style.display = 'none';
-    wrap.appendChild(img);
-    img.src = 'shots/p' + c.p + '.png';
   }
 
   function markActive(i) {

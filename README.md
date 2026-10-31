@@ -1,4 +1,4 @@
-# 廖恒 · 学习进度
+﻿# 廖恒 · 学习进度
 
 网安所 8 周通关计划的任务勾选、验收物跟踪、学习笔记，外加一个博客和一个知识地图。
 纯静态站，没有框架、没有构建步骤，推上 GitHub Pages 就是一个网址。
@@ -18,7 +18,7 @@
 | 博客 | `/blog/` | 把笔记当文章读：按月份归档、分类筛选、全文搜索，每篇有独立链接 | 复用 `data/notes.js` |
 | 知识地图 | `/mindmap/` | 阶段 → 节点的依赖图，点节点看说明与验收标准 | `mindmap/data.js` |
 | Python 导图 | `/mindmap/python.html` | 黑马 Python 1-123 集，13 章 90 个知识点；点开看解析、语法和示例代码，可搜索、标记已掌握 | `mindmap/python/data-*.js` |
-| 案例库 | `/mindmap/cases.html` | 1-123 集的综合案例：题目、思路、答案代码、运行结果，附视频截图位 | `mindmap/cases-data.js`、`mindmap/shots/` |
+| 案例库 | `/mindmap/cases.html` | 1-123 集的综合案例：题目、思路、答案代码、运行结果 | `mindmap/cases-data.js` |
 
 博客和主页用的是**同一份笔记数据**，不会出现「主页有、博客没有」。加一篇笔记，两边同时多一篇。
 
@@ -44,11 +44,10 @@
 │  ├─ python.css         导图页样式（复用 css/style.css 的变量）
 │  ├─ python.js          树状布局、搜索、详情面板、进度存储
 │  ├─ python/            知识点数据：data-a~d.js，共 13 章 90 个知识点
-│  ├─ cases.html         综合案例库页（题目 / 思路 / 代码 / 截图位）
+│  ├─ cases.html         综合案例库页（题目 / 思路 / 代码 / 运行结果）
 │  ├─ cases.css          案例库样式
-│  ├─ cases.js           目录、筛选、复制代码、截图占位
+│  ├─ cases.js           目录、筛选、复制代码
 │  ├─ cases-data.js      25 个案例的题目、思路、答案代码
-│  ├─ shots/             视频截图（p<集数>.png，没图时显示占位）
 │  ├─ map.css            画布、节点、详情抽屉的样式
 │  ├─ map.js             布局、缩放拖拽、选中高亮
 │  └─ data.js            阶段 / 节点 / 连线（唯一要改的数据文件）
@@ -143,7 +142,6 @@ python -m http.server 8000
 | 知识地图的节点与依赖 | `mindmap/data.js` |
 | Python 导图的知识点、解析和代码 | `mindmap/python/data-*.js` |
 | 案例库的题目和答案代码 | `mindmap/cases-data.js` |
-| 案例库的视频截图 | `mindmap/shots/p<集数>.png` |
 | 博客的排版 | `blog/blog.css` |
 | 主色、间距 | `css/style.css` 顶部的变量 |
 | 页面结构 | `index.html` / `blog/index.html` / `mindmap/index.html` / `mindmap/python.html` |
