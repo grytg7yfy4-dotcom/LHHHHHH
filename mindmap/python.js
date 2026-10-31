@@ -33,6 +33,8 @@
   var bSyn = document.getElementById('b-syn');
   var bCode = document.getElementById('b-code');
   var bTips = document.getElementById('b-tips');
+  var bCases = document.getElementById('b-cases');
+  var pCases = document.getElementById('p-cases');
   var qEl = document.getElementById('q');
   var zoomEl = document.getElementById('zoom');
   var doneN = document.getElementById('done-n');
@@ -178,7 +180,8 @@
           '<span class="cnt">' + n.data.sec.length + '</span>';
       } else {
         el.style.borderLeftColor = n.data.ch.color;
-        el.innerHTML = '<span class="dot"></span><span class="t">' + esc(n.data.n) + '</span>';
+        el.innerHTML = '<span class="dot"></span><span class="t">' + esc(n.data.n) + '</span>' +
+          ((n.data.cases && n.data.cases.length) ? '<span class="cb">案</span>' : '');
         if (state.mastered[n.data.id]) el.classList.add('done');
       }
 
@@ -263,6 +266,8 @@
     state.selected = id;
     var ch = s.ch;
 
+    showKnowledgeView();
+
     pTag.textContent = ch.n + ' · ' + ch.eps;
     pTag.style.color = ch.color;
     pTitle.textContent = s.n;
@@ -279,6 +284,8 @@
       bTips.style.display = 'none';
     }
 
+    renderCases(s);
+
     pVideo.href = VIDEO + '?p=' + ch.p + '&vd_source=ddb3b70a1e9e07ef07c3c114d79b3768';
     pVideo.textContent = '看视频 P' + ch.p + '–P' + ch.p2 + ' ↗';
 
@@ -293,6 +300,70 @@
     Object.keys(nodeEls).forEach(function (nid) {
       nodeEls[nid].classList.toggle('on', nid === id);
     });
+  }
+
+  /* ------------------------------------------------------------ 案例 */
+
+  function caseByP(p) {
+    var all = window.PY_CASES || [];
+    for (var i = 0; i < all.length; i++) if (all[i].p === p) return all[i];
+    return null;
+  }
+
+  function renderCases(s) {
+    var ps = s.cases || [];
+    var items = [];
+    ps.forEach(function (p) {
+      var c = caseByP(p);
+      if (c) items.push(c);
+    });
+
+    if (!items.length) { bCases.style.display = 'none'; return; }
+    bCases.style.display = '';
+    pCases.innerHTML = items.map(function (c) {
+      return '<button class="case-btn" data-p="' + c.p + '">' +
+        '<span class="cp">P' + c.p + '</span>' +
+        '<span class="ct">' + esc(c.t) + '</span>' +
+        '<span class="ca">→</span></button>';
+    }).join('');
+  }
+
+  function showKnowledgeView() {
+    var kv = document.getElementById('kn-view');
+    var cv = document.getElementById('case-view');
+    kv.hidden = false;
+    cv.hidden = true;
+    cv.innerHTML = '';
+    document.querySelector('.pfoot').style.display = '';
+  }
+
+  function openCase(p) {
+    var c = caseByP(p);
+    if (!c) return;
+
+    pTag.textContent = '案例 · P' + c.p;
+    pTag.style.color = '#f59e0b';
+    pTitle.textContent = c.t;
+
+    var steps = (c.steps || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+
+    var cv = document.getElementById('case-view');
+    cv.innerHTML =
+      '<button class="case-back" id="case-back">← 返回知识点</button>' +
+      '<p class="lead">' + esc(c.need) + '</p>' +
+      (steps ? '<section class="block"><h4>思路</h4><ol class="case-steps">' + steps + '</ol></section>' : '') +
+      '<section class="block"><h4>参考代码</h4><pre><code>' + esc(c.code) + '</code></pre></section>' +
+      (c.out ? '<section class="block"><h4>运行结果</h4><pre class="out-pre">' + esc(c.out) + '</pre></section>' : '') +
+      (c.note ? '<div class="case-note">' + esc(c.note) + '</div>' : '') +
+      '<div class="case-links"><a href="' + VIDEO + '?p=' + c.p + '&vd_source=ddb3b70a1e9e07ef07c3c114d79b3768" target="_blank" rel="noopener">看视频 P' + c.p + ' ↗</a>' +
+      '<a href="cases.html#p' + c.p + '">在案例库打开 ↗</a></div>';
+
+    document.getElementById('kn-view').hidden = true;
+    cv.hidden = false;
+    document.querySelector('.pfoot').style.display = 'none';
+    document.getElementById('p-body').scrollTop = 0;
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
   }
 
   function closePanel() {
@@ -414,6 +485,15 @@
     }
   });
 
+  pCases.addEventListener('click', function (e) {
+    var b = e.target.closest('.case-btn');
+    if (b) openCase(Number(b.getAttribute('data-p')));
+  });
+
+  document.getElementById('case-view').addEventListener('click', function (e) {
+    if (e.target.closest('#case-back')) openSection(state.selected);
+  });
+
   document.getElementById('p-close').onclick = closePanel;
   scrim.onclick = closePanel;
 
@@ -457,5 +537,5 @@
   requestAnimationFrame(fit);
   recomputeCount();
 
-  window.__PY = { layout: layout, state: state, render: render, openSection: openSection };
+  window.__PY = { layout: layout, state: state, render: render, openSection: openSection, openCase: openCase };
 })();

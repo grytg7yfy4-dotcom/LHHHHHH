@@ -43,6 +43,7 @@ line.render("line.html")`,
     },
     {
       n: '数据准备',
+      cases: [102],
       d: '读 JSON 文件，把年份整理成 x 轴列表，把每个国家的 GDP 整理成 y 轴列表。',
       code: String.raw`import json
 
@@ -57,6 +58,7 @@ print(years[:3], china[:3])`,
     },
     {
       n: '生成折线图',
+      cases: [102],
       d: '三条 add_yaxis，设置标题和图例，render 出 html。',
       code: String.raw`line = Line()
 line.add_xaxis(years)
@@ -77,6 +79,7 @@ line.render("gdp.html")`,
   sec: [
     {
       n: '基础地图使用',
+      cases: [106],
       d: 'Map 的数据格式是 [(地名, 数值), ...]，maptype 决定地图范围，visualmap 控制颜色深浅。',
       code: String.raw`from pyecharts.charts import Map
 from pyecharts.options import VisualMapOpts
@@ -89,6 +92,7 @@ m.render("map.html")`,
     },
     {
       n: '全国疫情地图构建',
+      cases: [106],
       d: '读数据 → 清洗省份名（去掉「省」「市」「自治区」）→ 组装成 [(省, 数值)] → Map 出图。',
       code: String.raw`data = [("北京市", 100), ("广东省", 120)]
 clean = [(n.replace("市", "").replace("省", "").replace("自治区", ""), v) for n, v in data]
@@ -97,6 +101,7 @@ m.add("确诊", clean, "china")`,
     },
     {
       n: '河南省疫情地图绘制',
+      cases: [106],
       d: '只改 maptype 为「河南」，数据换成河南各地市，代码结构完全一样。',
       code: String.raw`m = Map()
 m.add("确诊", [("郑州", 30), ("洛阳", 12)], "河南")
@@ -126,6 +131,7 @@ bar.render("bar.html")`,
     },
     {
       n: '基础时间线柱状图',
+      cases: [109],
       d: 'Timeline 一个时间点放一张图，自动播放形成动画；add_schema 控制播放间隔。',
       code: String.raw`from pyecharts.charts import Bar, Timeline
 
@@ -142,6 +148,7 @@ tl.render("timeline.html")`,
     },
     {
       n: '动态GDP柱状图',
+      cases: [109],
       d: '每年取 GDP 前 8 的国家，排序后画横向柱状图，按年份顺序塞进 Timeline。',
       code: String.raw`for year in sorted(data.keys()):
     items = sorted(data[year].items(), key=lambda kv: kv[1], reverse=True)[:8]
@@ -234,6 +241,7 @@ print(b < a)      # True`,
     },
     {
       n: '封装',
+      cases: [117],
       d: '把数据和方法包在类里，用 __ 开头声明私有成员，类外部不能直接访问，只能通过方法。',
       code: String.raw`class Account:
     def __init__(self):
@@ -254,6 +262,7 @@ print(a.get_balance())      # 100
     },
     {
       n: '封装的课后练习题讲解',
+      cases: [117],
       d: '设计手机类：品牌、价格私有，提供方法查看和修改价格，修改时校验不能为负。',
       code: String.raw`class Phone:
     def __init__(self, brand, price):

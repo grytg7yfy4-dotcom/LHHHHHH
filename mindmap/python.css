@@ -1,4 +1,4 @@
-/* ============================================================================
+﻿/* ============================================================================
  *  Python 学习地图 —— 树状导图 + 知识点详情面板
  *  复用 ../css/style.css 的变量，亮/暗色自动跟随
  * ========================================================================== */
@@ -82,7 +82,7 @@
   transition: box-shadow .15s, opacity .15s;
 }
 .node:hover { box-shadow: 0 4px 16px rgba(16, 24, 40, .13); }
-.node .t { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.node .t { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 
 .node.root { font-weight: 600; font-size: 14px; }
 .node.ch { color: #fff; font-weight: 600; border: 0; }
@@ -192,3 +192,51 @@
   .stat { margin-left: 0; }
   .tools { margin-left: auto; }
 }
+
+/* ------------------------------------------------------------ 节点上的案例角标 / 面板里的案例 */
+
+.node .cb {
+  margin-left: auto; padding: 2px 4px; border-radius: 4px;
+  font: 10px/1 var(--mono);
+  background: var(--accent-soft); color: var(--accent);
+}
+
+.case-btn {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 10px 12px; margin-bottom: 8px;
+  font: inherit; font-size: 13px; text-align: left; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  cursor: pointer; transition: .15s;
+}
+.case-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+.case-btn .cp { font: 11px var(--mono); color: var(--accent); }
+.case-btn .ct { flex: 1; }
+.case-btn .ca { color: var(--faint); }
+
+.case-back {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 12px; padding: 4px 10px;
+  font: inherit; font-size: 12.5px; color: var(--muted);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  cursor: pointer;
+}
+.case-back:hover { color: var(--accent); border-color: var(--accent); }
+
+.case-steps { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.85; }
+
+pre.out-pre {
+  margin: 0; padding: 12px; border-radius: 10px; overflow: auto;
+  background: var(--bg); color: var(--text);
+  border: 1px dashed var(--line);
+  font: 12.5px/1.65 var(--mono); white-space: pre;
+}
+
+.case-note {
+  padding: 10px 12px; font-size: 13px; line-height: 1.75;
+  color: var(--muted); background: var(--bg);
+  border-left: 3px solid var(--warn); border-radius: 0 8px 8px 0;
+}
+
+.case-links { display: flex; gap: 16px; margin-top: 18px; font-size: 13px; }
+.case-links a { color: var(--accent); text-decoration: none; }
+.case-links a:hover { text-decoration: underline; }

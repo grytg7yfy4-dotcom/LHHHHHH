@@ -65,6 +65,7 @@ print(students)`,
     },
     {
       n: '文件的读取操作',
+      cases: [87],
       d: 'open(路径, "r", encoding="utf-8") 打开；read 读全部或指定字节，readlines 读所有行，readline 读一行；用完 close，推荐 with。',
       code: String.raw`with open("data.txt", "r", encoding="utf-8") as f:
     print(f.read())
@@ -101,6 +102,7 @@ print(count)`,
     },
     {
       n: '文件操作综合案例',
+      cases: [90],
       d: '读原文件 → 处理（这里做反转）→ 写到备份文件；读写用两个文件对象，with 自动关闭。',
       code: String.raw`with open("bill.txt", encoding="utf-8") as f:
     content = f.read()
@@ -124,6 +126,7 @@ with open("bill.txt.bak", "w", encoding="utf-8") as f:
     },
     {
       n: '异常的捕获',
+      cases: [98],
       d: 'try 包住可能出错的代码，except 接住；可以捕获指定类型、多个类型，或用 Exception 兜底；else 无异常时执行，finally 一定执行。',
       code: String.raw`try:
     num = int(input("数字："))
@@ -183,6 +186,7 @@ print(my_module.add(3, 4))`,
     },
     {
       n: '自定义Python包',
+      cases: [98],
       d: '包就是一个文件夹，里面放多个模块，并且必须有 __init__.py；导入时用「包名.模块名」。',
       code: String.raw`# 目录结构
 # my_pkg/

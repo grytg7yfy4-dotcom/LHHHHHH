@@ -167,6 +167,7 @@ print(10 != 10)      # False`,
     },
     {
       n: 'if语句的基本格式',
+      cases: [31],
       d: '条件成立才执行缩进的代码块。if 后面必须写冒号，缩进决定哪些代码属于这个 if。',
       code: String.raw`age = 18
 if age >= 18:
@@ -175,6 +176,7 @@ if age >= 18:
     },
     {
       n: 'if else语句',
+      cases: [33],
       d: '二选一：条件成立走 if 分支，否则走 else 分支。else 后面不写条件。',
       code: String.raw`score = 59
 if score >= 60:
@@ -185,6 +187,7 @@ else:
     },
     {
       n: 'if elif else 语句',
+      cases: [35],
       d: '多条件判断，从上往下依次匹配，命中一个就不再往下走，所以条件的顺序很重要。',
       code: String.raw`score = 85
 if score >= 90:
@@ -197,6 +200,7 @@ else:
     },
     {
       n: '判断语句的嵌套',
+      cases: [37],
       d: 'if 里面再写 if，靠缩进区分层级。嵌套超过三层就该考虑拆函数或提前 return 了。',
       code: String.raw`has_ticket = True
 height = 1.1

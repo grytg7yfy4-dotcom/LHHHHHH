@@ -8,6 +8,7 @@
   sec: [
     {
       n: 'while循环的基础语法',
+      cases: [39, 40],
       d: '条件为 True 就反复执行；循环体里一定要有让条件趋向 False 的语句，否则死循环。',
       code: String.raw`i = 1
 while i <= 5:
@@ -17,6 +18,7 @@ while i <= 5:
     },
     {
       n: 'while循环的嵌套使用',
+      cases: [42],
       d: '外层执行一次，内层要完整跑一轮；内层循环的初始化必须写在外层循环体里面。',
       code: String.raw`i = 1
 while i <= 3:
@@ -29,6 +31,7 @@ while i <= 3:
     },
     {
       n: 'for循环的基础语法',
+      cases: [44],
       d: '遍历一个序列（字符串、列表、range），把每个元素依次取出来处理。for 不能自定义条件，也不能无限循环。',
       code: String.raw`for ch in "abc":
     print(ch)
@@ -39,6 +42,7 @@ for i in range(3):      # 0 1 2
     },
     {
       n: 'for循环的嵌套使用',
+      cases: [48],
       d: '外层取一个值，内层完整跑一遍，适合处理「行 × 列」的问题。',
       code: String.raw`for i in range(1, 4):
     for j in range(1, 4):
@@ -47,6 +51,7 @@ for i in range(3):      # 0 1 2
     },
     {
       n: '循环中断',
+      cases: [50],
       d: 'break 立刻结束整个循环；continue 跳过本次剩余代码，直接进入下一次。',
       code: String.raw`for i in range(1, 6):
     if i == 3:
@@ -74,6 +79,7 @@ for i in range(1, 4):
     },
     {
       n: '定义函数',
+      cases: [53],
       d: 'def 函数名(参数): 下面是缩进的函数体。定义时不会执行，调用时才执行。',
       code: String.raw`def say_hi():
     print("hi")
@@ -83,6 +89,7 @@ say_hi()`,
     },
     {
       n: '函数的参数',
+      cases: [55],
       d: '调用时把数据传进去，函数内部用形参接收。多个参数用逗号隔开，按顺序对应。',
       code: String.raw`def add(a, b):
     print(a + b)
@@ -128,6 +135,7 @@ a()`,
     },
     {
       n: '变量作用域',
+      cases: [61],
       d: '函数内部定义的变量是局部变量，外面用不了；外面的全局变量函数里能读；要在函数里改全局变量得用 global。',
       code: String.raw`num = 10
 
@@ -173,6 +181,7 @@ print([[1, 2], [3, 4]][1][0])   # 3`,
     },
     {
       n: '列表的常用操作（方法）',
+      cases: [66],
       d: '查：index、count、len；增：append、insert、extend；删：del、pop、remove、clear；改：直接赋值；排：sort、reverse。',
       code: String.raw`lst = [3, 1, 2]
 lst.append(4)          # [3, 1, 2, 4]
@@ -214,6 +223,7 @@ print(type(one))  # tuple`,
     },
     {
       n: '数据容器：str（字符串）',
+      cases: [70],
       d: '字符串不可变，支持下标；常用方法 replace、split、strip、find、count、upper/lower。',
       code: String.raw`s = "  hello world  "
 print(s.strip())                      # hello world
@@ -224,6 +234,7 @@ print("abc".find("c"))                # 2`,
     },
     {
       n: '数据容器的切片',
+      cases: [72],
       d: '序列[开始:结束:步长]，左闭右开；步长为负表示从后往前取。',
       code: String.raw`s = "0123456789"
 print(s[2:5])     # 234
@@ -234,6 +245,7 @@ print(s[::-1])    # 9876543210`,
     },
     {
       n: '数据容器：set（集合）',
+      cases: [74],
       d: '用 {} 或 set() 定义，无序、自动去重、不支持下标；适合做去重和集合运算。',
       code: String.raw`s = {1, 2, 2, 3}
 print(s)            # {1, 2, 3}
@@ -246,6 +258,7 @@ print(s - {2})      # 差集`,
     },
     {
       n: '数据容器：dict（字典、映射）',
+      cases: [77],
       d: '键值对集合，key 唯一且不可变，用 key 取 value；适合存「有名字」的数据。',
       code: String.raw`stu = {"name": "张三", "age": 18}
 print(stu["name"])

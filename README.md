@@ -17,8 +17,8 @@
 | 主页 | `/` | 进度勾选、8 周计划、笔记速览 | `data/plan.js`、`data/notes.js`、`data/progress.js` |
 | 博客 | `/blog/` | 把笔记当文章读：按月份归档、分类筛选、全文搜索，每篇有独立链接 | 复用 `data/notes.js` |
 | 知识地图 | `/mindmap/` | 阶段 → 节点的依赖图，点节点看说明与验收标准 | `mindmap/data.js` |
-| Python 导图 | `/mindmap/python.html` | 黑马 Python 1-123 集，13 章 90 个知识点；点开看解析、语法和示例代码，可搜索、标记已掌握 | `mindmap/python/data-*.js` |
-| 案例库 | `/mindmap/cases.html` | 1-123 集的综合案例：题目、思路、答案代码、运行结果 | `mindmap/cases-data.js` |
+| Python 导图 | `/mindmap/python.html` | 黑马 Python 1-123 集，13 章 90 个知识点；点开看解析、语法和示例代码，可搜索、标记已掌握，并能直接打开对应案例 | `mindmap/python/data-*.js` |
+| 案例库 | `/mindmap/cases.html` | 1-123 集的综合案例：题目、思路、答案代码、运行结果（也能从导图的知识点直接打开） | `mindmap/cases-data.js` |
 
 博客和主页用的是**同一份笔记数据**，不会出现「主页有、博客没有」。加一篇笔记，两边同时多一篇。
 

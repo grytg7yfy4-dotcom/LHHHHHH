@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -50,7 +50,7 @@
       <svg class="edges" id="edges" aria-hidden="true"></svg>
       <div class="nodes" id="nodes"></div>
     </div>
-    <div class="hint" id="hint">点章节展开 · 点知识点看解析和代码 · 滚轮缩放 · 拖动平移</div>
+    <div class="hint" id="hint">点章节展开 · 点知识点看解析和代码 · 带「案」的可以直接看案例 · 滚轮缩放 · 拖动平移</div>
   </div>
 
 </main>
@@ -71,24 +71,33 @@
     <button id="p-close" aria-label="关闭">×</button>
   </div>
   <div class="pbody" id="p-body">
-    <p class="lead" id="p-desc"></p>
+    <div id="kn-view">
+      <p class="lead" id="p-desc"></p>
 
-    <section class="block" id="b-syn">
-      <h4>语法</h4>
-      <pre><code id="p-syn"></code></pre>
-    </section>
+      <section class="block" id="b-syn">
+        <h4>语法</h4>
+        <pre><code id="p-syn"></code></pre>
+      </section>
 
-    <section class="block" id="b-code">
-      <h4>示例代码
-        <button class="copy" id="p-copy" data-target="p-code">复制</button>
-      </h4>
-      <pre><code id="p-code"></code></pre>
-    </section>
+      <section class="block" id="b-code">
+        <h4>示例代码
+          <button class="copy" id="p-copy" data-target="p-code">复制</button>
+        </h4>
+        <pre><code id="p-code"></code></pre>
+      </section>
 
-    <section class="block" id="b-tips">
-      <h4>注意</h4>
-      <ul id="p-tips"></ul>
-    </section>
+      <section class="block" id="b-tips">
+        <h4>注意</h4>
+        <ul id="p-tips"></ul>
+      </section>
+
+      <section class="block" id="b-cases">
+        <h4>相关案例</h4>
+        <div id="p-cases"></div>
+      </section>
+    </div>
+
+    <div id="case-view" hidden></div>
   </div>
   <div class="pfoot">
     <a id="p-video" target="_blank" rel="noopener">看这章的视频 ↗</a>
@@ -96,6 +105,7 @@
   </div>
 </aside>
 
+<script src="cases-data.js"></script>
 <script src="python/data-a.js"></script>
 <script src="python/data-b.js"></script>
 <script src="python/data-c.js"></script>
