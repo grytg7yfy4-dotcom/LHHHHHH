@@ -271,4 +271,23 @@ footer a { color: var(--faint); }
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+/* ---------------------------------------------------------------- 只读模式 */
+
+body.readonly .btns { display: none; }
+body.readonly .task input[type=checkbox] { pointer-events: none; cursor: default; }
+body.readonly .task input[type=checkbox]:not(:checked) { border-color: var(--line); }
+
+.ro-bar {
+  margin-top: 18px; padding: 12px 16px; border-radius: 12px;
+  background: var(--warn-soft);
+  border: 1px solid color-mix(in srgb, var(--warn) 32%, transparent);
+  font-size: 13.5px; line-height: 1.7;
+}
+.ro-bar b { color: var(--warn); }
+.ro-bar span { display: block; margin-top: 4px; color: var(--muted); font-size: 12.5px; }
+.ro-bar code {
+  font: 12px var(--mono); background: var(--card);
+  border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px;
+}
+
 .hidden { display: none !important; }

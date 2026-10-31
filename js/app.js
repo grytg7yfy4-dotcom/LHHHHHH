@@ -10,19 +10,34 @@
   var KEY = 'lh-study-progress-v1';
   var state = { tasks: {}, checklist: {}, lines: {}, updated: '' };
 
+  // 线上（github.io 等）= 只读；本地打开 / localhost = 可编辑。见 js/mode.js
+  var READONLY = window.detectReadonly ? window.detectReadonly(location) : false;
+
   var $ = function (sel) { return document.querySelector(sel); };
   var esc = function (s) { return MD.esc(s); };
 
   /* ------------------------------------------------------------ 存储 */
 
   function load() {
-    var local = null;
-    try { local = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { local = null; }
     var base = {
       tasks: BASELINE.tasks || {},
       checklist: BASELINE.checklist || {},
       lines: BASELINE.lines || {}
     };
+
+    // 只读：不读浏览器里的勾选，只认仓库里的 data/progress.js
+    if (READONLY) {
+      state = {
+        tasks: Object.assign({}, base.tasks),
+        checklist: Object.assign({}, base.checklist),
+        lines: Object.assign({}, base.lines),
+        updated: BASELINE.updated || ''
+      };
+      return;
+    }
+
+    var local = null;
+    try { local = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { local = null; }
     var merged = { updated: (local && local.updated) || '' };
     ['tasks', 'checklist', 'lines'].forEach(function (k) {
       merged[k] = Object.assign({}, base[k], (local && local[k]) || {});
@@ -31,6 +46,7 @@
   }
 
   function save() {
+    if (READONLY) return;
     // 用本地时间，别用 UTC，否则晚上 8 点后显示的日期会跳到"明天"
     var d = new Date();
     var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
@@ -42,6 +58,7 @@
   }
 
   function toggle(kind, id, on) {
+    if (READONLY) return;
     if (!state[kind]) state[kind] = {};
     if (on) state[kind][id] = true;
     else delete state[kind][id];
@@ -307,6 +324,7 @@
   }
 
   function exportProgress() {
+    if (READONLY) { toast('只读模式：导出请在本机打开'); return; }
     var stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
     var head = '/* 导出于 ' + stamp + ' —— 覆盖仓库里的 data/progress.js 然后提交，进度就存住了。 */\n';
     download('progress.js', head + 'window.PROGRESS_DATA = ' + JSON.stringify(state, null, 2) + ';\n');
@@ -314,6 +332,7 @@
   }
 
   function importProgress(file) {
+    if (READONLY) { toast('只读模式：不能导入进度'); return; }
     var fr = new FileReader();
     fr.onload = function () {
       try {
@@ -339,6 +358,42 @@
       }
     };
     fr.readAsText(file);
+  }
+
+  /* ------------------------------------------------------------ 只读模式 */
+
+  function applyReadonly() {
+    if (!READONLY) return;
+
+    document.body.classList.add('readonly');
+
+    var bar = document.getElementById('ro-bar');
+    if (bar) {
+      var nDone = Object.keys(BASELINE.tasks || {}).length;
+      bar.classList.remove('hidden');
+      bar.innerHTML =
+        '只读模式 —— 这是廖恒的进度存档，<b>勾选不能改，也不会保存</b>。' +
+        '<span>想在本地记自己的进度：把仓库下载下来，双击 <code>启动预览.bat</code>，' +
+        '在 <code>127.0.0.1:8000</code> 里勾。' +
+        (BASELINE.updated ? '　本页存档时间：' + esc(BASELINE.updated) : '') +
+        (nDone ? '' : '　（这份存档还没有勾选记录）') +
+        '</span>';
+    }
+
+    document.querySelectorAll('input[data-kind]').forEach(function (el) {
+      el.disabled = true;
+    });
+
+    var saved = document.getElementById('saved-at');
+    if (saved) {
+      saved.textContent = BASELINE.updated ? '只读 · 存档于 ' + BASELINE.updated : '只读模式';
+    }
+
+    var hint = document.querySelector('#view-progress .hint');
+    if (hint) {
+      hint.textContent = '这是公开存档：勾选不会保存，也不会影响仓库里的 data/progress.js。' +
+        '进度跨设备靠的是把导出的 progress.js 提交进仓库。';
+    }
   }
 
   /* ------------------------------------------------------------ 路由 */
@@ -393,6 +448,7 @@
     renderNoteFilters();
     renderNotes();
     syncCounters();
+    applyReadonly();
     route();
 
     $('#btn-export').addEventListener('click', exportProgress);
@@ -402,6 +458,7 @@
       if (e.target.files && e.target.files[0]) importProgress(e.target.files[0]);
     });
     $('#btn-reset').addEventListener('click', function () {
+      if (READONLY) return;
       if (!confirm('清空所有勾选（不影响已导出的 progress.js）？')) return;
       state = { tasks: {}, checklist: {}, lines: {}, updated: '' };
       save();
