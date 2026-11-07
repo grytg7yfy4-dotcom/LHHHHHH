@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="987" viewBox="0 0 1720 987" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4338ca" stop-opacity="0.10"/><stop offset="100%" stop-color="#4338ca" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1720.0" height="987.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1720.0" height="204.0" rx="0" fill="url(#hdr)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1720.0" height="5.0" rx="0" fill="#4338ca" stroke="none"/>
+<rect x="28.0" y="24.0" width="62.0" height="62.0" rx="14" fill="#4338ca" stroke="none"/>
+<text x="59.0" y="50.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#ffffff" opacity="0.85">第</text>
+<text x="59.0" y="76.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#ffffff">12</text>
+<text x="112.0" y="56.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#0f172a">强化学习</text>
+<text x="112.0" y="80.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b">Reinforcement Learning</text>
+<text x="112.0" y="99.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">第 12 章 · 共 12 章</text>
+<rect x="1486.0" y="44.0" width="206.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1589.0" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">课程三 · 无监督学习 · 推荐系统 · 强化学习</text>
+<rect x="1415.0" y="44.0" width="63.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1446.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">164 分钟</text>
+<rect x="1360.0" y="44.0" width="47.0" height="24.0" rx="12" fill="#4338ca14" stroke="none"/>
+<text x="1383.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#4338ca">18 集</text>
+<rect x="1277.0" y="44.0" width="75.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1314.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">P129–P146</text>
+<line x1="28.0" y1="107.0" x2="1692.0" y2="107.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="28.0" y="494.5" width="196.0" height="74.0" rx="14" fill="#0f172a" stroke="none"/>
+<text x="126.0" y="518.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">第 12 章</text>
+<text x="126.0" y="542.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#ffffff">强化学习</text>
+<text x="126.0" y="556.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#cbd5e1">18 集 · 164 min</text>
+<path d="M224.0,531.5 C258.0,531.5 228.0,235.0 262.0,235.0" fill="none" stroke="#4338ca" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="214.0" width="166.0" height="42.0" rx="10" fill="#4338ca" stroke="none"/>
+<text x="345.0" y="240.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">基本框架</text>
+<path d="M428.0,235.0 C454.0,235.0 436.0,180.5 462.0,180.5" fill="none" stroke="#4338ca" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="132.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="142.0" width="3.0" height="77.0" rx="1.5" fill="#4338ca" stroke="none"/>
+<text x="478.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#4338ca">要素</text>
+<circle cx="480.0" cy="175.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="179.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 智能体 agent 与环境 environment</text>
+<circle cx="480.0" cy="194.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="198.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 状态 s、动作 a、奖励 r</text>
+<circle cx="480.0" cy="213.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="217.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 策略 π(s) → a，决定在状态里怎么动</text>
+<circle cx="462.0" cy="180.5" r="2.6" fill="#4338ca" stroke="none"/>
+<path d="M428.0,235.0 C454.0,235.0 436.0,289.5 462.0,289.5" fill="none" stroke="#4338ca" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="241.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="251.0" width="3.0" height="77.0" rx="1.5" fill="#4338ca" stroke="none"/>
+<text x="478.0" y="268.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#4338ca">回报</text>
+<circle cx="480.0" cy="284.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="288.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· Return = R_1 + γR_2 + γ^2R_3 + …</text>
+<circle cx="480.0" cy="303.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="307.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· γ ∈ [0,1)：越远的奖励打折越多</text>
+<circle cx="480.0" cy="322.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="326.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· γ=0 时只看眼前这一步</text>
+<circle cx="462.0" cy="289.5" r="2.6" fill="#4338ca" stroke="none"/>
+<path d="M224.0,531.5 C258.0,531.5 228.0,471.0 262.0,471.0" fill="none" stroke="#4338ca" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="450.0" width="166.0" height="42.0" rx="10" fill="#4338ca" stroke="none"/>
+<text x="345.0" y="476.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">Q 函数</text>
+<path d="M428.0,471.0 C454.0,471.0 436.0,416.5 462.0,416.5" fill="none" stroke="#4338ca" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="368.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="378.0" width="3.0" height="77.0" rx="1.5" fill="#4338ca" stroke="none"/>
+<text x="478.0" y="395.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#4338ca">定义</text>
+<circle cx="480.0" cy="411.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="415.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· Q(s,a) = 从 (s,a) 出发能拿到的最优总回报</text>
+<circle cx="480.0" cy="430.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="434.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 贝尔曼：Q(s,a) = R(s) + γ·max Q(s′,a′)</text>
+<circle cx="480.0" cy="449.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="453.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 有了 Q，最优策略就是 argmax_a Q(s,a)</text>
+<circle cx="462.0" cy="416.5" r="2.6" fill="#4338ca" stroke="none"/>
+<path d="M428.0,471.0 C454.0,471.0 436.0,525.5 462.0,525.5" fill="none" stroke="#4338ca" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="477.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="487.0" width="3.0" height="77.0" rx="1.5" fill="#4338ca" stroke="none"/>
+<text x="478.0" y="504.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#4338ca">火星车示例</text>
+<circle cx="480.0" cy="520.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="524.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 6 个位置，动作只有左 / 右</text>
+<circle cx="480.0" cy="539.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="543.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 奖励：到终点 100，途中 0</text>
+<circle cx="480.0" cy="558.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="562.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· γ=0.9 时 Q 值可以手算验证</text>
+<circle cx="462.0" cy="525.5" r="2.6" fill="#4338ca" stroke="none"/>
+<path d="M224.0,531.5 C258.0,531.5 228.0,761.5 262.0,761.5" fill="none" stroke="#4338ca" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="740.5" width="166.0" height="42.0" rx="10" fill="#4338ca" stroke="none"/>
+<text x="345.0" y="766.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">DQN</text>
+<path d="M428.0,761.5 C454.0,761.5 436.0,652.5 462.0,652.5" fill="none" stroke="#4338ca" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="604.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="614.0" width="3.0" height="77.0" rx="1.5" fill="#4338ca" stroke="none"/>
+<text x="478.0" y="631.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#4338ca">神经网络近似</text>
+<circle cx="480.0" cy="647.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="651.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 状态太多时，用 NN 拟合 Q(s,a)</text>
+<circle cx="480.0" cy="666.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="670.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 输入状态，输出每个动作的 Q 值</text>
+<circle cx="480.0" cy="685.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="689.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 用 TD 目标 y = R + γ·max Q(s′,a′) 训练</text>
+<circle cx="462.0" cy="652.5" r="2.6" fill="#4338ca" stroke="none"/>
+<path d="M428.0,761.5 C454.0,761.5 436.0,761.5 462.0,761.5" fill="none" stroke="#4338ca" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="713.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="723.0" width="3.0" height="77.0" rx="1.5" fill="#4338ca" stroke="none"/>
+<text x="478.0" y="740.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#4338ca">稳定训练</text>
+<circle cx="480.0" cy="756.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="760.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 经验回放 replay buffer</text>
+<circle cx="480.0" cy="775.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="779.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 目标网络 target network + 软更新</text>
+<circle cx="480.0" cy="794.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="798.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· ε-greedy：留一点随机探索</text>
+<circle cx="462.0" cy="761.5" r="2.6" fill="#4338ca" stroke="none"/>
+<path d="M428.0,761.5 C454.0,761.5 436.0,870.5 462.0,870.5" fill="none" stroke="#4338ca" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="822.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="832.0" width="3.0" height="77.0" rx="1.5" fill="#4338ca" stroke="none"/>
+<text x="478.0" y="849.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#4338ca">现状</text>
+<circle cx="480.0" cy="865.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="869.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 月球着陆器、机器人控制、游戏</text>
+<circle cx="480.0" cy="884.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="888.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 样本效率低、奖励设计难</text>
+<circle cx="480.0" cy="903.0" r="1.9" fill="#4338ca" stroke="none" opacity="0.75"/>
+<text x="488.0" y="907.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 与 LLM 的 RLHF 同源</text>
+<circle cx="462.0" cy="870.5" r="2.6" fill="#4338ca" stroke="none"/>
+<rect x="1024.0" y="132.0" width="668.0" height="387.5" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="132.0" width="38.0" height="4.0" rx="2" fill="#4338ca" stroke="none"/>
+<text x="1040.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">火星探测器：每个格子都有「未来回报」</text>
+<text x="1676.0" y="159.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">Q(s,a) 表格，最终走最优路线</text>
+<rect x="1124.0" y="286.8" width="75.0" height="75.0" rx="6" fill="#dcfce7" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1161.5" y="302.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.5" fill="#94a3b8">奖励 R</text>
+<text x="1161.5" y="318.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#059669">100</text>
+<text x="1161.5" y="350.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.5" fill="#94a3b8">Q=100</text>
+<rect x="1202.0" y="286.8" width="75.0" height="75.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1239.5" y="302.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.5" fill="#94a3b8">奖励 R</text>
+<text x="1239.5" y="318.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#475569">0</text>
+<text x="1239.5" y="350.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.5" fill="#94a3b8">Q=90</text>
+<rect x="1280.0" y="286.8" width="75.0" height="75.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1317.5" y="302.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.5" fill="#94a3b8">奖励 R</text>
+<text x="1317.5" y="318.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#475569">0</text>
+<text x="1317.5" y="350.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.5" fill="#94a3b8">Q=81</text>
+<rect x="1358.0" y="286.8" width="75.0" height="75.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1395.5" y="302.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.5" fill="#94a3b8">奖励 R</text>
+<text x="1395.5" y="318.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#475569">0</text>
+<text x="1395.5" y="350.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.5" fill="#94a3b8">Q=73</text>
+<rect x="1436.0" y="286.8" width="75.0" height="75.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1473.5" y="302.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.5" fill="#94a3b8">奖励 R</text>
+<text x="1473.5" y="318.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#475569">0</text>
+<text x="1473.5" y="350.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.5" fill="#94a3b8">Q=66</text>
+<rect x="1514.0" y="286.8" width="75.0" height="75.0" rx="6" fill="#fef3c7" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1551.5" y="302.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.5" fill="#94a3b8">奖励 R</text>
+<text x="1551.5" y="318.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#d97706">40</text>
+<text x="1551.5" y="350.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.5" fill="#94a3b8">Q=40</text>
+<rect x="1277.0" y="283.8" width="80.0" height="80.0" rx="8" fill="none" stroke="#4338ca" stroke-width="2.2"/>
+<text x="1317.5" y="273.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.5" font-weight="700" fill="#4338ca">机器人在这里</text>
+<line x1="1166.9" y1="388.8" x2="1471.1" y2="388.8" stroke="#4338ca" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.5"/>
+<polygon points="1475.0,388.8 1459.4,384.8 1459.4,392.8" fill="#4338ca" stroke="none" opacity="0.6"/>
+<text x="1163.0" y="406.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#475569">往右走：先拿近的 40，再冲 100</text>
+<text x="1040.0" y="507.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">γ=0.9：远奖励打折，Q 值沿路径逐格衰减；策略 = 每格选 Q 更大的动作</text>
+<rect x="1024.0" y="535.5" width="668.0" height="387.5" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="535.5" width="38.0" height="4.0" rx="2" fill="#4338ca" stroke="none"/>
+<text x="1040.0" y="562.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">贝尔曼方程：一步奖励 + 未来最优</text>
+<text x="1676.0" y="562.5" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">Q(s,a) = R(s) + γ·max Q(s′,a′)</text>
+<circle cx="1090.0" cy="704.2" r="26.0" fill="#eef2ff" stroke="#2563eb" stroke-width="1.6"/>
+<text x="1090.0" y="710.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="700" fill="#2563eb">s</text>
+<text x="1090.0" y="666.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">当前状态</text>
+<line x1="1117.0" y1="704.2" x2="1152.0" y2="704.2" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="1154.0,704.2 1146.0,699.8 1146.0,708.8" fill="#94a3b8" stroke="none"/>
+<rect x="1156.0" y="674.2" width="132.0" height="60.0" rx="9" fill="#ffffff" stroke="#4338ca" stroke-width="1.5"/>
+<text x="1222.0" y="698.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#4338ca">动作 a</text>
+<text x="1222.0" y="718.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">R(s) 即时奖励</text>
+<line x1="1289.0" y1="704.2" x2="1326.0" y2="704.2" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="1328.0,704.2 1320.0,699.8 1320.0,708.8" fill="#94a3b8" stroke="none"/>
+<circle cx="1355.0" cy="704.2" r="26.0" fill="#f0fdf4" stroke="#059669" stroke-width="1.6"/>
+<text x="1355.0" y="710.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="700" fill="#059669">s′</text>
+<text x="1355.0" y="666.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">下一状态</text>
+<text x="1399.0" y="698.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" font-weight="700" fill="#059669">γ · max Q(s′,a′)</text>
+<text x="1399.0" y="718.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">未来所有奖励的折扣和</text>
+<text x="1064.0" y="847.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" font-weight="700" fill="#94a3b8">DQN 训练循环</text>
+<text x="1358.0" y="778.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#475569">TD 目标：y = R + γ·max Q(s′,a′)，让 Q(s,a) 去逼近 y</text>
+<rect x="1064.0" y="861.0" width="121.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1124.5" y="882.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">执行动作</text>
+<text x="1193.0" y="882.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#94a3b8">→</text>
+<rect x="1207.0" y="861.0" width="121.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1267.5" y="882.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">观察 (s,a,R,s′)</text>
+<text x="1336.0" y="882.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#94a3b8">→</text>
+<rect x="1350.0" y="861.0" width="121.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1410.5" y="882.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">构造目标 y</text>
+<text x="1479.0" y="882.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#94a3b8">→</text>
+<rect x="1493.0" y="861.0" width="121.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1553.5" y="882.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">训练网络</text>
+<line x1="28.0" y1="953.0" x2="1692.0" y2="953.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="28.0" y="969.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">吴恩达《机器学习》B 站 146 集 · BV1owrpYKEtP</text>
+<text x="1692.0" y="969.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">P129–P146 · 18 集</text>
+</svg>

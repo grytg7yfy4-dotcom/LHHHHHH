@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1261" viewBox="0 0 1720 1261" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2563eb" stop-opacity="0.10"/><stop offset="100%" stop-color="#2563eb" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1720.0" height="1261.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1720.0" height="204.0" rx="0" fill="url(#hdr)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1720.0" height="5.0" rx="0" fill="#2563eb" stroke="none"/>
+<rect x="28.0" y="24.0" width="62.0" height="62.0" rx="14" fill="#2563eb" stroke="none"/>
+<text x="59.0" y="50.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#ffffff" opacity="0.85">第</text>
+<text x="59.0" y="76.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#ffffff">01</text>
+<text x="112.0" y="56.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#0f172a">机器学习入门</text>
+<text x="112.0" y="80.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b">Welcome to Machine Learning</text>
+<text x="112.0" y="99.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">第 1 章 · 共 12 章</text>
+<rect x="1532.0" y="44.0" width="160.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1612.0" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">课程一 · 监督学习：回归与分类</text>
+<rect x="1467.0" y="44.0" width="57.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1495.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">43 分钟</text>
+<rect x="1418.0" y="44.0" width="41.0" height="24.0" rx="12" fill="#2563eb14" stroke="none"/>
+<text x="1438.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#2563eb">5 集</text>
+<rect x="1359.0" y="44.0" width="51.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1384.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">P1–P5</text>
+<line x1="28.0" y1="107.0" x2="1692.0" y2="107.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="28.0" y="631.5" width="196.0" height="74.0" rx="14" fill="#0f172a" stroke="none"/>
+<text x="126.0" y="655.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">第 01 章</text>
+<text x="126.0" y="679.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#ffffff">机器学习入门</text>
+<text x="126.0" y="693.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#cbd5e1">5 集 · 43 min</text>
+<path d="M224.0,668.5 C258.0,668.5 228.0,254.0 262.0,254.0" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="233.0" width="166.0" height="42.0" rx="10" fill="#2563eb" stroke="none"/>
+<text x="345.0" y="259.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">AI 全景</text>
+<path d="M428.0,254.0 C454.0,254.0 436.0,190.0 462.0,190.0" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="132.0" width="528.0" height="116.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="142.0" width="3.0" height="96.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">什么是机器学习</text>
+<circle cx="480.0" cy="175.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="179.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 不写死规则，让程序从数据里自己找规律</text>
+<circle cx="480.0" cy="194.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="198.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· Samuel 跳棋程序：自己跟自己对弈变强</text>
+<circle cx="480.0" cy="213.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="217.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 适合规则太复杂、无法手写的任务：识图、语音</text>
+<circle cx="480.0" cy="232.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="236.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 规则清晰的问题（如算工资）直接写规则更好</text>
+<circle cx="462.0" cy="190.0" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M428.0,254.0 C454.0,254.0 436.0,318.0 462.0,318.0" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="260.0" width="528.0" height="116.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="270.0" width="3.0" height="96.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="287.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">这门课的地图</text>
+<circle cx="480.0" cy="303.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="307.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 课程一：监督学习 · 回归与分类（P1–P37）</text>
+<circle cx="480.0" cy="322.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="326.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 课程二：神经网络、决策树、项目诊断（P38–P100）</text>
+<circle cx="480.0" cy="341.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="345.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 课程三：聚类、推荐系统、强化学习（P101–P146）</text>
+<circle cx="480.0" cy="360.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="364.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 3 门课 / 146 集 / 约 23 小时</text>
+<circle cx="462.0" cy="318.0" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M224.0,668.5 C258.0,668.5 228.0,563.5 262.0,563.5" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="542.5" width="166.0" height="42.0" rx="10" fill="#2563eb" stroke="none"/>
+<text x="345.0" y="568.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">监督学习</text>
+<path d="M428.0,563.5 C454.0,563.5 436.0,454.5 462.0,454.5" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="406.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="416.0" width="3.0" height="77.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="433.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">定义</text>
+<circle cx="480.0" cy="449.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="453.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 训练集每个样本都带「正确答案」y</text>
+<circle cx="480.0" cy="468.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="472.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 学一个映射 f: x → y，再用于没见过的样本</text>
+<circle cx="480.0" cy="487.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="491.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 输入 x 通常是由多个特征组成的向量</text>
+<circle cx="462.0" cy="454.5" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M428.0,563.5 C454.0,563.5 436.0,563.5 462.0,563.5" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="515.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="525.0" width="3.0" height="77.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="542.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">回归 regression</text>
+<circle cx="480.0" cy="558.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="562.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 输出连续数值：房价、温度、销量</text>
+<circle cx="480.0" cy="577.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="581.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 例：用房屋面积预测成交价</text>
+<circle cx="480.0" cy="596.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="600.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 损失函数常用平方误差</text>
+<circle cx="462.0" cy="563.5" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M428.0,563.5 C454.0,563.5 436.0,672.5 462.0,672.5" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="624.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="634.0" width="3.0" height="77.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="651.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">分类 classification</text>
+<circle cx="480.0" cy="667.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="671.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 输出离散类别：垃圾邮件 / 正常邮件</text>
+<circle cx="480.0" cy="686.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="690.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 二分类：y ∈ {0,1}，如肿瘤良性 / 恶性</text>
+<circle cx="480.0" cy="705.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="709.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 多分类：y ∈ {1..K}，如手写数字 0–9</text>
+<circle cx="462.0" cy="672.5" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M224.0,668.5 C258.0,668.5 228.0,854.0 262.0,854.0" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="833.0" width="166.0" height="42.0" rx="10" fill="#2563eb" stroke="none"/>
+<text x="345.0" y="859.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">无监督学习</text>
+<path d="M428.0,854.0 C454.0,854.0 436.0,799.5 462.0,799.5" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="751.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="761.0" width="3.0" height="77.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="778.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">聚类 clustering</text>
+<circle cx="480.0" cy="794.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="798.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 只有 x，没有 y，让算法自己找结构</text>
+<circle cx="480.0" cy="813.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="817.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 新闻自动分组、用户分群、基因分析</text>
+<circle cx="480.0" cy="832.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="836.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· K-means 是最常用的入门算法</text>
+<circle cx="462.0" cy="799.5" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M428.0,854.0 C454.0,854.0 436.0,908.5 462.0,908.5" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="860.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="870.0" width="3.0" height="77.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="887.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">其他范式</text>
+<circle cx="480.0" cy="903.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="907.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 异常检测：信用卡欺诈、设备故障预警</text>
+<circle cx="480.0" cy="922.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="926.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 降维：把高维数据压到二维做可视化</text>
+<circle cx="480.0" cy="941.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="945.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 强化学习：靠奖励信号试错学策略</text>
+<circle cx="462.0" cy="908.5" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M224.0,668.5 C258.0,668.5 228.0,1090.0 262.0,1090.0" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="1069.0" width="166.0" height="42.0" rx="10" fill="#2563eb" stroke="none"/>
+<text x="345.0" y="1095.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">工欲善其事</text>
+<path d="M428.0,1090.0 C454.0,1090.0 436.0,1035.5 462.0,1035.5" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="987.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="997.0" width="3.0" height="77.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="1014.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">Jupyter Notebook</text>
+<circle cx="480.0" cy="1030.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1034.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 代码、公式、图表写在同一个文档里</text>
+<circle cx="480.0" cy="1049.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1053.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· Shift + Enter 逐个单元运行，边改边看</text>
+<circle cx="480.0" cy="1068.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1072.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 课程作业与实验都在 Notebook 里完成</text>
+<circle cx="462.0" cy="1035.5" r="2.6" fill="#2563eb" stroke="none"/>
+<path d="M428.0,1090.0 C454.0,1090.0 436.0,1144.5 462.0,1144.5" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="1096.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="1106.0" width="3.0" height="77.0" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="478.0" y="1123.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">学习节奏</text>
+<circle cx="480.0" cy="1139.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1143.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 单集 3–15 分钟，一次连看 3–5 集</text>
+<circle cx="480.0" cy="1158.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1162.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 看完立刻在 Notebook 里自己敲一遍</text>
+<circle cx="480.0" cy="1177.0" r="1.9" fill="#2563eb" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1181.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 配套：Coursera 实验 + 测验 + 代码作业</text>
+<circle cx="462.0" cy="1144.5" r="2.6" fill="#2563eb" stroke="none"/>
+<rect x="1024.0" y="132.0" width="668.0" height="524.5" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="132.0" width="38.0" height="4.0" rx="2" fill="#2563eb" stroke="none"/>
+<text x="1040.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">机器学习三大范式</text>
+<text x="1676.0" y="159.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">怎么给模型提供“答案”</text>
+<rect x="1040.0" y="176.0" width="205.3" height="214.0" rx="9" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1040.0" y="176.0" width="205.3" height="3.0" rx="2" fill="#2563eb" stroke="none"/>
+<rect x="1052.0" y="189.0" width="181.3" height="48.0" rx="6" fill="rgba(37,99,235,0.07)" stroke="none"/>
+<circle cx="1079.2" cy="222.6" r="3.0" fill="#2563eb" stroke="none"/>
+<circle cx="1106.4" cy="210.6" r="3.0" fill="#dc2626" stroke="none"/>
+<circle cx="1142.7" cy="217.8" r="3.0" fill="#2563eb" stroke="none"/>
+<circle cx="1178.9" cy="203.4" r="3.0" fill="#dc2626" stroke="none"/>
+<circle cx="1206.1" cy="198.6" r="3.0" fill="#2563eb" stroke="none"/>
+<line x1="1070.1" y1="229.8" x2="1215.2" y2="194.8" stroke="#2563eb" stroke-width="1.6"/>
+<text x="1052.0" y="258.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0f172a">监督学习</text>
+<text x="1052.0" y="276.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">有标签 (x, y)</text>
+<circle cx="1055.0" cy="294.0" r="2.0" fill="#2563eb" stroke="none"/>
+<text x="1063.0" y="298.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">回归：预测连续值</text>
+<circle cx="1055.0" cy="313.0" r="2.0" fill="#2563eb" stroke="none"/>
+<text x="1063.0" y="317.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">分类：预测类别</text>
+<circle cx="1055.0" cy="332.0" r="2.0" fill="#2563eb" stroke="none"/>
+<text x="1063.0" y="336.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">例：房价、肿瘤判定</text>
+<circle cx="1055.0" cy="351.0" r="2.0" fill="#2563eb" stroke="none"/>
+<text x="1063.0" y="355.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">本课：线性 / 逻辑回归</text>
+<rect x="1255.3" y="176.0" width="205.3" height="214.0" rx="9" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1255.3" y="176.0" width="205.3" height="3.0" rx="2" fill="#0d9488" stroke="none"/>
+<rect x="1267.3" y="189.0" width="181.3" height="48.0" rx="6" fill="rgba(13,148,136,0.07)" stroke="none"/>
+<circle cx="1324.4" cy="205.8" r="2.6" fill="#0d9488" stroke="none"/>
+<circle cx="1317.3" cy="212.7" r="2.6" fill="#0d9488" stroke="none"/>
+<circle cx="1312.0" cy="204.0" r="2.6" fill="#0d9488" stroke="none"/>
+<circle cx="1320.5" cy="199.3" r="2.6" fill="#0d9488" stroke="none"/>
+<circle cx="1323.6" cy="209.3" r="2.6" fill="#0d9488" stroke="none"/>
+<circle cx="1314.3" cy="211.4" r="2.6" fill="#0d9488" stroke="none"/>
+<circle cx="1313.6" cy="200.9" r="2.6" fill="#0d9488" stroke="none"/>
+<circle cx="1404.2" cy="220.7" r="2.6" fill="#d97706" stroke="none"/>
+<circle cx="1394.7" cy="226.7" r="2.6" fill="#d97706" stroke="none"/>
+<circle cx="1394.8" cy="214.6" r="2.6" fill="#d97706" stroke="none"/>
+<circle cx="1404.2" cy="220.8" r="2.6" fill="#d97706" stroke="none"/>
+<circle cx="1394.6" cy="226.7" r="2.6" fill="#d97706" stroke="none"/>
+<circle cx="1394.9" cy="214.5" r="2.6" fill="#d97706" stroke="none"/>
+<circle cx="1318.1" cy="205.8" r="5.0" fill="none" stroke="#0d9488" stroke-width="1.2"/>
+<circle cx="1397.9" cy="220.7" r="5.0" fill="none" stroke="#d97706" stroke-width="1.2"/>
+<text x="1267.3" y="258.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0f172a">无监督学习</text>
+<text x="1267.3" y="276.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">无标签 (x)</text>
+<circle cx="1270.3" cy="294.0" r="2.0" fill="#0d9488" stroke="none"/>
+<text x="1278.3" y="298.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">聚类：找分组</text>
+<circle cx="1270.3" cy="313.0" r="2.0" fill="#0d9488" stroke="none"/>
+<text x="1278.3" y="317.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">异常检测 / 降维</text>
+<circle cx="1270.3" cy="332.0" r="2.0" fill="#0d9488" stroke="none"/>
+<text x="1278.3" y="336.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">例：新闻分组、用户分群</text>
+<circle cx="1270.3" cy="351.0" r="2.0" fill="#0d9488" stroke="none"/>
+<text x="1278.3" y="355.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">本课：K-means / PCA</text>
+<rect x="1470.7" y="176.0" width="205.3" height="214.0" rx="9" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1470.7" y="176.0" width="205.3" height="3.0" rx="2" fill="#7c3aed" stroke="none"/>
+<rect x="1482.7" y="189.0" width="181.3" height="48.0" rx="6" fill="rgba(124,58,237,0.07)" stroke="none"/>
+<circle cx="1573.3" cy="213.0" r="9.0" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+<circle cx="1573.3" cy="213.0" r="3.5" fill="#7c3aed" stroke="none"/>
+<polyline points="1557.3,213.0 1567.3,213.0" fill="none" stroke="#7c3aed" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1579.3,213.0 1589.3,213.0" fill="none" stroke="#7c3aed" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1482.7" y="258.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0f172a">强化学习</text>
+<text x="1482.7" y="276.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">只有奖励 r</text>
+<circle cx="1485.7" cy="294.0" r="2.0" fill="#7c3aed" stroke="none"/>
+<text x="1493.7" y="298.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">智能体试错</text>
+<circle cx="1485.7" cy="313.0" r="2.0" fill="#7c3aed" stroke="none"/>
+<text x="1493.7" y="317.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">学习策略 π(s)</text>
+<circle cx="1485.7" cy="332.0" r="2.0" fill="#7c3aed" stroke="none"/>
+<text x="1493.7" y="336.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">例：火星车、游戏 AI</text>
+<circle cx="1485.7" cy="351.0" r="2.0" fill="#7c3aed" stroke="none"/>
+<text x="1493.7" y="355.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#475569">本课：Q 学习 / DQN</text>
+<rect x="1040.0" y="408.0" width="636.0" height="56.0" rx="9" fill="rgba(37,99,235,0.05)" stroke="#e8eef7" stroke-width="1"/>
+<text x="1054.0" y="430.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#0f172a">一句话区分</text>
+<text x="1054.0" y="449.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#475569">有 y → 监督；没 y → 无监督；只有奖励 r → 强化。先问一句：我的数据里有没有标签？</text>
+<text x="1040.0" y="486.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" font-weight="700" fill="#94a3b8">146 集怎么排</text>
+<rect x="1040.0" y="496.0" width="205.3" height="52.0" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1040.0" y="496.0" width="4.0" height="52.0" rx="2" fill="#2563eb" stroke="none"/>
+<text x="1056.0" y="518.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" font-weight="700" fill="#2563eb">课程一 · P1–P37</text>
+<text x="1056.0" y="535.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">回归 · 分类 · 正则化</text>
+<rect x="1255.3" y="496.0" width="205.3" height="52.0" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1255.3" y="496.0" width="4.0" height="52.0" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="1271.3" y="518.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" font-weight="700" fill="#7c3aed">课程二 · P38–P100</text>
+<text x="1271.3" y="535.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">神经网络 · 决策树 · 项目</text>
+<rect x="1470.7" y="496.0" width="205.3" height="52.0" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1470.7" y="496.0" width="4.0" height="52.0" rx="2" fill="#0d9488" stroke="none"/>
+<text x="1486.7" y="518.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" font-weight="700" fill="#0d9488">课程三 · P101–P146</text>
+<text x="1486.7" y="535.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">聚类 · 推荐 · 强化学习</text>
+<rect x="1024.0" y="672.5" width="668.0" height="524.5" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="672.5" width="38.0" height="4.0" rx="2" fill="#2563eb" stroke="none"/>
+<text x="1040.0" y="699.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">监督学习：从「带答案的例题」里找映射</text>
+<text x="1676.0" y="699.5" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">房价数据 → 学 f</text>
+<rect x="1040.0" y="720.5" width="116.5" height="19.5" rx="3" fill="#2563eb" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1099.0" y="734.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#ffffff">面积 x</text>
+<rect x="1158.0" y="720.5" width="116.5" height="19.5" rx="3" fill="#2563eb" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1217.0" y="734.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#ffffff">价格 y</text>
+<rect x="1040.0" y="741.5" width="116.5" height="19.5" rx="3" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1099.0" y="755.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">50</text>
+<rect x="1158.0" y="741.5" width="116.5" height="19.5" rx="3" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1217.0" y="755.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">150</text>
+<rect x="1040.0" y="762.5" width="116.5" height="19.5" rx="3" fill="#f8fafc" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1099.0" y="776.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">80</text>
+<rect x="1158.0" y="762.5" width="116.5" height="19.5" rx="3" fill="#f8fafc" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1217.0" y="776.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">230</text>
+<rect x="1040.0" y="783.5" width="116.5" height="19.5" rx="3" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1099.0" y="797.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">110</text>
+<rect x="1158.0" y="783.5" width="116.5" height="19.5" rx="3" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1217.0" y="797.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">310</text>
+<rect x="1040.0" y="804.5" width="116.5" height="19.5" rx="3" fill="#f8fafc" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1099.0" y="818.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">150</text>
+<rect x="1158.0" y="804.5" width="116.5" height="19.5" rx="3" fill="#f8fafc" stroke="#e2e8f0" stroke-width="0.8"/>
+<text x="1217.0" y="818.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f172a">420</text>
+<text x="1040.0" y="841.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">训练集 (x, y)</text>
+<line x1="1331.3" y1="1167.0" x2="1665.3" y2="1167.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1331.3" y1="945.8" x2="1665.3" y2="945.8" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1331.3" y1="724.5" x2="1665.3" y2="724.5" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1331.3" y1="724.5" x2="1331.3" y2="1167.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1498.3" y1="724.5" x2="1498.3" y2="1167.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1665.3" y1="724.5" x2="1665.3" y2="1167.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1331.3" y1="1167.0" x2="1665.3" y2="1167.0" stroke="#94a3b8" stroke-width="1.2"/>
+<line x1="1331.3" y1="724.5" x2="1331.3" y2="1167.0" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="1331.3" y="1181.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0</text>
+<text x="1498.3" y="1181.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">80</text>
+<text x="1665.3" y="1181.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">160</text>
+<text x="1325.3" y="1170.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">100</text>
+<text x="1325.3" y="948.8" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">275</text>
+<text x="1325.3" y="727.5" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">450</text>
+<circle cx="1435.7" cy="1103.8" r="3.6" fill="#2563eb" stroke="none"/>
+<circle cx="1498.3" cy="1002.6" r="3.6" fill="#2563eb" stroke="none"/>
+<circle cx="1560.9" cy="901.5" r="3.6" fill="#2563eb" stroke="none"/>
+<circle cx="1644.4" cy="762.4" r="3.6" fill="#2563eb" stroke="none"/>
+<circle cx="1529.6" cy="964.7" r="3.6" fill="#2563eb" stroke="none"/>
+<line x1="1373.0" y1="1160.7" x2="1665.3" y2="718.2" stroke="#dc2626" stroke-width="2"/>
+<text x="1456.5" y="800.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" font-weight="700" fill="#dc2626">f(x)=wx+b</text>
+<text x="1498.3" y="1197.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">面积（m^2）</text>
+<line x1="28.0" y1="1227.0" x2="1692.0" y2="1227.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="28.0" y="1243.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">吴恩达《机器学习》B 站 146 集 · BV1owrpYKEtP</text>
+<text x="1692.0" y="1243.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">P1–P5 · 5 集</text>
+</svg>

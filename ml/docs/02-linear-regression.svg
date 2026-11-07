@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1205" viewBox="0 0 1720 1205" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0369a1" stop-opacity="0.10"/><stop offset="100%" stop-color="#0369a1" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1720.0" height="1205.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1720.0" height="204.0" rx="0" fill="url(#hdr)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1720.0" height="5.0" rx="0" fill="#0369a1" stroke="none"/>
+<rect x="28.0" y="24.0" width="62.0" height="62.0" rx="14" fill="#0369a1" stroke="none"/>
+<text x="59.0" y="50.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#ffffff" opacity="0.85">第</text>
+<text x="59.0" y="76.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#ffffff">02</text>
+<text x="112.0" y="56.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#0f172a">单变量线性回归</text>
+<text x="112.0" y="80.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b">Linear Regression with One Variable</text>
+<text x="112.0" y="99.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">第 2 章 · 共 12 章</text>
+<rect x="1532.0" y="44.0" width="160.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1612.0" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">课程一 · 监督学习：回归与分类</text>
+<rect x="1461.0" y="44.0" width="63.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1492.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">102 分钟</text>
+<rect x="1406.0" y="44.0" width="47.0" height="24.0" rx="12" fill="#0369a114" stroke="none"/>
+<text x="1429.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0369a1">10 集</text>
+<rect x="1341.0" y="44.0" width="57.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1369.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">P6–P15</text>
+<line x1="28.0" y1="107.0" x2="1692.0" y2="107.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="28.0" y="603.5" width="196.0" height="74.0" rx="14" fill="#0f172a" stroke="none"/>
+<text x="126.0" y="627.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">第 02 章</text>
+<text x="126.0" y="651.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#ffffff">单变量线性回归</text>
+<text x="126.0" y="665.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#cbd5e1">10 集 · 102 min</text>
+<path d="M224.0,640.5 C258.0,640.5 228.0,235.0 262.0,235.0" fill="none" stroke="#0369a1" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="214.0" width="166.0" height="42.0" rx="10" fill="#0369a1" stroke="none"/>
+<text x="345.0" y="240.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">模型</text>
+<path d="M428.0,235.0 C454.0,235.0 436.0,180.5 462.0,180.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="132.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="142.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">线性模型</text>
+<circle cx="480.0" cy="175.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="179.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· f(x) = wx + b，几何上就是一条直线</text>
+<circle cx="480.0" cy="194.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="198.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· w 是斜率（权重），b 是截距（偏置）</text>
+<circle cx="480.0" cy="213.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="217.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 单变量：只有一个输入特征 x</text>
+<circle cx="462.0" cy="180.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M428.0,235.0 C454.0,235.0 436.0,289.5 462.0,289.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="241.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="251.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="268.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">记号约定</text>
+<circle cx="480.0" cy="284.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="288.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· m = 样本数；(x(i), y(i)) 表示第 i 个样本</text>
+<circle cx="480.0" cy="303.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="307.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· ŷ 是模型预测值，y 是真实标签</text>
+<circle cx="480.0" cy="322.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="326.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 目标：让 ŷ 尽量接近 y</text>
+<circle cx="462.0" cy="289.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M224.0,640.5 C258.0,640.5 228.0,525.5 262.0,525.5" fill="none" stroke="#0369a1" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="504.5" width="166.0" height="42.0" rx="10" fill="#0369a1" stroke="none"/>
+<text x="345.0" y="530.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">成本函数</text>
+<path d="M428.0,525.5 C454.0,525.5 436.0,416.5 462.0,416.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="368.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="378.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="395.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">平方误差</text>
+<circle cx="480.0" cy="411.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="415.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· J(w,b) = (1/2m)·Σ(ŷ(i) − y(i))^2</text>
+<circle cx="480.0" cy="430.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="434.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 1/m：对样本数取平均，与样本量无关</text>
+<circle cx="480.0" cy="449.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="453.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 1/2：求导时正好把平方的 2 约掉</text>
+<circle cx="462.0" cy="416.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M428.0,525.5 C454.0,525.5 436.0,525.5 462.0,525.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="477.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="487.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="504.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">形状与直觉</text>
+<circle cx="480.0" cy="520.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="524.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 单变量时 J(w) 是抛物线，碗形</text>
+<circle cx="480.0" cy="539.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="543.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· J 越小 = 直线越贴合数据</text>
+<circle cx="480.0" cy="558.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="562.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 线性回归的 J 是凸函数：只有一个全局最小</text>
+<circle cx="462.0" cy="525.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M428.0,525.5 C454.0,525.5 436.0,634.5 462.0,634.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="586.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="596.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="613.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">可视化</text>
+<circle cx="480.0" cy="629.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="633.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 固定 b，画 J(w) 曲线，最低点即最优 w</text>
+<circle cx="480.0" cy="648.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="652.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 二维：在 w–b 平面画等高线（椭圆）</text>
+<circle cx="480.0" cy="667.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="671.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 三维：碗形曲面，谷底就是最优参数</text>
+<circle cx="462.0" cy="634.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M224.0,640.5 C258.0,640.5 228.0,925.0 262.0,925.0" fill="none" stroke="#0369a1" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="904.0" width="166.0" height="42.0" rx="10" fill="#0369a1" stroke="none"/>
+<text x="345.0" y="930.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">梯度下降</text>
+<path d="M428.0,925.0 C454.0,925.0 436.0,761.5 462.0,761.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="713.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="723.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="740.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">更新规则</text>
+<circle cx="480.0" cy="756.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="760.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· w := w − α·∂J/∂w，b := b − α·∂J/∂b</text>
+<circle cx="480.0" cy="775.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="779.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· α 是学习率，控制每一步迈多大</text>
+<circle cx="480.0" cy="794.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="798.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 必须同步更新：两个偏导都算完再一起赋值</text>
+<circle cx="462.0" cy="761.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M428.0,925.0 C454.0,925.0 436.0,870.5 462.0,870.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="822.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="832.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="849.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">偏导公式</text>
+<circle cx="480.0" cy="865.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="869.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· ∂J/∂w = (1/m)Σ(f(x(i)) − y(i))·x(i)</text>
+<circle cx="480.0" cy="884.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="888.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· ∂J/∂b = (1/m)Σ(f(x(i)) − y(i))</text>
+<circle cx="480.0" cy="903.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="907.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 批量梯度下降：每一步都用全部 m 个样本</text>
+<circle cx="462.0" cy="870.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M428.0,925.0 C454.0,925.0 436.0,979.5 462.0,979.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="931.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="941.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="958.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">学习率 α</text>
+<circle cx="480.0" cy="974.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="978.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 太小：收敛慢，迭代次数爆炸</text>
+<circle cx="480.0" cy="993.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="997.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 太大：越过谷底来回震荡，甚至发散</text>
+<circle cx="480.0" cy="1012.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1016.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 凸函数 + 合适 α → 一定到全局最优</text>
+<circle cx="462.0" cy="979.5" r="2.6" fill="#0369a1" stroke="none"/>
+<path d="M428.0,925.0 C454.0,925.0 436.0,1088.5 462.0,1088.5" fill="none" stroke="#0369a1" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="1040.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="1050.0" width="3.0" height="77.0" rx="1.5" fill="#0369a1" stroke="none"/>
+<text x="478.0" y="1067.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#0369a1">为什么有效</text>
+<circle cx="480.0" cy="1083.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1087.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 梯度指向上升最快方向，加负号就是下降</text>
+<circle cx="480.0" cy="1102.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1106.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 越接近谷底梯度越小，步子自动变小</text>
+<circle cx="480.0" cy="1121.0" r="1.9" fill="#0369a1" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1125.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 固定 α 也能收敛，不必手动衰减</text>
+<circle cx="462.0" cy="1088.5" r="2.6" fill="#0369a1" stroke="none"/>
+<rect x="1024.0" y="132.0" width="668.0" height="325.7" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="132.0" width="38.0" height="4.0" rx="2" fill="#0369a1" stroke="none"/>
+<text x="1040.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">拟合一条直线：残差就是「误差」</text>
+<text x="1676.0" y="159.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">每个竖线 = ŷ−y</text>
+<line x1="1070.0" y1="413.7" x2="1668.0" y2="413.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="298.8" x2="1668.0" y2="298.8" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="184.0" x2="1668.0" y2="184.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="184.0" x2="1070.0" y2="413.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1369.0" y1="184.0" x2="1369.0" y2="413.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1668.0" y1="184.0" x2="1668.0" y2="413.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="413.7" x2="1668.0" y2="413.7" stroke="#94a3b8" stroke-width="1.2"/>
+<line x1="1070.0" y1="184.0" x2="1070.0" y2="413.7" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="1070.0" y="427.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0</text>
+<text x="1369.0" y="427.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">5</text>
+<text x="1668.0" y="427.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">10</text>
+<text x="1064.0" y="416.7" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0</text>
+<text x="1064.0" y="301.8" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">5</text>
+<text x="1064.0" y="187.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">10</text>
+<line x1="1070.0" y1="386.1" x2="1668.0" y2="204.7" stroke="#dc2626" stroke-width="2"/>
+<line x1="1129.8" y1="365.4" x2="1129.8" y2="368.0" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1129.8" cy="365.4" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1189.6" y1="335.6" x2="1189.6" y2="349.8" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1189.6" cy="335.6" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1249.4" y1="342.5" x2="1249.4" y2="331.7" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1249.4" cy="342.5" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1309.2" y1="294.2" x2="1309.2" y2="313.5" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1309.2" cy="294.2" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1369.0" y1="280.5" x2="1369.0" y2="295.4" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1369.0" cy="280.5" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1428.8" y1="266.7" x2="1428.8" y2="277.2" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1428.8" cy="266.7" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1488.6" y1="232.2" x2="1488.6" y2="259.1" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1488.6" cy="232.2" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1548.4" y1="243.7" x2="1548.4" y2="241.0" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1548.4" cy="243.7" r="3.4" fill="#0369a1" stroke="none"/>
+<line x1="1608.2" y1="204.7" x2="1608.2" y2="222.8" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85"/>
+<circle cx="1608.2" cy="204.7" r="3.4" fill="#0369a1" stroke="none"/>
+<text x="1201.6" y="262.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" font-weight="700" fill="#0f172a">J(w,b)= 1/2m · Σ(ŷ−y)^2</text>
+<text x="1201.6" y="278.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">把所有竖线长度平方后平均</text>
+<rect x="1024.0" y="473.7" width="668.0" height="325.7" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="473.7" width="38.0" height="4.0" rx="2" fill="#0369a1" stroke="none"/>
+<text x="1040.0" y="500.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">成本函数是「碗」：越靠中心越准</text>
+<text x="1676.0" y="500.7" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">等高线 = 同等误差</text>
+<line x1="1070.0" y1="755.3" x2="1668.0" y2="755.3" stroke="#94a3b8" stroke-width="1.2"/>
+<line x1="1070.0" y1="525.7" x2="1070.0" y2="755.3" stroke="#94a3b8" stroke-width="1.2"/>
+<ellipse cx="1404.9" cy="640.5" rx="118.0" ry="85.0" fill="none" stroke="#0369a1" stroke-width="1.4" opacity="0.75"/>
+<ellipse cx="1404.9" cy="640.5" rx="90.0" ry="64.8" fill="none" stroke="#0369a1" stroke-width="1.4" opacity="0.63"/>
+<ellipse cx="1404.9" cy="640.5" rx="62.0" ry="44.6" fill="none" stroke="#0369a1" stroke-width="1.4" opacity="0.51"/>
+<ellipse cx="1404.9" cy="640.5" rx="38.0" ry="27.4" fill="none" stroke="#0369a1" stroke-width="1.4" opacity="0.39"/>
+<line x1="1153.7" y1="732.4" x2="1201.6" y2="718.6" stroke="#dc2626" stroke-width="2"/>
+<polygon points="1182.4,724.1 1175.2,728.7 1173.9,724.1" fill="#dc2626" stroke="none"/>
+<line x1="1201.6" y1="718.6" x2="1243.4" y2="697.9" stroke="#dc2626" stroke-width="2"/>
+<polygon points="1227.0,706.0 1220.7,711.8 1218.6,707.5" fill="#dc2626" stroke="none"/>
+<line x1="1243.4" y1="697.9" x2="1279.3" y2="677.2" stroke="#dc2626" stroke-width="2"/>
+<polygon points="1265.7,685.1 1259.8,691.3 1257.4,687.1" fill="#dc2626" stroke="none"/>
+<line x1="1279.3" y1="677.2" x2="1321.2" y2="661.2" stroke="#dc2626" stroke-width="2"/>
+<polygon points="1304.9,667.4 1298.1,672.6 1296.4,668.1" fill="#dc2626" stroke="none"/>
+<line x1="1321.2" y1="661.2" x2="1357.0" y2="649.7" stroke="#dc2626" stroke-width="2"/>
+<polygon points="1343.9,653.9 1336.8,658.7 1335.3,654.1" fill="#dc2626" stroke="none"/>
+<line x1="1357.0" y1="649.7" x2="1386.9" y2="643.9" stroke="#dc2626" stroke-width="2"/>
+<polygon points="1376.9,645.9 1369.3,649.8 1368.4,645.1" fill="#dc2626" stroke="none"/>
+<circle cx="1404.9" cy="640.5" r="4.0" fill="none" stroke="#0f172a" stroke-width="2"/>
+<text x="1412.9" y="644.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" font-weight="700" fill="#0f172a">全局最优</text>
+<text x="1129.8" y="739.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#475569">起点</text>
+<text x="1070.0" y="775.3" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">w</text>
+<text x="1038.0" y="640.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">b</text>
+<rect x="1024.0" y="815.3" width="668.0" height="325.7" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="815.3" width="38.0" height="4.0" rx="2" fill="#0369a1" stroke="none"/>
+<text x="1040.0" y="842.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">梯度下降：每步沿最陡方向走一点</text>
+<text x="1676.0" y="842.3" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">J 应单调下降并趋平</text>
+<line x1="1070.0" y1="1097.0" x2="1668.0" y2="1097.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="982.2" x2="1668.0" y2="982.2" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="867.3" x2="1668.0" y2="867.3" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="867.3" x2="1070.0" y2="1097.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1369.0" y1="867.3" x2="1369.0" y2="1097.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1668.0" y1="867.3" x2="1668.0" y2="1097.0" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1070.0" y1="1097.0" x2="1668.0" y2="1097.0" stroke="#94a3b8" stroke-width="1.2"/>
+<line x1="1070.0" y1="867.3" x2="1070.0" y2="1097.0" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="1070.0" y="1111.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0</text>
+<text x="1369.0" y="1111.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">50</text>
+<text x="1668.0" y="1111.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">100</text>
+<text x="1064.0" y="1100.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0</text>
+<text x="1064.0" y="985.2" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">5</text>
+<text x="1064.0" y="870.3" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">10</text>
+<polyline points="1070.0,865.0 1087.9,901.2 1105.9,931.1 1123.8,955.9 1141.8,976.5 1159.7,993.6 1177.6,1007.7 1195.6,1019.5 1213.5,1029.2 1231.5,1037.2 1249.4,1043.9 1267.3,1049.5 1285.3,1054.1 1303.2,1057.9 1321.2,1061.0 1339.1,1063.6 1357.0,1065.8 1375.0,1067.6 1392.9,1069.1 1410.9,1070.3 1428.8,1071.4 1446.7,1072.2 1464.7,1072.9 1482.6,1073.5 1500.6,1074.0 1518.5,1074.4 1536.4,1074.7 1554.4,1075.0 1572.3,1075.2 1590.3,1075.4 1608.2,1075.6 1626.1,1075.7 1644.1,1075.8 1662.0,1075.9" fill="none" stroke="#0369a1" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="1070.0" cy="865.0" r="3.0" fill="#dc2626" stroke="none"/>
+<circle cx="1141.8" cy="976.5" r="3.0" fill="#dc2626" stroke="none"/>
+<circle cx="1249.4" cy="1043.9" r="3.0" fill="#dc2626" stroke="none"/>
+<circle cx="1428.8" cy="1071.4" r="3.0" fill="#dc2626" stroke="none"/>
+<text x="1381.0" y="950.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#d97706">α 太小 → 下降很慢</text>
+<text x="1297.2" y="1044.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#475569">收敛后几乎不动</text>
+<text x="1369.0" y="1127.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">迭代次数</text>
+<line x1="28.0" y1="1171.0" x2="1692.0" y2="1171.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="28.0" y="1187.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">吴恩达《机器学习》B 站 146 集 · BV1owrpYKEtP</text>
+<text x="1692.0" y="1187.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">P6–P15 · 10 集</text>
+</svg>

@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1223" viewBox="0 0 1720 1223" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b45309" stop-opacity="0.10"/><stop offset="100%" stop-color="#b45309" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1720.0" height="1223.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1720.0" height="204.0" rx="0" fill="url(#hdr)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1720.0" height="5.0" rx="0" fill="#b45309" stroke="none"/>
+<rect x="28.0" y="24.0" width="62.0" height="62.0" rx="14" fill="#b45309" stroke="none"/>
+<text x="59.0" y="50.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#ffffff" opacity="0.85">第</text>
+<text x="59.0" y="76.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#ffffff">09</text>
+<text x="112.0" y="56.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#0f172a">决策树与集成学习</text>
+<text x="112.0" y="80.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b">Decision Trees &amp; Ensembles</text>
+<text x="112.0" y="99.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">第 9 章 · 共 12 章</text>
+<rect x="1572.0" y="44.0" width="120.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1632.0" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">课程二 · 高级学习算法</text>
+<rect x="1507.0" y="44.0" width="57.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1535.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">97 分钟</text>
+<rect x="1452.0" y="44.0" width="47.0" height="24.0" rx="12" fill="#b4530914" stroke="none"/>
+<text x="1475.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#b45309">13 集</text>
+<rect x="1381.0" y="44.0" width="63.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1412.5" y="60.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#475569">P87–P99</text>
+<line x1="28.0" y1="107.0" x2="1692.0" y2="107.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="28.0" y="612.5" width="196.0" height="74.0" rx="14" fill="#0f172a" stroke="none"/>
+<text x="126.0" y="636.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">第 09 章</text>
+<text x="126.0" y="660.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#ffffff">决策树与集成学习</text>
+<text x="126.0" y="674.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#cbd5e1">13 集 · 97 min</text>
+<path d="M224.0,649.5 C258.0,649.5 228.0,235.0 262.0,235.0" fill="none" stroke="#b45309" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="214.0" width="166.0" height="42.0" rx="10" fill="#b45309" stroke="none"/>
+<text x="345.0" y="240.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">模型</text>
+<path d="M428.0,235.0 C454.0,235.0 436.0,180.5 462.0,180.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="132.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="142.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">决策树</text>
+<circle cx="480.0" cy="175.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="179.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 一串 if-else，从根节点走到叶节点</text>
+<circle cx="480.0" cy="194.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="198.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 天然可解释，规则可以直接读出来</text>
+<circle cx="480.0" cy="213.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="217.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 不用特征缩放，能混用类别与数值</text>
+<circle cx="462.0" cy="180.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M428.0,235.0 C454.0,235.0 436.0,289.5 462.0,289.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="241.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="251.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="268.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">局限</text>
+<circle cx="480.0" cy="284.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="288.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 只能做轴对齐的切分</text>
+<circle cx="480.0" cy="303.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="307.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 对光滑的线性关系不如逻辑回归</text>
+<circle cx="480.0" cy="322.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="326.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 单棵树非常容易过拟合</text>
+<circle cx="462.0" cy="289.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M224.0,649.5 C258.0,649.5 228.0,525.5 262.0,525.5" fill="none" stroke="#b45309" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="504.5" width="166.0" height="42.0" rx="10" fill="#b45309" stroke="none"/>
+<text x="345.0" y="530.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">学习过程</text>
+<path d="M428.0,525.5 C454.0,525.5 436.0,416.5 462.0,416.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="368.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="378.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="395.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">递归分裂</text>
+<circle cx="480.0" cy="411.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="415.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 每个节点选「最佳特征 + 最佳阈值」</text>
+<circle cx="480.0" cy="430.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="434.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 按纯度提升最大来选</text>
+<circle cx="480.0" cy="449.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="453.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 停止：节点纯 / 深度到限 / 增益太小</text>
+<circle cx="462.0" cy="416.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M428.0,525.5 C454.0,525.5 436.0,525.5 462.0,525.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="477.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="487.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="504.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">纯度</text>
+<circle cx="480.0" cy="520.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="524.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 熵 H(p) = −p log_2p − (1−p)log_2(1−p)</text>
+<circle cx="480.0" cy="539.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="543.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 基尼 Gini = 1 − Σp_i^2</text>
+<circle cx="480.0" cy="558.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="562.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 越纯越小，0 表示全是同一类</text>
+<circle cx="462.0" cy="525.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M428.0,525.5 C454.0,525.5 436.0,634.5 462.0,634.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="586.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="596.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="613.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">信息增益</text>
+<circle cx="480.0" cy="629.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="633.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· IG = H(父) − Σ(权重 × H(子))</text>
+<circle cx="480.0" cy="648.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="652.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 选 IG 最大的那个分裂</text>
+<circle cx="480.0" cy="667.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="671.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 连续特征：排序后枚举切点</text>
+<circle cx="462.0" cy="634.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M224.0,649.5 C258.0,649.5 228.0,816.0 262.0,816.0" fill="none" stroke="#b45309" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="795.0" width="166.0" height="42.0" rx="10" fill="#b45309" stroke="none"/>
+<text x="345.0" y="821.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">特征处理</text>
+<path d="M428.0,816.0 C454.0,816.0 436.0,761.5 462.0,761.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="713.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="723.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="740.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">独热编码</text>
+<circle cx="480.0" cy="756.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="760.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 类别 → 0/1 向量，如 [1,0,0]</text>
+<circle cx="480.0" cy="775.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="779.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 避免「类别 1&lt;2&lt;3」的虚假大小关系</text>
+<circle cx="480.0" cy="794.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="798.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 维度变高，但树能正确处理</text>
+<circle cx="462.0" cy="761.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M428.0,816.0 C454.0,816.0 436.0,870.5 462.0,870.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="822.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="832.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="849.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">连续值与回归树</text>
+<circle cx="480.0" cy="865.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="869.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 连续特征用阈值切分：x ≤ t</text>
+<circle cx="480.0" cy="884.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="888.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 回归树：叶子取均值，用方差减少选分裂</text>
+<circle cx="480.0" cy="903.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="907.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 输出是分段常数，不光滑</text>
+<circle cx="462.0" cy="870.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M224.0,649.5 C258.0,649.5 228.0,1052.0 262.0,1052.0" fill="none" stroke="#b45309" stroke-width="2.2" opacity="0.55"/>
+<rect x="262.0" y="1031.0" width="166.0" height="42.0" rx="10" fill="#b45309" stroke="none"/>
+<text x="345.0" y="1057.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">集成</text>
+<path d="M428.0,1052.0 C454.0,1052.0 436.0,997.5 462.0,997.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="949.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="959.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="976.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">随机森林</text>
+<circle cx="480.0" cy="992.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="996.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 有放回采样 + 每次随机选特征子集</text>
+<circle cx="480.0" cy="1011.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1015.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 多棵树投票（分类）/ 平均（回归）</text>
+<circle cx="480.0" cy="1030.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1034.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 主要降方差，几乎不用调参</text>
+<circle cx="462.0" cy="997.5" r="2.6" fill="#b45309" stroke="none"/>
+<path d="M428.0,1052.0 C454.0,1052.0 436.0,1106.5 462.0,1106.5" fill="none" stroke="#b45309" stroke-width="1.5" opacity="0.35"/>
+<rect x="462.0" y="1058.0" width="528.0" height="97.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="462.0" y="1068.0" width="3.0" height="77.0" rx="1.5" fill="#b45309" stroke="none"/>
+<text x="478.0" y="1085.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#b45309">XGBoost</text>
+<circle cx="480.0" cy="1101.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1105.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· Boosting：每棵新树纠正前面的残差</text>
+<circle cx="480.0" cy="1120.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1124.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 串行训练，通常精度最高</text>
+<circle cx="480.0" cy="1139.0" r="1.9" fill="#b45309" stroke="none" opacity="0.75"/>
+<text x="488.0" y="1143.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.4" fill="#3f4a5c">· 表格数据比赛的常胜将军</text>
+<circle cx="462.0" cy="1106.5" r="2.6" fill="#b45309" stroke="none"/>
+<rect x="1024.0" y="132.0" width="668.0" height="337.3" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="132.0" width="38.0" height="4.0" rx="2" fill="#b45309" stroke="none"/>
+<text x="1040.0" y="159.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">决策树：一串 if-else 把空间切成方块</text>
+<text x="1676.0" y="159.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">每个内部节点问一个特征阈值</text>
+<rect x="1228.6" y="185.6" width="152.0" height="34.0" rx="8" fill="#b45309" stroke="none"/>
+<text x="1304.6" y="207.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">耳朵是尖的吗？</text>
+<rect x="1105.0" y="264.6" width="132.0" height="32.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<text x="1171.0" y="285.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#0f172a">脸型？</text>
+<rect x="1378.8" y="264.6" width="132.0" height="32.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<text x="1444.8" y="285.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#0f172a">胡须长吗？</text>
+<rect x="1041.1" y="343.6" width="86.0" height="30.0" rx="8" fill="#dcfce7" stroke="#059669" stroke-width="1.3"/>
+<text x="1084.1" y="363.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" font-weight="700" fill="#166534">猫</text>
+<rect x="1208.1" y="343.6" width="86.0" height="30.0" rx="8" fill="#dcfce7" stroke="#059669" stroke-width="1.3"/>
+<text x="1251.1" y="363.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" font-weight="700" fill="#166534">狗</text>
+<rect x="1348.4" y="343.6" width="86.0" height="30.0" rx="8" fill="#dcfce7" stroke="#059669" stroke-width="1.3"/>
+<text x="1391.4" y="363.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" font-weight="700" fill="#166534">猫</text>
+<rect x="1515.4" y="343.6" width="86.0" height="30.0" rx="8" fill="#dcfce7" stroke="#059669" stroke-width="1.3"/>
+<text x="1558.4" y="363.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" font-weight="700" fill="#166534">兔</text>
+<line x1="1304.6" y1="219.6" x2="1171.0" y2="264.6" stroke="#94a3b8" stroke-width="1.3"/>
+<text x="1246.8" y="243.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#94a3b8">尖</text>
+<line x1="1304.6" y1="219.6" x2="1444.8" y2="264.6" stroke="#94a3b8" stroke-width="1.3"/>
+<text x="1383.7" y="243.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#94a3b8">圆</text>
+<line x1="1171.0" y1="296.6" x2="1084.1" y2="343.6" stroke="#94a3b8" stroke-width="1.3"/>
+<text x="1136.5" y="321.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#94a3b8">圆</text>
+<line x1="1171.0" y1="296.6" x2="1251.1" y2="343.6" stroke="#94a3b8" stroke-width="1.3"/>
+<text x="1220.0" y="321.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#94a3b8">方</text>
+<line x1="1444.8" y1="296.6" x2="1391.4" y2="343.6" stroke="#94a3b8" stroke-width="1.3"/>
+<text x="1427.1" y="321.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#94a3b8">长</text>
+<line x1="1444.8" y1="296.6" x2="1558.4" y2="343.6" stroke="#94a3b8" stroke-width="1.3"/>
+<text x="1510.6" y="321.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#94a3b8">短</text>
+<text x="1040.0" y="457.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">树越深 → 训练集越纯，但越容易记住噪声（要用剪枝 / 限制最大深度）</text>
+<rect x="1024.0" y="485.3" width="668.0" height="320.4" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="485.3" width="38.0" height="4.0" rx="2" fill="#b45309" stroke="none"/>
+<text x="1040.0" y="512.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">熵：衡量一个节点有多「混」</text>
+<text x="1676.0" y="512.3" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">H(p)=−p·log_2p−(1−p)·log_2(1−p)</text>
+<line x1="1074.0" y1="757.7" x2="1668.0" y2="757.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1074.0" y1="658.4" x2="1668.0" y2="658.4" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1074.0" y1="559.1" x2="1668.0" y2="559.1" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1074.0" y1="539.3" x2="1074.0" y2="757.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1371.0" y1="539.3" x2="1371.0" y2="757.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1668.0" y1="539.3" x2="1668.0" y2="757.7" stroke="#e8edf5" stroke-width="1"/>
+<line x1="1074.0" y1="757.7" x2="1668.0" y2="757.7" stroke="#94a3b8" stroke-width="1.2"/>
+<line x1="1074.0" y1="539.3" x2="1074.0" y2="757.7" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="1074.0" y="771.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0</text>
+<text x="1371.0" y="771.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0.5</text>
+<text x="1668.0" y="771.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">1</text>
+<text x="1068.0" y="760.7" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0</text>
+<text x="1068.0" y="661.4" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">0.5</text>
+<text x="1068.0" y="562.1" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">1</text>
+<polyline points="1079.9,741.7 1085.9,729.6 1091.8,719.1 1097.8,709.6 1103.7,700.8 1109.6,692.7 1115.6,685.1 1121.5,677.9 1127.5,671.0 1133.4,664.6 1139.3,658.4 1145.3,652.6 1151.2,647.0 1157.2,641.7 1163.1,636.6 1169.0,631.8 1175.0,627.1 1180.9,622.7 1186.9,618.4 1192.8,614.4 1198.7,610.5 1204.7,606.8 1210.6,603.2 1216.6,599.8 1222.5,596.6 1228.4,593.5 1234.4,590.6 1240.3,587.8 1246.3,585.2 1252.2,582.7 1258.1,580.4 1264.1,578.1 1270.0,576.0 1276.0,574.1 1281.9,572.2 1287.8,570.5 1293.8,568.9 1299.7,567.5 1305.7,566.1 1311.6,564.9 1317.5,563.8 1323.5,562.8 1329.4,562.0 1335.4,561.2 1341.3,560.6 1347.2,560.1 1353.2,559.7 1359.1,559.4 1365.1,559.2 1371.0,559.1 1376.9,559.2 1382.9,559.4 1388.8,559.7 1394.8,560.1 1400.7,560.6 1406.6,561.2 1412.6,562.0 1418.5,562.8 1424.5,563.8 1430.4,564.9 1436.3,566.1 1442.3,567.5 1448.2,568.9 1454.2,570.5 1460.1,572.2 1466.0,574.1 1472.0,576.0 1477.9,578.1 1483.9,580.4 1489.8,582.7 1495.7,585.2 1501.7,587.8 1507.6,590.6 1513.6,593.5 1519.5,596.6 1525.4,599.8 1531.4,603.2 1537.3,606.8 1543.3,610.5 1549.2,614.4 1555.1,618.4 1561.1,622.7 1567.0,627.1 1573.0,631.8 1578.9,636.6 1584.8,641.7 1590.8,647.0 1596.7,652.6 1602.7,658.4 1608.6,664.6 1614.5,671.0 1620.5,677.9 1626.4,685.1 1632.4,692.7 1638.3,700.8 1644.2,709.6 1650.2,719.1 1656.1,729.6 1662.1,741.7" fill="none" stroke="#b45309" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="1371.0" cy="559.1" r="3.6" fill="#dc2626" stroke="none"/>
+<text x="1379.0" y="553.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">50/50 最混乱</text>
+<text x="1091.8" y="729.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#475569">全同类 = 0</text>
+<text x="1371.0" y="787.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">正类比例 p</text>
+<rect x="1024.0" y="821.7" width="668.0" height="337.3" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1024.0" y="821.7" width="38.0" height="4.0" rx="2" fill="#b45309" stroke="none"/>
+<text x="1040.0" y="848.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">随机森林：很多棵歪树投票 &gt; 一棵完美树</text>
+<text x="1676.0" y="848.7" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#94a3b8">Bagging + 随机特征</text>
+<rect x="1050.0" y="936.4" width="104.0" height="96.0" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="1102.0" y1="956.4" x2="1078.0" y2="982.4" stroke="#b45309" stroke-width="1.4"/>
+<line x1="1102.0" y1="956.4" x2="1126.0" y2="982.4" stroke="#b45309" stroke-width="1.4"/>
+<line x1="1078.0" y1="982.4" x2="1068.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1078.0" y1="982.4" x2="1088.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1126.0" y1="982.4" x2="1116.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1126.0" y1="982.4" x2="1136.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<circle cx="1102.0" cy="956.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1078.0" cy="982.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1126.0" cy="982.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1068.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1088.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1116.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1136.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<text x="1102.0" y="1048.4" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">树 1</text>
+<rect x="1176.0" y="936.4" width="104.0" height="96.0" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="1228.0" y1="956.4" x2="1204.0" y2="982.4" stroke="#b45309" stroke-width="1.4"/>
+<line x1="1228.0" y1="956.4" x2="1252.0" y2="982.4" stroke="#b45309" stroke-width="1.4"/>
+<line x1="1204.0" y1="982.4" x2="1194.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1204.0" y1="982.4" x2="1214.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1252.0" y1="982.4" x2="1242.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1252.0" y1="982.4" x2="1262.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<circle cx="1228.0" cy="956.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1204.0" cy="982.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1252.0" cy="982.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1194.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1214.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1242.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1262.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<text x="1228.0" y="1048.4" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">树 2</text>
+<rect x="1302.0" y="936.4" width="104.0" height="96.0" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="1354.0" y1="956.4" x2="1330.0" y2="982.4" stroke="#b45309" stroke-width="1.4"/>
+<line x1="1354.0" y1="956.4" x2="1378.0" y2="982.4" stroke="#b45309" stroke-width="1.4"/>
+<line x1="1330.0" y1="982.4" x2="1320.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1330.0" y1="982.4" x2="1340.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1378.0" y1="982.4" x2="1368.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<line x1="1378.0" y1="982.4" x2="1388.0" y2="1010.4" stroke="#b45309" stroke-width="1.1"/>
+<circle cx="1354.0" cy="956.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1330.0" cy="982.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1378.0" cy="982.4" r="4.0" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<circle cx="1320.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1340.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1368.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<circle cx="1388.0" cy="1010.4" r="4.2" fill="#059669" stroke="none"/>
+<text x="1354.0" y="1048.4" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">树 3</text>
+<rect x="1524.0" y="966.4" width="124.0" height="52.0" rx="9" fill="#b45309" stroke="none"/>
+<text x="1586.0" y="990.4" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">多数投票</text>
+<text x="1586.0" y="1007.4" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#ffffff" opacity="0.85">→ 最终预测</text>
+<line x1="1154.0" y1="984.4" x2="1524.0" y2="984.4" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<line x1="1280.0" y1="984.4" x2="1524.0" y2="984.4" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<line x1="1406.0" y1="984.4" x2="1524.0" y2="984.4" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<text x="1040.0" y="1147.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">单棵树方差大；平均之后方差变小，但偏差基本不变</text>
+<line x1="28.0" y1="1189.0" x2="1692.0" y2="1189.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="28.0" y="1205.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">吴恩达《机器学习》B 站 146 集 · BV1owrpYKEtP</text>
+<text x="1692.0" y="1205.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">P87–P99 · 13 集</text>
+</svg>

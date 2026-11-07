@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>吴恩达机器学习 · 交互思维导图</title>
+<meta name="description" content="吴恩达机器学习 146 集 · 12 章交互思维导图，可折叠、搜索、标记掌握进度。">
+<style>
+  :root{
+    --bg:#f5f7fb; --panel:#ffffff; --ink:#0f172a; --sub:#475569; --muted:#94a3b8;
+    --line:#e5eaf3; --shadow:0 1px 2px rgba(15,23,42,.05),0 10px 30px rgba(15,23,42,.06);
+  }
+  html[data-theme=dark]{
+    --bg:#0b1220; --panel:#111a2b; --ink:#e8eefc; --sub:#b6c2d9; --muted:#7f8da5;
+    --line:#1e2a40; --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);overflow:hidden;
+    font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",system-ui,-apple-system,sans-serif;}
+  button{font:inherit;color:inherit;cursor:pointer}
+
+  /* ---------- 顶栏 ---------- */
+  header.top{height:60px;display:flex;align-items:center;gap:18px;padding:0 18px;
+    background:var(--panel);border-bottom:1px solid var(--line);position:relative;z-index:5}
+  .brand{display:flex;align-items:baseline;gap:9px;font-size:16px;font-weight:800;letter-spacing:.3px;white-space:nowrap}
+  .brand small{font-weight:400;font-size:11.5px;color:var(--muted)}
+  .search{flex:1;max-width:520px;position:relative}
+  .search input{width:100%;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--bg);
+    color:var(--ink);padding:0 76px 0 36px;font-size:13px;outline:none}
+  .search input:focus{border-color:#93b4f7;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  .search .ico{position:absolute;left:12px;top:9px;color:var(--muted);font-size:14px}
+  .search kbd{position:absolute;right:10px;top:9px;font-size:11px;color:var(--muted);
+    border:1px solid var(--line);border-radius:5px;padding:1px 6px;background:var(--panel)}
+  .search .hit{position:absolute;right:44px;top:10px;font-size:11px;color:#2563eb}
+  .actions{display:flex;align-items:center;gap:6px;margin-left:auto}
+  .actions button{height:34px;min-width:34px;border:1px solid var(--line);background:var(--panel);border-radius:9px;
+    padding:0 10px;font-size:12.5px;color:var(--sub)}
+  .actions button:hover{border-color:#93b4f7;color:#2563eb}
+  #zoomLabel{font-size:12px;color:var(--muted);width:42px;text-align:center;font-variant-numeric:tabular-nums}
+  #progress{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
+  #progress b{color:#2563eb;font-size:13px}
+
+  /* ---------- 布局 ---------- */
+  .app{display:grid;grid-template-columns:252px 1fr;height:calc(100vh - 60px)}
+  aside.nav{border-right:1px solid var(--line);background:var(--panel);overflow:auto;padding:12px 10px 28px}
+  .grp{font-size:11px;color:var(--muted);letter-spacing:.6px;margin:14px 8px 6px}
+  .grp:first-child{margin-top:2px}
+  .navitem{display:flex;gap:10px;align-items:center;width:100%;border:0;background:transparent;
+    padding:8px 9px;border-radius:9px;text-align:left;color:var(--sub);font-size:12.5px;line-height:1.3}
+  .navitem:hover{background:rgba(37,99,235,.07);color:var(--ink)}
+  .navitem.on{background:rgba(37,99,235,.12);color:#2563eb;font-weight:700}
+  .navitem .no{font-variant-numeric:tabular-nums;font-size:11px;color:var(--muted);min-width:18px}
+  .navitem.on .no{color:#2563eb}
+  .navitem .pg{margin-left:auto;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .navitem .bar{position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:2px;background:currentColor;opacity:.7}
+
+  /* ---------- 画布 ---------- */
+  main.mapwrap{position:relative;overflow:hidden;cursor:grab;
+    background-image:radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 0);background-size:22px 22px}
+  main.mapwrap.drag{cursor:grabbing}
+  .stage{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+  .tree{display:flex;align-items:center;gap:58px;padding:46px 56px;position:relative}
+  .groups{display:flex;flex-direction:column;gap:26px}
+  .bg-group{display:flex;align-items:center;gap:34px}
+  .leaves{display:flex;flex-direction:column;gap:11px}
+
+  .node.root{width:212px;border-radius:16px;background:#0f172a;color:#fff;padding:18px 18px 16px;
+    box-shadow:0 18px 40px rgba(15,23,42,.28);position:relative;z-index:2}
+  .node.root .kicker{font-size:10.5px;color:#94a3b8;letter-spacing:1px}
+  .node.root .rtitle{font-size:19px;font-weight:800;line-height:1.35;margin:7px 0 8px}
+  .node.root .rmeta{font-size:10.5px;color:#cbd5e1}
+  .node.root .accentbar{height:4px;width:46px;border-radius:2px;margin-top:12px;background:var(--accent,#2563eb)}
+
+  .branch{position:relative;z-index:2;min-width:158px;max-width:158px;border:0;border-radius:11px;
+    background:var(--accent,#2563eb);color:#fff;padding:11px 14px;font-size:13.5px;font-weight:700;
+    line-height:1.35;text-align:left;box-shadow:0 8px 18px rgba(15,23,42,.12);
+    display:flex;align-items:center;gap:8px;transition:filter .15s,transform .15s}
+  .branch:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .branch .n{margin-left:auto;font-size:10.5px;font-weight:600;opacity:.8;background:rgba(255,255,255,.18);
+    border-radius:6px;padding:1px 6px}
+  .branch.collapsed{opacity:.55;filter:saturate(.6)}
+
+  .leaf{position:relative;z-index:2;width:472px;background:var(--panel);border:1px solid var(--line);
+    border-left:3px solid var(--accent,#2563eb);border-radius:10px;padding:10px 14px 10px 15px;
+    box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s,opacity .2s,transform .15s}
+  .leaf:hover{border-color:var(--accent,#2563eb);box-shadow:0 8px 26px rgba(15,23,42,.10)}
+  .leaf.dim{opacity:.22}
+  .leaf.done{opacity:.55}
+  .leaf.done h4{text-decoration:line-through;text-decoration-thickness:1px}
+  .lhead{display:flex;align-items:center;gap:9px;cursor:pointer;user-select:none}
+  .chk{flex:0 0 auto;width:16px;height:16px;border-radius:5px;border:1.5px solid #cbd5e1;background:transparent;
+    display:grid;place-items:center;font-size:10px;color:transparent;padding:0}
+  .leaf.done .chk{background:var(--accent,#2563eb);border-color:var(--accent,#2563eb);color:#fff}
+  .leaf h4{margin:0;font-size:13px;font-weight:700;color:var(--accent,#2563eb);line-height:1.5;flex:1}
+  .leaf .cnt{font-size:10px;color:var(--muted);min-width:16px;text-align:right}
+  .leaf .chev{font-size:10px;color:var(--muted);transition:transform .18s}
+  .leaf.open .chev{transform:rotate(180deg)}
+  .leaf ul{display:none;margin:8px 0 2px;padding:0 0 0 2px;list-style:none}
+  .leaf.open ul{display:block}
+  .leaf li{position:relative;padding-left:14px;margin:4px 0;font-size:12.3px;line-height:1.62;color:var(--sub)}
+  .leaf li::before{content:"";position:absolute;left:2px;top:9px;width:4px;height:4px;border-radius:50%;
+    background:var(--accent,#2563eb);opacity:.65}
+  .leaf mark{background:#fde68a;color:inherit;border-radius:2px;padding:0 1px}
+  html[data-theme=dark] .leaf mark{background:#7c5c12;color:#fff}
+
+  svg.links{position:absolute;left:0;top:0;pointer-events:none;z-index:1;overflow:visible}
+  svg.links path{fill:none;stroke:var(--accent,#2563eb);stroke-opacity:.38;stroke-width:1.7}
+
+  .hint{position:absolute;left:18px;bottom:14px;font-size:11.5px;color:var(--muted);
+    background:color-mix(in srgb, var(--panel) 88%, transparent);border:1px solid var(--line);
+    padding:6px 10px;border-radius:8px;pointer-events:none}
+  .chbar{position:absolute;right:16px;top:14px;display:flex;gap:8px;z-index:3}
+  .chbar a{font-size:11.5px;color:var(--sub);text-decoration:none;border:1px solid var(--line);
+    background:var(--panel);padding:7px 10px;border-radius:9px}
+  .chbar a:hover{color:#2563eb;border-color:#93b4f7}
+  .chbar button{font-size:11.5px;color:var(--sub);border:1px solid var(--line);background:var(--panel);
+    padding:7px 10px;border-radius:9px}
+  .chbar button:hover{color:#2563eb;border-color:#93b4f7}
+
+  @media (max-width:860px){
+    .app{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+    aside.nav{display:flex;gap:6px;overflow:auto;padding:8px;border-right:0;border-bottom:1px solid var(--line)}
+    aside.nav .grp{display:none}
+    .navitem{white-space:nowrap}
+    .navitem .pg{display:none}
+    .search{max-width:none}
+    .brand small{display:none}
+    #progress{display:none}
+    .leaf{width:min(78vw,472px)}
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">吴恩达机器学习 · 交互导图 <small>146 集 / 12 章</small></div>
+  <div class="search">
+    <span class="ico">⌕</span>
+    <input id="q" type="search" placeholder="搜索知识点：正则化 / softmax / 贝尔曼 …" autocomplete="off">
+    <span class="hit" id="hit"></span>
+    <kbd>/</kbd>
+  </div>
+  <div class="actions">
+    <button id="btnExpand" title="展开/收起全部知识点">展开全部</button>
+    <button id="btnOut" title="缩小">−</button>
+    <span id="zoomLabel">100%</span>
+    <button id="btnIn" title="放大">+</button>
+    <button id="btnFit" title="适应窗口 (F)">适应</button>
+    <button id="btnTheme" title="切换主题">🌗</button>
+  </div>
+  <div id="progress">已掌握 <b>0</b> / 0</div>
+</header>
+
+<div class="app">
+  <aside class="nav" id="nav"></aside>
+  <main class="mapwrap" id="mapwrap">
+    <div class="chbar">
+      <a href="../index.html">← 返回主页</a>
+      <a id="rawLink" href="#" target="_blank" rel="noopener">矢量长图 ↗</a>
+      <button id="btnAllDone">本章全部掌握</button>
+    </div>
+    <div class="stage" id="stage"></div>
+    <div class="hint">拖拽平移 · 滚轮缩放 · 点分支折叠 · 点知识点展开 · ←/→ 换章</div>
+  </main>
+</div>
+
+<script>
+const DATA = {"stats": {"chapters": 12, "parts": 144, "minutes": 1298, "leaves": 97}, "chapters": [{"id": "01", "no": 1, "title": "机器学习入门", "en": "Welcome to Machine Learning", "parts": "P1–P5", "n": 5, "minutes": 43, "course": 1, "courseName": "课程一 · 监督学习：回归与分类", "accent": "#2563eb", "keywords": ["监督 / 无监督", "回归 vs 分类", "Jupyter"], "file": "01-intro.svg", "branches": [{"name": "AI 全景", "leaves": [{"head": "什么是机器学习", "bullets": ["不写死规则，让程序从数据里自己找规律", "Samuel 跳棋程序：自己跟自己对弈变强", "适合规则太复杂、无法手写的任务：识图、语音", "规则清晰的问题（如算工资）直接写规则更好"]}, {"head": "这门课的地图", "bullets": ["课程一：监督学习 · 回归与分类（P1–P37）", "课程二：神经网络、决策树、项目诊断（P38–P100）", "课程三：聚类、推荐系统、强化学习（P101–P146）", "3 门课 / 146 集 / 约 23 小时"]}]}, {"name": "监督学习", "leaves": [{"head": "定义", "bullets": ["训练集每个样本都带「正确答案」y", "学一个映射 f: x → y，再用于没见过的样本", "输入 x 通常是由多个特征组成的向量"]}, {"head": "回归 regression", "bullets": ["输出连续数值：房价、温度、销量", "例：用房屋面积预测成交价", "损失函数常用平方误差"]}, {"head": "分类 classification", "bullets": ["输出离散类别：垃圾邮件 / 正常邮件", "二分类：y ∈ {0,1}，如肿瘤良性 / 恶性", "多分类：y ∈ {1..K}，如手写数字 0–9"]}]}, {"name": "无监督学习", "leaves": [{"head": "聚类 clustering", "bullets": ["只有 x，没有 y，让算法自己找结构", "新闻自动分组、用户分群、基因分析", "K-means 是最常用的入门算法"]}, {"head": "其他范式", "bullets": ["异常检测：信用卡欺诈、设备故障预警", "降维：把高维数据压到二维做可视化", "强化学习：靠奖励信号试错学策略"]}]}, {"name": "工欲善其事", "leaves": [{"head": "Jupyter Notebook", "bullets": ["代码、公式、图表写在同一个文档里", "Shift + Enter 逐个单元运行，边改边看", "课程作业与实验都在 Notebook 里完成"]}, {"head": "学习节奏", "bullets": ["单集 3–15 分钟，一次连看 3–5 集", "看完立刻在 Notebook 里自己敲一遍", "配套：Coursera 实验 + 测验 + 代码作业"]}]}]}, {"id": "02", "no": 2, "title": "单变量线性回归", "en": "Linear Regression with One Variable", "parts": "P6–P15", "n": 10, "minutes": 102, "course": 1, "courseName": "课程一 · 监督学习：回归与分类", "accent": "#0369a1", "keywords": ["f=wx+b", "平方误差", "梯度下降"], "file": "02-linear-regression.svg", "branches": [{"name": "模型", "leaves": [{"head": "线性模型", "bullets": ["f(x) = wx + b，几何上就是一条直线", "w 是斜率（权重），b 是截距（偏置）", "单变量：只有一个输入特征 x"]}, {"head": "记号约定", "bullets": ["m = 样本数；(x(i), y(i)) 表示第 i 个样本", "ŷ 是模型预测值，y 是真实标签", "目标：让 ŷ 尽量接近 y"]}]}, {"name": "成本函数", "leaves": [{"head": "平方误差", "bullets": ["J(w,b) = (1/2m)·Σ(ŷ(i) − y(i))^2", "1/m：对样本数取平均，与样本量无关", "1/2：求导时正好把平方的 2 约掉"]}, {"head": "形状与直觉", "bullets": ["单变量时 J(w) 是抛物线，碗形", "J 越小 = 直线越贴合数据", "线性回归的 J 是凸函数：只有一个全局最小"]}, {"head": "可视化", "bullets": ["固定 b，画 J(w) 曲线，最低点即最优 w", "二维：在 w–b 平面画等高线（椭圆）", "三维：碗形曲面，谷底就是最优参数"]}]}, {"name": "梯度下降", "leaves": [{"head": "更新规则", "bullets": ["w := w − α·∂J/∂w，b := b − α·∂J/∂b", "α 是学习率，控制每一步迈多大", "必须同步更新：两个偏导都算完再一起赋值"]}, {"head": "偏导公式", "bullets": ["∂J/∂w = (1/m)Σ(f(x(i)) − y(i))·x(i)", "∂J/∂b = (1/m)Σ(f(x(i)) − y(i))", "批量梯度下降：每一步都用全部 m 个样本"]}, {"head": "学习率 α", "bullets": ["太小：收敛慢，迭代次数爆炸", "太大：越过谷底来回震荡，甚至发散", "凸函数 + 合适 α → 一定到全局最优"]}, {"head": "为什么有效", "bullets": ["梯度指向上升最快方向，加负号就是下降", "越接近谷底梯度越小，步子自动变小", "固定 α 也能收敛，不必手动衰减"]}]}]}, {"id": "03", "no": 3, "title": "多特征线性回归", "en": "Linear Regression with Multiple Variables", "parts": "P16–P25", "n": 10, "minutes": 66, "course": 1, "courseName": "课程一 · 监督学习：回归与分类", "accent": "#0891b2", "keywords": ["向量化", "特征缩放", "多项式回归"], "file": "03-multiple-regression.svg", "branches": [{"name": "多变量模型", "leaves": [{"head": "向量形式", "bullets": ["f(x) = w_1x_1 + … + w_nx_n + b", "写成点积：f(x) = w·x + b", "n 个特征 → w 是 n 维向量"]}, {"head": "向量化", "bullets": ["Python：f = np.dot(w, x) + b", "一次算完 m 个样本：z = X @ w + b", "比 for 循环快几十到上百倍（GPU 并行）"]}]}, {"name": "训练", "leaves": [{"head": "多变量梯度下降", "bullets": ["每个 w_j 各自更新，公式与单变量完全一致", "每步要算 n 个偏导，复杂度 O(m·n)", "预测时沿用同一套 w、b"]}, {"head": "特征缩放", "bullets": ["把每个特征都拉到 −1 ~ 1 附近", "均值归一化：(x − μ) / σ", "等高线变圆 → 下降路径更直、更快"]}, {"head": "收敛判断", "bullets": ["画 J 随迭代次数的学习曲线", "J 每步下降 < 1e-3，可认为已收敛", "J 反而上升：α 太大，或代码有 bug"]}, {"head": "选择 α", "bullets": ["从 0.001 起，每次 ×3 试：0.003、0.01…", "找「能稳定下降的最大 α」", "太小浪费算力，太大不收敛"]}]}, {"name": "特征工程", "leaves": [{"head": "构造特征", "bullets": ["用领域知识把原始特征组合成新特征", "例：面积 = 长 × 宽，比单看长、宽更有用", "好特征往往比换模型更有效"]}, {"head": "多项式回归", "bullets": ["f(x) = w_1x + w_2x^2 + w_3x^3 + b", "它仍然是线性回归：对参数 w 线性", "x^2、x^3 量纲差异大 → 必须先缩放"]}]}]}, {"id": "04", "no": 4, "title": "逻辑回归与分类", "en": "Logistic Regression & Classification", "parts": "P26–P31", "n": 6, "minutes": 55, "course": 1, "courseName": "课程一 · 监督学习：回归与分类", "accent": "#0d9488", "keywords": ["sigmoid", "决策边界", "交叉熵"], "file": "04-logistic-regression.svg", "branches": [{"name": "从回归到分类", "leaves": [{"head": "为什么不用线性回归", "bullets": ["输出可能 >1 或 <0，不满足概率定义", "对离群点敏感，决策边界容易被拉偏", "分类需要 0–1 之间的输出"]}, {"head": "Sigmoid", "bullets": ["g(z) = 1 / (1 + e^-z)，值域 (0,1)", "z=0 时 g=0.5；z 越大越接近 1", "f(x) = g(w·x + b) 即 P(y=1 | x)"]}]}, {"name": "决策边界", "leaves": [{"head": "阈值", "bullets": ["f ≥ 0.5 → 预测 1，否则预测 0", "等价于判断 z = w·x + b 的正负", "输出是概率，可结合业务调整阈值"]}, {"head": "非线性边界", "bullets": ["加入 x_1^2、x_2^2 等多项式特征", "z = 0 就变成圆、椭圆等曲线", "边界由参数决定，不是由数据画出来的"]}]}, {"name": "损失函数", "leaves": [{"head": "平方误差的问题", "bullets": ["把 sigmoid 代入平方误差后 J 非凸", "存在多个局部极小，梯度下降可能卡住", "分类需要更合适的损失函数"]}, {"head": "交叉熵", "bullets": ["L = −[y·log f + (1−y)·log(1−f)]", "y=1 时只看 −log f：预测越错罚越重", "y=0 时只看 −log(1−f)，惩罚对称"]}, {"head": "梯度下降", "bullets": ["J = −(1/m)Σ[y log f + (1−y)log(1−f)]", "梯度与线性回归同形：(1/m)Σ(f − y)·x_j", "逻辑回归的 J 是凸的，梯度下降可靠"]}]}]}, {"id": "05", "no": 5, "title": "过拟合与正则化", "en": "Overfitting & Regularization", "parts": "P32–P36", "n": 5, "minutes": 44, "course": 1, "courseName": "课程一 · 监督学习：回归与分类", "accent": "#059669", "keywords": ["偏差 / 方差", "L2 惩罚", "权重衰减"], "file": "05-regularization.svg", "branches": [{"name": "过拟合", "leaves": [{"head": "三种拟合", "bullets": ["欠拟合：模型太简单，训练误差就高", "刚好：训练误差与验证误差都低", "过拟合：训练误差极低，验证误差很高"]}, {"head": "偏差与方差", "bullets": ["高偏差 = 欠拟合，模型没学到规律", "高方差 = 过拟合，对训练集噪声太敏感", "特征多、样本少 → 更容易过拟合"]}]}, {"name": "对策", "leaves": [{"head": "更多数据", "bullets": ["最有效，但往往最贵", "数据增强：翻转、裁剪、加噪声", "有时比换模型更划算"]}, {"head": "减少特征", "bullets": ["手动挑选真正相关的特征", "缺点：可能把有用信息一起丢掉", "用交叉验证决定保留哪些特征"]}, {"head": "正则化", "bullets": ["保留所有特征，但把参数压小", "不改模型结构，只改损失函数", "λ 控制惩罚强度，是超参数"]}]}, {"name": "正则化细节", "leaves": [{"head": "正则化代价", "bullets": ["J = 原代价 + (λ/2m)·Σw_j^2", "λ 太大 → w≈0 → 变成欠拟合", "λ=0 → 退化为原始代价；b 通常不正则化"]}, {"head": "梯度与权重衰减", "bullets": ["w_j := w_j(1 − αλ/m) − α·(1/m)Σ(f−y)x_j", "每步先把 w 乘一个略小于 1 的系数", "这就是 weight decay（权重衰减）的由来"]}]}]}, {"id": "06", "no": 6, "title": "神经网络基础", "en": "Neural Networks: Representation", "parts": "P38–P50", "n": 13, "minutes": 110, "course": 2, "courseName": "课程二 · 高级学习算法", "accent": "#7c3aed", "keywords": ["神经元", "前向传播", "TensorFlow"], "file": "06-neural-basics.svg", "branches": [{"name": "为什么需要神经网络", "leaves": [{"head": "特征组合爆炸", "bullets": ["100 个特征，二次项就约 5000 个", "高次多项式计算量完全不可接受", "需要让模型自己学特征表示"]}, {"head": "从生物到算法", "bullets": ["生物神经元：树突收信号 → 胞体求和 → 轴突输出", "人工神经元 = 线性组合 + 激活函数", "单个神经元其实就是一次逻辑回归"]}]}, {"name": "网络结构", "leaves": [{"head": "层", "bullets": ["输入层（特征）、隐藏层、输出层", "a[l] = g(W[l]a[l-1] + b[l])", "层数越多，能表达的函数越复杂"]}, {"head": "前向传播", "bullets": ["从输入逐层算到输出，得到 ŷ", "推理 inference 只需要一次前向", "例：两层网络就能拟合 XNOR 这类非线性"]}]}, {"name": "TensorFlow 实现", "leaves": [{"head": "建图", "bullets": ["Dense(units=25, activation='relu')", "用 Sequential 按顺序把层堆起来", "输出层：二分类用 sigmoid"]}, {"head": "训练三步", "bullets": ["compile：loss=BinaryCrossentropy()", "fit：model.fit(X, y, epochs=100)", "predict：得到概率，再按阈值判类"]}]}, {"name": "矩阵运算", "leaves": [{"head": "为什么要矩阵", "bullets": ["一层里所有神经元可以一次算完", "Z = A·W^T + b，一次矩阵乘法", "GPU 并行 → 深度学习才跑得动"]}, {"head": "AGI 之辩", "bullets": ["缩放律：更多数据 + 更大模型 + 更多算力", "吴恩达：别被炒作带偏，基础最重要", "先把监督学习吃透，再谈大模型"]}]}]}, {"id": "07", "no": 7, "title": "神经网络训练细节", "en": "Neural Network Training", "parts": "P51–P69", "n": 19, "minutes": 170, "course": 2, "courseName": "课程二 · 高级学习算法", "accent": "#6d28d9", "keywords": ["激活函数", "Softmax", "计算图"], "file": "07-neural-training.svg", "branches": [{"name": "损失与训练", "leaves": [{"head": "选损失", "bullets": ["回归：MSE 或 MAE", "二分类：BinaryCrossentropy", "多分类：SparseCategoricalCrossentropy"]}, {"head": "训练循环", "bullets": ["前向：算预测，再算损失", "反向：反向传播求每个参数的梯度", "优化器更新参数，重复多个 epoch"]}]}, {"name": "激活函数", "leaves": [{"head": "Sigmoid / Tanh", "bullets": ["Sigmoid 输出 (0,1)，适合作二分类输出层", "Tanh 输出 (−1,1)，零中心更好优化", "两者在深层都容易梯度消失"]}, {"head": "ReLU", "bullets": ["max(0, z)，隐藏层的默认选择", "计算快，正区间不会饱和", "负区间梯度为 0，可能出现「神经元死亡」"]}, {"head": "为什么必须非线性", "bullets": ["全是线性 → 多层叠加仍是线性", "等于一个线性模型，加深毫无意义", "激活函数才带来非线性表达能力"]}]}, {"name": "多分类", "leaves": [{"head": "Softmax", "bullets": ["a_j = e^z_j / Σe^z_k，所有输出和为 1", "K=2 时与逻辑回归等价", "数值稳定实现：先减去 max(z)"]}, {"head": "多标签 / 多输出", "bullets": ["一张图里可以同时有「车」和「人」", "输出层用多个 sigmoid，各自独立判断", "与 softmax 的互斥多分类不同"]}]}, {"name": "优化与调试", "leaves": [{"head": "高级优化", "bullets": ["Adam：自适应学习率，通常比 SGD 稳", "学习率衰减：后期步子自动变小", "mini-batch：兼顾速度与稳定"]}, {"head": "可选数学", "bullets": ["导数、计算图、链式法则", "反向传播 = 在计算图上从后往前求导", "不必手推，但要知道每一步在干什么"]}]}]}, {"id": "08", "no": 8, "title": "机器学习项目与诊断", "en": "Advice for Applying ML", "parts": "P70–P86", "n": 17, "minutes": 175, "course": 2, "courseName": "课程二 · 高级学习算法", "accent": "#a21caf", "keywords": ["偏差 / 方差", "学习曲线", "P / R"], "file": "08-ml-project.svg", "branches": [{"name": "评估模型", "leaves": [{"head": "数据划分", "bullets": ["训练集 60% / 验证集 20% / 测试集 20%", "用验证集选模型和超参数", "测试集只在最后用一次，别反复调"]}, {"head": "交叉验证", "bullets": ["K-fold：轮流拿 1/K 做验证集", "数据少时更稳，代价是计算量 ×K", "报告均值 ± 标准差，而不是单次结果"]}]}, {"name": "偏差与方差", "leaves": [{"head": "怎么诊断", "bullets": ["高偏差：训练误差高，验证误差也高", "高方差：训练误差低，验证误差高", "看两条曲线的 gap 来判断"]}, {"head": "正则化调节", "bullets": ["λ 增大 → 参数变小 → 方差降、偏差升", "用验证集找 λ 的拐点", "模型复杂度同理：特征越多方差越大"]}]}, {"name": "改进策略", "leaves": [{"head": "基准与学习曲线", "bullets": ["先建 baseline：人类水平或简单模型", "学习曲线：加数据到底还有没有收益", "高偏差时加数据没用 → 加特征 / 换模型"]}, {"head": "误差分析", "bullets": ["人工看 100 个错例，按类型归类统计", "先做快速原型，再决定往哪投人力", "别凭感觉优化，用数据说话"]}]}, {"name": "数据与指标", "leaves": [{"head": "数据策略", "bullets": ["数据增强、收集更多标注数据", "迁移学习：借预训练模型的表示", "倾斜数据集：别只看准确率"]}, {"head": "精确率 / 召回率", "bullets": ["P = TP/(TP+FP)，R = TP/(TP+FN)", "阈值↑ → P↑、R↓，用 F1 折中", "罕见病全猜 0 也有 99% 准确率，没用"]}]}]}, {"id": "09", "no": 9, "title": "决策树与集成学习", "en": "Decision Trees & Ensembles", "parts": "P87–P99", "n": 13, "minutes": 97, "course": 2, "courseName": "课程二 · 高级学习算法", "accent": "#b45309", "keywords": ["熵 / 信息增益", "随机森林", "XGBoost"], "file": "09-decision-trees.svg", "branches": [{"name": "模型", "leaves": [{"head": "决策树", "bullets": ["一串 if-else，从根节点走到叶节点", "天然可解释，规则可以直接读出来", "不用特征缩放，能混用类别与数值"]}, {"head": "局限", "bullets": ["只能做轴对齐的切分", "对光滑的线性关系不如逻辑回归", "单棵树非常容易过拟合"]}]}, {"name": "学习过程", "leaves": [{"head": "递归分裂", "bullets": ["每个节点选「最佳特征 + 最佳阈值」", "按纯度提升最大来选", "停止：节点纯 / 深度到限 / 增益太小"]}, {"head": "纯度", "bullets": ["熵 H(p) = −p log_2p − (1−p)log_2(1−p)", "基尼 Gini = 1 − Σp_i^2", "越纯越小，0 表示全是同一类"]}, {"head": "信息增益", "bullets": ["IG = H(父) − Σ(权重 × H(子))", "选 IG 最大的那个分裂", "连续特征：排序后枚举切点"]}]}, {"name": "特征处理", "leaves": [{"head": "独热编码", "bullets": ["类别 → 0/1 向量，如 [1,0,0]", "避免「类别 1<2<3」的虚假大小关系", "维度变高，但树能正确处理"]}, {"head": "连续值与回归树", "bullets": ["连续特征用阈值切分：x ≤ t", "回归树：叶子取均值，用方差减少选分裂", "输出是分段常数，不光滑"]}]}, {"name": "集成", "leaves": [{"head": "随机森林", "bullets": ["有放回采样 + 每次随机选特征子集", "多棵树投票（分类）/ 平均（回归）", "主要降方差，几乎不用调参"]}, {"head": "XGBoost", "bullets": ["Boosting：每棵新树纠正前面的残差", "串行训练，通常精度最高", "表格数据比赛的常胜将军"]}]}]}, {"id": "10", "no": 10, "title": "聚类与异常检测", "en": "Clustering & Anomaly Detection", "parts": "P101–P113", "n": 13, "minutes": 121, "course": 3, "courseName": "课程三 · 无监督学习 · 推荐系统 · 强化学习", "accent": "#0f766e", "keywords": ["K-means", "高斯建模", "ε 阈值"], "file": "10-clustering.svg", "branches": [{"name": "K-means", "leaves": [{"head": "算法", "bullets": ["随机选 K 个中心", "每个点分配给最近的中心", "中心移到簇均值，重复到不再变化"]}, {"head": "目标函数", "bullets": ["J = (1/m)Σ‖x(i) − μ_c(i)‖^2", "分配步与更新步都在降低 J", "可能停在局部最优，所以要多次初始化"]}, {"head": "初始化与 K", "bullets": ["多次随机初始化，取 J 最小的一次", "肘部法：J 随 K 下降的拐点", "有时直接按业务需求定 K"]}]}, {"name": "异常检测", "leaves": [{"head": "高斯建模", "bullets": ["对每个特征估 μ、σ^2", "p(x) = Π N(x_i; μ_i, σ_i^2)", "p(x) < ε → 判为异常"]}, {"head": "训练与评估", "bullets": ["用正常样本训练，少量异常做验证", "用 F1 在验证集上选 ε", "特征变换 log(x)、x^0.5 让它更像高斯"]}, {"head": "对比监督学习", "bullets": ["异常样本极少、类型多变 → 异常检测", "有足够正负标注 → 监督分类", "异常检测的假设：异常 = 「不像正常」"]}]}, {"name": "选特征", "leaves": [{"head": "特征工程", "bullets": ["选区分度高的特征", "组合特征放大异常（如 负载 / 流量）", "监控数据分布，阈值要随业务调整"]}]}]}, {"id": "11", "no": 11, "title": "推荐系统与 PCA", "en": "Recommender Systems & PCA", "parts": "P114–P128", "n": 15, "minutes": 151, "course": 3, "courseName": "课程三 · 无监督学习 · 推荐系统 · 强化学习", "accent": "#be123c", "keywords": ["协同过滤", "双塔模型", "降维"], "file": "11-recommender.svg", "branches": [{"name": "协同过滤", "leaves": [{"head": "评分矩阵", "bullets": ["用户 × 物品，很多格子是空的", "学用户参数 θ 与物品特征 x", "预测评分 = θ·x"]}, {"head": "学习", "bullets": ["固定 x 学 θ，固定 θ 学 x，交替进行", "也可以用梯度下降同时优化", "不需要手工设计特征"]}, {"head": "冷启动", "bullets": ["新用户 / 新物品没有任何评分", "均值归一化缓解新用户问题", "用内容特征做补充"]}]}, {"name": "二进制与内容", "leaves": [{"head": "二进制标签", "bullets": ["喜欢 / 点击 = 1，未交互 = 0", "用逻辑回归 + 交叉熵", "负样本怎么采，会显著影响效果"]}, {"head": "基于内容的过滤", "bullets": ["用户特征 + 物品特征各过一个网络", "输出向量做点积得到匹配分", "能处理新物品（只要有特征）"]}, {"head": "大型目录", "bullets": ["两阶段：召回 retrieve → 排序 rank", "召回用近似最近邻，快而粗", "排序用更贵的模型精排"]}]}, {"name": "PCA 降维", "leaves": [{"head": "主成分", "bullets": ["找方差最大的那些正交方向", "投影到低维，保留最多信息", "常用于压缩与可视化"]}, {"head": "步骤", "bullets": ["均值归一化 → 协方差矩阵 → SVD", "取前 k 个特征向量作为投影方向", "重构误差 = 被丢掉方向上的方差"]}, {"head": "注意", "bullets": ["PCA 不是防过拟合的首选（用正则化）", "k 看保留方差比例来定", "可视化时取 k=2 或 3"]}]}]}, {"id": "12", "no": 12, "title": "强化学习", "en": "Reinforcement Learning", "parts": "P129–P146", "n": 18, "minutes": 164, "course": 3, "courseName": "课程三 · 无监督学习 · 推荐系统 · 强化学习", "accent": "#4338ca", "keywords": ["Q 函数", "贝尔曼方程", "DQN"], "file": "12-reinforcement.svg", "branches": [{"name": "基本框架", "leaves": [{"head": "要素", "bullets": ["智能体 agent 与环境 environment", "状态 s、动作 a、奖励 r", "策略 π(s) → a，决定在状态里怎么动"]}, {"head": "回报", "bullets": ["Return = R_1 + γR_2 + γ^2R_3 + …", "γ ∈ [0,1)：越远的奖励打折越多", "γ=0 时只看眼前这一步"]}]}, {"name": "Q 函数", "leaves": [{"head": "定义", "bullets": ["Q(s,a) = 从 (s,a) 出发能拿到的最优总回报", "贝尔曼：Q(s,a) = R(s) + γ·max Q(s′,a′)", "有了 Q，最优策略就是 argmax_a Q(s,a)"]}, {"head": "火星车示例", "bullets": ["6 个位置，动作只有左 / 右", "奖励：到终点 100，途中 0", "γ=0.9 时 Q 值可以手算验证"]}]}, {"name": "DQN", "leaves": [{"head": "神经网络近似", "bullets": ["状态太多时，用 NN 拟合 Q(s,a)", "输入状态，输出每个动作的 Q 值", "用 TD 目标 y = R + γ·max Q(s′,a′) 训练"]}, {"head": "稳定训练", "bullets": ["经验回放 replay buffer", "目标网络 target network + 软更新", "ε-greedy：留一点随机探索"]}, {"head": "现状", "bullets": ["月球着陆器、机器人控制、游戏", "样本效率低、奖励设计难", "与 LLM 的 RLHF 同源"]}]}]}]};
+
+const $ = s => document.querySelector(s);
+const stage = $('#stage'), mapwrap = $('#mapwrap'), nav = $('#nav');
+
+const store = {
+  get(k, d){ try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+
+const state = {
+  idx: 0,
+  scale: 1, tx: 0, ty: 0,
+  open: store.get('ml.open.v1', {}),      // {chId: [leafIdx...]}
+  done: store.get('ml.done.v1', {}),      // {chId: [leafIdx...]}
+  collapsed: store.get('ml.collapsed.v1', {}) // {chId: [branchIdx...]}
+};
+const chOf = i => DATA.chapters[i];
+const chId = i => chOf(i).id;
+const isOpen = (ci, li) => (state.open[chId(ci)] || []).includes(li);
+const isDone = (ci, li) => (state.done[chId(ci)] || []).includes(li);
+const isCollapsed = (ci, bi) => (state.collapsed[chId(ci)] || []).includes(bi);
+
+function toggleIn(obj, key, val){
+  const arr = obj[key] || (obj[key] = []);
+  const i = arr.indexOf(val);
+  if (i >= 0) arr.splice(i, 1); else arr.push(val);
+}
+
+/* ---------------- 导航 ---------------- */
+function buildNav(){
+  nav.innerHTML = '';
+  let lastCourse = null;
+  DATA.chapters.forEach((ch, i) => {
+    if (ch.course !== lastCourse){
+      const g = document.createElement('div');
+      g.className = 'grp';
+      g.textContent = ch.courseName;
+      nav.appendChild(g);
+      lastCourse = ch.course;
+    }
+    const b = document.createElement('button');
+    b.className = 'navitem' + (i === state.idx ? ' on' : '');
+    b.dataset.i = i;
+    b.innerHTML = `<span class="no">${ch.id}</span><span>${ch.title}</span><span class="pg" data-pg="${ch.id}"></span>`;
+    b.onclick = () => go(i);
+    nav.appendChild(b);
+  });
+  refreshNav();
+}
+
+function chapterLeaves(ch){ return ch.branches.reduce((s, b) => s + b.leaves.length, 0); }
+
+function refreshNav(){
+  const total = DATA.chapters.reduce((s, ch) => s + chapterLeaves(ch), 0);
+  let doneAll = 0;
+  DATA.chapters.forEach(ch => {
+    const totalC = chapterLeaves(ch);
+    const d = (state.done[ch.id] || []).length;
+    doneAll += d;
+    const el = nav.querySelector(`[data-pg="${ch.id}"]`);
+    if (el) el.textContent = totalC ? `${d}/${totalC}` : '';
+  });
+  $('#progress').innerHTML = `已掌握 <b>${doneAll}</b> / ${total}`;
+  [...nav.querySelectorAll('.navitem')].forEach(b => b.classList.toggle('on', +b.dataset.i === state.idx));
+}
+
+/* ---------------- 绘制 ---------------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function renderChapter(){
+  const ch = chOf(state.idx);
+  document.documentElement.style.setProperty('--accent', ch.accent);
+  $('#rawLink').href = 'docs/' + ch.file;
+  stage.innerHTML = '';
+
+  const tree = document.createElement('div');
+  tree.className = 'tree';
+  tree.style.setProperty('--accent', ch.accent);
+
+  const root = document.createElement('div');
+  root.className = 'node root';
+  root.innerHTML = `<div class="kicker">第 ${ch.id} 章 · 共 12 章</div>
+    <div class="rtitle">${esc(ch.title)}</div>
+    <div class="rmeta">${ch.parts} · ${ch.n} 集 · ${ch.minutes} min</div>
+    <div class="accentbar"></div>`;
+  tree.appendChild(root);
+
+  const groups = document.createElement('div');
+  groups.className = 'groups';
+
+  ch.branches.forEach((br, bi) => {
+    const g = document.createElement('div');
+    g.className = 'bg-group';
+    g.dataset.b = bi;
+
+    const btn = document.createElement('button');
+    btn.className = 'branch' + (isCollapsed(state.idx, bi) ? ' collapsed' : '');
+    btn.dataset.b = bi;
+    btn.innerHTML = `<span>${esc(br.name)}</span><span class="n">${br.leaves.length}</span>`;
+    btn.onclick = () => {
+      const key = chId(state.idx);
+      toggleIn(state.collapsed, key, bi);
+      store.set('ml.collapsed.v1', state.collapsed);
+      renderChapter();
+    };
+    g.appendChild(btn);
+
+    const leaves = document.createElement('div');
+    leaves.className = 'leaves';
+    if (isCollapsed(state.idx, bi)) leaves.style.display = 'none';
+
+    br.leaves.forEach((lf, li) => {
+      const gi = brOffset(state.idx, bi) + li;
+      const art = document.createElement('article');
+      art.className = 'leaf' + (isOpen(state.idx, gi) ? ' open' : '') + (isDone(state.idx, gi) ? ' done' : '');
+      art.dataset.i = gi;
+      art.dataset.b = bi;
+      art.innerHTML = `
+        <div class="lhead">
+          <button class="chk" title="标记已掌握" aria-label="标记已掌握">✓</button>
+          <h4>${esc(lf.head)}</h4>
+          <span class="cnt">${lf.bullets.length}</span>
+          <span class="chev">▾</span>
+        </div>
+        <ul>${lf.bullets.map(t => `<li>${esc(t)}</li>`).join('')}</ul>`;
+      art.querySelector('.chk').onclick = e => {
+        e.stopPropagation();
+        toggleIn(state.done, chId(state.idx), gi);
+        store.set('ml.done.v1', state.done);
+        art.classList.toggle('done', isDone(state.idx, gi));
+        refreshNav();
+      };
+      art.querySelector('.lhead').onclick = () => {
+        toggleIn(state.open, chId(state.idx), gi);
+        store.set('ml.open.v1', state.open);
+        art.classList.toggle('open', isOpen(state.idx, gi));
+        requestAnimationFrame(drawLinks);
+      };
+      leaves.appendChild(art);
+    });
+
+    g.appendChild(leaves);
+    groups.appendChild(g);
+  });
+
+  tree.appendChild(groups);
+  stage.appendChild(tree);
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'links');
+  stage.appendChild(svg);
+
+  requestAnimationFrame(() => { drawLinks(); if (!state._fitted) { fit(); state._fitted = true; } });
+}
+
+// 叶子在整章里的线性序号（用于 localStorage）
+const _offsets = {};
+function brOffset(ci, bi){
+  const key = chId(ci) + ':' + bi;
+  if (_offsets[key] != null) return _offsets[key];
+  const ch = chOf(ci);
+  let n = 0;
+  for (let k = 0; k < bi; k++) n += ch.branches[k].leaves.length;
+  _offsets[key] = n;
+  return n;
+}
+
+function drawLinks(){
+  const tree = stage.querySelector('.tree');
+  const svg = stage.querySelector('svg.links');
+  if (!tree || !svg) return;
+  const s = state.scale || 1;
+  const base = tree.getBoundingClientRect();
+  const rel = el => {
+    const r = el.getBoundingClientRect();
+    return { l: (r.left - base.left) / s, r: (r.right - base.left) / s,
+             t: (r.top - base.top) / s, b: (r.bottom - base.top) / s,
+             cy: (r.top + r.height / 2 - base.top) / s };
+  };
+  const root = rel(tree.querySelector('.node.root'));
+  const parts = [];
+  tree.querySelectorAll('.bg-group').forEach(g => {
+    const br = g.querySelector('.branch');
+    const b = rel(br);
+    const mx = (root.r + b.l) / 2;
+    parts.push(`<path d="M${root.r},${root.cy} C${mx},${root.cy} ${mx},${b.cy} ${b.l},${b.cy}"/>`);
+    if (g.querySelector('.leaves').style.display === 'none') return;
+    g.querySelectorAll('.leaf').forEach(lf => {
+      const l = rel(lf);
+      const m2 = (b.r + l.l) / 2;
+      parts.push(`<path d="M${b.r},${b.cy} C${m2},${b.cy} ${m2},${l.cy} ${l.l},${l.cy}"/>`);
+    });
+  });
+
+  const w = Math.max(tree.offsetWidth, 10);
+  const h = Math.max(tree.offsetHeight, 10);
+  svg.setAttribute('width', w);
+  svg.setAttribute('height', h);
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.innerHTML = parts.join('');
+}
+
+/* ---------------- 变换 ---------------- */
+function apply(){
+  stage.style.transform = `translate(${state.tx}px, ${state.ty}px) scale(${state.scale})`;
+  $('#zoomLabel').textContent = Math.round(state.scale * 100) + '%';
+}
+function clamp(v, a, b){ return Math.min(b, Math.max(a, v)); }
+
+function zoomAt(k, cx, cy){
+  const rect = mapwrap.getBoundingClientRect();
+  const mx = cx != null ? cx - rect.left : rect.width / 2;
+  const my = cy != null ? cy - rect.top : rect.height / 2;
+  const ns = clamp(state.scale * k, 0.28, 2.4);
+  const ratio = ns / state.scale;
+  state.tx = mx - (mx - state.tx) * ratio;
+  state.ty = my - (my - state.ty) * ratio;
+  state.scale = ns;
+  apply();
+}
+
+function fit(){
+  const tree = stage.querySelector('.tree');
+  if (!tree) return;
+  const rect = mapwrap.getBoundingClientRect();
+  const pad = 34;
+  const w = tree.offsetWidth, h = tree.offsetHeight;
+  const s = clamp(Math.min((rect.width - pad * 2) / w, (rect.height - pad * 2) / h), 0.35, 1.25);
+  state.scale = s;
+  state.tx = (rect.width - w * s) / 2;
+  state.ty = Math.max(16, (rect.height - h * s) / 2);
+  apply();
+}
+
+/* ---------------- 交互 ---------------- */
+let drag = null;
+mapwrap.addEventListener('pointerdown', e => {
+  if (e.target.closest('button,a,input')) return;
+  drag = { x: e.clientX, y: e.clientY, tx: state.tx, ty: state.ty };
+  mapwrap.classList.add('drag');
+  mapwrap.setPointerCapture(e.pointerId);
+});
+mapwrap.addEventListener('pointermove', e => {
+  if (!drag) return;
+  state.tx = drag.tx + (e.clientX - drag.x);
+  state.ty = drag.ty + (e.clientY - drag.y);
+  apply();
+});
+mapwrap.addEventListener('pointerup', e => { drag = null; mapwrap.classList.remove('drag'); });
+mapwrap.addEventListener('wheel', e => {
+  e.preventDefault();
+  if (e.shiftKey){ state.tx -= e.deltaY; apply(); return; }
+  zoomAt(e.deltaY < 0 ? 1.09 : 1 / 1.09, e.clientX, e.clientY);
+}, { passive: false });
+
+$('#btnIn').onclick = () => zoomAt(1.16);
+$('#btnOut').onclick = () => zoomAt(1 / 1.16);
+$('#btnFit').onclick = fit;
+$('#btnTheme').onclick = () => {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+  store.set('ml.theme', dark ? 'light' : 'dark');
+};
+
+let allOpen = false;
+$('#btnExpand').onclick = () => {
+  allOpen = !allOpen;
+  const ch = chOf(state.idx);
+  const arr = [];
+  let n = 0;
+  ch.branches.forEach(b => b.leaves.forEach(() => { arr.push(n++); }));
+  state.open[chId(state.idx)] = allOpen ? arr : [];
+  store.set('ml.open.v1', state.open);
+  renderChapter();
+  $('#btnExpand').textContent = allOpen ? '收起全部' : '展开全部';
+};
+
+$('#btnAllDone').onclick = () => {
+  const ch = chOf(state.idx);
+  const arr = [];
+  let n = 0;
+  ch.branches.forEach(b => b.leaves.forEach(() => { arr.push(n++); }));
+  const cur = state.done[chId(state.idx)] || [];
+  state.done[chId(state.idx)] = cur.length >= arr.length ? [] : arr;
+  store.set('ml.done.v1', state.done);
+  renderChapter();
+  refreshNav();
+};
+
+function go(i){
+  state.idx = clamp(i, 0, DATA.chapters.length - 1);
+  state._fitted = false;
+  allOpen = false;
+  $('#btnExpand').textContent = '展开全部';
+  renderChapter();
+  refreshNav();
+  location.hash = chId(state.idx);
+  $('#q').value = ''; $('#hit').textContent = '';
+  stage.querySelectorAll('.leaf.dim').forEach(e => e.classList.remove('dim'));
+}
+
+window.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'ArrowRight') go(state.idx + 1);
+  else if (e.key === 'ArrowLeft') go(state.idx - 1);
+  else if (e.key === '+' || e.key === '=') zoomAt(1.16);
+  else if (e.key === '-') zoomAt(1 / 1.16);
+  else if (e.key.toLowerCase() === 'f') fit();
+  else if (e.key === '/') { e.preventDefault(); $('#q').focus(); }
+});
+
+/* ---------------- 搜索 ---------------- */
+let hits = [], hitI = -1;
+function search(q){
+  q = q.trim().toLowerCase();
+  document.querySelectorAll('.leaf').forEach(e => e.classList.remove('dim'));
+  hits = []; hitI = -1;
+  if (!q){ $('#hit').textContent = ''; return; }
+  document.querySelectorAll('.leaf').forEach(el => {
+    const txt = el.textContent.toLowerCase();
+    if (txt.includes(q)) hits.push(el); else el.classList.add('dim');
+  });
+  $('#hit').textContent = hits.length ? `${hits.length} 处` : '无结果';
+  if (hits.length) { hitI = 0; centerOn(hits[0]); hits[0].classList.add('open'); requestAnimationFrame(drawLinks); }
+}
+function centerOn(el){
+  const r = el.getBoundingClientRect(), w = mapwrap.getBoundingClientRect();
+  state.tx += (w.left + w.width / 2) - (r.left + r.width / 2);
+  state.ty += (w.top + w.height / 2) - (r.top + r.height / 2);
+  apply();
+}
+$('#q').addEventListener('input', e => search(e.target.value));
+$('#q').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || !hits.length) return;
+  hitI = (hitI + 1) % hits.length;
+  centerOn(hits[hitI]);
+  $('#q').value = $('#q').value;
+});
+
+/* ---------------- 启动 ---------------- */
+if (store.get('ml.theme', 'light') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+const initial = DATA.chapters.findIndex(c => c.id === (location.hash || '').replace('#', ''));
+buildNav();
+go(initial >= 0 ? initial : 0);
+window.addEventListener('resize', () => { drawLinks(); });
+</script>
+</body>
+</html>

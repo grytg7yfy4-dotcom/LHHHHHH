@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>吴恩达机器学习 · 思维导图</title>
+<style>
+  :root{
+    --bg:#f6f8fc; --card:#ffffff; --ink:#0f172a; --sub:#475569; --muted:#94a3b8;
+    --line:#e3e9f2; --accent:#2563eb; --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+  }
+  html[data-theme=dark]{
+    --bg:#0b1220; --card:#111a2b; --ink:#e8eefc; --sub:#b6c2d9; --muted:#7f8da5;
+    --line:#1e2a40; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",system-ui,sans-serif;}
+  header.top{padding:46px 40px 26px;background:linear-gradient(120deg,rgba(37,99,235,.12),rgba(124,58,237,.08),rgba(13,148,136,.08));}
+  h1{margin:0 0 8px;font-size:30px;letter-spacing:.5px}
+  .sub{color:var(--sub);font-size:14px}
+  .stats{display:flex;gap:26px;margin-top:22px;flex-wrap:wrap}
+  .stat b{font-size:22px;display:block}
+  .stat span{font-size:12px;color:var(--muted)}
+  .layout{display:grid;grid-template-columns:246px 1fr;gap:28px;padding:26px 40px 60px;align-items:start}
+  nav{position:sticky;top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+      padding:14px;box-shadow:var(--shadow);max-height:calc(100vh - 40px);overflow:auto}
+  nav a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:9px;color:var(--sub);
+        text-decoration:none;font-size:13px;line-height:1.35}
+  nav a .no{font-variant-numeric:tabular-nums;color:var(--muted);font-size:11px;min-width:18px}
+  nav a:hover{background:rgba(37,99,235,.08);color:var(--ink)}
+  nav a.active{background:rgba(37,99,235,.12);color:var(--accent);font-weight:700}
+  nav .grp{margin:14px 0 4px;font-size:11px;color:var(--muted);letter-spacing:1px}
+  main{display:flex;flex-direction:column;gap:26px;min-width:0}
+  section.ch{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);scroll-margin-top:16px}
+  .chhead{display:flex;align-items:baseline;gap:12px;padding:4px 6px 12px;flex-wrap:wrap}
+  .chhead .badge{font-size:12px;color:#fff;background:var(--accent);padding:3px 9px;border-radius:8px;font-weight:700}
+  .chhead h2{margin:0;font-size:17px}
+  .chhead .meta{color:var(--muted);font-size:12px;margin-left:auto}
+  .chhead a{color:var(--accent);font-size:12px;text-decoration:none}
+  .chhead a:hover{text-decoration:underline}
+  .figure{margin:0;overflow:auto;border-radius:10px;background:#fff}
+  .figure img{display:block;width:100%;height:auto}
+  body.zoom .figure img{width:1720px;max-width:none}
+  html[data-theme=dark] .figure{background:#fff}
+  .toolbar{position:fixed;right:22px;bottom:22px;display:flex;gap:8px;z-index:9}
+  .toolbar button{border:1px solid var(--line);background:var(--card);color:var(--sub);border-radius:10px;
+      padding:9px 12px;font-size:12px;cursor:pointer;box-shadow:var(--shadow)}
+  .toolbar button:hover{color:var(--accent);border-color:var(--accent)}
+  footer{padding:24px 40px 46px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+  @media(max-width:900px){.layout{grid-template-columns:1fr;padding:18px}nav{position:static;max-height:none;display:none}
+    header.top{padding:30px 18px 18px}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>吴恩达机器学习 · 思维导图</h1>
+  <div class="sub">Machine Learning Specialization ｜ B 站中英字幕版 146 集 ｜ 12 章导图 + 配图</div>
+  <div class="stats">
+    <div class="stat"><b>3</b><span>门课程</span></div>
+    <div class="stat"><b>12</b><span>章导图</span></div>
+    <div class="stat"><b>146</b><span>集视频</span></div>
+    <div class="stat"><b>23.1h</b><span>课程总时长</span></div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav id="toc"></nav>
+  <main id="main"></main>
+</div>
+
+<div class="toolbar">
+  <button id="zoom">🔍 适应宽度</button>
+  <button id="theme">🌗 切换主题</button>
+  <button id="top">↑ 回到顶部</button>
+</div>
+
+<footer>内容据 B 站 BV1owrpYKEtP 的 146 个分 P 整理，配图为原创矢量示意图，仅用于个人学习。</footer>
+
+<script>
+const CHAPTERS = [{"id": "01", "title": "机器学习入门", "parts": "P1–P5", "n": 5, "minutes": 43, "file": "01-intro.svg", "course": 1, "courseName": "课程一 · 监督学习：回归与分类"}, {"id": "02", "title": "单变量线性回归", "parts": "P6–P15", "n": 10, "minutes": 102, "file": "02-linear-regression.svg", "course": 1, "courseName": "课程一 · 监督学习：回归与分类"}, {"id": "03", "title": "多特征线性回归", "parts": "P16–P25", "n": 10, "minutes": 66, "file": "03-multiple-regression.svg", "course": 1, "courseName": "课程一 · 监督学习：回归与分类"}, {"id": "04", "title": "逻辑回归与分类", "parts": "P26–P31", "n": 6, "minutes": 55, "file": "04-logistic-regression.svg", "course": 1, "courseName": "课程一 · 监督学习：回归与分类"}, {"id": "05", "title": "过拟合与正则化", "parts": "P32–P36", "n": 5, "minutes": 44, "file": "05-regularization.svg", "course": 1, "courseName": "课程一 · 监督学习：回归与分类"}, {"id": "06", "title": "神经网络基础", "parts": "P38–P50", "n": 13, "minutes": 110, "file": "06-neural-basics.svg", "course": 2, "courseName": "课程二 · 高级学习算法"}, {"id": "07", "title": "神经网络训练细节", "parts": "P51–P69", "n": 19, "minutes": 170, "file": "07-neural-training.svg", "course": 2, "courseName": "课程二 · 高级学习算法"}, {"id": "08", "title": "机器学习项目与诊断", "parts": "P70–P86", "n": 17, "minutes": 175, "file": "08-ml-project.svg", "course": 2, "courseName": "课程二 · 高级学习算法"}, {"id": "09", "title": "决策树与集成学习", "parts": "P87–P99", "n": 13, "minutes": 97, "file": "09-decision-trees.svg", "course": 2, "courseName": "课程二 · 高级学习算法"}, {"id": "10", "title": "聚类与异常检测", "parts": "P101–P113", "n": 13, "minutes": 121, "file": "10-clustering.svg", "course": 3, "courseName": "课程三 · 无监督学习 · 推荐系统 · 强化学习"}, {"id": "11", "title": "推荐系统与 PCA", "parts": "P114–P128", "n": 15, "minutes": 151, "file": "11-recommender.svg", "course": 3, "courseName": "课程三 · 无监督学习 · 推荐系统 · 强化学习"}, {"id": "12", "title": "强化学习", "parts": "P129–P146", "n": 18, "minutes": 164, "file": "12-reinforcement.svg", "course": 3, "courseName": "课程三 · 无监督学习 · 推荐系统 · 强化学习"}];
+const toc = document.getElementById('toc');
+const main = document.getElementById('main');
+let lastCourse = null;
+CHAPTERS.forEach(ch => {
+  if (ch.course !== lastCourse) {
+    const g = document.createElement('div');
+    g.className = 'grp';
+    g.textContent = ch.courseName;
+    toc.appendChild(g);
+    lastCourse = ch.course;
+  }
+  const a = document.createElement('a');
+  a.href = '#' + ch.id;
+  a.dataset.id = ch.id;
+  a.innerHTML = `<span class="no">${ch.id}</span><span>${ch.title}</span>`;
+  toc.appendChild(a);
+
+  const s = document.createElement('section');
+  s.className = 'ch'; s.id = ch.id;
+  s.innerHTML = `<div class="chhead">
+      <span class="badge">${ch.id}</span>
+      <h2>${ch.title}</h2>
+      <span class="meta">${ch.parts} · ${ch.n} 集 · ${ch.minutes} min</span>
+      <a href="docs/${ch.file}" target="_blank">查看原图 ↗</a>
+    </div>
+    <figure class="figure"><img loading="lazy" src="docs/${ch.file}" alt="${ch.title} 思维导图"></figure>`;
+  main.appendChild(s);
+});
+
+const links = [...document.querySelectorAll('nav a')];
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.toggle('active', l.dataset.id === e.target.id));
+    }
+  });
+}, {rootMargin: '-20% 0px -70% 0px'});
+document.querySelectorAll('section.ch').forEach(s => io.observe(s));
+
+const themeBtn = document.getElementById('theme');
+themeBtn.onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', cur);
+  localStorage.setItem('ml-theme', cur);
+};
+if (localStorage.getItem('ml-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+document.getElementById('top').onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+
+const zoomBtn = document.getElementById('zoom');
+zoomBtn.onclick = () => {
+  const on = document.body.classList.toggle('zoom');
+  zoomBtn.textContent = on ? '🔍 原尺寸' : '🔍 适应宽度';
+  localStorage.setItem('ml-zoom', on ? '1' : '0');
+};
+if (localStorage.getItem('ml-zoom') === '1') { document.body.classList.add('zoom'); zoomBtn.textContent = '🔍 原尺寸'; }
+</script>
+</body>
+</html>

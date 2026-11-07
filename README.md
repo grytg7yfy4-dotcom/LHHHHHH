@@ -1,22 +1,24 @@
 ﻿# 廖恒 · 学习进度
 
-网安所 8 周通关计划的任务勾选、验收物跟踪、学习笔记，外加一个博客和一个知识地图。
+网安所 8 周通关计划的任务勾选、验收物跟踪、学习笔记，外加一个博客、一个知识地图和一套机器学习导图。
 纯静态站，没有框架、没有构建步骤，推上 GitHub Pages 就是一个网址。
 
 - 站点：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/>
 - 博客：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/blog/>
 - 知识地图：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/mindmap/>
 - Python 导图：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/mindmap/python.html>
+- 机器学习导图：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/ml/>
 - 案例库：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/mindmap/cases.html>
 - 计划：2026-10-26 → 2026-12-26
 
-## 五个页面
+## 六个页面
 
 | 页面 | 入口 | 管什么 | 数据在哪 |
 | --- | --- | --- | --- |
 | 主页 | `/` | 进度勾选、8 周计划、笔记速览 | `data/plan.js`、`data/notes.js`、`data/progress.js` |
 | 博客 | `/blog/` | 把笔记当文章读：按月份归档、分类筛选、全文搜索，每篇有独立链接 | 复用 `data/notes.js` |
 | 知识地图 | `/mindmap/` | 阶段 → 节点的依赖图，点节点看说明与验收标准 | `mindmap/data.js` |
+| 机器学习导图 | `/ml/` | 吴恩达机器学习 146 集，12 章可折叠导图 + 搜索 + 掌握进度 | `ml/index.html` 内嵌数据 |
 | Python 导图 | `/mindmap/python.html` | 黑马 Python 1-123 集，13 章 90 个知识点；点开看解析、语法和示例代码，可搜索、标记已掌握，并能直接打开对应案例 | `mindmap/python/data-*.js` |
 | 案例库 | `/mindmap/cases.html` | 1-123 集的综合案例：题目、思路、答案代码、运行结果（也能从导图的知识点直接打开） | `mindmap/cases-data.js` |
 
