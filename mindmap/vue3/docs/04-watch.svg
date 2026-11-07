@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1302" viewBox="0 0 1760 1302" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr04" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d97706" stop-opacity="0.11"/><stop offset="55%" stop-color="#d97706" stop-opacity="0.03"/><stop offset="100%" stop-color="#d97706" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1760.0" height="1302.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1760.0" height="154.0" rx="0" fill="url(#hdr04)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1760.0" height="5.0" rx="0" fill="#d97706" stroke="none"/>
+<rect x="32.0" y="24.0" width="64.0" height="64.0" rx="14" fill="#d97706" stroke="none"/>
+<text x="64.0" y="49.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#ffffff" opacity="0.75">P</text>
+<text x="64.0" y="75.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#ffffff">04</text>
+<text x="116.0" y="55.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#0f172a">计算、监听与模板 ref</text>
+<text x="116.0" y="77.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#64748b">Computed, Watch &amp; Template Refs</text>
+<text x="116.0" y="97.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" fill="#94a3b8">computed 算、watch 看、ref 拿 DOM</text>
+<rect x="1648.0" y="42.0" width="80.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1688.0" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">原创矢量配图</text>
+<rect x="1580.0" y="42.0" width="61.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1610.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">110 分钟</text>
+<rect x="1534.0" y="42.0" width="39.0" height="24.0" rx="12" fill="rgba(217,119,6,0.1)" stroke="none"/>
+<text x="1553.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#d97706">8 集</text>
+<rect x="1466.0" y="42.0" width="61.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1496.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">P16–P23</text>
+<line x1="32.0" y1="115.0" x2="1728.0" y2="115.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="32.0" y="568.6" width="190.0" height="190.0" rx="14" fill="#0f172a" stroke="none"/>
+<circle cx="50.0" cy="586.6" r="26.0" fill="rgba(217,119,6,0.22)" stroke="none"/>
+<text x="50.0" y="590.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="9.5" font-weight="700" fill="#ffffff">V3</text>
+<text x="127.0" y="590.6" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" letter-spacing="1.2" fill="#94a3b8">MODULE 04</text>
+<text x="127.0" y="667.6" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff">计算与监听</text>
+<line x1="54.0" y1="717.6" x2="200.0" y2="717.6" stroke="#334155" stroke-width="1"/>
+<text x="127.0" y="736.6" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#cbd5e1">P16–P23 · 8 集</text>
+<path d="M222.0,663.6 C250.0,663.6 224.0,201.9 252.0,201.9" fill="none" stroke="#d97706" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="180.9" width="164.0" height="42.0" rx="10" fill="#d97706" stroke="none"/>
+<text x="334.0" y="206.9" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P16 · 计算属性</text>
+<path d="M416.0,201.9 C438.0,201.9 418.0,201.9 440.0,201.9" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="146.0" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="156.0" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="169.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P16 · computed：缓存派生值</text>
+<circle cx="460.0" cy="191.0" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="195.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· computed(() =&gt; 表达式) 返回 ComputedRef，模板自动解包</text>
+<circle cx="460.0" cy="209.3" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="213.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 依赖不变时读缓存，不重复计算；method 每次渲染都调用</text>
+<circle cx="460.0" cy="227.6" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="231.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 可写计算：computed({ get, set })，set 里反推依赖</text>
+<circle cx="440.0" cy="201.9" r="2.4" fill="#d97706" stroke="none"/>
+<path d="M222.0,663.6 C250.0,663.6 224.0,587.6 252.0,587.6" fill="none" stroke="#d97706" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="566.6" width="164.0" height="42.0" rx="10" fill="#d97706" stroke="none"/>
+<text x="334.0" y="592.6" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P17–P21 · watch 五种情况</text>
+<path d="M416.0,587.6 C438.0,587.6 418.0,343.8 440.0,343.8" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="287.9" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="297.9" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="310.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P17 · 情况一：ref 基本类型</text>
+<circle cx="460.0" cy="332.9" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="336.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· watch(sum, (newVal, oldVal) =&gt; {}) 监视 ref 基本类型</text>
+<circle cx="460.0" cy="351.2" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="355.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 默认懒执行，首次不跑；immediate: true 立即跑一次</text>
+<circle cx="460.0" cy="369.5" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="373.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 返回 stop 函数，可手动停止；组件卸载会自动停止</text>
+<circle cx="440.0" cy="343.8" r="2.4" fill="#d97706" stroke="none"/>
+<path d="M416.0,587.6 C438.0,587.6 418.0,465.7 440.0,465.7" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="409.8" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="419.8" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="432.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P18 · 情况二：ref 对象类型</text>
+<circle cx="460.0" cy="454.8" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="458.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 直接 watch(obj, cb) 只看 .value 地址是否变化（整体替换）</text>
+<circle cx="460.0" cy="473.1" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="477.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 要看内部属性：{ deep: true } 或 watch(() =&gt; obj.value.x, cb)</text>
+<circle cx="460.0" cy="491.4" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="495.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 改内部属性时 newVal/oldVal 是同一个对象；整体替换才是新旧对象</text>
+<circle cx="440.0" cy="465.7" r="2.4" fill="#d97706" stroke="none"/>
+<path d="M416.0,587.6 C438.0,587.6 418.0,587.6 440.0,587.6" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="531.7" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="541.7" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="554.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P19 · 情况三：reactive 对象</text>
+<circle cx="460.0" cy="576.7" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="580.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· watch(state, cb) 默认深度监听，嵌套变化也能触发</text>
+<circle cx="460.0" cy="595.0" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="599.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· oldVal 与 newVal 指向同一个代理对象，不能靠 oldVal 做对比</text>
+<circle cx="460.0" cy="613.3" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="617.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 需要旧值快照时自己浅拷贝；或改成监视具体属性</text>
+<circle cx="440.0" cy="587.6" r="2.4" fill="#d97706" stroke="none"/>
+<path d="M416.0,587.6 C438.0,587.6 418.0,709.5 440.0,709.5" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="653.6" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="663.6" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="676.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P20 · 情况四：对象中的某个属性</text>
+<circle cx="460.0" cy="698.6" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="702.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 基本类型属性：watch(() =&gt; state.name, cb)，必须用 getter</text>
+<circle cx="460.0" cy="716.9" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="720.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 对象类型属性：watch(() =&gt; state.car, cb, { deep:true })</text>
+<circle cx="460.0" cy="735.2" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="739.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 直接写 watch(state.car, cb) 也能跑，但 getter 更明确、更可控</text>
+<circle cx="440.0" cy="709.5" r="2.4" fill="#d97706" stroke="none"/>
+<path d="M416.0,587.6 C438.0,587.6 418.0,831.4 440.0,831.4" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="775.5" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="785.5" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="798.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P21 · 情况五：多个数据</text>
+<circle cx="460.0" cy="820.5" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="824.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 数组写法：watch([() =&gt; a, () =&gt; b], ([newA,newB],[oldA,oldB]) =&gt; {})</text>
+<circle cx="460.0" cy="838.8" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="842.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 数组里可混 ref、reactive、getter；回调参数也是数组</text>
+<circle cx="460.0" cy="857.1" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="861.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 配置 { immediate, deep } 同样适用；适合联合校验/联动请求</text>
+<circle cx="440.0" cy="831.4" r="2.4" fill="#d97706" stroke="none"/>
+<path d="M222.0,663.6 C250.0,663.6 224.0,973.3 252.0,973.3" fill="none" stroke="#d97706" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="952.3" width="164.0" height="42.0" rx="10" fill="#d97706" stroke="none"/>
+<text x="334.0" y="978.3" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P22 · watchEffect</text>
+<path d="M416.0,973.3 C438.0,973.3 418.0,973.3 440.0,973.3" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="917.4" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="927.4" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="940.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P22 · 自动依赖</text>
+<circle cx="460.0" cy="962.4" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="966.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 立即执行一次，自动收集回调里用到的响应式依赖</text>
+<circle cx="460.0" cy="980.7" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="984.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 依赖变化就重跑；不用手写监视源，代码更短</text>
+<circle cx="460.0" cy="999.0" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="1003.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 返回 stop；异步场景用 onCleanup 清理上一次请求</text>
+<circle cx="440.0" cy="973.3" r="2.4" fill="#d97706" stroke="none"/>
+<path d="M222.0,663.6 C250.0,663.6 224.0,1115.2 252.0,1115.2" fill="none" stroke="#d97706" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="1094.2" width="164.0" height="42.0" rx="10" fill="#d97706" stroke="none"/>
+<text x="334.0" y="1120.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P23 · 模板 ref</text>
+<path d="M416.0,1115.2 C438.0,1115.2 418.0,1115.2 440.0,1115.2" fill="none" stroke="#d97706" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="1059.3" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="1069.3" width="3.0" height="91.9" rx="1.5" fill="#d97706" stroke="none"/>
+<text x="457.0" y="1082.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#d97706">P23 · 标签 / 组件的 ref</text>
+<circle cx="460.0" cy="1104.3" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="1108.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· const el = ref&lt;HTMLDivElement | null&gt;(null) + 模板 ref="el"</text>
+<circle cx="460.0" cy="1122.6" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="1126.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 普通标签拿到 DOM；组件标签拿到组件实例</text>
+<circle cx="460.0" cy="1140.9" r="1.7" fill="#d97706" stroke="none" opacity="0.8"/>
+<text x="469.0" y="1144.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 必须在 onMounted 后访问；子组件用 defineExpose 暴露内容</text>
+<circle cx="440.0" cy="1115.2" r="2.4" fill="#d97706" stroke="none"/>
+<rect x="1078.0" y="146.0" width="650.0" height="470.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="146.0" width="4.0" height="52.0" rx="2" fill="#d97706" stroke="none"/>
+<text x="1096.0" y="173.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">watch 五种情况：只看「数据源 + 深度」</text>
+<text x="1712.0" y="173.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">P17–P21 一张表</text>
+<line x1="1094.0" y1="190.0" x2="1712.0" y2="190.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1094.0" y="200.0" width="618.0" height="24.0" rx="5" fill="#f1f5f9" stroke="none"/>
+<text x="1102.0" y="216.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.4" font-weight="700" fill="#475569">情况</text>
+<text x="1146.0" y="216.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.4" font-weight="700" fill="#475569">监视源</text>
+<text x="1306.0" y="216.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.4" font-weight="700" fill="#475569">写法</text>
+<text x="1516.0" y="216.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.4" font-weight="700" fill="#475569">关键点</text>
+<rect x="1094.0" y="230.0" width="618.0" height="68.4" rx="4" fill="#fbfcfe" stroke="none"/>
+<circle cx="1112.0" cy="247.0" r="12.0" fill="rgba(5,150,105,0.12)" stroke="none"/>
+<text x="1112.0" y="250.5" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#059669">P17</text>
+<text x="1134.0" y="245.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">ref 基本类型</text>
+<text x="1134.0" y="260.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">情况 1</text>
+<text x="1294.0" y="248.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" fill="#059669">watch(sum, cb)</text>
+<text x="1512.0" y="244.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">默认懒执行；可 immediate / stop</text>
+<line x1="1094.0" y1="297.4" x2="1712.0" y2="297.4" stroke="#eef2f7" stroke-width="0.8"/>
+<circle cx="1112.0" cy="319.4" r="12.0" fill="rgba(37,99,235,0.12)" stroke="none"/>
+<text x="1112.0" y="322.9" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#2563eb">P18</text>
+<text x="1134.0" y="317.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">ref 对象</text>
+<text x="1134.0" y="332.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">情况 2</text>
+<text x="1294.0" y="320.4" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" fill="#2563eb">watch(obj, cb, { deep:true })</text>
+<text x="1512.0" y="316.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">默认只看 .value 地址；开 deep 看内部</text>
+<line x1="1094.0" y1="369.8" x2="1712.0" y2="369.8" stroke="#eef2f7" stroke-width="0.8"/>
+<rect x="1094.0" y="374.8" width="618.0" height="68.4" rx="4" fill="#fbfcfe" stroke="none"/>
+<circle cx="1112.0" cy="391.8" r="12.0" fill="rgba(124,58,237,0.12)" stroke="none"/>
+<text x="1112.0" y="395.3" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#7c3aed">P19</text>
+<text x="1134.0" y="389.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">reactive 对象</text>
+<text x="1134.0" y="404.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">情况 3</text>
+<text x="1294.0" y="392.8" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" fill="#7c3aed">watch(state, cb)</text>
+<text x="1512.0" y="388.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">默认深监听；oldVal === newVal</text>
+<line x1="1094.0" y1="442.2" x2="1712.0" y2="442.2" stroke="#eef2f7" stroke-width="0.8"/>
+<circle cx="1112.0" cy="464.2" r="12.0" fill="rgba(217,119,6,0.12)" stroke="none"/>
+<text x="1112.0" y="467.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#d97706">P20</text>
+<text x="1134.0" y="462.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">对象里的属性</text>
+<text x="1134.0" y="477.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">情况 4</text>
+<text x="1294.0" y="465.2" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" fill="#d97706">watch(() =&gt; state.x, cb)</text>
+<text x="1512.0" y="461.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">基本类型用 getter；对象再加 deep</text>
+<line x1="1094.0" y1="514.6" x2="1712.0" y2="514.6" stroke="#eef2f7" stroke-width="0.8"/>
+<rect x="1094.0" y="519.6" width="618.0" height="68.4" rx="4" fill="#fbfcfe" stroke="none"/>
+<circle cx="1112.0" cy="536.6" r="12.0" fill="rgba(225,29,72,0.12)" stroke="none"/>
+<text x="1112.0" y="540.1" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#e11d48">P21</text>
+<text x="1134.0" y="534.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">多个数据</text>
+<text x="1134.0" y="549.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">情况 5</text>
+<text x="1294.0" y="537.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" fill="#e11d48">watch([() =&gt; a, () =&gt; b], cb)</text>
+<text x="1512.0" y="533.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">回调参数也是数组；可混合来源</text>
+<line x1="1094.0" y1="587.0" x2="1712.0" y2="587.0" stroke="#eef2f7" stroke-width="0.8"/>
+<text x="1096.0" y="604.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#94a3b8">口诀：ref 看地址，reactive 默认深；属性用 getter，多个用数组</text>
+<rect x="1078.0" y="630.0" width="650.0" height="300.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="630.0" width="4.0" height="52.0" rx="2" fill="#d97706" stroke="none"/>
+<text x="1096.0" y="657.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">computed / watch / watchEffect 怎么选</text>
+<text x="1712.0" y="657.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">算值、看变化、自动依赖</text>
+<line x1="1094.0" y1="674.0" x2="1712.0" y2="674.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1096.0" y="686.0" width="198.0" height="204.0" rx="8" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1096.0" y="686.0" width="198.0" height="3.0" rx="2" fill="#059669" stroke="none"/>
+<text x="1108.0" y="711.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.6" font-weight="700" fill="#059669">computed</text>
+<text x="1108.0" y="727.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">派生一个新值</text>
+<circle cx="1110.0" cy="747.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="1118.0" y="750.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" font-weight="700" fill="#0f172a">有缓存</text>
+<circle cx="1110.0" cy="769.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="1118.0" y="772.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">依赖不变不重算</text>
+<circle cx="1110.0" cy="791.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="1118.0" y="794.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">模板直接读</text>
+<circle cx="1110.0" cy="813.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="1118.0" y="816.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">可写 get/set</text>
+<circle cx="1110.0" cy="835.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="1118.0" y="838.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">适合：全名、总价</text>
+<rect x="1304.0" y="686.0" width="198.0" height="204.0" rx="8" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1304.0" y="686.0" width="198.0" height="3.0" rx="2" fill="#2563eb" stroke="none"/>
+<text x="1316.0" y="711.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.6" font-weight="700" fill="#2563eb">watch</text>
+<text x="1316.0" y="727.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">观察变化做副作用</text>
+<circle cx="1318.0" cy="747.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="1326.0" y="750.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" font-weight="700" fill="#0f172a">默认懒执行</text>
+<circle cx="1318.0" cy="769.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="1326.0" y="772.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">要写监视源</text>
+<circle cx="1318.0" cy="791.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="1326.0" y="794.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">能拿新旧值</text>
+<circle cx="1318.0" cy="813.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="1326.0" y="816.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">可 deep/immediate</text>
+<circle cx="1318.0" cy="835.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="1326.0" y="838.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">适合：请求、校验</text>
+<rect x="1512.0" y="686.0" width="198.0" height="204.0" rx="8" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1512.0" y="686.0" width="198.0" height="3.0" rx="2" fill="#d97706" stroke="none"/>
+<text x="1524.0" y="711.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.6" font-weight="700" fill="#d97706">watchEffect</text>
+<text x="1524.0" y="727.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">自动收集依赖</text>
+<circle cx="1526.0" cy="747.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1534.0" y="750.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" font-weight="700" fill="#0f172a">立即执行</text>
+<circle cx="1526.0" cy="769.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1534.0" y="772.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">不写监视源</text>
+<circle cx="1526.0" cy="791.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1534.0" y="794.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">依赖变就重跑</text>
+<circle cx="1526.0" cy="813.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1534.0" y="816.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">异步要清理</text>
+<circle cx="1526.0" cy="835.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1534.0" y="838.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#475569">适合：简单联动</text>
+<text x="1096.0" y="914.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.4" fill="#475569">算值 → computed；要旧值/懒执行 → watch；依赖简单 → watchEffect</text>
+<rect x="1078.0" y="944.0" width="650.0" height="300.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="944.0" width="4.0" height="52.0" rx="2" fill="#d97706" stroke="none"/>
+<text x="1096.0" y="971.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">模板 ref：从模板拿到 DOM / 组件实例</text>
+<text x="1712.0" y="971.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">挂载完成之后才有效</text>
+<line x1="1094.0" y1="988.0" x2="1712.0" y2="988.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1096.0" y="1000.0" width="210.0" height="206.0" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+<text x="1108.0" y="1020.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#94a3b8">模板</text>
+<text x="1108.0" y="1043.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.6" fill="#e2e8f0">&lt;h1 ref="el"&gt;标题&lt;/h1&gt;</text>
+<text x="1108.0" y="1062.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">&lt;Child ref="child" /&gt;</text>
+<text x="1108.0" y="1088.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.6" fill="#7dd3fc">// 同名 ref 变量</text>
+<text x="1108.0" y="1107.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">const el = ref(null)</text>
+<text x="1108.0" y="1126.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">const child = ref(null)</text>
+<text x="1108.0" y="1145.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">onMounted(() =&gt; {</text>
+<text x="1108.0" y="1161.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">  console.log(el.value)</text>
+<text x="1108.0" y="1177.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">})</text>
+<text x="1108.0" y="1194.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.4" fill="#7dd3fc">ref 名必须与模板一致</text>
+<rect x="1326.0" y="1016.0" width="150.0" height="82.0" rx="8" fill="rgba(217,119,6,0.06)" stroke="rgba(217,119,6,0.35)" stroke-width="1"/>
+<text x="1401.0" y="1040.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" font-weight="700" fill="#d97706">ref 对象</text>
+<text x="1401.0" y="1058.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">初始 null</text>
+<text x="1401.0" y="1076.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">挂载后写入</text>
+<text x="1401.0" y="1092.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.0" font-weight="700" fill="#059669">onMounted</text>
+<line x1="1308.0" y1="1057.0" x2="1324.0" y2="1057.0" stroke="#d97706" stroke-width="1.4"/>
+<polygon points="1324.0,1057.0 1317.6,1059.9 1317.6,1054.1" fill="#d97706" stroke="none"/>
+<rect x="1498.0" y="1000.0" width="212.0" height="74.0" rx="8" fill="#f8fafc" stroke="#e3e9f2" stroke-width="1"/>
+<text x="1510.0" y="1020.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.0" font-weight="700" fill="#0f172a">普通标签 → DOM</text>
+<text x="1510.0" y="1038.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#2563eb">el.value.innerText</text>
+<text x="1510.0" y="1055.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#475569">可 focus / 测量 / 播放</text>
+<rect x="1498.0" y="1086.0" width="212.0" height="82.0" rx="8" fill="#f8fafc" stroke="#e3e9f2" stroke-width="1"/>
+<text x="1510.0" y="1106.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.0" font-weight="700" fill="#0f172a">组件标签 → 实例</text>
+<text x="1510.0" y="1124.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#7c3aed">child.value.xxx</text>
+<text x="1510.0" y="1141.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#475569">子组件需 defineExpose</text>
+<text x="1510.0" y="1157.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">否则只能拿到空代理</text>
+<line x1="1478.0" y1="1045.0" x2="1496.0" y2="1037.0" stroke="#d97706" stroke-width="1.3"/>
+<polygon points="1496.0,1037.0 1491.3,1042.2 1489.0,1037.0" fill="#d97706" stroke="none"/>
+<line x1="1478.0" y1="1078.0" x2="1496.0" y2="1120.0" stroke="#d97706" stroke-width="1.3" stroke-dasharray="3 3"/>
+<polygon points="1496.0,1120.0 1490.9,1115.2 1496.1,1113.0" fill="#d97706" stroke="none"/>
+<text x="1096.0" y="1226.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.4" fill="#94a3b8">在 onMounted 之前读，永远是 null；不要用它做初始化数据</text>
+<line x1="32.0" y1="1268.0" x2="1728.0" y2="1268.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="32.0" y="1286.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">尚硅谷 Vue3 入门到实战 · BV1Za4y1r7KE · P16–P23</text>
+<text x="1728.0" y="1286.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">04 / 06 · 原创矢量配图</text>
+</svg>

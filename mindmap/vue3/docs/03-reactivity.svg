@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="993" viewBox="0 0 1760 993" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr03" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7c3aed" stop-opacity="0.11"/><stop offset="55%" stop-color="#7c3aed" stop-opacity="0.03"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1760.0" height="993.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1760.0" height="154.0" rx="0" fill="url(#hdr03)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1760.0" height="5.0" rx="0" fill="#7c3aed" stroke="none"/>
+<rect x="32.0" y="24.0" width="64.0" height="64.0" rx="14" fill="#7c3aed" stroke="none"/>
+<text x="64.0" y="49.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#ffffff" opacity="0.75">P</text>
+<text x="64.0" y="75.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#ffffff">03</text>
+<text x="116.0" y="55.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#0f172a">响应式系统</text>
+<text x="116.0" y="77.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#64748b">Reactivity</text>
+<text x="116.0" y="97.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" fill="#94a3b8">ref、reactive、toRefs：把数据和视图接上线</text>
+<rect x="1648.0" y="42.0" width="80.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1688.0" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">原创矢量配图</text>
+<rect x="1586.0" y="42.0" width="55.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1613.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">63 分钟</text>
+<rect x="1540.0" y="42.0" width="39.0" height="24.0" rx="12" fill="rgba(124,58,237,0.1)" stroke="none"/>
+<text x="1559.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#7c3aed">5 集</text>
+<rect x="1472.0" y="42.0" width="61.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1502.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">P11–P15</text>
+<line x1="32.0" y1="115.0" x2="1728.0" y2="115.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="32.0" y="445.8" width="190.0" height="190.0" rx="14" fill="#0f172a" stroke="none"/>
+<circle cx="50.0" cy="463.8" r="26.0" fill="rgba(124,58,237,0.22)" stroke="none"/>
+<text x="50.0" y="467.8" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="9.5" font-weight="700" fill="#ffffff">V3</text>
+<text x="127.0" y="467.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" letter-spacing="1.2" fill="#94a3b8">MODULE 03</text>
+<text x="127.0" y="544.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff">响应式系统</text>
+<line x1="54.0" y1="594.8" x2="200.0" y2="594.8" stroke="#334155" stroke-width="1"/>
+<text x="127.0" y="613.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#cbd5e1">P11–P15 · 5 集</text>
+<path d="M222.0,540.8 C250.0,540.8 224.0,323.8 252.0,323.8" fill="none" stroke="#7c3aed" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="302.8" width="164.0" height="42.0" rx="10" fill="#7c3aed" stroke="none"/>
+<text x="334.0" y="328.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P11–P13 · 三种创建方式</text>
+<path d="M416.0,323.8 C438.0,323.8 418.0,201.9 440.0,201.9" fill="none" stroke="#7c3aed" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="146.0" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="156.0" width="3.0" height="91.9" rx="1.5" fill="#7c3aed" stroke="none"/>
+<text x="457.0" y="169.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#7c3aed">P11 · ref：基本类型</text>
+<circle cx="460.0" cy="191.0" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="195.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· const count = ref(0) 返回 RefImpl，count.value 才是响应式</text>
+<circle cx="460.0" cy="209.3" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="213.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· JS 中读写要 .value；模板中自动解包，直接写 count</text>
+<circle cx="460.0" cy="227.6" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="231.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 替换 count.value 或修改它都会触发依赖更新</text>
+<circle cx="440.0" cy="201.9" r="2.4" fill="#7c3aed" stroke="none"/>
+<path d="M416.0,323.8 C438.0,323.8 418.0,323.8 440.0,323.8" fill="none" stroke="#7c3aed" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="267.9" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="277.9" width="3.0" height="91.9" rx="1.5" fill="#7c3aed" stroke="none"/>
+<text x="457.0" y="290.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#7c3aed">P12 · reactive：对象类型</text>
+<circle cx="460.0" cy="312.9" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="316.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· reactive({...}) 返回 Proxy，直接 state.name，不用 .value</text>
+<circle cx="460.0" cy="331.2" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="335.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 默认深响应：嵌套对象、数组、Map/Set 都能追踪</text>
+<circle cx="460.0" cy="349.5" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="353.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 只能传对象；传基本类型会警告并返回原值</text>
+<circle cx="440.0" cy="323.8" r="2.4" fill="#7c3aed" stroke="none"/>
+<path d="M416.0,323.8 C438.0,323.8 418.0,445.7 440.0,445.7" fill="none" stroke="#7c3aed" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="389.8" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="399.8" width="3.0" height="91.9" rx="1.5" fill="#7c3aed" stroke="none"/>
+<text x="457.0" y="412.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#7c3aed">P13 · ref：对象类型</text>
+<circle cx="460.0" cy="434.8" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="438.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· ref({...}) 内部用 toReactive 包成 Proxy，.value 是代理对象</text>
+<circle cx="460.0" cy="453.1" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="457.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· obj.value.name = ... 可触发更新；整体替换 .value 也可以</text>
+<circle cx="460.0" cy="471.4" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="475.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 模板自动解包，写 obj.name 而不是 obj.value.name</text>
+<circle cx="440.0" cy="445.7" r="2.4" fill="#7c3aed" stroke="none"/>
+<path d="M222.0,540.8 C250.0,540.8 224.0,596.8 252.0,596.8" fill="none" stroke="#7c3aed" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="575.8" width="164.0" height="42.0" rx="10" fill="#7c3aed" stroke="none"/>
+<text x="334.0" y="601.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P14 · 怎么选</text>
+<path d="M416.0,596.8 C438.0,596.8 418.0,596.8 440.0,596.8" fill="none" stroke="#7c3aed" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="531.7" width="580.0" height="130.2" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="541.7" width="3.0" height="110.2" rx="1.5" fill="#7c3aed" stroke="none"/>
+<text x="457.0" y="554.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#7c3aed">P14 · ref vs reactive 的五个差异</text>
+<circle cx="460.0" cy="576.7" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="580.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· ref 支持基本类型 + 对象；reactive 只支持对象类型</text>
+<circle cx="460.0" cy="595.0" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="599.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· ref 要 .value；reactive 解构会丢响应式，整体赋值也会断</text>
+<circle cx="460.0" cy="613.3" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="617.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 对象层级深用 reactive；想统一风格 / 整体替换用 ref</text>
+<circle cx="460.0" cy="631.6" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="635.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 替换 reactive 对象用 Object.assign(state, newObj)</text>
+<circle cx="440.0" cy="596.8" r="2.4" fill="#7c3aed" stroke="none"/>
+<path d="M222.0,540.8 C250.0,540.8 224.0,808.8 252.0,808.8" fill="none" stroke="#7c3aed" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="787.8" width="164.0" height="42.0" rx="10" fill="#7c3aed" stroke="none"/>
+<text x="334.0" y="813.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P15 · 保持连接</text>
+<path d="M416.0,808.8 C438.0,808.8 418.0,747.8 440.0,747.8" fill="none" stroke="#7c3aed" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="691.9" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="701.9" width="3.0" height="91.9" rx="1.5" fill="#7c3aed" stroke="none"/>
+<text x="457.0" y="714.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#7c3aed">P15 · toRefs：批量转</text>
+<circle cx="460.0" cy="736.9" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="740.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· toRefs(state) 批量转 ref，解构后仍与源对象保持连接</text>
+<circle cx="460.0" cy="755.2" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="759.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 适合组合式函数返回多个字段，调用方可以解构</text>
+<circle cx="460.0" cy="773.5" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="777.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 模板自动解包；JS 中仍要 .value</text>
+<circle cx="440.0" cy="747.8" r="2.4" fill="#7c3aed" stroke="none"/>
+<path d="M416.0,808.8 C438.0,808.8 418.0,869.7 440.0,869.7" fill="none" stroke="#7c3aed" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="813.8" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="823.8" width="3.0" height="91.9" rx="1.5" fill="#7c3aed" stroke="none"/>
+<text x="457.0" y="836.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#7c3aed">P15 · toRef：单个转</text>
+<circle cx="460.0" cy="858.8" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="862.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· toRef(state,'age') 只取一个属性，适合只用一个字段</text>
+<circle cx="460.0" cy="877.1" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="881.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 源属性不存在时也能创建，但默认值要自己处理</text>
+<circle cx="460.0" cy="895.4" r="1.7" fill="#7c3aed" stroke="none" opacity="0.8"/>
+<text x="469.0" y="899.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 常用于把 props 的某个字段转成可响应的 ref</text>
+<circle cx="440.0" cy="869.7" r="2.4" fill="#7c3aed" stroke="none"/>
+<rect x="1078.0" y="146.0" width="650.0" height="400.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="146.0" width="4.0" height="52.0" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="1096.0" y="173.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">ref 的里子：getter 与 setter</text>
+<text x="1712.0" y="173.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">ReactiveEffect 负责重新渲染</text>
+<line x1="1094.0" y1="190.0" x2="1712.0" y2="190.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1096.0" y="252.0" width="110.0" height="44.0" rx="8" fill="#f8fafc" stroke="#e3e9f2" stroke-width="1"/>
+<text x="1151.0" y="272.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="10" font-weight="700" fill="#0f172a">ref(0)</text>
+<text x="1151.0" y="288.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#94a3b8">基本类型</text>
+<rect x="1238.0" y="219.0" width="210.0" height="110.0" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+<rect x="1238.0" y="219.0" width="210.0" height="27.0" rx="10" fill="#7c3aed" stroke="none"/>
+<rect x="1238.0" y="238.0" width="210.0" height="8.0" rx="0" fill="#7c3aed" stroke="none"/>
+<text x="1250.0" y="237.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="10.2" font-weight="700" fill="#ffffff">RefImpl</text>
+<text x="1436.0" y="237.0" text-anchor="end" font-family="Consolas, 'Courier New', monospace" font-size="8.3" fill="#d1fae5">_value = 0</text>
+<text x="1250.0" y="262.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.9" font-weight="700" fill="#7c3aed">get value()</text>
+<text x="1250.0" y="277.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">track() 收集依赖</text>
+<line x1="1250.0" y1="285.0" x2="1436.0" y2="285.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1250.0" y="302.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.9" font-weight="700" fill="#dc2626">set value(v)</text>
+<text x="1250.0" y="317.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">trigger() 通知更新</text>
+<rect x="1570.0" y="232.0" width="140.0" height="84.0" rx="9" fill="#f8fafc" stroke="#e3e9f2" stroke-width="1"/>
+<text x="1640.0" y="256.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" font-weight="700" fill="#0f172a">渲染 effect</text>
+<text x="1640.0" y="273.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#475569">读取 count.value</text>
+<text x="1640.0" y="290.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#7c3aed">→ 重新执行</text>
+<line x1="1208.0" y1="274.0" x2="1236.0" y2="274.0" stroke="#7c3aed" stroke-width="1.7"/>
+<polygon points="1236.0,274.0 1229.6,276.9 1229.6,271.1" fill="#7c3aed" stroke="none"/>
+<line x1="1450.0" y1="248.0" x2="1568.0" y2="248.0" stroke="#7c3aed" stroke-width="1.7" stroke-dasharray="3 3"/>
+<polygon points="1568.0,248.0 1561.6,250.9 1561.6,245.1" fill="#7c3aed" stroke="none"/>
+<line x1="1568.0" y1="300.0" x2="1450.0" y2="300.0" stroke="#dc2626" stroke-width="1.7" stroke-dasharray="3 3"/>
+<polygon points="1450.0,300.0 1456.4,297.1 1456.4,302.9" fill="#dc2626" stroke="none"/>
+<line x1="1096.0" y1="352.0" x2="1710.0" y2="352.0" stroke="#eef2f7" stroke-width="1"/>
+<text x="1096.0" y="368.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" font-weight="700" fill="#0f172a">ref(对象) 时：多一层 Proxy</text>
+<rect x="1096.0" y="380.0" width="110.0" height="42.0" rx="7" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.9"/>
+<text x="1151.0" y="406.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.2" font-weight="700" fill="#0f172a">ref({ name })</text>
+<line x1="1208.0" y1="401.0" x2="1221.0" y2="401.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<polygon points="1221.0,401.0 1217.3,402.6 1217.3,399.4" fill="#cbd5e1" stroke="none"/>
+<rect x="1224.0" y="380.0" width="128.0" height="42.0" rx="7" fill="rgba(124,58,237,0.06)" stroke="rgba(124,58,237,0.3)" stroke-width="0.9"/>
+<text x="1288.0" y="406.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.2" font-weight="700" fill="#7c3aed">RefImpl.value</text>
+<line x1="1354.0" y1="401.0" x2="1367.0" y2="401.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<polygon points="1367.0,401.0 1363.3,402.6 1363.3,399.4" fill="#cbd5e1" stroke="none"/>
+<rect x="1370.0" y="380.0" width="170.0" height="42.0" rx="7" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.9"/>
+<text x="1455.0" y="406.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.2" font-weight="700" fill="#2563eb">toReactive → Proxy</text>
+<line x1="1542.0" y1="401.0" x2="1555.0" y2="401.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<polygon points="1555.0,401.0 1551.3,402.6 1551.3,399.4" fill="#cbd5e1" stroke="none"/>
+<rect x="1558.0" y="380.0" width="152.0" height="42.0" rx="7" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="0.9"/>
+<text x="1634.0" y="406.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" font-weight="700" fill="#059669">嵌套属性可追踪</text>
+<rect x="1096.0" y="458.0" width="614.0" height="68.0" rx="8" fill="rgba(124,58,237,0.04)" stroke="rgba(124,58,237,0.16)" stroke-width="0.9"/>
+<text x="1108.0" y="476.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#7c3aed">为什么模板不用 .value？</text>
+<text x="1108.0" y="494.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" fill="#0f172a">模板编译：{{ count }}  →  count.value</text>
+<text x="1108.0" y="511.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">脚本手写：count.value++；模板自动解包，二者并不矛盾</text>
+<rect x="1078.0" y="560.0" width="650.0" height="300.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="560.0" width="4.0" height="52.0" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="1096.0" y="587.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">选型决策：先问四个问题</text>
+<text x="1712.0" y="587.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">不是背 API，而是看数据形态</text>
+<line x1="1094.0" y1="604.0" x2="1712.0" y2="604.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1096.0" y="618.0" width="614.0" height="41.0" rx="7" fill="#ffffff" stroke="#e3e9f2" stroke-width="0.8"/>
+<text x="1108.0" y="636.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">是基本类型吗？</text>
+<text x="1108.0" y="651.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.7" fill="#94a3b8">count / name / flag</text>
+<text x="1568.0" y="642.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#059669">是</text>
+<rect x="1583.0" y="627.0" width="120.0" height="23.0" rx="6" fill="rgba(5,150,105,0.08)" stroke="rgba(5,150,105,0.25)" stroke-width="0.8"/>
+<text x="1643.0" y="644.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.8" font-weight="700" fill="#059669">ref</text>
+<rect x="1096.0" y="666.0" width="614.0" height="41.0" rx="7" fill="#fbfcfe" stroke="#e3e9f2" stroke-width="0.8"/>
+<text x="1108.0" y="684.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">对象要整体替换，或想统一风格？</text>
+<text x="1108.0" y="699.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.7" fill="#94a3b8">obj.value = {...}</text>
+<text x="1568.0" y="690.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#2563eb">是</text>
+<rect x="1583.0" y="675.0" width="120.0" height="23.0" rx="6" fill="rgba(37,99,235,0.08)" stroke="rgba(37,99,235,0.25)" stroke-width="0.8"/>
+<text x="1643.0" y="692.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.8" font-weight="700" fill="#2563eb">ref</text>
+<rect x="1096.0" y="714.0" width="614.0" height="41.0" rx="7" fill="#ffffff" stroke="#e3e9f2" stroke-width="0.8"/>
+<text x="1108.0" y="732.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">对象层级深、字段多？</text>
+<text x="1108.0" y="747.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.7" fill="#94a3b8">表单 / 嵌套配置</text>
+<text x="1568.0" y="738.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#7c3aed">是</text>
+<rect x="1583.0" y="723.0" width="120.0" height="23.0" rx="6" fill="rgba(124,58,237,0.08)" stroke="rgba(124,58,237,0.25)" stroke-width="0.8"/>
+<text x="1643.0" y="740.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.8" font-weight="700" fill="#7c3aed">reactive</text>
+<rect x="1096.0" y="762.0" width="614.0" height="41.0" rx="7" fill="#fbfcfe" stroke="#e3e9f2" stroke-width="0.8"/>
+<text x="1108.0" y="780.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">想解构后仍保持响应？</text>
+<text x="1108.0" y="795.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.7" fill="#94a3b8">const { name } = toRefs(state)</text>
+<text x="1568.0" y="786.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#d97706">是</text>
+<rect x="1583.0" y="771.0" width="120.0" height="23.0" rx="6" fill="rgba(217,119,6,0.08)" stroke="rgba(217,119,6,0.25)" stroke-width="0.8"/>
+<text x="1643.0" y="788.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="8.8" font-weight="700" fill="#d97706">toRefs / toRef</text>
+<text x="1096.0" y="844.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" fill="#475569">解构丢响应式 → toRefs；reactive 整体替换 → Object.assign</text>
+<line x1="32.0" y1="959.0" x2="1728.0" y2="959.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="32.0" y="977.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">尚硅谷 Vue3 入门到实战 · BV1Za4y1r7KE · P11–P15</text>
+<text x="1728.0" y="977.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">03 / 06 · 原创矢量配图</text>
+</svg>

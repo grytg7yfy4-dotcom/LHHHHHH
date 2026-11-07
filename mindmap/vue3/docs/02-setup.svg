@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="998" viewBox="0 0 1760 998" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr02" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2563eb" stop-opacity="0.11"/><stop offset="55%" stop-color="#2563eb" stop-opacity="0.03"/><stop offset="100%" stop-color="#2563eb" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1760.0" height="998.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1760.0" height="154.0" rx="0" fill="url(#hdr02)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1760.0" height="5.0" rx="0" fill="#2563eb" stroke="none"/>
+<rect x="32.0" y="24.0" width="64.0" height="64.0" rx="14" fill="#2563eb" stroke="none"/>
+<text x="64.0" y="49.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#ffffff" opacity="0.75">P</text>
+<text x="64.0" y="75.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#ffffff">02</text>
+<text x="116.0" y="55.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#0f172a">setup 与组合式 API</text>
+<text x="116.0" y="77.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#64748b">setup &amp; Composition API</text>
+<text x="116.0" y="97.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" fill="#94a3b8">组合式 API 的舞台：执行时机、返回值、语法糖</text>
+<rect x="1648.0" y="42.0" width="80.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1688.0" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">原创矢量配图</text>
+<rect x="1586.0" y="42.0" width="55.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1613.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">33 分钟</text>
+<rect x="1540.0" y="42.0" width="39.0" height="24.0" rx="12" fill="rgba(37,99,235,0.1)" stroke="none"/>
+<text x="1559.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#2563eb">4 集</text>
+<rect x="1478.0" y="42.0" width="55.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1505.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">P7–P10</text>
+<line x1="32.0" y1="115.0" x2="1728.0" y2="115.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="32.0" y="375.7" width="190.0" height="190.0" rx="14" fill="#0f172a" stroke="none"/>
+<circle cx="50.0" cy="393.7" r="26.0" fill="rgba(37,99,235,0.22)" stroke="none"/>
+<text x="50.0" y="397.7" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="9.5" font-weight="700" fill="#ffffff">V3</text>
+<text x="127.0" y="397.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" letter-spacing="1.2" fill="#94a3b8">MODULE 02</text>
+<text x="127.0" y="474.2" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#ffffff">setup 与组合式 API</text>
+<line x1="54.0" y1="524.8" x2="200.0" y2="524.8" stroke="#334155" stroke-width="1"/>
+<text x="127.0" y="543.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#cbd5e1">P7–P10 · 4 集</text>
+<path d="M222.0,470.7 C250.0,470.7 224.0,262.9 252.0,262.9" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="241.9" width="164.0" height="42.0" rx="10" fill="#2563eb" stroke="none"/>
+<text x="334.0" y="267.9" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P7–P8 · setup 基础</text>
+<path d="M416.0,262.9 C438.0,262.9 418.0,201.9 440.0,201.9" fill="none" stroke="#2563eb" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="146.0" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="156.0" width="3.0" height="91.9" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="457.0" y="169.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">P7 · setup 概述</text>
+<circle cx="460.0" cy="191.0" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="195.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 在 beforeCreate 之前执行；this 是 undefined</text>
+<circle cx="460.0" cy="209.3" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="213.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 数据、方法、计算、监听都写在 setup 里</text>
+<circle cx="460.0" cy="227.6" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="231.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 返回对象供模板使用；返回函数则自定义渲染</text>
+<circle cx="440.0" cy="201.9" r="2.4" fill="#2563eb" stroke="none"/>
+<path d="M416.0,262.9 C438.0,262.9 418.0,323.8 440.0,323.8" fill="none" stroke="#2563eb" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="267.9" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="277.9" width="3.0" height="91.9" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="457.0" y="290.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">P8 · setup 的返回值</text>
+<circle cx="460.0" cy="312.9" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="316.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 返回对象：属性/方法可直接在模板使用</text>
+<circle cx="460.0" cy="331.2" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="335.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 返回函数：() =&gt; '你好' 自定义渲染内容（了解）</text>
+<circle cx="460.0" cy="349.5" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="353.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 普通变量不是响应式，必须用 ref/reactive 包裹</text>
+<circle cx="440.0" cy="323.8" r="2.4" fill="#2563eb" stroke="none"/>
+<path d="M222.0,470.7 C250.0,470.7 224.0,465.7 252.0,465.7" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="444.7" width="164.0" height="42.0" rx="10" fill="#2563eb" stroke="none"/>
+<text x="334.0" y="470.7" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P9 · 与 Options API 共存</text>
+<path d="M416.0,465.7 C438.0,465.7 418.0,465.7 440.0,465.7" fill="none" stroke="#2563eb" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="409.8" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="419.8" width="3.0" height="91.9" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="457.0" y="432.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">P9 · 能混用，但别混着写</text>
+<circle cx="460.0" cy="454.8" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="458.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· Options 的 data/methods 能访问 setup 暴露的内容</text>
+<circle cx="460.0" cy="473.1" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="477.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· setup 不能访问 data/methods（它执行更早）</text>
+<circle cx="460.0" cy="491.4" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="495.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 同名冲突时 setup 优先；新项目统一用组合式</text>
+<circle cx="440.0" cy="465.7" r="2.4" fill="#2563eb" stroke="none"/>
+<path d="M222.0,470.7 C250.0,470.7 224.0,668.6 252.0,668.6" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="647.6" width="164.0" height="42.0" rx="10" fill="#2563eb" stroke="none"/>
+<text x="334.0" y="673.6" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P10 · 语法糖</text>
+<path d="M416.0,668.6 C438.0,668.6 418.0,607.6 440.0,607.6" fill="none" stroke="#2563eb" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="551.7" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="561.7" width="3.0" height="91.9" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="457.0" y="574.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">P10 · &lt;script setup&gt;</text>
+<circle cx="460.0" cy="596.7" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="600.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 顶层绑定自动暴露，不用 return</text>
+<circle cx="460.0" cy="615.0" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="619.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 导入的组件自动注册；代码更短、类型推导更好</text>
+<circle cx="460.0" cy="633.3" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="637.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· defineProps / defineEmits / defineExpose 是编译器宏，不用 import</text>
+<circle cx="440.0" cy="607.6" r="2.4" fill="#2563eb" stroke="none"/>
+<path d="M416.0,668.6 C438.0,668.6 418.0,729.5 440.0,729.5" fill="none" stroke="#2563eb" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="673.6" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="683.6" width="3.0" height="91.9" rx="1.5" fill="#2563eb" stroke="none"/>
+<text x="457.0" y="696.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#2563eb">P10 · 编译前后对比</text>
+<circle cx="460.0" cy="718.6" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="722.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 普通 setup 需要把变量和函数逐个 return</text>
+<circle cx="460.0" cy="736.9" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="740.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 语法糖在编译阶段生成 setup 函数与 return</text>
+<circle cx="460.0" cy="755.2" r="1.7" fill="#2563eb" stroke="none" opacity="0.8"/>
+<text x="469.0" y="759.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 需要额外选项（name/inheritAttrs）时可再加普通 script</text>
+<circle cx="440.0" cy="729.5" r="2.4" fill="#2563eb" stroke="none"/>
+<rect x="1078.0" y="146.0" width="650.0" height="400.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="146.0" width="4.0" height="52.0" rx="2" fill="#2563eb" stroke="none"/>
+<text x="1096.0" y="173.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">setup 在生命周期里的位置</text>
+<text x="1712.0" y="173.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">它比 beforeCreate 还早</text>
+<line x1="1094.0" y1="190.0" x2="1712.0" y2="190.0" stroke="#eef2f7" stroke-width="1"/>
+<line x1="1148.0" y1="223.0" x2="1148.0" y2="253.0" stroke="#dbe3ee" stroke-width="1.6"/>
+<circle cx="1148.0" cy="221.0" r="4.2" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1166.0" y="221.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.4" fill="#0f172a">beforeCreate</text>
+<text x="1166.0" y="235.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.3" fill="#475569">实例刚初始化</text>
+<line x1="1148.0" y1="266.0" x2="1148.0" y2="296.0" stroke="#dbe3ee" stroke-width="1.6"/>
+<circle cx="1148.0" cy="264.0" r="6.5" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="1166.0" y="264.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="10.2" font-weight="700" fill="#2563eb">setup</text>
+<text x="1166.0" y="278.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.3" fill="#475569">组合式 API 的舞台</text>
+<line x1="1148.0" y1="309.0" x2="1148.0" y2="339.0" stroke="#dbe3ee" stroke-width="1.6"/>
+<circle cx="1148.0" cy="307.0" r="4.2" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1166.0" y="307.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.4" fill="#0f172a">created</text>
+<text x="1166.0" y="321.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.3" fill="#475569">实例已创建</text>
+<line x1="1148.0" y1="352.0" x2="1148.0" y2="382.0" stroke="#dbe3ee" stroke-width="1.6"/>
+<circle cx="1148.0" cy="350.0" r="4.2" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1166.0" y="350.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.4" fill="#0f172a">beforeMount</text>
+<text x="1166.0" y="364.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.3" fill="#475569">准备挂载</text>
+<circle cx="1148.0" cy="393.0" r="4.2" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1166.0" y="393.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.4" fill="#0f172a">mounted</text>
+<text x="1166.0" y="407.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.3" fill="#475569">DOM 可用</text>
+<rect x="1364.0" y="206.0" width="346.0" height="240.0" rx="9" fill="rgba(37,99,235,0.05)" stroke="rgba(37,99,235,0.2)" stroke-width="0.9"/>
+<text x="1380.0" y="230.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#2563eb">setup 的三条硬规则</text>
+<circle cx="1386.0" cy="256.0" r="6.0" fill="rgba(37,99,235,0.15)" stroke="none"/>
+<text x="1386.0" y="259.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#2563eb">1</text>
+<text x="1400.0" y="257.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" font-weight="700" fill="#0f172a">this 是 undefined</text>
+<text x="1400.0" y="272.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">不能访问 data / methods</text>
+<circle cx="1386.0" cy="310.0" r="6.0" fill="rgba(37,99,235,0.15)" stroke="none"/>
+<text x="1386.0" y="313.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#2563eb">2</text>
+<text x="1400.0" y="311.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" font-weight="700" fill="#0f172a">必须同步执行</text>
+<text x="1400.0" y="326.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">异步回调里注册的钩子会失效</text>
+<circle cx="1386.0" cy="364.0" r="6.0" fill="rgba(37,99,235,0.15)" stroke="none"/>
+<text x="1386.0" y="367.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" font-weight="700" fill="#2563eb">3</text>
+<text x="1400.0" y="365.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" font-weight="700" fill="#0f172a">返回才可见</text>
+<text x="1400.0" y="380.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">对象给模板；函数自定义渲染</text>
+<text x="1380.0" y="434.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#94a3b8">记忆：setup 不是钩子，是钩子之前的入口</text>
+<rect x="1096.0" y="472.0" width="614.0" height="56.0" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+<text x="1108.0" y="489.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#7dd3fc">setup 里只做同步注册</text>
+<text x="1108.0" y="506.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.1" fill="#e2e8f0">const count = ref(0)</text>
+<text x="1108.0" y="520.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.1" fill="#94a3b8">return { count }   // 模板才拿得到</text>
+<text x="1700.0" y="506.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.0" font-weight="700" fill="#34d399">同步</text>
+<rect x="1078.0" y="560.0" width="650.0" height="380.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="560.0" width="4.0" height="52.0" rx="2" fill="#2563eb" stroke="none"/>
+<text x="1096.0" y="587.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">script setup：少写 return，能力不变</text>
+<text x="1712.0" y="587.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">编译期语法糖</text>
+<line x1="1094.0" y1="604.0" x2="1712.0" y2="604.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1096.0" y="618.0" width="296.0" height="258.0" rx="9" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+<rect x="1096.0" y="618.0" width="296.0" height="25.0" rx="9" fill="#1e293b" stroke="none"/>
+<rect x="1096.0" y="636.0" width="296.0" height="7.0" rx="0" fill="#1e293b" stroke="none"/>
+<circle cx="1109.0" cy="630.5" r="2.7" fill="#f87171" stroke="none"/>
+<circle cx="1118.0" cy="630.5" r="2.7" fill="#fbbf24" stroke="none"/>
+<circle cx="1127.0" cy="630.5" r="2.7" fill="#34d399" stroke="none"/>
+<text x="1140.0" y="634.5" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.6" fill="#94a3b8">普通 setup</text>
+<text x="1109.0" y="660.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">&lt;script lang="ts"&gt;</text>
+<text x="1109.0" y="672.3" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">export default {</text>
+<text x="1109.0" y="684.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">  setup() {</text>
+<text x="1109.0" y="696.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">    const count = ref(0)</text>
+<text x="1109.0" y="709.2" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">    const add = () =&gt; count.value++</text>
+<text x="1109.0" y="721.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">    return { count, add }</text>
+<text x="1109.0" y="733.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">  }</text>
+<text x="1109.0" y="746.2" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">}</text>
+<text x="1109.0" y="758.5" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#e2e8f0">&lt;/script&gt;</text>
+<rect x="1414.0" y="618.0" width="296.0" height="258.0" rx="9" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+<rect x="1414.0" y="618.0" width="296.0" height="25.0" rx="9" fill="#1e293b" stroke="none"/>
+<rect x="1414.0" y="636.0" width="296.0" height="7.0" rx="0" fill="#1e293b" stroke="none"/>
+<circle cx="1427.0" cy="630.5" r="2.7" fill="#f87171" stroke="none"/>
+<circle cx="1436.0" cy="630.5" r="2.7" fill="#fbbf24" stroke="none"/>
+<circle cx="1445.0" cy="630.5" r="2.7" fill="#34d399" stroke="none"/>
+<text x="1458.0" y="634.5" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.6" fill="#94a3b8">script setup</text>
+<text x="1427.0" y="660.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#e2e8f0">&lt;script setup lang="ts"&gt;</text>
+<text x="1427.0" y="673.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#e2e8f0">import { ref, computed } from 'vue'</text>
+<text x="1427.0" y="685.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#e2e8f0">const count = ref(0)</text>
+<text x="1427.0" y="698.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#e2e8f0">const add = () =&gt; count.value++</text>
+<text x="1427.0" y="711.8" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#e2e8f0">const double = computed(() =&gt; count.value * 2)</text>
+<text x="1427.0" y="724.8" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#e2e8f0">defineExpose({ count })</text>
+<text x="1427.0" y="737.8" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.0" fill="#e2e8f0">&lt;/script&gt;</text>
+<polygon points="1403.0,747.0 1396.0,742.0 1396.0,752.0" fill="#2563eb" stroke="none"/>
+<text x="1403.0" y="902.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" font-weight="700" fill="#0f172a">编译后 ≈ 左边的 setup + return</text>
+<text x="1403.0" y="922.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.4" fill="#475569">顶层绑定自动暴露；组件自动注册；defineProps 等宏不用 import</text>
+<rect x="32.0" y="809.5" width="988.0" height="144.5" rx="10" fill="rgba(37,99,235,0.035)" stroke="rgba(37,99,235,0.14)" stroke-width="0.9"/>
+<text x="50.0" y="833.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#2563eb">本模块自测 · 能不看笔记回答吗？</text>
+<circle cx="54.0" cy="851.5" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="64.0" y="855.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">setup 在 beforeCreate 之前同步执行，此时组件实例还没建好，this 是 undefined。</text>
+<circle cx="54.0" cy="872.5" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="64.0" y="876.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">返回对象 → 属性/方法给模板用；返回函数 → 自定义渲染内容（了解即可）。</text>
+<circle cx="54.0" cy="893.5" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="64.0" y="897.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">Options API 能访问 setup 暴露的内容，setup 不能访问 data/methods；冲突时 setup 优先。</text>
+<circle cx="54.0" cy="914.5" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="64.0" y="918.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">&lt;script setup&gt; 是编译期语法糖：顶层绑定自动暴露、组件自动注册。</text>
+<line x1="32.0" y1="964.0" x2="1728.0" y2="964.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="32.0" y="982.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">尚硅谷 Vue3 入门到实战 · BV1Za4y1r7KE · P7–P10</text>
+<text x="1728.0" y="982.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">02 / 06 · 原创矢量配图</text>
+</svg>

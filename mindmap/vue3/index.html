@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vue3 入门到实战 · P1–P40 思维导图</title>
+<meta name="description" content="尚硅谷 Vue3 入门到实战 P1–P40 思维导图，6 大模块、40 集、15 张原创配图，支持按集打勾与搜索。">
+<style>
+  :root{
+    --bg:#f5f8fc; --card:#ffffff; --ink:#0f172a; --sub:#475569; --muted:#94a3b8;
+    --line:#e3e9f2; --brand:#059669; --brand2:#2563eb; --soft:#eef4ff;
+    --shadow:0 1px 2px rgba(15,23,42,.05),0 10px 30px rgba(15,23,42,.055);
+    --mono:"Consolas","SFMono-Regular","Menlo",monospace;
+  }
+  html[data-theme=dark]{
+    --bg:#0b1220; --card:#111a2b; --ink:#e8eefc; --sub:#b6c2d9; --muted:#7f8da5;
+    --line:#1e2a40; --soft:#13213a;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 32px rgba(0,0,0,.3);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",system-ui,sans-serif;line-height:1.6}
+  a{color:var(--brand2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(circle at 15% 10%,rgba(5,150,105,.20),transparent 34%),
+    radial-gradient(circle at 85% 20%,rgba(37,99,235,.16),transparent 32%),
+    linear-gradient(120deg,#eefbf5 0%,#f2f7ff 52%,#f7f3ff 100%)}
+  html[data-theme=dark] .hero{background:
+    radial-gradient(circle at 15% 10%,rgba(5,150,105,.20),transparent 34%),
+    radial-gradient(circle at 85% 20%,rgba(37,99,235,.18),transparent 32%),
+    linear-gradient(120deg,#0b1a1a 0%,#0b1220 55%,#130f2a 100%)}
+  .hero-inner{max-width:1560px;margin:0 auto;padding:44px 44px 30px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;color:var(--brand);font-weight:700;text-transform:uppercase}
+  h1{margin:8px 0 8px;font-size:38px;line-height:1.2;letter-spacing:-.02em}
+  h1 span{color:var(--brand);font-weight:800}
+  .hero p{margin:0;color:var(--sub);font-size:14px;max-width:900px}
+  .stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:22px}
+  .stat b{display:block;font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+  .stat span{font-size:11px;color:var(--muted)}
+  .progress-box{margin-top:20px;max-width:520px}
+  .progress-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--sub);margin-bottom:7px}
+  .progress-meta b{color:var(--brand);font-size:13px}
+  .bar{height:8px;background:rgba(100,116,139,.16);border-radius:99px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),#34d399);border-radius:99px;transition:width .25s ease}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:rgba(255,255,255,.65);
+    color:var(--sub);border-radius:9px;padding:8px 13px;font-size:12px;cursor:pointer;font-family:inherit}
+  html[data-theme=dark] .btn{background:rgba(17,26,43,.7)}
+  .btn:hover{color:var(--ink);border-color:var(--brand)}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .btn.primary:hover{filter:brightness(1.06);color:#fff}
+  .shell{max-width:1560px;margin:0 auto;display:grid;grid-template-columns:250px minmax(0,1fr);gap:26px;padding:26px 32px 70px;align-items:start}
+  aside.side{position:sticky;top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow);max-height:calc(100vh - 36px);overflow:auto}
+  .side-title{font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:700;margin:4px 8px 9px}
+  .nav-link{display:flex;align-items:center;gap:9px;padding:8px 9px;border-radius:8px;color:var(--sub);font-size:13px;line-height:1.35}
+  .nav-link:hover{background:var(--soft);text-decoration:none;color:var(--ink)}
+  .nav-link.active{background:rgba(5,150,105,.12);color:var(--brand);font-weight:700}
+  .nav-link .no{font-family:var(--mono);font-size:10px;color:var(--muted);min-width:22px}
+  .nav-link.active .no{color:var(--brand)}
+  .side-tip{margin:14px 8px 2px;padding-top:12px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+  main{min-width:0}
+  .filterbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;padding:10px 0 12px;
+    background:linear-gradient(var(--bg),var(--bg) 72%,transparent);backdrop-filter:blur(5px)}
+  .search{flex:1;position:relative}
+  .search input{width:100%;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;
+    padding:10px 14px 10px 38px;font-size:13px;outline:none;font-family:inherit}
+  .search input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(5,150,105,.12)}
+  .search:before{content:"⌕";position:absolute;left:14px;top:7px;font-size:18px;color:var(--muted)}
+  .hint{font-size:11px;color:var(--muted);white-space:nowrap}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);scroll-margin-top:72px}
+  .overview{padding:20px;margin-bottom:24px}
+  .overview .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:2px 6px 12px}
+  .overview h2{margin:0;font-size:20px}
+  .overview .sub{color:var(--muted);font-size:12px}
+  figure{margin:0}
+  .zoomable{cursor:zoom-in;display:block;width:100%;height:auto;border-radius:9px;background:#fff}
+  .figure-wrap{overflow:auto;border-radius:10px;background:#fff;border:1px solid var(--line)}
+  .module{padding:18px;margin-bottom:24px}
+  .module[hidden]{display:none}
+  .module-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:2px 4px 14px}
+  .num{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;flex:0 0 auto}
+  .module-head h2{margin:0;font-size:19px;line-height:1.25}
+  .module-head .en{font-size:10px;color:var(--muted);letter-spacing:.04em}
+  .module-head .meta{margin-left:auto;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .module-head .meta b{color:var(--brand);font-size:12px}
+  .intro{color:var(--sub);font-size:13px;margin:0 4px 14px;max-width:1100px}
+  .module-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,.85fr);gap:16px;align-items:start}
+  .map-box{min-width:0}
+  .map-box .open{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted);padding:7px 3px 0}
+  .map-box .open a{font-size:11px}
+  .panel{border:1px solid var(--line);border-radius:11px;padding:13px 14px;background:linear-gradient(180deg,var(--card),var(--bg))}
+  .panel h3{margin:0 0 8px;font-size:12px;letter-spacing:.03em;color:var(--brand)}
+  .panel ul{margin:0;padding-left:18px;color:var(--sub);font-size:12px}
+  .panel li{margin:5px 0}
+  .pitfalls{margin-top:14px}
+  .pitfalls h3,.episodes h3{margin:0 0 8px;font-size:12px;letter-spacing:.03em;color:var(--sub)}
+  .pit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .pit{display:flex;gap:9px;border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:var(--card);font-size:12px}
+  .pit b{color:#b91c1c;font-weight:700;flex:0 0 auto}
+  html[data-theme=dark] .pit b{color:#fca5a5}
+  .pit span{color:var(--sub)}
+  .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:12px}
+  table.ep{width:100%;border-collapse:collapse;font-size:12px;min-width:760px}
+  table.ep th{text-align:left;background:var(--bg);color:var(--muted);font-weight:700;font-size:10.5px;letter-spacing:.05em;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  table.ep td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--sub)}
+  table.ep tr:last-child td{border-bottom:none}
+  table.ep tr:hover td{background:rgba(5,150,105,.035)}
+  .ep-no{font-family:var(--mono);font-size:11px;color:var(--brand);font-weight:700;white-space:nowrap}
+  .ep-no a{color:inherit;text-decoration:none}
+  .ep-no a:hover{text-decoration:underline}
+  .ep-title{color:var(--ink);font-weight:700}
+  table.ep code{font-family:var(--mono);font-size:10.5px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:#0f766e;white-space:nowrap}
+  html[data-theme=dark] table.ep code{color:#5eead4}
+  .check{width:16px;height:16px;accent-color:var(--brand);cursor:pointer;vertical-align:-3px}
+  .code-details{margin-top:10px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+  .code-details summary{cursor:pointer;padding:10px 13px;font-size:12px;color:var(--sub);font-weight:700}
+  .code-details[open] summary{border-bottom:1px solid var(--line)}
+  .code-details .inside{padding:11px 13px 13px}
+  .code-details h4{margin:10px 0 6px;font-size:11px;color:var(--muted);font-weight:700}
+  .code-details h4:first-child{margin-top:0}
+  pre{margin:0;background:#0f172a;border:1px solid #1e293b;border-radius:8px;padding:12px 13px;overflow:auto}
+  pre code{font-family:var(--mono);font-size:11px;line-height:1.7;color:#e2e8f0;white-space:pre}
+  .checklist{padding:20px}
+  .checklist h2{margin:0 0 4px;font-size:20px}
+  .checklist .lead{color:var(--muted);font-size:12px;margin-bottom:14px}
+  .check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .check-item{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:12px;color:var(--sub);background:var(--card)}
+  .check-item input{margin-top:3px}
+  .check-item.done{opacity:.55;text-decoration:line-through}
+  .empty{padding:18px;color:var(--muted);font-size:13px;display:none}
+  footer{max-width:1560px;margin:0 auto;padding:0 32px 44px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .topbtn{position:fixed;right:18px;bottom:18px;z-index:8;border:1px solid var(--line);background:var(--card);color:var(--sub);
+    border-radius:10px;padding:9px 11px;font-size:12px;cursor:pointer;box-shadow:var(--shadow);font-family:inherit}
+  .lightbox{position:fixed;inset:0;z-index:99;background:rgba(2,6,23,.82);display:none;align-items:center;justify-content:center;padding:24px}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:96vw;max-height:92vh;background:#fff;border-radius:8px;box-shadow:0 20px 70px rgba(0,0,0,.5)}
+  .lightbox .close{position:absolute;top:16px;right:20px;color:#fff;font-size:28px;cursor:pointer;line-height:1}
+  html[data-theme=dark] .figure-wrap,html[data-theme=dark] .zoomable{background:#fff}
+  @media(max-width:1180px){.module-grid{grid-template-columns:1fr}.shell{grid-template-columns:220px minmax(0,1fr)}}
+  @media(max-width:900px){
+    .shell{grid-template-columns:1fr;padding:16px 14px 60px}
+    aside.side{display:none}
+    .hero-inner{padding:28px 18px 22px}
+    h1{font-size:27px}
+    .stats{gap:22px}
+    .stat b{font-size:20px}
+    .check-grid,.pit-grid{grid-template-columns:1fr}
+    .module{padding:13px}
+    .overview{padding:13px}
+    .filterbar{top:0}
+  }
+  @media print{
+    .hero-actions,.filterbar,.topbtn,aside.side,.lightbox{display:none!important}
+    .shell{display:block;padding:0}
+    .card{box-shadow:none;break-inside:avoid}
+    .module{margin:0 0 12px}
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">尚硅谷 · Vue3 + TypeScript</div>
+    <h1>Vue3 入门到实战 <span>P1–P40</span></h1>
+    <p>把 40 集视频整理成 6 个模块：工程与 setup、响应式、计算与监听、组件能力、Vue Router。左脑看结构，右脑看配图。</p>
+    <div class="stats">
+      <div class="stat"><b>40</b><span>集视频</span></div>
+      <div class="stat"><b>6</b><span>个模块</span></div>
+      <div class="stat"><b>15</b><span>张配图</span></div>
+      <div class="stat"><b>7.8h</b><span>课程时长</span></div>
+      <div class="stat"><b id="doneCount">0</b><span>已学完</span></div>
+    </div>
+    <div class="progress-box">
+      <div class="progress-meta"><span>学习进度 · 按集勾选</span><b id="progressText">0 / 40</b></div>
+      <div class="bar"><i id="progressBar"></i></div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn primary" href="#m01">开始学习 ↓</a>
+      <a class="btn" href="../">← 知识地图</a>
+      <button class="btn" id="themeBtn">切换主题</button>
+      <button class="btn" id="resetBtn">重置进度</button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="side">
+    <div class="side-title">学习导航</div>
+    <a class="nav-link" href="#overview"><span class="no">00</span><span>全景导图</span></a>
+    <div id="navModules"></div>
+    <a class="nav-link" href="#checklist"><span class="no">✓</span><span>复习清单</span></a>
+    <div class="side-tip">点击任意导图可放大查看；勾选进度保存在本机浏览器。</div>
+  </aside>
+
+  <main>
+    <div class="filterbar">
+      <div class="search"><input id="search" type="search" placeholder="搜索集号、标题、API，例如：watch / P23 / 生命周期" autocomplete="off"></div>
+      <div class="hint" id="searchHint">40 集</div>
+    </div>
+    <noscript><div class="card" style="padding:16px;margin-bottom:18px">本页的分模块导图、搜索与打勾需要 JavaScript。请启用后再刷新；如果只想看图，可以直接打开 <a href="docs/00-overview.svg">docs/00-overview.svg</a>。</div></noscript>
+
+    <section class="card overview" id="overview">
+      <div class="head"><h2>全景导图</h2><span class="sub">先看森林，再看树木 · 点图放大</span></div>
+      <div class="figure-wrap"><img class="zoomable" src="docs/00-overview.svg" alt="Vue3 P1–P40 全景思维导图"></div>
+    </section>
+
+    <div id="modules"></div>
+
+    <section class="card checklist" id="checklist">
+      <h2>复习清单</h2>
+      <div class="lead">能不看笔记讲清每一条，再开始做项目。勾选状态同样保存在本机。</div>
+      <div class="check-grid" id="checkGrid"></div>
+    </section>
+    <div class="empty" id="empty">没有匹配的集，换个关键词试试。</div>
+  </main>
+</div>
+
+<footer>
+  <span>内容据 B 站 <a href="https://www.bilibili.com/video/BV1Za4y1r7KE" target="_blank" rel="noopener">BV1Za4y1r7KE</a> 公开分 P 列表整理；导图与配图为原创，仅用于个人学习。</span>
+  <span>Vue3 P1–P40 · 6 大模块 · 15 张配图 ｜ <a href="../">← 返回知识地图</a></span>
+</footer>
+<button class="topbtn" id="topBtn">↑ 顶部</button>
+<div class="lightbox" id="lightbox"><span class="close">×</span><img id="lightboxImg" alt="导图大图"></div>
+
+<script>
+const DATA = [{"id": "01", "title": "起步与工程", "en": "Getting Started", "parts": "P1–P6", "n": 6, "minutes": 54, "accent": "#059669", "tagline": "先跑起来：工程、SFC、第一个响应式页面", "intro": "这 6 集解决三件事：为什么学 Vue3、工程怎么建、一个 .vue 文件怎么写。第 5 集的计数器是后面所有响应式内容的种子，第 6 集则决定了你后面写代码的组织方式。", "must": ["Vite 项目的入口是根目录 index.html，main.ts 只负责创建并挂载应用。", "一个 SFC 由 template / script / style 三块组成，style scoped 只作用于当前组件。", "Vue3 同时支持 Options API 和 Composition API；新代码统一用组合式，别在同一功能里混写。", "普通变量不是响应式的；ref 的 .value 才是响应式的，模板会自动解包。", "数据驱动：改数据 → 视图更新，不要直接操作 DOM。"], "pitfalls": [["把 main.ts 当入口", "浏览器先加载 index.html，再由它加载 /src/main.ts。"], ["`let n = 0` 改了页面不动", "普通变量不在响应式系统里，用 ref/reactive。"], ["模板里写 `count.value`", "模板自动解包，直接写 `count`；JS 里才要 `.value`。"], ["Options 与 Composition 混写同一功能", "能共存，但同一份状态/方法只放在一处。"]], "episodes": [["P1", "Vue3 开篇", "课程地图、技术栈与学习方式", "—"], ["P2", "Vue3 简介", "性能、源码、TS 与新特性", "—"], ["P3", "创建 Vue3 工程", "create-vue + Vite 建项目", "npm create vue@latest"], ["P4", "编写 App 组件", "SFC 三段式与挂载", "createApp / mount"], ["P5", "一个简单的效果", "ref 计数器，第一次数据驱动", "ref"], ["P6", "Options API 与 Composition API", "按选项 vs 按功能组织代码", "setup"]], "snippets": [["main.ts：应用入口", "ts", "import { createApp } from 'vue'\nimport App from './App.vue'\n\ncreateApp(App).mount('#app')"], ["App.vue：最小计数器", "vue", "<template>\n  <h2>当前计数：{{ count }}<\/h2>\n  <button @click=\"count++\">+1<\/button>\n<\/template>\n\n<script setup lang=\"ts\">\nimport { ref } from 'vue'\nconst count = ref(0)\n<\/script>"]], "file": "01-start.svg"}, {"id": "02", "title": "setup 与组合式 API", "en": "setup & Composition API", "parts": "P7–P10", "n": 4, "minutes": 33, "accent": "#2563eb", "tagline": "组合式 API 的舞台：执行时机、返回值、语法糖", "intro": "setup 是组合式 API 的唯一入口。理解它“比 beforeCreate 还早、没有 this、必须返回才能给模板用”这三件事，后面的 ref、computed、watch、生命周期才不会写错位置。", "must": ["setup 在 beforeCreate 之前同步执行，此时组件实例还没建好，this 是 undefined。", "返回对象 → 属性/方法给模板用；返回函数 → 自定义渲染内容（了解即可）。", "Options API 能访问 setup 暴露的内容，setup 不能访问 data/methods；冲突时 setup 优先。", "`<script setup>` 是编译期语法糖：顶层绑定自动暴露、组件自动注册。", "defineProps / defineEmits / defineExpose 是编译器宏，不需要 import。"], "pitfalls": [["在 setup 里写 `this.xxx`", "setup 没有 this；需要实例能力用 getCurrentInstance（少用）。"], ["在 setup 里等 Options 的 data", "setup 更早执行，拿不到；数据应在 setup 内创建。"], ["以为 script setup 需要 return", "顶层绑定自动暴露，写 return 反而多此一举。"], ["把 defineProps 当普通函数 import", "它是编译器宏，直接调用，不要 import。"]], "episodes": [["P7", "setup 概述", "执行时机、this、返回值", "setup"], ["P8", "setup 的返回值", "返回对象或渲染函数", "return {}"], ["P9", "setup 与 Options API", "共存规则与优先级", "—"], ["P10", "setup 的语法糖", "script setup 与编译器宏", "<script setup>"]], "snippets": [["普通 setup：需要 return", "vue", "<script lang=\"ts\">\nimport { ref } from 'vue'\nexport default {\n  setup() {\n    const count = ref(0)\n    const add = () => count.value++\n    return { count, add }\n  }\n}\n<\/script>"], ["script setup：自动暴露", "vue", "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nconst count = ref(0)\nconst add = () => count.value++\n<\/script>"]], "file": "02-setup.svg"}, {"id": "03", "title": "响应式系统", "en": "Reactivity", "parts": "P11–P15", "n": 5, "minutes": 63, "accent": "#7c3aed", "tagline": "ref、reactive、toRefs：把数据和视图接上线", "intro": "这 5 集是 Vue3 的核心。ref 用 getter/setter 追踪 .value，reactive 用 Proxy 代理对象；toRefs 则把对象的每个属性拆成仍与源对象相连的 ref。搞清楚“什么时候要 .value、什么时候会断响应式”，比背 API 更重要。", "must": ["ref 返回 RefImpl，读写 .value 会 track/trigger；模板自动解包。", "reactive 返回 Proxy，默认深响应；只能用于对象类型。", "ref(对象) 内部用 reactive 代理，所以 .value.name 的修改也能被追踪。", "reactive 解构会丢响应式；整体重新赋值也会断，替换用 Object.assign。", "toRefs 批量转 ref，toRef 单个转换，转换后仍与源对象保持连接。"], "pitfalls": [["`let { name } = reactive(state)`", "解构出来的是普通值，丢了响应式；用 toRefs。"], ["`state = reactive({...})` 整体替换", "模板还引用旧代理；用 Object.assign(state, newObj)。"], ["`reactive(0)`", "reactive 只收对象；基本类型用 ref。"], ["模板里写 `obj.value.name`", "模板自动解包，直接 `obj.name`。"], ["以为 ref 只能放基本类型", "ref 也能放对象，且整体替换仍保持响应式。"]], "episodes": [["P11", "ref 创建基本类型", "RefImpl 与 .value", "ref"], ["P12", "reactive 创建对象类型", "Proxy 与深响应", "reactive"], ["P13", "ref 创建对象类型", "内部 reactive 代理", "ref"], ["P14", "ref 对比 reactive", "选型、解构与整体替换", "—"], ["P15", "toRefs 与 toRef", "拆属性但不断连接", "toRefs / toRef"]], "snippets": [["ref 与 reactive", "ts", "const count = ref(0)          // RefImpl\nconst state = reactive({ name: '张三', age: 18 }) // Proxy\n\ncount.value++\nstate.age++"], ["toRefs 解构仍响应", "ts", "const state = reactive({ name: '张三', age: 18 })\nconst { name, age } = toRefs(state)\n\nname.value = '李四'   // state.name 同步变化\nage.value++           // state.age 同步变化"]], "file": "03-reactivity.svg"}, {"id": "04", "title": "计算、监听与模板 ref", "en": "Computed, Watch & Template Refs", "parts": "P16–P23", "n": 8, "minutes": 110, "accent": "#d97706", "tagline": "computed 算、watch 看、ref 拿 DOM", "intro": "这一模块是“响应式数据的三种消费方式”：computed 派生新值、watch 观察变化做副作用、模板 ref 拿到 DOM/组件实例。watch 的五种情况看起来碎，其实判断标准只有两个：数据源是什么类型、你要看整体还是内部。", "must": ["computed 有缓存：依赖不变就不重算；method 每次渲染都会执行。", "watch 默认懒执行；需要首次执行加 immediate，需要内部变化加 deep。", "watch(ref 对象) 默认只看地址；watch(reactive 对象) 默认深监听。", "监视对象属性优先用 getter：`() => state.x`；属性还是对象时再加 deep。", "watchEffect 立即执行并自动收集依赖；异步副作用用 onCleanup 清理。", "模板 ref 在 onMounted 后才能拿到；组件实例要用 defineExpose 暴露。"], "pitfalls": [["watch 一个基本类型却写成 `watch(() => state.x)` 又忘了返回值", "getter 必须返回要监视的值。"], ["watch(reactive) 想拿旧值", "oldVal 与 newVal 是同一个代理，需自己拷贝快照。"], ["watch(ref 对象) 没开 deep", "默认只看 .value 地址，内部属性变化不触发。"], ["在 watchEffect 里发请求不做清理", "快速切换时旧请求可能覆盖新结果，用 onCleanup。"], ["onMounted 之前读模板 ref", "此时还是 null；挂载后才能访问 DOM。"]], "episodes": [["P16", "computed 计算属性", "缓存、只读/可写", "computed"], ["P17", "watch 情况一", "ref 基本类型", "watch"], ["P18", "watch 情况二", "ref 对象类型", "watch + deep"], ["P19", "watch 情况三", "reactive 对象", "watch"], ["P20", "watch 情况四", "对象中的某个属性", "watch + getter"], ["P21", "watch 情况五", "同时监视多个数据", "watch([...])"], ["P22", "watchEffect", "自动收集依赖", "watchEffect"], ["P23", "标签的 ref 属性", "DOM / 组件实例引用", "ref + defineExpose"]], "snippets": [["computed：只读与可写", "ts", "const fullName = computed(() => first.value + ' ' + last.value)\n\nconst fullName2 = computed({\n  get: () => first.value + ' ' + last.value,\n  set: (v) => { [first.value, last.value] = v.split(' ') }\n})"], ["watch：对象属性与多个源", "ts", "watch(() => state.name, (n, o) => { /* ... */ })\nwatch(() => state.car, (n, o) => { /* ... */ }, { deep: true })\n\nwatch([() => a.value, () => b.value], ([na, nb], [oa, ob]) => {\n  /* ... */\n})"], ["watchEffect：自动依赖 + 清理", "ts", "const stop = watchEffect((onCleanup) => {\n  const controller = new AbortController()\n  fetch(`/api/search?q=${keyword.value}`, { signal: controller.signal })\n  onCleanup(() => controller.abort())\n})"]], "file": "04-watch.svg"}, {"id": "05", "title": "TypeScript、props、生命周期与 Hooks", "en": "Props, Lifecycle & Hooks", "parts": "P24–P29", "n": 6, "minutes": 100, "accent": "#e11d48", "tagline": "让组件有类型、有阶段、可复用", "intro": "从这一模块开始，组件不再是一个文件里的自娱自乐：props 让父组件把数据传进来，生命周期让你在正确时机做副作用，自定义 Hook 把重复逻辑抽出去。TS 则让这些接口在编译期就能被检查。", "must": ["interface 描述对象结构，type 还能描述联合/元组/函数；泛型让类型可复用。", "defineProps 是编译器宏；类型声明 + withDefaults 可以同时拿到类型、默认值和可选性。", "props 只读，子组件不能直接改；要改就 emit 或复制到本地状态。", "Vue3 的创建阶段由 setup 替代；挂载/更新/卸载用 onBeforeMount / onMounted 等注册。", "父挂载顺序：父 beforeMount → 子 beforeMount → 子 mounted → 父 mounted；卸载相反。", "自定义 Hook 就是 useXxx 函数，内部可以正常使用组合式 API 和生命周期。"], "pitfalls": [["直接改 props", "开发环境会警告；用 emit 通知父组件或拷贝一份。"], ["withDefaults 与运行时 props 混着写", "类型声明配 withDefaults；运行时声明用 default 选项。"], ["在 setup 外调用 onMounted", "生命周期注册必须发生在 setup 同步执行期间。"], ["自定义 Hook 在普通函数里调用", "Hook 内用到 onMounted 等，必须在 setup 中调用。"], ["把异步请求都放 onMounted", "请求也可在 setup 顶层发；但涉及 DOM 的操作必须等 mounted。"]], "episodes": [["P24", "回顾 TS：接口/泛型/自定义类型", "为 props 与组合式函数打基础", "interface / type / <T>"], ["P25", "props 的使用", "父传子、类型、默认值、只读", "defineProps / withDefaults"], ["P26", "对生命周期的理解", "创建、挂载、更新、卸载", "—"], ["P27", "Vue2 的生命周期", "八个钩子与父子顺序", "beforeCreate ... destroyed"], ["P28", "Vue3 的生命周期", "组合式钩子与执行顺序", "onMounted ..."], ["P29", "自定义 Hooks", "把可复用逻辑抽成 useXxx", "useXxx"]], "snippets": [["props：类型 + 默认值", "ts", "interface Props {\n  list?: Person[]\n  title: string\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  list: () => []\n})"], ["Vue3 生命周期", "ts", "import { onMounted, onBeforeUnmount } from 'vue'\n\nonMounted(() => { /* DOM 已挂载 */ })\nonBeforeUnmount(() => { /* 清理定时器/监听 */ })"], ["自定义 Hook", "ts", "// hooks/useSum.ts\nexport function useSum(init = 0) {\n  const sum = ref(init)\n  const add = () => sum.value++\n  onMounted(() => console.log('mounted'))\n  return { sum, add }\n}"]], "file": "05-component.svg"}, {"id": "06", "title": "Vue Router", "en": "Vue Router 4", "parts": "P30–P40", "n": 11, "minutes": 108, "accent": "#0891b2", "tagline": "单页应用的导航：URL 换，页面不刷新", "intro": "路由是这一阶段最容易“会写但说不清”的部分。抓住三条主线：URL 怎么映射组件（routes / children）、怎么跳（link / push / replace）、怎么传参（query / params / props）。其余都是这三条的变体。", "must": ["SPA 只加载一个 HTML；前端路由把 URL 映射到组件，切换不刷新。", "router/index.ts 用 createRouter + routes；main.ts 里 app.use(router)。", "history 模式 URL 干净但要服务端 fallback；hash 模式带 # 但部署简单。", "嵌套路由用 children；子 path 不带 /；父组件里要有 <RouterView>。", "query 不需要占位，刷新不丢；params 必须在 path 里占位，对象写法必须用 name。", "props 配置把路由参数变成组件 props，让组件与 useRoute 解耦。", "replace 替换当前历史记录，不能后退；默认 push 是追加。"], "pitfalls": [["params 用 path 跳转", "对象写法必须用 name，否则 params 会被忽略。"], ["params 没在 path 里占位", "刷新后参数会丢；用 `/detail/:id` 声明。"], ["子路由 path 以 / 开头", "会被当成绝对路径，父组件的 router-view 不渲染。"], ["history 模式刷新 404", "生产环境需要服务端把未知路径回退到 index.html。"], ["query 参数当数字用", "query 值默认是字符串，需要 Number() 转换。"]], "episodes": [["P30", "对路由的理解", "SPA 与前端路由", "vue-router@4"], ["P31", "路由基本切换效果", "createRouter / RouterView", "createRouter"], ["P32", "路由的两个注意点", "pages 目录与组件卸载", "keep-alive"], ["P33", "路由器工作模式", "history vs hash", "createWebHistory"], ["P34", "to 的两种写法", "字符串 / 对象", "to"], ["P35", "命名路由", "用 name 跳转", "name"], ["P36", "嵌套路由", "children 与二级出口", "children"], ["P37", "query 参数", "?key=value 传参", "useRoute().query"], ["P38", "params 参数", "/:id 动态段", "useRoute().params"], ["P39", "props 配置", "路由参数变组件 props", "props"], ["P40", "replace 属性", "替换历史记录", "replace"]], "snippets": [["router/index.ts", "ts", "import { createRouter, createWebHistory } from 'vue-router'\nimport Home from '@/pages/Home.vue'\n\nconst router = createRouter({\n  history: createWebHistory(import.meta.env.BASE_URL),\n  routes: [\n    { path: '/', redirect: '/home' },\n    { path: '/home', name: 'home', component: Home },\n    {\n      path: '/news', component: News,\n      children: [\n        { path: '', component: NewsList },\n        { path: 'detail/:id', name: 'newsDetail', component: NewsDetail, props: true }\n      ]\n    }\n  ]\n})\nexport default router"], ["App.vue：导航与出口", "vue", "<template>\n  <RouterLink to=\"/home\" active-class=\"active\">首页<\/RouterLink>\n  <RouterLink :to=\"{ name: 'newsDetail', params: { id: 1 } }\">新闻<\/RouterLink>\n  <RouterView />\n<\/template>\n\n<script setup lang=\"ts\">\nimport { RouterLink, RouterView } from 'vue-router'\n<\/script>"], ["读取参数", "ts", "const route = useRoute()\nroute.query.keyword       // ?keyword=vue\nroute.params.id           // /detail/:id\nconst router = useRouter()\nrouter.replace('/login')  // 不留历史记录"]], "file": "06-router.svg"}];
+
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const LS = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* 隐私模式 / file:// 下静默降级 */ } }
+};
+const readJSON = (k) => {
+  try { return JSON.parse(LS.get(k) || '{}'); } catch (e) { return {}; }
+};
+const state = {
+  episodes: readJSON('vue3-p1p40-episodes'),
+  checks: readJSON('vue3-p1p40-checks'),
+  theme: LS.get('vue3-p1p40-theme') || 'light'
+};
+if (state.theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+const moduleHTML = (m) => {
+  const eps = m.episodes.map(([p, title, one, api]) => {
+    const checked = state.episodes[p] ? ' checked' : '';
+    return `<tr class="ep-row" data-search="${esc((p + ' ' + title + ' ' + one + ' ' + api + ' ' + m.title).toLowerCase())}">
+      <td><input class="check ep-check" type="checkbox" data-ep="${esc(p)}"${checked} aria-label="标记 ${esc(p)} 已学"></td>
+      <td class="ep-no"><a href="https://www.bilibili.com/video/BV1Za4y1r7KE?p=${p.slice(1)}" target="_blank" rel="noopener">${esc(p)}</a></td>
+      <td class="ep-title">${esc(title)}</td>
+      <td>${esc(one)}</td>
+      <td>${api === '—' ? '—' : '<code>' + esc(api) + '</code>'}</td>
+    </tr>`;
+  }).join('');
+
+  const must = m.must.map(x => `<li>${esc(x)}</li>`).join('');
+  const pits = m.pitfalls.map(([a,b]) => `<div class="pit"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('');
+  const code = m.snippets.map(([t, lang, src]) => `<h4>${esc(t)}</h4><pre><code>${esc(src)}</code></pre>`).join('');
+  const done = m.episodes.filter(([p]) => state.episodes[p]).length;
+
+  return `<section class="card module" id="m${m.id}" data-module="${m.id}">
+    <div class="module-head">
+      <div class="num" style="background:${m.accent}">${m.id}</div>
+      <div><h2>${esc(m.title)}</h2><div class="en">${esc(m.en)}</div></div>
+      <div class="meta">${esc(m.parts)} · ${m.n} 集 · ${m.minutes} min ｜ <b class="m-done" data-module="${m.id}">${done}/${m.n}</b></div>
+    </div>
+    <p class="intro">${esc(m.intro)}</p>
+    <div class="module-grid">
+      <div class="map-box">
+        <div class="figure-wrap"><img class="zoomable" loading="lazy" src="docs/${m.file}" alt="${esc(m.title)} 思维导图"></div>
+        <div class="open"><span>点击图片放大 · 左右拖动可看细节</span><a href="docs/${m.file}" target="_blank" rel="noopener">打开原图 ↗</a></div>
+      </div>
+      <div class="panel">
+        <h3>这 ${m.n} 集要拿到什么</h3>
+        <ul>${must}</ul>
+      </div>
+    </div>
+    <div class="pitfalls"><h3>易错点</h3><div class="pit-grid">${pits}</div></div>
+    <div class="episodes"><h3>分集清单 · 勾选即记进度</h3>
+      <div class="table-wrap"><table class="ep"><thead><tr><th>✓</th><th>集</th><th>标题</th><th>一句话</th><th>关键 API</th></tr></thead><tbody>${eps}</tbody></table></div>
+      <details class="code-details"><summary>核心代码（点击展开）</summary><div class="inside">${code}</div></details>
+    </div>
+  </section>`;
+};
+
+document.getElementById('modules').innerHTML = DATA.map(moduleHTML).join('');
+document.getElementById('navModules').innerHTML = DATA.map(m =>
+  `<a class="nav-link" href="#m${m.id}" data-nav="${m.id}"><span class="no">${m.id}</span><span>${esc(m.title)}</span></a>`
+).join('');
+
+const CHECKS = [
+  'Vite 项目的入口为什么是 index.html，main.ts 做了什么？',
+  'setup 为什么没有 this？它在哪个钩子之前执行？',
+  'ref 和 reactive 的五个差异，各自适合什么场景？',
+  'reactive 解构为什么会丢响应式？toRefs 怎么解决？',
+  'computed 为什么有缓存？可写 computed 的 get/set 怎么写？',
+  'watch 的五种情况分别怎么写？deep / immediate 加在哪？',
+  'watch 和 watchEffect 的差异，onCleanup 解决什么问题？',
+  '模板 ref 为什么在 onMounted 之前拿不到？defineExpose 干什么？',
+  'Vue3 生命周期八个钩子，父子挂载 / 卸载顺序是什么？',
+  'props 为什么只读？子组件想改数据应该怎么办？',
+  '嵌套路由的 children、RouterView、子 path 不带 / 分别注意什么？',
+  'query 和 params 的区别，props 配置如何解耦？',
+  'history 和 hash 的部署差异，GitHub Pages 该选哪个？',
+  'replace 和 push 对浏览器历史记录的影响？'
+];
+document.getElementById('checkGrid').innerHTML = CHECKS.map((text, i) => {
+  const k = 'c' + i;
+  const checked = state.checks[k] ? ' checked' : '';
+  const done = state.checks[k] ? ' done' : '';
+  return `<label class="check-item${done}" data-check-row="${k}"><input class="check skill-check" type="checkbox" data-check="${k}"${checked}><span>${esc(text)}</span></label>`;
+}).join('');
+
+const updateProgress = () => {
+  const done = Object.values(state.episodes).filter(Boolean).length;
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('progressText').textContent = done + ' / 40';
+  document.getElementById('progressBar').style.width = (done / 40 * 100) + '%';
+  DATA.forEach(m => {
+    const n = m.episodes.filter(([p]) => state.episodes[p]).length;
+    document.querySelectorAll('.m-done[data-module="' + m.id + '"]').forEach(el => el.textContent = n + '/' + m.n);
+  });
+};
+const save = () => {
+  LS.set('vue3-p1p40-episodes', JSON.stringify(state.episodes));
+  LS.set('vue3-p1p40-checks', JSON.stringify(state.checks));
+};
+
+document.addEventListener('change', (e) => {
+  if (e.target.matches('.ep-check')) {
+    state.episodes[e.target.dataset.ep] = e.target.checked;
+    save(); updateProgress();
+  }
+  if (e.target.matches('.skill-check')) {
+    const k = e.target.dataset.check;
+    state.checks[k] = e.target.checked;
+    e.target.closest('.check-item').classList.toggle('done', e.target.checked);
+    save();
+  }
+});
+
+document.getElementById('resetBtn').onclick = () => {
+  if (!confirm('清空 40 集的勾选进度与复习清单？')) return;
+  state.episodes = {}; state.checks = {};
+  save();
+  document.querySelectorAll('.ep-check,.skill-check').forEach(el => { el.checked = false; });
+  document.querySelectorAll('.check-item').forEach(el => el.classList.remove('done'));
+  updateProgress();
+};
+
+const search = document.getElementById('search');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('.module').forEach(sec => {
+    let n = 0;
+    sec.querySelectorAll('.ep-row').forEach(row => {
+      const ok = !q || row.dataset.search.includes(q);
+      row.hidden = !ok; if (ok) n++;
+    });
+    sec.hidden = n === 0;
+    visible += n;
+  });
+  document.getElementById('searchHint').textContent = q ? `找到 ${visible} 集` : '40 集';
+  document.getElementById('empty').style.display = visible === 0 ? 'block' : 'none';
+});
+
+document.getElementById('themeBtn').onclick = () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  LS.set('vue3-p1p40-theme', next);
+};
+document.getElementById('topBtn').onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightboxImg');
+document.querySelectorAll('.zoomable').forEach(img => {
+  img.addEventListener('click', () => {
+    lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  });
+});
+const closeLB = () => { lb.classList.remove('show'); document.body.style.overflow = ''; };
+lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('close')) closeLB(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLB(); });
+
+const links = [...document.querySelectorAll('.nav-link[data-nav]')];
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      links.forEach(l => l.classList.toggle('active', l.dataset.nav === en.target.id.replace('m','')));
+    }
+  });
+}, {rootMargin:'-15% 0px -70% 0px'});
+document.querySelectorAll('.module').forEach(s => io.observe(s));
+
+updateProgress();
+</script>
+</body>
+</html>

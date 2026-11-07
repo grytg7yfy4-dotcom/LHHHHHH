@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1302" viewBox="0 0 1760 1302" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="hdr05" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e11d48" stop-opacity="0.11"/><stop offset="55%" stop-color="#e11d48" stop-opacity="0.03"/><stop offset="100%" stop-color="#e11d48" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="1760.0" height="1302.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="1760.0" height="154.0" rx="0" fill="url(#hdr05)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="1760.0" height="5.0" rx="0" fill="#e11d48" stroke="none"/>
+<rect x="32.0" y="24.0" width="64.0" height="64.0" rx="14" fill="#e11d48" stroke="none"/>
+<text x="64.0" y="49.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9" fill="#ffffff" opacity="0.75">P</text>
+<text x="64.0" y="75.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#ffffff">05</text>
+<text x="116.0" y="55.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#0f172a">TypeScript、props、生命周期与 Hooks</text>
+<text x="116.0" y="77.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="11" fill="#64748b">Props, Lifecycle &amp; Hooks</text>
+<text x="116.0" y="97.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.6" fill="#94a3b8">让组件有类型、有阶段、可复用</text>
+<rect x="1648.0" y="42.0" width="80.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1688.0" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">原创矢量配图</text>
+<rect x="1580.0" y="42.0" width="61.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1610.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">100 分钟</text>
+<rect x="1534.0" y="42.0" width="39.0" height="24.0" rx="12" fill="rgba(225,29,72,0.1)" stroke="none"/>
+<text x="1553.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#e11d48">6 集</text>
+<rect x="1466.0" y="42.0" width="61.0" height="24.0" rx="12" fill="#eef2f7" stroke="none"/>
+<text x="1496.5" y="58.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#475569">P24–P29</text>
+<line x1="32.0" y1="115.0" x2="1728.0" y2="115.0" stroke="#edf1f7" stroke-width="1"/>
+<rect x="32.0" y="455.8" width="190.0" height="190.0" rx="14" fill="#0f172a" stroke="none"/>
+<circle cx="50.0" cy="473.8" r="26.0" fill="rgba(225,29,72,0.22)" stroke="none"/>
+<text x="50.0" y="477.8" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="9.5" font-weight="700" fill="#ffffff">V3</text>
+<text x="127.0" y="477.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" letter-spacing="1.2" fill="#94a3b8">MODULE 05</text>
+<text x="127.0" y="554.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff">组件与生命周期</text>
+<line x1="54.0" y1="604.8" x2="200.0" y2="604.8" stroke="#334155" stroke-width="1"/>
+<text x="127.0" y="623.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.0" fill="#cbd5e1">P24–P29 · 6 集</text>
+<path d="M222.0,550.8 C250.0,550.8 224.0,201.9 252.0,201.9" fill="none" stroke="#e11d48" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="180.9" width="164.0" height="42.0" rx="10" fill="#e11d48" stroke="none"/>
+<text x="334.0" y="206.9" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P24 · TS 快速回顾</text>
+<path d="M416.0,201.9 C438.0,201.9 418.0,201.9 440.0,201.9" fill="none" stroke="#e11d48" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="146.0" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="156.0" width="3.0" height="91.9" rx="1.5" fill="#e11d48" stroke="none"/>
+<text x="457.0" y="169.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#e11d48">P24 · interface / type / 泛型</text>
+<circle cx="460.0" cy="191.0" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="195.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· interface 描述对象结构；type 可描述联合、元组、函数等</text>
+<circle cx="460.0" cy="209.3" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="213.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 泛型 &lt;T&gt; 让类型像参数一样复用，如 Array&lt;Person&gt;</text>
+<circle cx="460.0" cy="227.6" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="231.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· Vue 中常用于 props、ref、事件负载、路由参数</text>
+<circle cx="440.0" cy="201.9" r="2.4" fill="#e11d48" stroke="none"/>
+<path d="M222.0,550.8 C250.0,550.8 224.0,343.8 252.0,343.8" fill="none" stroke="#e11d48" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="322.8" width="164.0" height="42.0" rx="10" fill="#e11d48" stroke="none"/>
+<text x="334.0" y="348.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P25 · props</text>
+<path d="M416.0,343.8 C438.0,343.8 418.0,343.8 440.0,343.8" fill="none" stroke="#e11d48" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="287.9" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="297.9" width="3.0" height="91.9" rx="1.5" fill="#e11d48" stroke="none"/>
+<text x="457.0" y="310.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#e11d48">P25 · 父传子与类型约束</text>
+<circle cx="460.0" cy="332.9" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="336.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 父：&lt;Child :list="persons" /&gt;；子：defineProps&lt;{ list: Person[] }&gt;()</text>
+<circle cx="460.0" cy="351.2" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="355.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· props 只读，不能在子组件直接改；要改就 emit 或拷贝</text>
+<circle cx="460.0" cy="369.5" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="373.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· withDefaults 配默认值；?: 控制可选；支持运行时/类型两种声明</text>
+<circle cx="440.0" cy="343.8" r="2.4" fill="#e11d48" stroke="none"/>
+<path d="M222.0,550.8 C250.0,550.8 224.0,616.8 252.0,616.8" fill="none" stroke="#e11d48" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="595.8" width="164.0" height="42.0" rx="10" fill="#e11d48" stroke="none"/>
+<text x="334.0" y="621.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P26–P28 · 生命周期</text>
+<path d="M416.0,616.8 C438.0,616.8 418.0,485.7 440.0,485.7" fill="none" stroke="#e11d48" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="429.8" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="439.8" width="3.0" height="91.9" rx="1.5" fill="#e11d48" stroke="none"/>
+<text x="457.0" y="452.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#e11d48">P26 · 生命周期是什么</text>
+<circle cx="460.0" cy="474.8" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="478.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 组件从创建、挂载、更新到卸载的整个过程</text>
+<circle cx="460.0" cy="493.1" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="497.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 钩子让你在特定阶段执行代码，如请求、DOM 操作、清理定时器</text>
+<circle cx="460.0" cy="511.4" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="515.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 不要把所有逻辑都塞进 mounted；按时机选择</text>
+<circle cx="440.0" cy="485.7" r="2.4" fill="#e11d48" stroke="none"/>
+<path d="M416.0,616.8 C438.0,616.8 418.0,607.6 440.0,607.6" fill="none" stroke="#e11d48" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="551.7" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="561.7" width="3.0" height="91.9" rx="1.5" fill="#e11d48" stroke="none"/>
+<text x="457.0" y="574.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#e11d48">P27 · Vue2 的八个钩子</text>
+<circle cx="460.0" cy="596.7" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="600.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 创建：beforeCreate / created；挂载：beforeMount / mounted</text>
+<circle cx="460.0" cy="615.0" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="619.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 更新：beforeUpdate / updated；销毁：beforeDestroy / destroyed</text>
+<circle cx="460.0" cy="633.3" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="637.3" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 常用：created 发请求，mounted 操作 DOM，beforeDestroy 清资源</text>
+<circle cx="440.0" cy="607.6" r="2.4" fill="#e11d48" stroke="none"/>
+<path d="M416.0,616.8 C438.0,616.8 418.0,738.7 440.0,738.7" fill="none" stroke="#e11d48" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="673.6" width="580.0" height="130.2" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="683.6" width="3.0" height="110.2" rx="1.5" fill="#e11d48" stroke="none"/>
+<text x="457.0" y="696.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#e11d48">P28 · Vue3 的组合式钩子</text>
+<circle cx="460.0" cy="718.6" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="722.6" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 创建阶段由 setup 替代；挂载/更新/卸载用 onXxx 注册</text>
+<circle cx="460.0" cy="736.9" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="740.9" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· onBeforeMount / onMounted / onBeforeUpdate / onUpdated / onBeforeUnmount /</text>
+<text x="469.0" y="759.2" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">onUnmounted</text>
+<circle cx="460.0" cy="773.5" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="777.5" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 父挂载：父 beforeMount → 子 beforeMount → 子 mounted → 父 mounted</text>
+<circle cx="440.0" cy="738.7" r="2.4" fill="#e11d48" stroke="none"/>
+<path d="M222.0,550.8 C250.0,550.8 224.0,889.8 252.0,889.8" fill="none" stroke="#e11d48" stroke-width="2.2" opacity="0.5" stroke-linecap="round"/>
+<rect x="252.0" y="868.8" width="164.0" height="42.0" rx="10" fill="#e11d48" stroke="none"/>
+<text x="334.0" y="894.8" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.6" font-weight="700" fill="#ffffff">P29 · 自定义 Hooks</text>
+<path d="M416.0,889.8 C438.0,889.8 418.0,889.8 440.0,889.8" fill="none" stroke="#e11d48" stroke-width="1.4" opacity="0.33" stroke-linecap="round"/>
+<rect x="440.0" y="833.8" width="580.0" height="111.9" rx="9" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="440.0" y="843.8" width="3.0" height="91.9" rx="1.5" fill="#e11d48" stroke="none"/>
+<text x="457.0" y="856.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" font-weight="700" fill="#e11d48">P29 · 把逻辑抽成 useXxx</text>
+<circle cx="460.0" cy="878.8" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="882.8" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 本质是函数：把 setup 中可复用的组合式逻辑抽出来</text>
+<circle cx="460.0" cy="897.1" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="901.1" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 命名 useXxx；内部可用 ref/computed/watch/生命周期</text>
+<circle cx="460.0" cy="915.4" r="1.7" fill="#e11d48" stroke="none" opacity="0.8"/>
+<text x="469.0" y="919.4" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.0" fill="#3f4a5c">· 返回状态与方法；必须在 setup 中调用，不能普通函数里调</text>
+<circle cx="440.0" cy="889.8" r="2.4" fill="#e11d48" stroke="none"/>
+<rect x="1078.0" y="146.0" width="650.0" height="430.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="146.0" width="4.0" height="52.0" rx="2" fill="#e11d48" stroke="none"/>
+<text x="1096.0" y="173.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">Vue3 生命周期：四个阶段、八个钩子</text>
+<text x="1712.0" y="173.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">创建阶段由 setup 接管</text>
+<line x1="1094.0" y1="190.0" x2="1712.0" y2="190.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1096.0" y="204.0" width="147.5" height="34.0" rx="6" fill="#059669" stroke="none"/>
+<text x="1169.8" y="226.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" font-weight="700" fill="#ffffff">创建</text>
+<rect x="1096.0" y="238.0" width="147.5" height="104.0" rx="6" fill="rgba(5,150,105,0.05)" stroke="rgba(5,150,105,0.18)" stroke-width="0.8"/>
+<text x="1104.0" y="262.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" font-weight="700" fill="#059669">setup</text>
+<line x1="1244.5" y1="221.0" x2="1250.5" y2="221.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<polygon points="1250.5,221.0 1246.8,222.6 1246.8,219.4" fill="#cbd5e1" stroke="none"/>
+<rect x="1251.5" y="204.0" width="147.5" height="34.0" rx="6" fill="#2563eb" stroke="none"/>
+<text x="1325.2" y="226.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" font-weight="700" fill="#ffffff">挂载</text>
+<rect x="1251.5" y="238.0" width="147.5" height="104.0" rx="6" fill="rgba(37,99,235,0.05)" stroke="rgba(37,99,235,0.18)" stroke-width="0.8"/>
+<text x="1259.5" y="262.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" font-weight="700" fill="#2563eb">onBeforeMount</text>
+<text x="1259.5" y="288.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" font-weight="700" fill="#0f172a">onMounted</text>
+<line x1="1400.0" y1="221.0" x2="1406.0" y2="221.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<polygon points="1406.0,221.0 1402.3,222.6 1402.3,219.4" fill="#cbd5e1" stroke="none"/>
+<rect x="1407.0" y="204.0" width="147.5" height="34.0" rx="6" fill="#d97706" stroke="none"/>
+<text x="1480.8" y="226.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" font-weight="700" fill="#ffffff">更新</text>
+<rect x="1407.0" y="238.0" width="147.5" height="104.0" rx="6" fill="rgba(217,119,6,0.05)" stroke="rgba(217,119,6,0.18)" stroke-width="0.8"/>
+<text x="1415.0" y="262.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" font-weight="700" fill="#d97706">onBeforeUpdate</text>
+<text x="1415.0" y="288.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" font-weight="700" fill="#0f172a">onUpdated</text>
+<line x1="1555.5" y1="221.0" x2="1561.5" y2="221.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<polygon points="1561.5,221.0 1557.8,222.6 1557.8,219.4" fill="#cbd5e1" stroke="none"/>
+<rect x="1562.5" y="204.0" width="147.5" height="34.0" rx="6" fill="#dc2626" stroke="none"/>
+<text x="1636.2" y="226.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" font-weight="700" fill="#ffffff">卸载</text>
+<rect x="1562.5" y="238.0" width="147.5" height="104.0" rx="6" fill="rgba(220,38,38,0.05)" stroke="rgba(220,38,38,0.18)" stroke-width="0.8"/>
+<text x="1570.5" y="262.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" font-weight="700" fill="#dc2626">onBeforeUnmount</text>
+<text x="1570.5" y="288.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.5" font-weight="700" fill="#0f172a">onUnmounted</text>
+<text x="1096.0" y="362.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0f172a">父子挂载顺序</text>
+<rect x="1096.0" y="374.0" width="149.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.9"/>
+<text x="1170.5" y="389.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" font-weight="700" fill="#475569">父 beforeMount</text>
+<text x="1170.5" y="402.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.2" fill="#94a3b8">1</text>
+<text x="1246.0" y="396.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#94a3b8">›</text>
+<rect x="1251.0" y="374.0" width="149.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.9"/>
+<text x="1325.5" y="389.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" font-weight="700" fill="#475569">子 beforeMount</text>
+<text x="1325.5" y="402.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.2" fill="#94a3b8">2</text>
+<text x="1401.0" y="396.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#94a3b8">›</text>
+<rect x="1406.0" y="374.0" width="149.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.9"/>
+<text x="1480.5" y="389.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" font-weight="700" fill="#475569">子 mounted</text>
+<text x="1480.5" y="402.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.2" fill="#94a3b8">3</text>
+<text x="1556.0" y="396.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" fill="#94a3b8">›</text>
+<rect x="1561.0" y="374.0" width="149.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.9"/>
+<text x="1635.5" y="389.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" font-weight="700" fill="#475569">父 mounted</text>
+<text x="1635.5" y="402.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.2" fill="#94a3b8">4</text>
+<rect x="1096.0" y="426.0" width="614.0" height="44.0" rx="7" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.9"/>
+<text x="1108.0" y="444.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" font-weight="700" fill="#d97706">卸载前要做什么？</text>
+<text x="1108.0" y="460.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#475569">clearInterval / removeEventListener / 取消请求 / 解绑 mitt</text>
+<text x="1096.0" y="500.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#94a3b8">Vue2 → Vue3 对照</text>
+<rect x="1096.0" y="510.0" width="302.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.8"/>
+<text x="1106.0" y="531.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.4" fill="#475569">beforeDestroy</text>
+<text x="1166.0" y="531.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" fill="#94a3b8">→</text>
+<text x="1180.0" y="531.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.4" font-weight="700" fill="#dc2626">onBeforeUnmount</text>
+<rect x="1403.0" y="510.0" width="302.0" height="34.0" rx="6" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.8"/>
+<text x="1413.0" y="531.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.4" fill="#475569">destroyed</text>
+<text x="1457.0" y="531.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8" fill="#94a3b8">→</text>
+<text x="1471.0" y="531.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.4" font-weight="700" fill="#dc2626">onUnmounted</text>
+<text x="1096.0" y="562.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">注册必须发生在 setup 同步执行期间；组件卸载后自动失效</text>
+<rect x="1078.0" y="590.0" width="650.0" height="320.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="590.0" width="4.0" height="52.0" rx="2" fill="#e11d48" stroke="none"/>
+<text x="1096.0" y="617.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">props：父 → 子的单向数据流</text>
+<text x="1712.0" y="617.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">子组件只读，不能反写</text>
+<line x1="1094.0" y1="634.0" x2="1712.0" y2="634.0" stroke="#eef2f7" stroke-width="1"/>
+<rect x="1096.0" y="650.0" width="220.0" height="100.0" rx="8" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<text x="1110.0" y="674.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" font-weight="700" fill="#2563eb">父组件</text>
+<text x="1110.0" y="694.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.4" fill="#475569">const persons = reactive([...])</text>
+<text x="1110.0" y="712.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.6" fill="#2563eb">&lt;Child :list="persons" /&gt;</text>
+<text x="1110.0" y="732.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.6" fill="#94a3b8">数据源在父组件</text>
+<line x1="1318.0" y1="700.0" x2="1378.0" y2="700.0" stroke="#e11d48" stroke-width="1.8"/>
+<polygon points="1378.0,700.0 1371.6,702.9 1371.6,697.1" fill="#e11d48" stroke="none"/>
+<text x="1348.0" y="692.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" font-weight="700" fill="#e11d48">传入</text>
+<rect x="1382.0" y="636.0" width="328.0" height="192.0" rx="8" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<text x="1396.0" y="660.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" font-weight="700" fill="#059669">子组件</text>
+<text x="1396.0" y="680.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.4" fill="#059669">defineProps&lt;{ list: Person[] }&gt;()</text>
+<rect x="1396.0" y="694.0" width="300.0" height="50.0" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="0.8"/>
+<text x="1406.0" y="712.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="8.4" font-weight="700" fill="#0f172a">props.list</text>
+<text x="1406.0" y="729.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#dc2626">只读：直接改会警告</text>
+<rect x="1652.0" y="657.0" width="38.0" height="20.0" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.9"/>
+<text x="1671.0" y="671.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.2" font-weight="700" fill="#dc2626">只读</text>
+<rect x="1396.0" y="754.0" width="300.0" height="52.0" rx="6" fill="#f8fafc" stroke="#e3e9f2" stroke-width="0.8"/>
+<text x="1406.0" y="772.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">withDefaults(..., { list: () =&gt; [] })</text>
+<text x="1406.0" y="790.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">默认值 + 可选性，一次配好</text>
+<line x1="1546.0" y1="834.0" x2="1318.0" y2="834.0" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4 3"/>
+<polygon points="1318.0,834.0 1322.6,832.0 1322.6,836.0" fill="#dc2626" stroke="none"/>
+<text x="1328.0" y="826.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" font-weight="700" fill="#dc2626">要改 → emit 通知父组件</text>
+<rect x="1096.0" y="844.0" width="201.3" height="34.0" rx="6" fill="rgba(5,150,105,0.05)" stroke="rgba(5,150,105,0.16)" stroke-width="0.8"/>
+<text x="1105.0" y="863.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" font-weight="700" fill="#059669">类型</text>
+<text x="1105.0" y="876.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">defineProps&lt;T&gt;()</text>
+<rect x="1300.7" y="844.0" width="201.3" height="34.0" rx="6" fill="rgba(37,99,235,0.05)" stroke="rgba(37,99,235,0.16)" stroke-width="0.8"/>
+<text x="1309.7" y="863.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" font-weight="700" fill="#2563eb">默认值</text>
+<text x="1309.7" y="876.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">withDefaults</text>
+<rect x="1505.3" y="844.0" width="201.3" height="34.0" rx="6" fill="rgba(220,38,38,0.05)" stroke="rgba(220,38,38,0.16)" stroke-width="0.8"/>
+<text x="1514.3" y="863.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" font-weight="700" fill="#dc2626">只读</text>
+<text x="1514.3" y="876.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.2" fill="#475569">单向数据流</text>
+<text x="1096.0" y="896.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#94a3b8">单向数据流：父变子更新；子不能直接改 props，状态归属清晰</text>
+<rect x="1078.0" y="924.0" width="650.0" height="320.0" rx="12" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1078.0" y="924.0" width="4.0" height="52.0" rx="2" fill="#e11d48" stroke="none"/>
+<text x="1096.0" y="951.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">自定义 Hook：把重复逻辑抽成 useXxx</text>
+<text x="1712.0" y="951.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">组合式 API 的复用单位</text>
+<line x1="1094.0" y1="968.0" x2="1712.0" y2="968.0" stroke="#eef2f7" stroke-width="1"/>
+<text x="1096.0" y="992.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.0" font-weight="700" fill="#dc2626">抽取前：三份复制</text>
+<rect x="1096.0" y="1002.0" width="126.0" height="86.0" rx="7" fill="#fff" stroke="#fecaca" stroke-width="0.9"/>
+<text x="1106.0" y="1020.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" font-weight="700" fill="#475569">组件 A</text>
+<text x="1106.0" y="1037.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">sum = ref(0)</text>
+<text x="1106.0" y="1051.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">add()</text>
+<text x="1106.0" y="1065.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">onMounted(...)</text>
+<text x="1106.0" y="1079.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#94a3b8">…</text>
+<rect x="1230.0" y="1002.0" width="126.0" height="86.0" rx="7" fill="#fff" stroke="#fecaca" stroke-width="0.9"/>
+<text x="1240.0" y="1020.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" font-weight="700" fill="#475569">组件 B</text>
+<text x="1240.0" y="1037.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">sum = ref(0)</text>
+<text x="1240.0" y="1051.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">add()</text>
+<text x="1240.0" y="1065.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">onMounted(...)</text>
+<text x="1240.0" y="1079.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#94a3b8">…</text>
+<rect x="1364.0" y="1002.0" width="126.0" height="86.0" rx="7" fill="#fff" stroke="#fecaca" stroke-width="0.9"/>
+<text x="1374.0" y="1020.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" font-weight="700" fill="#475569">组件 C</text>
+<text x="1374.0" y="1037.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">sum = ref(0)</text>
+<text x="1374.0" y="1051.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">add()</text>
+<text x="1374.0" y="1065.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">onMounted(...)</text>
+<text x="1374.0" y="1079.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#94a3b8">…</text>
+<line x1="1293.0" y1="1094.0" x2="1293.0" y2="1126.0" stroke="#e11d48" stroke-width="1.8"/>
+<polygon points="1293.0,1126.0 1290.1,1119.6 1295.9,1119.6" fill="#e11d48" stroke="none"/>
+<rect x="1096.0" y="1130.0" width="394.0" height="74.0" rx="8" fill="rgba(225,29,72,0.07)" stroke="rgba(225,29,72,0.3)" stroke-width="1"/>
+<text x="1108.0" y="1152.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="9.4" font-weight="700" fill="#e11d48">useSum.ts</text>
+<text x="1108.0" y="1170.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">export function useSum(init = 0) {</text>
+<text x="1108.0" y="1185.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">  const sum = ref(init); const add = ...</text>
+<text x="1108.0" y="1199.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="7.2" fill="#475569">  return { sum, add }</text>
+<text x="1514.0" y="1140.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.0" font-weight="700" fill="#059669">抽取后</text>
+<text x="1514.0" y="1160.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#0f172a">1 份实现</text>
+<text x="1514.0" y="1178.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#0f172a">N 处复用</text>
+<text x="1514.0" y="1198.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">状态各自独立</text>
+<text x="1096.0" y="1228.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">Hook 内可正常使用 ref / computed / watch / 生命周期，但必须在 setup 中调用。</text>
+<rect x="32.0" y="969.7" width="988.0" height="288.3" rx="10" fill="rgba(225,29,72,0.035)" stroke="rgba(225,29,72,0.14)" stroke-width="0.9"/>
+<text x="50.0" y="993.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.5" font-weight="700" fill="#e11d48">本模块自测 · 能不看笔记回答吗？</text>
+<circle cx="54.0" cy="1011.7" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="64.0" y="1015.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">interface 描述对象结构，type 还能描述联合/元组/函数；泛型让类型可复用。</text>
+<circle cx="54.0" cy="1032.7" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="64.0" y="1036.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">defineProps 是编译器宏；类型声明 + withDefaults 可以同时拿到类型、默认值和可选性。</text>
+<circle cx="54.0" cy="1053.7" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="64.0" y="1057.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">props 只读，子组件不能直接改；要改就 emit 或复制到本地状态。</text>
+<circle cx="54.0" cy="1074.7" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="64.0" y="1078.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">Vue3 的创建阶段由 setup 替代；挂载/更新/卸载用 onBeforeMount / onMounted 等注册。</text>
+<circle cx="54.0" cy="1095.7" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="64.0" y="1099.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">父挂载顺序：父 beforeMount → 子 beforeMount → 子 mounted → 父 mounted；卸载相反。</text>
+<circle cx="54.0" cy="1116.7" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="64.0" y="1120.7" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.8" fill="#475569">自定义 Hook 就是 useXxx 函数，内部可以正常使用组合式 API 和生命周期。</text>
+<line x1="32.0" y1="1268.0" x2="1728.0" y2="1268.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="32.0" y="1286.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">尚硅谷 Vue3 入门到实战 · BV1Za4y1r7KE · P24–P29</text>
+<text x="1728.0" y="1286.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">05 / 06 · 原创矢量配图</text>
+</svg>

@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1450" viewBox="0 0 2000 1450" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<defs>
+<linearGradient id="og" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#059669" stop-opacity="0.13"/><stop offset="45%" stop-color="#2563eb" stop-opacity="0.10"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0.08"/></linearGradient>
+</defs>
+<rect x="0.0" y="0.0" width="2000.0" height="1450.0" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0.0" y="0.0" width="2000.0" height="152.0" rx="0" fill="url(#og)" opacity="1.0"/>
+<rect x="0.0" y="0.0" width="2000.0" height="5.0" rx="0" fill="#059669" stroke="none"/>
+<text x="32.0" y="58.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#0f172a">Vue3 入门到实战 · 全景导图</text>
+<text x="32.0" y="88.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="13" fill="#475569">尚硅谷 · 最新版 Vue3 + TypeScript 前端开发教程  ·  B 站 40 集  ·  6 大模块  ·  15 张原创配图</text>
+<text x="32.0" y="114.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" fill="#94a3b8">从工程与 setup，到响应式、监听、组件能力，再到 Vue Router  ·  一张图看清学习路线</text>
+<text x="1598.0" y="64.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#0f172a">40</text>
+<text x="1598.0" y="86.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">集视频</text>
+<text x="1716.0" y="64.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#0f172a">6</text>
+<text x="1716.0" y="86.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">大模块</text>
+<text x="1834.0" y="64.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#0f172a">15</text>
+<text x="1834.0" y="86.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">张配图</text>
+<text x="1952.0" y="64.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#0f172a">7.8</text>
+<text x="1952.0" y="86.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10" fill="#94a3b8">小时</text>
+<path d="M790.0,720.0 C710.0,720.0 708.0,332.0 628.0,332.0" fill="none" stroke="#059669" stroke-width="2.4" opacity="0.38" stroke-linecap="round"/>
+<path d="M790.0,720.0 C710.0,720.0 708.0,694.0 628.0,694.0" fill="none" stroke="#2563eb" stroke-width="2.4" opacity="0.38" stroke-linecap="round"/>
+<path d="M790.0,720.0 C710.0,720.0 708.0,1056.0 628.0,1056.0" fill="none" stroke="#7c3aed" stroke-width="2.4" opacity="0.38" stroke-linecap="round"/>
+<path d="M1210.0,720.0 C1290.0,720.0 1292.0,332.0 1372.0,332.0" fill="none" stroke="#d97706" stroke-width="2.4" opacity="0.38" stroke-linecap="round"/>
+<path d="M1210.0,720.0 C1290.0,720.0 1292.0,694.0 1372.0,694.0" fill="none" stroke="#e11d48" stroke-width="2.4" opacity="0.38" stroke-linecap="round"/>
+<path d="M1210.0,720.0 C1290.0,720.0 1292.0,1056.0 1372.0,1056.0" fill="none" stroke="#0891b2" stroke-width="2.4" opacity="0.38" stroke-linecap="round"/>
+<rect x="62.0" y="186.0" width="566.0" height="292.0" rx="14" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="62.0" y="186.0" width="6.0" height="292.0" rx="3" fill="#059669" stroke="none"/>
+<text x="86.0" y="232.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#059669">01</text>
+<text x="138.0" y="231.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="16.5" font-weight="700" fill="#0f172a">起步与工程</text>
+<text x="138.0" y="251.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">Getting Started</text>
+<rect x="535.0" y="208.0" width="75.0" height="23.0" rx="11" fill="rgba(5,150,105,0.09)" stroke="none"/>
+<text x="572.5" y="224.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#059669">P1–P6 · 6 集</text>
+<text x="86.0" y="278.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.9" fill="#475569">先跑起来：工程、SFC、第一个响应式页面</text>
+<line x1="86.0" y1="310.0" x2="604.0" y2="310.0" stroke="#eef2f7" stroke-width="1"/>
+<circle cx="86.0" cy="330.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="96.0" y="334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">Vue3 新特性</text>
+<circle cx="86.0" cy="353.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="96.0" y="357.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">create-vue</text>
+<circle cx="86.0" cy="376.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="96.0" y="380.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">Vite</text>
+<circle cx="354.0" cy="330.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="364.0" y="334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">SFC</text>
+<circle cx="354.0" cy="353.0" r="1.8" fill="#059669" stroke="none"/>
+<text x="364.0" y="357.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">两种 API</text>
+<text x="86.0" y="460.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">6 / 40 集</text>
+<text x="604.0" y="460.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">54 min</text>
+<rect x="62.0" y="548.0" width="566.0" height="292.0" rx="14" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="62.0" y="548.0" width="6.0" height="292.0" rx="3" fill="#2563eb" stroke="none"/>
+<text x="86.0" y="594.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#2563eb">02</text>
+<text x="138.0" y="593.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="16.5" font-weight="700" fill="#0f172a">setup 与组合式 API</text>
+<text x="138.0" y="613.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">setup &amp; Composition API</text>
+<rect x="529.0" y="570.0" width="81.0" height="23.0" rx="11" fill="rgba(37,99,235,0.09)" stroke="none"/>
+<text x="569.5" y="586.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#2563eb">P7–P10 · 4 集</text>
+<text x="86.0" y="640.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.9" fill="#475569">组合式 API 的舞台：执行时机、返回值、语法糖</text>
+<line x1="86.0" y1="672.0" x2="604.0" y2="672.0" stroke="#eef2f7" stroke-width="1"/>
+<circle cx="86.0" cy="692.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="96.0" y="696.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">setup 时机</text>
+<circle cx="86.0" cy="715.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="96.0" y="719.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">this === undefined</text>
+<circle cx="86.0" cy="738.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="96.0" y="742.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">返回值</text>
+<circle cx="354.0" cy="692.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="364.0" y="696.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">script setup</text>
+<circle cx="354.0" cy="715.0" r="1.8" fill="#2563eb" stroke="none"/>
+<text x="364.0" y="719.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">编译器宏</text>
+<text x="86.0" y="822.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">4 / 40 集</text>
+<text x="604.0" y="822.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">33 min</text>
+<rect x="62.0" y="910.0" width="566.0" height="292.0" rx="14" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="62.0" y="910.0" width="6.0" height="292.0" rx="3" fill="#7c3aed" stroke="none"/>
+<text x="86.0" y="956.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#7c3aed">03</text>
+<text x="138.0" y="955.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="16.5" font-weight="700" fill="#0f172a">响应式系统</text>
+<text x="138.0" y="975.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">Reactivity</text>
+<rect x="523.0" y="932.0" width="87.0" height="23.0" rx="11" fill="rgba(124,58,237,0.09)" stroke="none"/>
+<text x="566.5" y="948.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#7c3aed">P11–P15 · 5 集</text>
+<text x="86.0" y="1002.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.9" fill="#475569">ref、reactive、toRefs：把数据和视图接上线</text>
+<line x1="86.0" y1="1034.0" x2="604.0" y2="1034.0" stroke="#eef2f7" stroke-width="1"/>
+<circle cx="86.0" cy="1054.0" r="1.8" fill="#7c3aed" stroke="none"/>
+<text x="96.0" y="1058.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">ref</text>
+<circle cx="86.0" cy="1077.0" r="1.8" fill="#7c3aed" stroke="none"/>
+<text x="96.0" y="1081.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">reactive</text>
+<circle cx="86.0" cy="1100.0" r="1.8" fill="#7c3aed" stroke="none"/>
+<text x="96.0" y="1104.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">Proxy</text>
+<circle cx="354.0" cy="1054.0" r="1.8" fill="#7c3aed" stroke="none"/>
+<text x="364.0" y="1058.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">RefImpl</text>
+<circle cx="354.0" cy="1077.0" r="1.8" fill="#7c3aed" stroke="none"/>
+<text x="364.0" y="1081.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">toRefs / toRef</text>
+<text x="86.0" y="1184.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">5 / 40 集</text>
+<text x="604.0" y="1184.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">63 min</text>
+<rect x="1372.0" y="186.0" width="566.0" height="292.0" rx="14" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1372.0" y="186.0" width="6.0" height="292.0" rx="3" fill="#d97706" stroke="none"/>
+<text x="1396.0" y="232.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#d97706">04</text>
+<text x="1448.0" y="231.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="16.5" font-weight="700" fill="#0f172a">计算、监听与模板 ref</text>
+<text x="1448.0" y="251.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">Computed, Watch &amp; Template Refs</text>
+<rect x="1833.0" y="208.0" width="87.0" height="23.0" rx="11" fill="rgba(217,119,6,0.09)" stroke="none"/>
+<text x="1876.5" y="224.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#d97706">P16–P23 · 8 集</text>
+<text x="1396.0" y="278.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.9" fill="#475569">computed 算、watch 看、ref 拿 DOM</text>
+<line x1="1396.0" y1="310.0" x2="1914.0" y2="310.0" stroke="#eef2f7" stroke-width="1"/>
+<circle cx="1396.0" cy="330.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1406.0" y="334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">computed 缓存</text>
+<circle cx="1396.0" cy="353.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1406.0" y="357.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">watch 五种情况</text>
+<circle cx="1396.0" cy="376.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1406.0" y="380.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">deep / immediate</text>
+<circle cx="1664.0" cy="330.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1674.0" y="334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">watchEffect</text>
+<circle cx="1664.0" cy="353.0" r="1.8" fill="#d97706" stroke="none"/>
+<text x="1674.0" y="357.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">模板引用</text>
+<text x="1396.0" y="460.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">8 / 40 集</text>
+<text x="1914.0" y="460.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">110 min</text>
+<rect x="1372.0" y="548.0" width="566.0" height="292.0" rx="14" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1372.0" y="548.0" width="6.0" height="292.0" rx="3" fill="#e11d48" stroke="none"/>
+<text x="1396.0" y="594.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#e11d48">05</text>
+<text x="1448.0" y="593.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="16.5" font-weight="700" fill="#0f172a">TypeScript、props、生命周期与 Hooks</text>
+<text x="1448.0" y="613.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">Props, Lifecycle &amp; Hooks</text>
+<rect x="1833.0" y="570.0" width="87.0" height="23.0" rx="11" fill="rgba(225,29,72,0.09)" stroke="none"/>
+<text x="1876.5" y="586.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#e11d48">P24–P29 · 6 集</text>
+<text x="1396.0" y="640.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.9" fill="#475569">让组件有类型、有阶段、可复用</text>
+<line x1="1396.0" y1="672.0" x2="1914.0" y2="672.0" stroke="#eef2f7" stroke-width="1"/>
+<circle cx="1396.0" cy="692.0" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="1406.0" y="696.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">interface / type</text>
+<circle cx="1396.0" cy="715.0" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="1406.0" y="719.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">泛型</text>
+<circle cx="1396.0" cy="738.0" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="1406.0" y="742.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">defineProps</text>
+<circle cx="1664.0" cy="692.0" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="1674.0" y="696.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">withDefaults</text>
+<circle cx="1664.0" cy="715.0" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="1674.0" y="719.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">生命周期</text>
+<circle cx="1664.0" cy="738.0" r="1.8" fill="#e11d48" stroke="none"/>
+<text x="1674.0" y="742.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">useXxx</text>
+<text x="1396.0" y="822.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">6 / 40 集</text>
+<text x="1914.0" y="822.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">100 min</text>
+<rect x="1372.0" y="910.0" width="566.0" height="292.0" rx="14" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1372.0" y="910.0" width="6.0" height="292.0" rx="3" fill="#0891b2" stroke="none"/>
+<text x="1396.0" y="956.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#0891b2">06</text>
+<text x="1448.0" y="955.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="16.5" font-weight="700" fill="#0f172a">Vue Router</text>
+<text x="1448.0" y="975.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">Vue Router 4</text>
+<rect x="1827.0" y="932.0" width="93.0" height="23.0" rx="11" fill="rgba(8,145,178,0.09)" stroke="none"/>
+<text x="1873.5" y="948.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" font-weight="700" fill="#0891b2">P30–P40 · 11 集</text>
+<text x="1396.0" y="1002.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.9" fill="#475569">单页应用的导航：URL 换，页面不刷新</text>
+<line x1="1396.0" y1="1034.0" x2="1914.0" y2="1034.0" stroke="#eef2f7" stroke-width="1"/>
+<circle cx="1396.0" cy="1054.0" r="1.8" fill="#0891b2" stroke="none"/>
+<text x="1406.0" y="1058.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">SPA</text>
+<circle cx="1396.0" cy="1077.0" r="1.8" fill="#0891b2" stroke="none"/>
+<text x="1406.0" y="1081.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">history / hash</text>
+<circle cx="1396.0" cy="1100.0" r="1.8" fill="#0891b2" stroke="none"/>
+<text x="1406.0" y="1104.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">嵌套路由</text>
+<circle cx="1664.0" cy="1054.0" r="1.8" fill="#0891b2" stroke="none"/>
+<text x="1674.0" y="1058.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">query / params</text>
+<circle cx="1664.0" cy="1077.0" r="1.8" fill="#0891b2" stroke="none"/>
+<text x="1674.0" y="1081.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">props 解耦</text>
+<circle cx="1664.0" cy="1100.0" r="1.8" fill="#0891b2" stroke="none"/>
+<text x="1674.0" y="1104.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.4" fill="#475569">replace</text>
+<text x="1396.0" y="1184.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="7.8" fill="#94a3b8">11 / 40 集</text>
+<text x="1914.0" y="1184.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.0" fill="#94a3b8">108 min</text>
+<rect x="790.0" y="590.0" width="420.0" height="260.0" rx="18" fill="#0f172a" stroke="none"/>
+<circle cx="842.0" cy="642.0" r="29.0" fill="rgba(52,211,153,0.15)" stroke="none"/>
+<text x="842.0" y="652.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="17" font-weight="700" fill="#34d399">V3</text>
+<text x="882.0" y="635.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Vue3 入门到实战</text>
+<text x="882.0" y="657.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">最新版 · TypeScript</text>
+<line x1="818.0" y1="684.0" x2="1182.0" y2="684.0" stroke="#334155" stroke-width="1"/>
+<text x="1000.0" y="716.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="26" font-weight="700" fill="#ffffff">P1 – P40</text>
+<text x="1000.0" y="740.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="10.2" fill="#cbd5e1">6 大模块 · 40 集 · 7.8 小时</text>
+<rect x="854.0" y="768.0" width="36.0" height="24.0" rx="12" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="872.0" y="784.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#34d399">工程</text>
+<rect x="898.0" y="768.0" width="45.0" height="24.0" rx="12" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="920.5" y="784.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#60a5fa">响应式</text>
+<rect x="951.0" y="768.0" width="36.0" height="24.0" rx="12" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="969.0" y="784.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#f472b6">组件</text>
+<rect x="995.0" y="768.0" width="36.0" height="24.0" rx="12" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="1013.0" y="784.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.6" font-weight="700" fill="#fbbf24">路由</text>
+<text x="1000.0" y="818.0" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.8" fill="#94a3b8">先打地基，再练响应式，最后上路由</text>
+<text x="32.0" y="1246.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="700" fill="#0f172a">推荐学习节奏</text>
+<text x="174.0" y="1246.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.5" fill="#94a3b8">按 6 个模块推进；每模块结束做一次「合上笔记复述 + 改 Demo」</text>
+<rect x="32.0" y="1268.0" width="376.0" height="92.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="32.0" y="1268.0" width="5.0" height="92.0" rx="2.5" fill="#059669" stroke="none"/>
+<text x="50.0" y="1294.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.2" font-weight="700" fill="#0f172a">① 工程与 setup</text>
+<text x="50.0" y="1314.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="10.0" font-weight="700" fill="#059669">P1–P10</text>
+<text x="50.0" y="1334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">建项目 · SFC · setup 语法糖</text>
+<text x="410.0" y="1314.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" fill="#cbd5e1">→</text>
+<rect x="422.0" y="1268.0" width="376.0" height="92.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="422.0" y="1268.0" width="5.0" height="92.0" rx="2.5" fill="#7c3aed" stroke="none"/>
+<text x="440.0" y="1294.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.2" font-weight="700" fill="#0f172a">② 响应式</text>
+<text x="440.0" y="1314.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="10.0" font-weight="700" fill="#7c3aed">P11–P23</text>
+<text x="440.0" y="1334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">ref/reactive · computed · watch</text>
+<text x="800.0" y="1314.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" fill="#cbd5e1">→</text>
+<rect x="812.0" y="1268.0" width="376.0" height="92.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="812.0" y="1268.0" width="5.0" height="92.0" rx="2.5" fill="#e11d48" stroke="none"/>
+<text x="830.0" y="1294.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.2" font-weight="700" fill="#0f172a">③ 组件能力</text>
+<text x="830.0" y="1314.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="10.0" font-weight="700" fill="#e11d48">P24–P29</text>
+<text x="830.0" y="1334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">TS · props · 生命周期 · Hooks</text>
+<text x="1190.0" y="1314.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" fill="#cbd5e1">→</text>
+<rect x="1202.0" y="1268.0" width="376.0" height="92.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1202.0" y="1268.0" width="5.0" height="92.0" rx="2.5" fill="#0891b2" stroke="none"/>
+<text x="1220.0" y="1294.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.2" font-weight="700" fill="#0f172a">④ 路由</text>
+<text x="1220.0" y="1314.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="10.0" font-weight="700" fill="#0891b2">P30–P40</text>
+<text x="1220.0" y="1334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">嵌套 · 传参 · props · replace</text>
+<text x="1580.0" y="1314.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12" fill="#cbd5e1">→</text>
+<rect x="1592.0" y="1268.0" width="376.0" height="92.0" rx="10" fill="#ffffff" stroke="#e3e9f2" stroke-width="1"/>
+<rect x="1592.0" y="1268.0" width="5.0" height="92.0" rx="2.5" fill="#d97706" stroke="none"/>
+<text x="1610.0" y="1294.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="12.2" font-weight="700" fill="#0f172a">⑤ 复盘</text>
+<text x="1610.0" y="1314.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="10.0" font-weight="700" fill="#d97706">P1–P40</text>
+<text x="1610.0" y="1334.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="8.2" fill="#475569">自测 + 重做 Demo + 输出笔记</text>
+<line x1="32.0" y1="1410.0" x2="1968.0" y2="1410.0" stroke="#edf1f7" stroke-width="1"/>
+<text x="32.0" y="1430.0" text-anchor="start" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">B 站 BV1Za4y1r7KE · 尚硅谷 Vue3 入门到实战 · 内容整理与原创矢量配图，仅用于学习</text>
+<text x="1968.0" y="1430.0" text-anchor="end" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="9.2" fill="#94a3b8">docs/00-overview.svg</text>
+</svg>
