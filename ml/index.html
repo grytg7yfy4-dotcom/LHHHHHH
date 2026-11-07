@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>吴恩达机器学习 · 交互思维导图</title>
-<meta name="description" content="吴恩达机器学习 146 集 · 12 章交互思维导图，可折叠、搜索、标记掌握进度。">
+<meta name="description" content="吴恩达机器学习 146 集 · 12 章交互思维导图，点知识点即可展开细节。">
 <style>
   :root{
     --bg:#f5f7fb; --panel:#ffffff; --ink:#0f172a; --sub:#475569; --muted:#94a3b8;
@@ -25,7 +25,7 @@
     background:var(--panel);border-bottom:1px solid var(--line);position:relative;z-index:5}
   .brand{display:flex;align-items:baseline;gap:9px;font-size:16px;font-weight:800;letter-spacing:.3px;white-space:nowrap}
   .brand small{font-weight:400;font-size:11.5px;color:var(--muted)}
-  .search{flex:1;max-width:520px;position:relative}
+  .search{flex:1;max-width:540px;position:relative}
   .search input{width:100%;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--bg);
     color:var(--ink);padding:0 76px 0 36px;font-size:13px;outline:none}
   .search input:focus{border-color:#93b4f7;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
@@ -38,8 +38,6 @@
     padding:0 10px;font-size:12.5px;color:var(--sub)}
   .actions button:hover{border-color:#93b4f7;color:#2563eb}
   #zoomLabel{font-size:12px;color:var(--muted);width:42px;text-align:center;font-variant-numeric:tabular-nums}
-  #progress{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
-  #progress b{color:#2563eb;font-size:13px}
 
   /* ---------- 布局 ---------- */
   .app{display:grid;grid-template-columns:252px 1fr;height:calc(100vh - 60px)}
@@ -52,8 +50,6 @@
   .navitem.on{background:rgba(37,99,235,.12);color:#2563eb;font-weight:700}
   .navitem .no{font-variant-numeric:tabular-nums;font-size:11px;color:var(--muted);min-width:18px}
   .navitem.on .no{color:#2563eb}
-  .navitem .pg{margin-left:auto;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-  .navitem .bar{position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:2px;background:currentColor;opacity:.7}
 
   /* ---------- 画布 ---------- */
   main.mapwrap{position:relative;overflow:hidden;cursor:grab;
@@ -81,53 +77,45 @@
     border-radius:6px;padding:1px 6px}
   .branch.collapsed{opacity:.55;filter:saturate(.6)}
 
+  /* 知识点卡片：整卡可点，点开看细节 */
   .leaf{position:relative;z-index:2;width:472px;background:var(--panel);border:1px solid var(--line);
     border-left:3px solid var(--accent,#2563eb);border-radius:10px;padding:10px 14px 10px 15px;
-    box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s,opacity .2s,transform .15s}
+    box-shadow:var(--shadow);cursor:pointer;
+    transition:box-shadow .15s,border-color .15s,opacity .2s,transform .12s}
   .leaf:hover{border-color:var(--accent,#2563eb);box-shadow:0 8px 26px rgba(15,23,42,.10)}
+  .leaf:active{transform:scale(.997)}
   .leaf.dim{opacity:.22}
-  .leaf.done{opacity:.55}
-  .leaf.done h4{text-decoration:line-through;text-decoration-thickness:1px}
-  .lhead{display:flex;align-items:center;gap:9px;cursor:pointer;user-select:none}
-  .chk{flex:0 0 auto;width:16px;height:16px;border-radius:5px;border:1.5px solid #cbd5e1;background:transparent;
-    display:grid;place-items:center;font-size:10px;color:transparent;padding:0}
-  .leaf.done .chk{background:var(--accent,#2563eb);border-color:var(--accent,#2563eb);color:#fff}
-  .leaf h4{margin:0;font-size:13px;font-weight:700;color:var(--accent,#2563eb);line-height:1.5;flex:1}
-  .leaf .cnt{font-size:10px;color:var(--muted);min-width:16px;text-align:right}
-  .leaf .chev{font-size:10px;color:var(--muted);transition:transform .18s}
+  .lhead{display:flex;align-items:center;gap:10px;user-select:none}
+  .leaf h4{margin:0;font-size:13.5px;font-weight:700;color:var(--accent,#2563eb);line-height:1.5;flex:1}
+  .leaf .chev{font-size:11px;color:var(--muted);transition:transform .18s;flex:0 0 auto}
   .leaf.open .chev{transform:rotate(180deg)}
-  .leaf ul{display:none;margin:8px 0 2px;padding:0 0 0 2px;list-style:none}
+  .hintline{font-size:10.5px;color:var(--muted);margin:3px 0 0 0;user-select:none}
+  .leaf.open .hintline{display:none}
+  .leaf ul{display:none;margin:10px 0 2px;padding:0 0 0 2px;list-style:none}
   .leaf.open ul{display:block}
-  .leaf li{position:relative;padding-left:14px;margin:4px 0;font-size:12.3px;line-height:1.62;color:var(--sub)}
-  .leaf li::before{content:"";position:absolute;left:2px;top:9px;width:4px;height:4px;border-radius:50%;
+  .leaf li{position:relative;padding-left:15px;margin:5px 0;font-size:12.8px;line-height:1.7;color:var(--sub)}
+  .leaf li::before{content:"";position:absolute;left:2px;top:10px;width:4px;height:4px;border-radius:50%;
     background:var(--accent,#2563eb);opacity:.65}
-  .leaf mark{background:#fde68a;color:inherit;border-radius:2px;padding:0 1px}
-  html[data-theme=dark] .leaf mark{background:#7c5c12;color:#fff}
 
   svg.links{position:absolute;left:0;top:0;pointer-events:none;z-index:1;overflow:visible}
   svg.links path{fill:none;stroke:var(--accent,#2563eb);stroke-opacity:.38;stroke-width:1.7}
 
   .hint{position:absolute;left:18px;bottom:14px;font-size:11.5px;color:var(--muted);
-    background:color-mix(in srgb, var(--panel) 88%, transparent);border:1px solid var(--line);
-    padding:6px 10px;border-radius:8px;pointer-events:none}
+    background:var(--panel);border:1px solid var(--line);
+    padding:6px 10px;border-radius:8px;pointer-events:none;box-shadow:var(--shadow)}
   .chbar{position:absolute;right:16px;top:14px;display:flex;gap:8px;z-index:3}
   .chbar a{font-size:11.5px;color:var(--sub);text-decoration:none;border:1px solid var(--line);
     background:var(--panel);padding:7px 10px;border-radius:9px}
   .chbar a:hover{color:#2563eb;border-color:#93b4f7}
-  .chbar button{font-size:11.5px;color:var(--sub);border:1px solid var(--line);background:var(--panel);
-    padding:7px 10px;border-radius:9px}
-  .chbar button:hover{color:#2563eb;border-color:#93b4f7}
 
   @media (max-width:860px){
     .app{grid-template-columns:1fr;grid-template-rows:auto 1fr}
     aside.nav{display:flex;gap:6px;overflow:auto;padding:8px;border-right:0;border-bottom:1px solid var(--line)}
     aside.nav .grp{display:none}
     .navitem{white-space:nowrap}
-    .navitem .pg{display:none}
     .search{max-width:none}
     .brand small{display:none}
-    #progress{display:none}
-    .leaf{width:min(78vw,472px)}
+    .leaf{width:min(80vw,472px)}
   }
 </style>
 </head>
@@ -141,14 +129,13 @@
     <kbd>/</kbd>
   </div>
   <div class="actions">
-    <button id="btnExpand" title="展开/收起全部知识点">展开全部</button>
+    <button id="btnExpand" title="展开/收起本章全部知识点">展开全部</button>
     <button id="btnOut" title="缩小">−</button>
     <span id="zoomLabel">100%</span>
     <button id="btnIn" title="放大">+</button>
     <button id="btnFit" title="适应窗口 (F)">适应</button>
     <button id="btnTheme" title="切换主题">🌗</button>
   </div>
-  <div id="progress">已掌握 <b>0</b> / 0</div>
 </header>
 
 <div class="app">
@@ -157,10 +144,9 @@
     <div class="chbar">
       <a href="../index.html">← 返回主页</a>
       <a id="rawLink" href="#" target="_blank" rel="noopener">矢量长图 ↗</a>
-      <button id="btnAllDone">本章全部掌握</button>
     </div>
     <div class="stage" id="stage"></div>
-    <div class="hint">拖拽平移 · 滚轮缩放 · 点分支折叠 · 点知识点展开 · ←/→ 换章</div>
+    <div class="hint">点任意知识点卡片展开细节 · 点分支折叠 · 拖拽平移 · 滚轮缩放 · ←/→ 换章</div>
   </main>
 </div>
 
@@ -178,14 +164,12 @@ const store = {
 const state = {
   idx: 0,
   scale: 1, tx: 0, ty: 0,
-  open: store.get('ml.open.v1', {}),      // {chId: [leafIdx...]}
-  done: store.get('ml.done.v1', {}),      // {chId: [leafIdx...]}
-  collapsed: store.get('ml.collapsed.v1', {}) // {chId: [branchIdx...]}
+  open: store.get('ml.open.v2', {}),            // {chId: [leafIdx...]}
+  collapsed: store.get('ml.collapsed.v1', {})   // {chId: [branchIdx...]}
 };
 const chOf = i => DATA.chapters[i];
 const chId = i => chOf(i).id;
 const isOpen = (ci, li) => (state.open[chId(ci)] || []).includes(li);
-const isDone = (ci, li) => (state.done[chId(ci)] || []).includes(li);
 const isCollapsed = (ci, bi) => (state.collapsed[chId(ci)] || []).includes(bi);
 
 function toggleIn(obj, key, val){
@@ -209,26 +193,13 @@ function buildNav(){
     const b = document.createElement('button');
     b.className = 'navitem' + (i === state.idx ? ' on' : '');
     b.dataset.i = i;
-    b.innerHTML = `<span class="no">${ch.id}</span><span>${ch.title}</span><span class="pg" data-pg="${ch.id}"></span>`;
+    b.innerHTML = `<span class="no">${ch.id}</span><span>${ch.title}</span>`;
     b.onclick = () => go(i);
     nav.appendChild(b);
   });
-  refreshNav();
 }
 
-function chapterLeaves(ch){ return ch.branches.reduce((s, b) => s + b.leaves.length, 0); }
-
 function refreshNav(){
-  const total = DATA.chapters.reduce((s, ch) => s + chapterLeaves(ch), 0);
-  let doneAll = 0;
-  DATA.chapters.forEach(ch => {
-    const totalC = chapterLeaves(ch);
-    const d = (state.done[ch.id] || []).length;
-    doneAll += d;
-    const el = nav.querySelector(`[data-pg="${ch.id}"]`);
-    if (el) el.textContent = totalC ? `${d}/${totalC}` : '';
-  });
-  $('#progress').innerHTML = `已掌握 <b>${doneAll}</b> / ${total}`;
   [...nav.querySelectorAll('.navitem')].forEach(b => b.classList.toggle('on', +b.dataset.i === state.idx));
 }
 
@@ -259,15 +230,13 @@ function renderChapter(){
   ch.branches.forEach((br, bi) => {
     const g = document.createElement('div');
     g.className = 'bg-group';
-    g.dataset.b = bi;
 
     const btn = document.createElement('button');
     btn.className = 'branch' + (isCollapsed(state.idx, bi) ? ' collapsed' : '');
     btn.dataset.b = bi;
     btn.innerHTML = `<span>${esc(br.name)}</span><span class="n">${br.leaves.length}</span>`;
     btn.onclick = () => {
-      const key = chId(state.idx);
-      toggleIn(state.collapsed, key, bi);
+      toggleIn(state.collapsed, chId(state.idx), bi);
       store.set('ml.collapsed.v1', state.collapsed);
       renderChapter();
     };
@@ -280,27 +249,19 @@ function renderChapter(){
     br.leaves.forEach((lf, li) => {
       const gi = brOffset(state.idx, bi) + li;
       const art = document.createElement('article');
-      art.className = 'leaf' + (isOpen(state.idx, gi) ? ' open' : '') + (isDone(state.idx, gi) ? ' done' : '');
+      art.className = 'leaf' + (isOpen(state.idx, gi) ? ' open' : '');
       art.dataset.i = gi;
-      art.dataset.b = bi;
+      art.title = '点击展开 / 收起';
       art.innerHTML = `
         <div class="lhead">
-          <button class="chk" title="标记已掌握" aria-label="标记已掌握">✓</button>
           <h4>${esc(lf.head)}</h4>
-          <span class="cnt">${lf.bullets.length}</span>
-          <span class="chev">▾</span>
+          <span class="chev">⌄</span>
         </div>
+        <div class="hintline">${lf.bullets.length} 条要点 · 点击展开</div>
         <ul>${lf.bullets.map(t => `<li>${esc(t)}</li>`).join('')}</ul>`;
-      art.querySelector('.chk').onclick = e => {
-        e.stopPropagation();
-        toggleIn(state.done, chId(state.idx), gi);
-        store.set('ml.done.v1', state.done);
-        art.classList.toggle('done', isDone(state.idx, gi));
-        refreshNav();
-      };
-      art.querySelector('.lhead').onclick = () => {
+      art.onclick = () => {
         toggleIn(state.open, chId(state.idx), gi);
-        store.set('ml.open.v1', state.open);
+        store.set('ml.open.v2', state.open);
         art.classList.toggle('open', isOpen(state.idx, gi));
         requestAnimationFrame(drawLinks);
       };
@@ -320,7 +281,6 @@ function renderChapter(){
   requestAnimationFrame(() => { drawLinks(); if (!state._fitted) { fit(); state._fitted = true; } });
 }
 
-// 叶子在整章里的线性序号（用于 localStorage）
 const _offsets = {};
 function brOffset(ci, bi){
   const key = chId(ci) + ':' + bi;
@@ -400,20 +360,30 @@ function fit(){
 }
 
 /* ---------------- 交互 ---------------- */
-let drag = null;
+/* 注意：不能用 setPointerCapture，否则 click 会被重定向到画布，卡片点不开 */
+let drag = null, justDragged = false;
 mapwrap.addEventListener('pointerdown', e => {
   if (e.target.closest('button,a,input')) return;
   drag = { x: e.clientX, y: e.clientY, tx: state.tx, ty: state.ty };
+  justDragged = false;
   mapwrap.classList.add('drag');
-  mapwrap.setPointerCapture(e.pointerId);
 });
-mapwrap.addEventListener('pointermove', e => {
+window.addEventListener('pointermove', e => {
   if (!drag) return;
+  if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) > 4) justDragged = true;
   state.tx = drag.tx + (e.clientX - drag.x);
   state.ty = drag.ty + (e.clientY - drag.y);
   apply();
 });
-mapwrap.addEventListener('pointerup', e => { drag = null; mapwrap.classList.remove('drag'); });
+window.addEventListener('pointerup', () => {
+  if (!drag) return;
+  drag = null;
+  mapwrap.classList.remove('drag');
+});
+mapwrap.addEventListener('click', e => {
+  if (justDragged){ e.stopPropagation(); e.preventDefault(); justDragged = false; }
+}, true);
+
 mapwrap.addEventListener('wheel', e => {
   e.preventDefault();
   if (e.shiftKey){ state.tx -= e.deltaY; apply(); return; }
@@ -437,21 +407,9 @@ $('#btnExpand').onclick = () => {
   let n = 0;
   ch.branches.forEach(b => b.leaves.forEach(() => { arr.push(n++); }));
   state.open[chId(state.idx)] = allOpen ? arr : [];
-  store.set('ml.open.v1', state.open);
+  store.set('ml.open.v2', state.open);
   renderChapter();
   $('#btnExpand').textContent = allOpen ? '收起全部' : '展开全部';
-};
-
-$('#btnAllDone').onclick = () => {
-  const ch = chOf(state.idx);
-  const arr = [];
-  let n = 0;
-  ch.branches.forEach(b => b.leaves.forEach(() => { arr.push(n++); }));
-  const cur = state.done[chId(state.idx)] || [];
-  state.done[chId(state.idx)] = cur.length >= arr.length ? [] : arr;
-  store.set('ml.done.v1', state.done);
-  renderChapter();
-  refreshNav();
 };
 
 function go(i){
@@ -488,7 +446,11 @@ function search(q){
     if (txt.includes(q)) hits.push(el); else el.classList.add('dim');
   });
   $('#hit').textContent = hits.length ? `${hits.length} 处` : '无结果';
-  if (hits.length) { hitI = 0; centerOn(hits[0]); hits[0].classList.add('open'); requestAnimationFrame(drawLinks); }
+  if (hits.length){
+    hitI = 0;
+    hits[0].classList.add('open');
+    requestAnimationFrame(() => { drawLinks(); centerOn(hits[0]); });
+  }
 }
 function centerOn(el){
   const r = el.getBoundingClientRect(), w = mapwrap.getBoundingClientRect();
@@ -500,8 +462,8 @@ $('#q').addEventListener('input', e => search(e.target.value));
 $('#q').addEventListener('keydown', e => {
   if (e.key !== 'Enter' || !hits.length) return;
   hitI = (hitI + 1) % hits.length;
-  centerOn(hits[hitI]);
-  $('#q').value = $('#q').value;
+  hits[hitI].classList.add('open');
+  requestAnimationFrame(() => { drawLinks(); centerOn(hits[hitI]); });
 });
 
 /* ---------------- 启动 ---------------- */
