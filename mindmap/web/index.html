@@ -141,7 +141,7 @@ a{color:var(--blue);text-decoration:none}
 .switch:hover{background:#1e293b}
 
 /* ---------- 详情卡 ---------- */
-#pop{position:fixed;z-index:70;display:none;flex-direction:column;width:376px;max-height:80vh;
+#pop{position:fixed;z-index:70;display:none;flex-direction:column;width:420px;max-height:80vh;
   background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;
   box-shadow:0 18px 48px rgba(15,23,42,.2),0 2px 8px rgba(15,23,42,.06)}
 #pop.on{display:flex}
@@ -682,6 +682,437 @@ function infoFor(title) {
 }
 
 var NOTES = {"A-9":"html 包住 head 与 body：head 放 meta / title / link，body 放可见内容。VSCode 里输入 <b>!</b> 再按 Tab 可直接生成这套骨架。","A-12":"<b>DOCTYPE</b> 声明 HTML5，不写会进怪异模式；<b>charset=UTF-8</b> 防中文乱码；<b>lang</b> 影响朗读与翻译。","A-18":"<b>div</b> 块级独占一行，<b>span</b> 行内跟随文字。布局用 div，包一小段文字用 span。","A-46":"<b>input 的 type</b> 决定形态：text 单行文本、password 显示圆点；placeholder 是提示文字，value 才是真正的值。","A-67":"类选择器 <b>.card</b> 选中所有 class=\"card\" 的元素，一个元素可挂多个类名（class=\"card active\"）。","A-86":"外部样式表用 <b>&lt;link rel=\"stylesheet\" href=\"style.css\"&gt;</b>，放 head 里；三种引入方式的优先级看「行内 &gt; 内部/外部，同位置看先后」。","A-92":"F12 打开 Elements 看最终生效的样式，被划掉的就是被覆盖的；先在面板里试改，再写回文件。","A-132":"<b>!important &gt; 行内 &gt; #id &gt; .class &gt; 标签</b>；同权重时后写的赢——这就是层叠。","A-138":"盒模型 = <b>content + padding + border + margin</b>，width 默认只算 content，所以加 padding 会撑大盒子。","A-143":"padding 会撑大盒子；<b>padding: 10px 20px</b> 是上下 10、左右 20。不想被撑大就设 box-sizing: border-box。","A-150":"margin 管盒子之间的间距；左右 auto 让固定宽度块水平居中；相邻上下 margin 会合并取大值。","A-225":"<b>relative</b> 相对自己原位偏移，原位置仍占着——最大用途是给 absolute 子元素当参照。","A-227":"<b>absolute</b> 相对最近的已定位祖先偏移，没有就相对初始包含块；它会脱标、不占位置。","A-231":"<b>fixed</b> 相对浏览器窗口固定，滚动不动，吸顶导航、返回顶部常用。","A-295":"<b>transition: 属性 时长 曲线 延迟</b>；只能过渡有中间值的属性（width / opacity / transform），display 不行。","A-418":"父元素 <b>display: flex</b> 后，直接子元素默认排成一行，成为 flex item。","A-420":"<b>justify-content</b> 管主轴：flex-start / center / space-between / space-around。","A-422":"<b>align-items</b> 管交叉轴（横排时是垂直），center 最常用；多行还要配 align-content。","A-425":"<b>flex: 1</b> = grow 1 + shrink 1 + basis 0%，用来占满剩余空间，是「左固定右自适应」的关键。","A-444":"<b>@media (max-width: 768px){…}</b> 断点内覆盖样式；移动优先则反过来用 min-width 逐级加宽。","B-12":"数组用 <b>[]</b> 声明，下标从 0 开始，<b>length</b> 是长度；取值和改值都靠下标。","B-16":"模板字符串用反引号，<b>${表达式}</b> 直接插值，还能换行，比拼字符串安全。","B-50":"<b>function 名(参数){…}</b>；参数是入口，没传就是 undefined；先声明后调用。","B-53":"<b>return</b> 把结果交出去并立刻结束函数；不写 return 得到 undefined。","B-65":"对象是键值对集合；取值 <b>obj.key</b> 或 obj[\"key\"]，改值直接赋值。","B-80":"DOM 是把 HTML 解析成的一棵树，document 是根，每个标签都是一个节点对象。","B-81":"<b>querySelector</b> 返回第一个匹配，querySelectorAll 返回 NodeList（要遍历或转成数组）。","B-82":"<b>textContent</b> 只改文字，<b>innerHTML</b> 会解析标签；插入用户输入用 textContent 防 XSS。","B-86":"<b>classList.add / remove / toggle / contains</b> 改类名，比直接改 style 更好维护。","B-89":"表单控件的值在 <b>.value</b>，checkbox 用 .checked；不要用 innerHTML 去读。","B-94":"<b>addEventListener(\"click\", fn)</b>；同一元素能绑多个监听，不会互相覆盖。","B-101":"事件对象 e：<b>e.target</b> 是真正触发的元素，e.currentTarget 是绑定监听的元素。","B-110":"<b>e.preventDefault()</b> 阻止默认行为（表单提交刷新、a 跳转）；stopPropagation 才是不让冒泡。","B-131":"<b>localStorage</b> 只能存字符串；对象要 JSON.stringify 存、JSON.parse 读，读的时候给默认值防报错。","B-134":"<b>map</b> 返回新数组、<b>join(\"\")</b> 拼成字符串——把数据渲染成 HTML 的标准组合。","B-158":"箭头函数 <b>() =&gt; {}</b> 没有自己的 this，会继承外层；单表达式可以省略 return。","B-192":"<b>try{…}catch(e){…}</b> 兜住可能失败的代码，throw 主动抛错，finally 一定执行。","C-24":"Promise 三种状态 pending / fulfilled / rejected；<b>then</b> 接成功，<b>catch</b> 接失败。","C-49":"<b>async</b> 函数一定返回 Promise；<b>await</b> 等结果，失败要用 try / catch 接。"};
+/* ============ 每集专属示意图 ============ */
+var A2 = {};
+function e2(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function t2(x, y, t, o) {
+  o = o || {};
+  var a = "";
+  if (o.a) a += ' text-anchor="' + o.a + '"';
+  if (o.b) a += ' font-weight="700"';
+  if (o.m) a += ' font-family="Consolas,monospace"';
+  return '<text x="' + x + '" y="' + y + '" font-size="' + (o.fs || 9) + '" fill="' + (o.c || "#475569") + '"' + a + '>' + e2(t) + "</text>";
+}
+function r2(x, y, w, h, o) {
+  o = o || {};
+  return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + (o.r || 5) + '" fill="' + (o.f || "#fff") + '"' +
+    (o.s === null ? "" : ' stroke="' + (o.s || "#d9e2ee") + '"') + (o.d ? ' stroke-dasharray="4 3"' : "") + "/>";
+}
+function l2(x1, y1, x2, y2, o) {
+  o = o || {};
+  return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + (o.c || "#c3cfdd") +
+    '" stroke-width="' + (o.w || 1) + '"' + (o.d ? ' stroke-dasharray="4 3"' : "") + "/>";
+}
+function a2(x1, y1, x2, y2, c) {
+  c = c || "#94a3b8";
+  var ang = Math.atan2(y2 - y1, x2 - x1), L = 5;
+  var px = x2 - L * Math.cos(ang - 0.45), py = y2 - L * Math.sin(ang - 0.45);
+  var qx = x2 - L * Math.cos(ang + 0.45), qy = y2 - L * Math.sin(ang + 0.45);
+  return l2(x1, y1, x2, y2, { c: c }) + '<path d="M' + x2 + " " + y2 + "L" + px.toFixed(1) + " " + py.toFixed(1) +
+    "L" + qx.toFixed(1) + " " + qy.toFixed(1) + 'Z" fill="' + c + '"/>';
+}
+
+A2.page = function (ep, t) {
+  var s = "";
+  s += r2(46, 50, 308, 72, { r: 7, f: "#fbfcfe" });
+  s += r2(46, 50, 308, 13, { r: 7, f: "#eef2f8", s: null });
+  s += t2(54, 60, "浏览器", { fs: 7.5, c: "#94a3b8" });
+  s += r2(54, 69, 292, 15, { r: 3, f: "#eaf1ff", s: "#c7dbff" });
+  s += t2(60, 80, "head · meta / title / link / style", { fs: 8, c: "#1d4ed8" });
+  s += r2(54, 89, 292, 27, { r: 3, f: "#e7f8f0", s: "#a7e5c8" });
+  s += t2(60, 106, "body · header / main / footer", { fs: 8, c: "#0b6b4c" });
+  if (/DOCTYPE/i.test(t)) s += t2(300, 60, "<!DOCTYPE html>", { fs: 7, c: "#94a3b8", m: true, a: "end" });
+  return s;
+};
+
+A2.tags = function (ep, t) {
+  var s = "";
+  s += r2(28, 58, 150, 38, { f: "#eaf1ff", s: "#bcd4fb" });
+  s += t2(103, 75, "div", { fs: 10, c: "#1d4ed8", a: "middle", b: true, m: true });
+  s += t2(103, 90, "块级 · 独占一行", { fs: 8, c: "#1d4ed8", a: "middle" });
+  s += r2(218, 64, 142, 24, { f: "#e7f8f0", s: "#a7e5c8" });
+  s += t2(289, 80, "span 行内", { fs: 9, c: "#0b6b4c", a: "middle", b: true });
+  s += t2(218, 104, "跟着文字走，不换行", { fs: 8, c: "#64748b" });
+  s += t2(28, 118, "标签只决定「是什么」，样式交给 CSS", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.form = function (ep, t) {
+  var s = "";
+  s += r2(26, 54, 158, 24, {});
+  s += t2(34, 70, "text 输入框", { fs: 8, c: "#94a3b8" });
+  s += r2(26, 84, 158, 24, {});
+  s += t2(34, 100, "••••••  password", { fs: 8, c: "#94a3b8" });
+  s += r2(206, 54, 13, 13, { r: 3 });
+  s += t2(226, 65, "radio / checkbox", { fs: 8, c: "#475569" });
+  s += r2(206, 80, 110, 24, { f: "#2563eb", s: null });
+  s += t2(261, 96, "submit", { fs: 8.5, c: "#fff", a: "middle", m: true });
+  s += t2(26, 120, "type 决定形态，name 决定提交的键", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.sel = function (ep, t) {
+  var s = "";
+  s += t2(12, 52, "选择器只命中符合条件的元素", { fs: 8, c: "#64748b" });
+  s += r2(36, 62, 92, 34, {});
+  s += t2(82, 83, "div", { fs: 8, c: "#94a3b8", a: "middle", m: true });
+  s += r2(152, 62, 96, 34, { f: "#eaf1ff", s: "#2563eb" });
+  s += t2(200, 83, ".card", { fs: 9.5, c: "#1d4ed8", a: "middle", b: true, m: true });
+  s += r2(272, 62, 92, 34, {});
+  s += t2(318, 83, "span", { fs: 8, c: "#94a3b8", a: "middle", m: true });
+  s += a2(200, 108, 200, 98, "#2563eb");
+  s += t2(200, 122, "class=\"card\" 的都被选中", { fs: 8, c: "#1d4ed8", a: "middle" });
+  return s;
+};
+
+A2.include = function (ep, t) {
+  var s = "";
+  ["内部 style", "外部 link", "行内 style"].forEach(function (x, i) {
+    s += r2(24, 56 + i * 24, 128, 19, { f: "#f7f9fd" });
+    s += t2(32, 69 + i * 24, x, { fs: 8, c: "#475569" });
+    s += a2(154, 65 + i * 24, 232, 78, "#94a3b8");
+  });
+  s += r2(238, 52, 130, 58, { f: "#fbfcfe" });
+  s += t2(250, 68, "head", { fs: 7.5, c: "#94a3b8" });
+  s += t2(250, 82, "页面最终样式", { fs: 8.5, c: "#0f172a", b: true });
+  s += t2(250, 96, "层叠后生效", { fs: 7.5, c: "#94a3b8" });
+  s += t2(24, 122, "谁离元素更近、权重更高，谁赢", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.cascade = function (ep, t) {
+  var s = "";
+  var rows = [["!important", 300], ["行内 style", 250], ["#id", 200], [".class", 150], ["标签", 100]];
+  rows.forEach(function (r, i) {
+    var y = 52 + i * 15;
+    s += r2(30, y, r[1], 12, { r: 3, f: i === 0 ? "#eaf1ff" : "#f4f7fb", s: null });
+    s += t2(36, y + 9.5, r[0], { fs: 7.5, c: i === 0 ? "#1d4ed8" : "#64748b", m: true });
+  });
+  s += t2(340, 62, "权重高", { fs: 7.5, c: "#94a3b8" });
+  s += a2(344, 78, 344, 116, "#cbd5e1");
+  s += t2(340, 128, "权重低", { fs: 7.5, c: "#94a3b8" });
+  return s;
+};
+
+A2.box = function (ep, t) {
+  var s = "";
+  s += r2(56, 46, 288, 66, { f: "#fdf1dd", s: "#e3b364", d: 1 });
+  s += t2(64, 58, "margin 外边距", { fs: 7.5, c: "#92400e" });
+  s += r2(84, 54, 232, 50, { f: "#eaf1ff", s: "#7fb0f0" });
+  s += t2(92, 66, "border 边框", { fs: 7.5, c: "#1e40af" });
+  s += r2(108, 70, 184, 26, { f: "#e7f8f0", s: "#7fcfae" });
+  s += t2(116, 87, "padding", { fs: 7.5, c: "#0b6b4c" });
+  s += r2(160, 74, 76, 18, { r: 3, f: "#fff" });
+  s += t2(198, 87, "content", { fs: 7.5, c: "#0f172a", a: "middle" });
+  s += t2(12, 126, /padding/i.test(t) ? "padding 会撑大盒子" : (/margin/i.test(t) ? "margin 合并、auto 居中" : "width 默认只算 content，padding 会撑大它"), { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.pos = function (ep, t) {
+  var s = "";
+  var mode = /fixed|固定/.test(t) ? "fixed" : (/absolute|绝对/.test(t) ? "abs" : "rel");
+  if (mode === "fixed") {
+    s += r2(40, 50, 320, 74, { f: "#fbfcfe", d: 1, s: "#c3cfdd" });
+    s += r2(40, 50, 320, 18, { r: 5, f: "#2563eb", s: null });
+    s += t2(52, 63, "fixed · 吸顶导航不随滚动", { fs: 8, c: "#fff" });
+    s += t2(52, 88, "内容滚动", { fs: 8, c: "#94a3b8" });
+    s += t2(52, 102, "内容滚动", { fs: 8, c: "#94a3b8" });
+  } else {
+    s += r2(110, 46, 170, 66, { f: "#fbfcfe", d: 1, s: "#c3cfdd" });
+    s += t2(118, 58, "父元素 position:relative", { fs: 7.5, c: "#94a3b8" });
+    if (mode === "abs") {
+      s += r2(236, 56, 34, 22, { f: "#eaf1ff", s: "#2563eb" });
+      s += t2(253, 71, "子", { fs: 8, c: "#1d4ed8", a: "middle" });
+      s += t2(12, 130, "absolute 以最近的已定位祖先为参照", { fs: 8, c: "#94a3b8" });
+    } else {
+      s += t2(118, 84, "原位置", { fs: 7.5, c: "#c3cfdd" });
+      s += r2(128, 72, 60, 24, { f: "#eaf1ff", s: "#2563eb" });
+      s += a2(158, 70, 158, 62, "#2563eb");
+      s += t2(12, 130, "relative 相对自己原位偏移，位置还占着", { fs: 8, c: "#94a3b8" });
+    }
+  }
+  return s;
+};
+
+A2.flex = function (ep, t) {
+  var s = "";
+  var mode = /justify/i.test(t) ? "justify" : (/align/i.test(t) ? "align" : (/子项|flex:|占满/.test(t) ? "grow" : "row"));
+  s += r2(30, 48, 340, 74, { f: "#f8fafc" });
+  if (mode === "justify") {
+    [0, 1, 2].forEach(function (i) {
+      var x = [48, 180, 310][i];
+      s += r2(x, 74, 42, 22, { f: "#eaf1ff", s: "#7fb0f0" });
+    });
+    s += t2(30, 62, "justify-content：主轴上的分布", { fs: 8, c: "#b45309" });
+  } else if (mode === "align") {
+    s += l2(30, 85, 370, 85, { c: "#f59e0b", d: 1 });
+    [0, 1, 2].forEach(function (i) {
+      s += r2(80 + i * 90, 70, 54, 30, { f: "#e7f8f0", s: "#7fcfae" });
+    });
+    s += t2(30, 62, "align-items：交叉轴上的对齐", { fs: 8, c: "#1d4ed8" });
+  } else if (mode === "grow") {
+    s += r2(44, 70, 60, 30, { f: "#eaf1ff", s: "#7fb0f0" });
+    s += t2(74, 89, "固定", { fs: 7.5, c: "#1d4ed8", a: "middle" });
+    s += r2(112, 70, 240, 30, { f: "#e7f8f0", s: "#7fcfae" });
+    s += t2(232, 89, "flex: 1 占满剩余", { fs: 8, c: "#0b6b4c", a: "middle" });
+    s += t2(30, 62, "左固定 + 右自适应", { fs: 8, c: "#64748b" });
+  } else {
+    [0, 1, 2].forEach(function (i) {
+      s += r2(46 + i * 96, 70, 74, 30, { f: "#eaf1ff", s: "#7fb0f0" });
+    });
+    s += t2(30, 62, "父元素 display:flex，子元素排成一行", { fs: 8, c: "#64748b" });
+  }
+  return s;
+};
+
+A2.motion = function (ep, t) {
+  var s = "";
+  s += r2(48, 58, 96, 34, { f: "#fff" });
+  s += t2(96, 79, ":hover 前", { fs: 8, c: "#94a3b8", a: "middle" });
+  s += a2(152, 75, 216, 75, "#94a3b8");
+  s += t2(184, 68, "transition", { fs: 7.5, c: "#94a3b8", a: "middle" });
+  s += r2(224, 54, 108, 42, { f: "#e7f8f0", s: "#7fcfae" });
+  s += t2(278, 79, ":hover 后", { fs: 8, c: "#0b6b4c", a: "middle" });
+  s += l2(48, 104, 352, 104, { c: "#eef2f8" });
+  s += t2(48, 120, "有中间值的属性才能过渡：width / opacity / transform", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.media = function (ep, t) {
+  var s = "";
+  s += r2(36, 52, 84, 66, { r: 8 });
+  s += t2(78, 66, "375px", { fs: 7.5, c: "#94a3b8", a: "middle" });
+  s += r2(48, 74, 60, 40, { f: "#eaf1ff", s: null });
+  s += r2(176, 52, 190, 66, { r: 8 });
+  s += t2(271, 66, "1200px", { fs: 7.5, c: "#94a3b8", a: "middle" });
+  s += r2(188, 74, 166, 40, { f: "#e7f8f0", s: null });
+  s += a2(126, 89, 170, 89, "#94a3b8");
+  s += t2(12, 132, "断点之内覆盖样式：@media (min-width: 768px)", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.dom = function (ep, t) {
+  var s = "";
+  s += r2(158, 48, 84, 16, { r: 3, f: "#0f172a", s: null });
+  s += t2(200, 59.5, "document", { fs: 7.5, c: "#fff", a: "middle", m: true });
+  [96, 200, 304].forEach(function (x, i) {
+    s += l2(200, 64, x, 82, { c: "#c3cfdd" });
+    s += r2(x - 40, 82, 80, 16, { r: 3, f: i === 1 ? "#eaf1ff" : "#f8fafc", s: i === 1 ? "#2563eb" : "#d9e2ee" });
+    s += t2(x, 93.5, ["header", "main", "footer"][i], { fs: 7.5, c: i === 1 ? "#1d4ed8" : "#94a3b8", a: "middle", m: true });
+  });
+  s += a2(200, 104, 200, 114, "#2563eb");
+  s += t2(200, 126, /querySelector|获取/.test(t) ? "querySelector 找到第一个匹配节点" : "改结构 / 改内容 / 改类名都在这棵树上", { fs: 8, c: "#94a3b8", a: "middle" });
+  return s;
+};
+
+A2.event = function (ep, t) {
+  var s = "";
+  s += r2(30, 58, 92, 32, { f: "#eaf1ff", s: "#7fb0f0" });
+  s += t2(76, 78, "按钮", { fs: 8.5, c: "#1d4ed8", a: "middle" });
+  s += a2(126, 74, 190, 74, "#94a3b8");
+  s += t2(158, 68, "click", { fs: 7, c: "#94a3b8", a: "middle", m: true });
+  s += r2(194, 58, 130, 32, { f: "#e7f8f0", s: "#7fcfae" });
+  s += t2(259, 78, "回调函数", { fs: 8.5, c: "#0b6b4c", a: "middle" });
+  if (/默认|prevent/i.test(t)) {
+    s += r2(336, 58, 40, 32, { f: "#fff", s: "#f0b4b4", d: 1 });
+    s += t2(356, 78, "默认", { fs: 7, c: "#c2410c", a: "middle" });
+    s += l2(336, 58, 376, 90, { c: "#e59a9a" });
+    s += t2(30, 118, "e.preventDefault() 拦住提交刷新 / 链接跳转", { fs: 8, c: "#94a3b8" });
+  } else {
+    s += t2(30, 110, "e.target 是真正被点的元素", { fs: 8, c: "#94a3b8" });
+    s += t2(30, 124, "事件会冒泡：父元素也能收到", { fs: 8, c: "#94a3b8" });
+  }
+  return s;
+};
+
+A2.array = function (ep, t) {
+  var s = "";
+  ["red", "green", "blue"].forEach(function (v, i) {
+    s += r2(34 + i * 56, 62, 50, 26, { f: "#f8fafc" });
+    s += t2(59 + i * 56, 79, v, { fs: 7.5, c: "#475569", a: "middle", m: true });
+    s += t2(59 + i * 56, 58, String(i), { fs: 7, c: "#94a3b8", a: "middle", m: true });
+  });
+  s += a2(208, 75, 252, 75, "#94a3b8");
+  s += r2(258, 62, 110, 26, { f: "#e7f8f0", s: "#7fcfae" });
+  s += t2(313, 79, "join('')", { fs: 7.5, c: "#0b6b4c", a: "middle", m: true });
+  s += t2(34, 110, /map|join/i.test(t) ? "map 返回新数组，join 拼成字符串" : "数组下标从 0 开始，length 是长度", { fs: 8, c: "#94a3b8" });
+  s += t2(34, 124, "map + join 就是 v-for 的本质", { fs: 8, c: "#c3cfdd" });
+  return s;
+};
+
+A2.func = function (ep, t) {
+  var s = "";
+  s += r2(26, 62, 66, 26, { f: "#f8fafc" });
+  s += t2(59, 79, "参数", { fs: 8, c: "#475569", a: "middle" });
+  s += a2(94, 75, 132, 75, "#94a3b8");
+  s += r2(138, 54, 120, 44, { f: "#eaf1ff", s: "#7fb0f0" });
+  s += t2(198, 72, "function", { fs: 8.5, c: "#1d4ed8", a: "middle", m: true });
+  s += t2(198, 86, "函数体", { fs: 7.5, c: "#1d4ed8", a: "middle" });
+  s += a2(260, 75, 300, 75, "#94a3b8");
+  s += r2(306, 62, 68, 26, { f: "#e7f8f0", s: "#7fcfae" });
+  s += t2(340, 79, "return", { fs: 8, c: "#0b6b4c", a: "middle", m: true });
+  s += t2(26, 116, /return/i.test(t) ? "没写 return 就是 undefined，return 后代码不执行" : "参数是入口，return 是出口", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.obj = function (ep, t) {
+  var s = "";
+  s += t2(40, 56, "{", { fs: 20, c: "#c3cfdd", m: true });
+  ["name", "age", "say()"].forEach(function (k, i) {
+    var y = 62 + i * 20;
+    s += t2(64, y, k, { fs: 8, c: "#1d4ed8", m: true });
+    s += t2(120, y, ":", { fs: 8, c: "#c3cfdd", m: true });
+    s += t2(132, y, i === 2 ? "function () {}" : (i === 0 ? '"小明"' : "18"), { fs: 8, c: "#475569", m: true });
+  });
+  s += t2(40, 126, "}", { fs: 20, c: "#c3cfdd", m: true });
+  s += t2(72, 110, /原型|prototype/.test(t) ? "方法挂原型，实例共享" : "键值对集合：obj.key 取值，赋值即改", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.storage = function (ep, t) {
+  var s = "";
+  s += '<ellipse cx="96" cy="58" rx="44" ry="10" fill="#eef4ff" stroke="#7fb0f0"/>';
+  s += '<path d="M52 58v40c0 5 20 10 44 10s44-5 44-10V58" fill="#f7faff" stroke="#7fb0f0"/>';
+  s += t2(96, 88, "localStorage", { fs: 8, c: "#1d4ed8", a: "middle", m: true });
+  s += a2(150, 78, 186, 78, "#94a3b8");
+  s += t2(210, 66, '"todo" → "[{...}]"', { fs: 8, c: "#475569", m: true });
+  s += t2(210, 88, "只能存字符串", { fs: 8, c: "#94a3b8" });
+  s += t2(210, 104, "对象用 JSON.stringify / parse", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.string = function (ep, t) {
+  var s = "";
+  s += r2(30, 54, 340, 34, { r: 5, f: "#0f172a", s: null });
+  var code = /正则/.test(t) ? "/^1[3-9]\\d{9}$/" : "`Hello ${name}`";
+  s += t2(44, 75, code, { fs: 10, c: "#a7f3d0", m: true });
+  s += t2(30, 104, /正则/.test(t) ? "正则做校验 / 替换，注意转义" : "反引号里 ${表达式} 直接插值", { fs: 8, c: "#94a3b8" });
+  s += t2(30, 120, /模板|插值/.test(t) ? "模板字符串可以换行，不用 + 拼接" : "字符串不可变，方法都返回新串", { fs: 8, c: "#c3cfdd" });
+  return s;
+};
+
+A2.async = function (ep, t) {
+  var s = "";
+  s += l2(40, 84, 360, 84, { c: "#c3cfdd" });
+  [40, 130, 220, 310].forEach(function (x, i) {
+    s += '<circle cx="' + x + '" cy="84" r="4" fill="' + (i === 0 ? "#2563eb" : "#cbd5e1") + '"/>';
+  });
+  s += t2(40, 72, "发起请求", { fs: 7.5, c: "#1d4ed8", a: "middle" });
+  s += t2(220, 72, "await 等结果", { fs: 7.5, c: "#b45309", a: "middle" });
+  s += t2(330, 72, "继续执行", { fs: 7.5, c: "#0b6b4c", a: "middle" });
+  s += r2(268, 92, 100, 20, { f: "#e7f8f0", s: "#7fcfae" });
+  s += t2(318, 106, "拿到返回值", { fs: 7.5, c: "#0b6b4c", a: "middle" });
+  s += t2(12, 126, "async 函数返回 Promise，失败要 try / catch", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.proj = function (ep, t) {
+  var s = "";
+  s += r2(36, 50, 328, 64, { r: 6 });
+  s += r2(36, 50, 328, 13, { r: 6, f: "#eef2f8", s: null });
+  s += r2(46, 50, 40, 13, { s: null, f: "#dbe7fb" });
+  [0, 1, 2].forEach(function (i) {
+    s += r2(48 + i * 104, 70, 92, 30, { f: "#f8fafc" });
+    s += t2(94 + i * 104, 92, "模块", { fs: 7.5, c: "#94a3b8", a: "middle" });
+  });
+  s += t2(36, 126, "先拆结构 → 再写样式 → 最后加交互", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+A2.general = function (ep, t) {
+  var s = "";
+  s += r2(30, 58, 130, 54, { f: "#f7f9fd" });
+  s += t2(95, 82, "这一集", { fs: 8.5, c: "#94a3b8", a: "middle" });
+  s += t2(95, 97, "一个知识点", { fs: 9.5, c: "#0f172a", a: "middle", b: true });
+  s += a2(168, 85, 208, 85, "#94a3b8");
+  ["是什么", "怎么用", "什么时候用"].forEach(function (x, i) {
+    s += r2(216, 52 + i * 26, 150, 20, { f: i === 1 ? "#eef4ff" : "#f8fafc", s: i === 1 ? "#bcd4fb" : "#e3e9f2" });
+    s += t2(226, 66 + i * 26, x, { fs: 8, c: i === 1 ? "#1d4ed8" : "#475569" });
+  });
+  return s;
+};
+
+var A2RULES = [
+  { re: /DOCTYPE|字符集|lang|结构标签|语法规范|骨架|基本结构/i, a: "page" },
+  { re: /DOM|querySelector|获取元素|修改元素|classList|节点|innerHTML|innerText|dataset|自定义属性|表单的值|获取设置表单/i, a: "dom" },
+  { re: /表单|input|label|select|textarea|button|name和value|checked|maxlength|注册页/i, a: "form" },
+  { re: /选择器|通配|伪类|伪元素|后代|子元素|并集|focus|hover/i, a: "sel" },
+  { re: /样式表|引入|link|调试|chrome|F12|emmet|vscode|格式化/i, a: "include" },
+  { re: /优先级|权重|层叠|继承|important/i, a: "cascade" },
+  { re: /盒模型|盒子模型|内边距|外边距|border|padding|margin|圆角|阴影|border-box/i, a: "box" },
+  { re: /定位|相对|绝对|固定|relative|absolute|fixed|粘性|z-index|叠放|浮动/i, a: "pos" },
+  { re: /flex|主轴|侧轴|justify|align|子项|换行/i, a: "flex" },
+  { re: /过渡|动画|转换|2D|3D|渐变|transform|transition/i, a: "motion" },
+  { re: /媒体查询|响应式|rem|vw|vh|视口|适配|二倍图|流式|移动/i, a: "media" },
+  { re: /数组|遍历|筛选|排序|去重|map|join|forEach|reduce|find/i, a: "array" },
+  { re: /函数|return|参数|作用域|闭包|箭头|匿名|立即执行|递归/i, a: "func" },
+  { re: /对象|构造|原型|实例|new |class|getter|setter/i, a: "obj" },
+  { re: /事件|监听|冒泡|委托|默认行为|按键|鼠标|焦点|键盘/i, a: "event" },
+  { re: /localStorage|sessionStorage|存储|缓存|JSON/i, a: "storage" },
+  { re: /字符串|模板|正则|替换|截取|拼接|trim/i, a: "string" },
+  { re: /Promise|async|await|异步|定时器|事件循环|setTimeout|BOM|location|navigator/i, a: "async" },
+  { re: /div|span|标题标签|段落|换行|文本格式化|注释|图片|图像|链接|锚点|列表|表格|标签/i, a: "tags" },
+  { re: /项目|案例|实战|首页|网站|仿|复刻|整站|页面/i, a: "proj" }
+];
+
+var A2W = ["盒模型", "padding", "margin", "border", "flex", "定位", "选择器", "优先级", "DOM", "事件", "数组", "函数", "对象", "Promise", "async", "await", "localStorage", "模板字符串", "箭头函数", "class", "模块化", "正则", "媒体查询", "视口", "浮动", "Bootstrap", "swiper", "品优购", "学成在线", "京东", "苏宁", "携程", "bilibili", "表单", "表格", "列表", "图片", "链接", "动画", "过渡", "响应式", "rem", "vw"];
+
+function a2chips(t) {
+  var out = [], low = t.toLowerCase();
+  A2W.forEach(function (k) { if (low.indexOf(k.toLowerCase()) >= 0 && out.indexOf(k) < 0) out.push(k); });
+  var lat = t.match(/[A-Za-z][A-Za-z0-9_.-]{2,}/g) || [];
+  lat.forEach(function (w) { if (out.length < 3 && out.indexOf(w) < 0) out.push(w); });
+  if (out.length < 3) {
+    var f = t.replace(/^[0-9.\-、\s]+/, "").replace(/^(综合案例|课堂练习|阶段案例)[-—]?/, "").trim();
+    if (f.length > 12) f = f.slice(0, 12) + "…";
+    if (f && out.indexOf(f) < 0) out.push(f);
+  }
+  return out.slice(0, 3);
+}
+
+/* DOM 类标题优先走 DOM 规则，避免被「对象」等泛词抢走 */
+function infoFor(title) {
+  var low = String(title).toLowerCase();
+  if (/dom|queryselector|获取元素|修改元素|classlist|节点|innerhtml|表单的值|自定义属性/.test(low)) {
+    for (var d = 0; d < RULES.length; d++) if (RULES[d].art === "dom") return RULES[d];
+  }
+  for (var i = 0; i < RULES.length; i++) {
+    var r = RULES[i];
+    for (var j = 0; j < r.keys.length; j++) {
+      if (low.indexOf(r.keys[j].toLowerCase()) >= 0) return r;
+    }
+  }
+  return DEFAULT_INFO;
+}
+
+function pickArt(ep) {
+  for (var i = 0; i < A2RULES.length; i++) if (A2RULES[i].re.test(ep.t)) return A2[A2RULES[i].a];
+  return A2.general;
+}
+
+function artFor2(ep, ch) {
+  var t = ep.t, s = '<svg viewBox="0 0 400 178">';
+  s += '<rect width="400" height="178" rx="10" fill="#fff"/>';
+  s += t2(12, 17, "P" + ep.p + " · 第 " + (ch.ci + 1) + " 章 · " + (ch.co ? ch.co.name : ""), { fs: 8.5, c: "#2563eb", m: true });
+  s += t2(12, 33, t.length > 27 ? t.slice(0, 27) + "…" : t, { fs: 11.5, c: "#0f172a", b: true });
+  s += l2(12, 42, 388, 42, { c: "#eef2f8" });
+  s += pickArt(ep)(ep, t);
+  var cs = a2chips(t), x = 12;
+  cs.forEach(function (c) {
+    var w = Math.max(26, c.length * 9 + 12);
+    if (x + w > 300) return;
+    s += '<rect x="' + x + '" y="140" width="' + w + '" height="16" rx="8" fill="#eef4ff"/>';
+    s += t2(x + w / 2, 151.5, c, { fs: 8, c: "#2563eb", a: "middle" });
+    x += w + 5;
+  });
+  var n = ch.eps.length, i = ch.eps.indexOf(ep) + 1;
+  s += t2(388, 151.5, "第 " + i + "/" + n + " 集 · " + Math.round(ep.s / 60) + " 分钟", { fs: 8, c: "#94a3b8", a: "end" });
+  s += '<rect x="12" y="164" width="376" height="3" rx="2" fill="#eef2f8"/>';
+  s += '<rect x="12" y="164" width="' + Math.max(2, 376 * i / Math.max(1, n)) + '" height="3" rx="2" fill="#8fd9b8"/>';
+  s += "</svg>";
+  return s;
+}
+
 
 var COLOR = {A:"#2563eb",B:"#0f7a5a",C:"#b45309"};
 var TOTAL = 0;
@@ -928,7 +1359,7 @@ document.getElementById("mapView").addEventListener("click", function (e) {
 /* ================= 详情卡 ================= */
 function place(el) {
   var r = el.getBoundingClientRect();
-  var w = Math.min(376, window.innerWidth - 24);
+  var w = Math.min(420, window.innerWidth - 24);
   pop.style.width = w + "px";
   var h = pop.offsetHeight;
   var left = r.right + 14;
@@ -963,7 +1394,7 @@ function openEpisode(k, el) {
     '<div class="pm"><span>' + min + ' 分钟</span><i>·</i><span>第 ' + (d.ch.ci + 1) + ' 章 · ' + (d.ch.eps.indexOf(d.e) + 1) + '/' + d.ch.eps.length + ' 集</span><i>·</i>' +
       '<span class="' + (on ? "on" : "") + '">' + (on ? "已学" : "待学") + '</span></div>' +
     '<div class="pbody">' + sum + note +
-      '<div class="art">' + artFor(d.e.t, info.art) + '<div class="cap">' + esc(info.tag) + ' · 示意图</div></div>' +
+      '<div class="art">' + artFor2(d.e, d.ch) + '<div class="cap">' + esc(info.tag) + ' · 示意图</div></div>' +
       '<div class="ph2">这个知识点在讲什么</div><ul class="plist">' + pts + "</ul></div>" +
     '<div class="pfoot"><button class="pmark' + (on ? " on" : "") + '" id="pmark">' + (on ? "已标记" : "标记已学") + "</button>" +
       '<a class="pgo" href="https://www.bilibili.com/video/' + d.co.bv + "?p=" + d.e.p + '" target="_blank" rel="noopener">在 B 站看这一集 ↗</a></div>',
