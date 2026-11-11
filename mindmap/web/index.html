@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>前端知识网络 · HTML / CSS / JS（808 集 / 51 章）</title>
+<meta name="description" content="按三门 B 站网课整理的 HTML/CSS/JS 知识网络：808 个知识点、51 个章节，支持思维导图与长链路图双视图，绿色为已学。">
+<style>
+:root{
+  --bg:#f7f9fc;--panel:#fff;--ink:#0f172a;--sub:#475569;--muted:#8b98ad;
+  --line:#e2e8f2;--grid:#eef2f8;
+  --brand:#059669;--brand2:#2563eb;
+  --cA:#2563eb;--cB:#0f7a5a;--cC:#b45309;
+  --cAbg:#eaf1ff;--cBbg:#e4f5ee;--cCbg:#fdf1dd;
+  --done:#059669;--donebg:#e7f8f0;--doneline:#7fcfae;
+  --shadow:0 1px 3px rgba(15,23,42,.07),0 6px 18px rgba(15,23,42,.05);
+  --mono:"Consolas","SFMono-Regular","Menlo",monospace;
+}
+html[data-theme=dark]{
+  --bg:#0a1019;--panel:#111a27;--ink:#e8eefc;--sub:#b6c2d9;--muted:#7c8a9f;
+  --line:#1d2938;--grid:#131e2c;
+  --done:#34d399;--donebg:#0d2a22;--doneline:#1e6b52;
+  --cA:#6ba4ff;--cB:#4dd6a4;--cC:#e3b364;
+  --cAbg:#1a2740;--cBbg:#14291f;--cCbg:#2b2313;
+  --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);overflow:hidden;position:relative;
+  display:flex;flex-direction:column;height:100%;
+  font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",system-ui,sans-serif}
+a{color:var(--brand2);text-decoration:none}
+
+.bar{position:relative;z-index:20;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.brand{display:flex;flex-direction:column;line-height:1.25;margin-right:4px}
+.brand b{font-size:14.5px}
+.brand span{font-size:10.5px;color:var(--muted)}
+.spacer{flex:1}
+.search{position:relative}
+.search input{width:200px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+  padding:6px 10px 6px 28px;font-size:12px;outline:none;font-family:inherit}
+.search input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(5,150,105,.12)}
+.search:before{content:"⌕";position:absolute;left:9px;top:3px;font-size:15px;color:var(--muted)}
+.tb{display:flex;align-items:center;gap:1px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--bg)}
+.tb button{border:none;background:none;color:var(--sub);font-size:12px;padding:5px 9px;cursor:pointer;font-family:inherit}
+.tb button:hover{background:rgba(37,99,235,.08);color:var(--ink)}
+.tb .lv{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:40px;text-align:center}
+.btn{border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:9px;
+  padding:5px 10px;font-size:12px;cursor:pointer;font-family:inherit}
+.btn:hover{color:var(--ink);border-color:var(--brand)}
+.legend{display:flex;gap:12px;font-size:11px;color:var(--muted)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:0}
+.legend .a i{background:var(--done)}
+.legend .b i{background:#c7d2e0}
+
+#stage{position:relative;flex:1;min-height:0;overflow:auto;cursor:grab;
+  background-image:radial-gradient(var(--grid) 1px,transparent 1px);background-size:22px 22px}
+#stage.drag{cursor:grabbing}
+#sizer{position:relative}
+#world{position:absolute;top:0;left:0;transform-origin:0 0}
+svg.edges{position:absolute;top:0;left:0;overflow:visible;pointer-events:none}
+#nodes{position:absolute;top:0;left:0;width:100%;height:100%}
+
+/* ---------- 思维导图节点 ---------- */
+.node{position:absolute;display:flex;align-items:center;gap:7px;border-radius:8px;
+  background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);
+  cursor:pointer;user-select:none;transition:box-shadow .15s}
+.node:hover{box-shadow:0 2px 6px rgba(15,23,42,.12),0 10px 26px rgba(15,23,42,.09)}
+.node.root{background:linear-gradient(120deg,#0f766e,#1d4ed8);color:#fff;border:none;
+  justify-content:center;font-weight:800;font-size:13.5px;border-radius:11px}
+.node.course{font-weight:700;font-size:12px;padding-left:10px;border-left-width:4px;border-left-style:solid}
+.node.course.cA{border-left-color:var(--cA)} .node.course.cB{border-left-color:var(--cB)}
+.node.course.cC{border-left-color:var(--cC)}
+.node.chap{font-weight:600;font-size:11.5px;padding:0 8px}
+.node.ep{font-size:10.5px;padding:0 7px;color:var(--sub)}
+.node .lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+.node .badge{font-family:var(--mono);font-size:10px;color:var(--muted);flex:0 0 auto}
+.node.chap .badge{color:var(--doneline);font-weight:700}
+.node.ep .dot{width:5px;height:5px;border-radius:50%;background:#c7d2e0;flex:0 0 auto}
+.node.ep.done{background:var(--donebg);border-color:var(--doneline);color:#0b6b4c}
+html[data-theme=dark] .node.ep.done{color:#7ff0c0}
+.node.ep.done .dot{background:var(--done);box-shadow:0 0 0 3px rgba(5,150,105,.18)}
+.node.ep.done .lbl{font-weight:600}
+.node.ep .pn{font-family:var(--mono);font-size:9px;color:var(--muted);flex:0 0 auto}
+.node.ep.done .pn{color:var(--done)}
+.node .go{flex:0 0 auto;font-size:10px;color:var(--muted);padding:0 2px;border-radius:3px;opacity:0;transition:.12s}
+.node:hover .go{opacity:1}
+.node .go:hover{color:var(--brand2);background:rgba(37,99,235,.1)}
+.node .togg{flex:0 0 auto;font-family:var(--mono);font-size:9px;color:var(--muted);
+  border:1px solid var(--line);border-radius:4px;padding:0 3px;line-height:1.5}
+.node.hit{box-shadow:0 0 0 2px #f59e0b,0 6px 18px rgba(245,158,11,.28)}
+
+/* ---------- 长链路视图 ---------- */
+.chain-wrap{padding:56px 40px 100px;min-width:max-content}
+.chain-course{margin-bottom:26px}
+.chain-title{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:9px;
+  font-weight:700;font-size:13.5px;color:#fff;margin-bottom:14px}
+.chain-course.cA .chain-title{background:linear-gradient(120deg,#1d4ed8,#2563eb)}
+.chain-course.cB .chain-title{background:linear-gradient(120deg,#0f7a5a,#14a57f)}
+.chain-course.cC .chain-title{background:linear-gradient(120deg,#b45309,#d97706)}
+.chain-title .cnt{font-family:var(--mono);font-size:10.5px;opacity:.85;font-weight:400}
+.chain-row{display:flex;align-items:stretch;gap:60px;padding-bottom:14px;overflow-x:auto}
+.chain-card{position:relative;flex:0 0 auto;width:224px;background:var(--panel);
+  border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow);overflow:hidden}
+.chain-card::after{content:"";position:absolute;right:-53px;top:50%;width:44px;height:2px;
+  background:#c7d2e0;margin-top:-1px}
+.chain-card::before{content:"";position:absolute;right:-14px;top:50%;width:8px;height:8px;
+  border-top:2px solid #c7d2e0;border-right:2px solid #c7d2e0;
+  margin-top:-4px;transform:rotate(45deg)}
+.chain-card:last-child::before,.chain-card:last-child::after{display:none}
+.cc-head{padding:9px 12px;font-weight:700;font-size:12.5px;color:#fff;line-height:1.4;
+  display:flex;justify-content:space-between;align-items:center;gap:8px}
+.chain-course.cA .cc-head{background:var(--cA)}
+.chain-course.cB .cc-head{background:var(--cB)}
+.chain-course.cC .cc-head{background:var(--cC)}
+.cc-head .n{font-family:var(--mono);font-size:10px;opacity:.8;font-weight:400;flex:0 0 auto}
+.cc-head .cnt{font-family:var(--mono);font-size:10px;opacity:.85;font-weight:400;flex:0 0 auto}
+.cc-list{list-style:none;margin:0;padding:5px 6px 8px;max-height:320px;overflow-y:auto}
+.cc-list::-webkit-scrollbar{width:5px}
+.cc-list::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.cc-item{display:flex;align-items:center;gap:6px;padding:4px 7px;border-radius:6px;
+  font-size:11.5px;color:var(--sub);cursor:pointer;border-left:2px solid transparent}
+.cc-item:hover{background:var(--bg)}
+.cc-item .dot{width:5px;height:5px;border-radius:50%;background:#c7d2e0;flex:0 0 auto}
+.cc-item .pn{font-family:var(--mono);font-size:9.5px;color:var(--muted);min-width:26px;flex:0 0 auto}
+.cc-item .t{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cc-item .go{font-size:10px;color:var(--muted);padding:0 2px;border-radius:3px;opacity:0;flex:0 0 auto}
+.cc-item:hover .go{opacity:1}
+.cc-item .go:hover{color:var(--brand2);background:rgba(37,99,235,.1)}
+.cc-item.done{background:var(--donebg);border-left-color:var(--doneline);color:#0b6b4c}
+html[data-theme=dark] .cc-item.done{color:#7ff0c0}
+.cc-item.done .dot{background:var(--done);box-shadow:0 0 0 2px rgba(5,150,105,.16)}
+.cc-item.done .t{font-weight:600}
+
+/* ---------- 切换按钮 ---------- */
+.switch{position:fixed;right:18px;bottom:18px;z-index:40;border:none;border-radius:99px;
+  background:#0f172a;color:#fff;font-size:12.5px;font-weight:600;padding:11px 20px;
+  cursor:pointer;font-family:inherit;box-shadow:0 6px 20px rgba(15,23,42,.35);display:flex;align-items:center;gap:7px}
+html[data-theme=dark] .switch{background:#059669}
+.switch:hover{transform:translateY(-1px)}
+.hint{position:fixed;left:16px;bottom:16px;z-index:30;font-size:10.5px;color:var(--muted);
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 11px;line-height:1.7}
+.tip{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:40;
+  background:rgba(15,23,42,.86);color:#fff;font-size:11.5px;padding:6px 14px;border-radius:99px;
+  pointer-events:none;opacity:0;transition:opacity .2s}
+.tip.on{opacity:1}
+@media(max-width:900px){
+  .search input{width:130px}
+  .legend,.hint{display:none}
+  .brand span{display:none}
+  .chain-card{width:200px}
+}
+
+
+#pop{position:fixed;z-index:70;display:none;flex-direction:column;width:384px;max-height:80vh;
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 14px 44px rgba(15,23,42,.24),0 2px 8px rgba(15,23,42,.08)}
+html[data-theme=dark] #pop{box-shadow:0 14px 44px rgba(0,0,0,.6)}
+#pop.on{display:flex}
+.pp-top{display:flex;align-items:center;gap:7px;padding:12px 14px 0;flex-wrap:wrap}
+.pp-k{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--brand2)}
+.pp-c{padding:1px 6px;border-radius:5px;color:#fff;font-size:9.5px}
+.pp-c.cA{background:var(--cA)} .pp-c.cB{background:var(--cB)} .pp-c.cC{background:var(--cC)}
+.pp-ch{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+.pp-x{margin-left:auto;border:none;background:none;font-size:17px;line-height:1;color:var(--muted);
+  cursor:pointer;padding:0 4px;border-radius:6px}
+.pp-x:hover{background:var(--bg);color:var(--ink)}
+.pp-t{font-size:15px;font-weight:700;line-height:1.45;margin:7px 14px 3px;letter-spacing:-.2px}
+.pp-s{font-size:10.5px;color:var(--muted);margin:0 14px 10px;display:flex;gap:7px;flex-wrap:wrap}
+.pp-s i{font-style:normal;opacity:.5}
+.pp-body{overflow-y:auto;padding:0 14px 4px}
+.pp-art{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px;margin-bottom:11px}
+html[data-theme=dark] .pp-art{background:#0d1521}
+.pp-art svg{display:block;width:100%;height:auto}
+.pp-cap{font-size:9.5px;color:var(--muted);text-align:center;margin-top:4px}
+.pp-h{font-size:10px;letter-spacing:.12em;color:var(--muted);font-weight:700;margin:0 0 6px}
+.pp-l{list-style:none;margin:0 0 10px;padding:0}
+.pp-l li{position:relative;padding-left:14px;font-size:12px;line-height:1.7;color:var(--sub);margin-bottom:5px}
+.pp-l li:before{content:"";position:absolute;left:3px;top:7px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
+.pp-l li b{color:var(--ink);font-weight:600}
+.pp-foot{display:flex;gap:7px;padding:10px 14px 13px;border-top:1px solid var(--line);background:var(--panel)}
+.pp-mark{flex:0 0 auto;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:8px;
+  padding:9px 11px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.pp-mark:hover{border-color:var(--brand);color:var(--brand)}
+.pp-mark.on{background:var(--donebg);border-color:var(--doneline);color:#0b6b4c;font-weight:600}
+html[data-theme=dark] .pp-mark.on{color:#7ff0c0}
+.pp-go{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--brand2);
+  color:#fff;border-radius:8px;padding:9px 12px;font-size:12px;font-weight:600}
+.pp-go:hover{filter:brightness(1.08);text-decoration:none}
+
+/* ---------- 筛选 / 返回 / 详情补充 ---------- */
+.back{color:var(--muted);font-size:10.5px}
+.back:hover{color:var(--brand)}
+.chips{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--bg)}
+.chips button{border:none;background:none;color:var(--sub);font-size:12px;padding:5px 10px;cursor:pointer;font-family:inherit}
+.chips button + button{border-left:1px solid var(--line)}
+.chips button:hover{color:var(--ink)}
+.chips button.on{background:var(--donebg);color:#0b6b4c;font-weight:700}
+html[data-theme=dark] .chips button.on{color:#7ff0c0}
+.chips em{font-style:normal;font-family:var(--mono);font-size:10px;opacity:.8}
+.pp-sum{font-size:11.5px;line-height:1.65;color:var(--sub);background:var(--bg);border:1px solid var(--line);
+  border-radius:8px;padding:8px 10px;margin:0 0 9px}
+.pp-sum .lab{display:block;font-size:9.5px;letter-spacing:.12em;color:var(--muted);margin-bottom:3px;font-weight:700}
+.pp-note{font-size:12px;line-height:1.72;color:#0b6b4c;background:var(--donebg);border:1px solid var(--doneline);
+  border-radius:8px;padding:8px 10px;margin:0 0 10px}
+html[data-theme=dark] .pp-note{color:#8ff0c4}
+.pp-note .lab{display:block;font-size:9.5px;letter-spacing:.12em;margin-bottom:3px;opacity:.85}
+.pp-note b{color:inherit}
+@media(max-width:760px){
+  .bar{padding:8px 10px;gap:6px}
+  .search input{width:112px}
+  .chips button{padding:5px 8px}
+  #pop{max-height:70vh}
+  .switch{right:12px;bottom:12px;padding:10px 15px}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="brand"><b>前端知识网络</b><span><a class="back" href="../">← 知识地图</a> · <span id="s-done">0 / 808</span></span></div>
+  <div class="spacer"></div>
+  <div class="search" id="searchWrap"><input id="q" type="search" placeholder="搜索知识点…"></div>
+  <div class="tb" id="zoomWrap">
+    <button id="zout" title="缩小">−</button><span class="lv" id="lv">100%</span>
+    <button id="zin" title="放大">＋</button>
+    <button id="zfit" title="适应窗口">适应</button>
+  </div>
+  <span id="mapBtns" style="display:inline-flex;gap:6px">
+    <button class="btn" id="xall">全展开</button>
+    <button class="btn" id="call">全收起</button>
+  </span>
+  <button class="btn" id="thm">主题</button>
+  <div class="chips" id="chips"><button data-f="all" class="on">全部</button><button data-f="done">已学 <em id="cDone">39</em></button><button data-f="todo">待学</button></div>
+  <div class="legend"><span class="a"><i></i>已学</span><span class="b"><i></i>待学</span></div>
+</div>
+
+<div id="stage">
+  <div id="viewMap">
+    <div id="sizer"><div id="world"><svg class="edges" id="edges"></svg><div id="nodes"></div></div></div>
+  </div>
+  <div id="viewChain" style="display:none">
+    <div class="chain-wrap" id="chainWrap"></div>
+  </div>
+</div>
+
+<button class="switch" id="switch">切到长链路图</button>
+<div class="hint">点知识点 → 就地展开详解与示意图，底部按钮跳视频 · 拖拽平移 · Ctrl+滚轮缩放</div>
+<div id="pop"></div>
+<div class="tip" id="tip"></div>
+
+<script>
+var DATA = [{"id":"A","name":"HTML + CSS","sub":"黑马 pink 老师 · HTML5 + CSS3 + 移动端","bv":"BV14J4114768","total":540,"chapters":[{"name":"课程准备 · 网页基础","eps":[{"p":1,"t":"前言","d":0,"s":270},{"p":2,"t":"课程安排以及软件下载(必看)","d":0,"s":481},{"p":3,"t":"基础班学习路线","d":0,"s":235},{"p":4,"t":"网页的相关概念","d":0,"s":460},{"p":5,"t":"常用浏览器以及内核","d":0,"s":284},{"p":6,"t":"web标准","d":0,"s":453}],"sum":"浏览器、内核、Web 标准与开发环境——后面所有页面的地基。"},{"name":"HTML 基础标签（上）","eps":[{"p":7,"t":"HTML标签导读","d":0,"s":66},{"p":8,"t":"HTML语法规范","d":0,"s":432},{"p":9,"t":"HTML基本结构标签","d":1,"s":440},{"p":10,"t":"VSCode工具创建页面","d":0,"s":397},{"p":11,"t":"VSCode插件安装以及快捷键","d":0,"s":1365},{"p":12,"t":"DOCTYPE和lang以及字符集的作用","d":1,"s":540},{"p":13,"t":"标签语义","d":0,"s":142},{"p":14,"t":"标题标签","d":0,"s":315},{"p":15,"t":"段落标签和换行标签","d":0,"s":384},{"p":16,"t":"体育新闻案例","d":0,"s":267},{"p":17,"t":"文本格式化标签","d":0,"s":465},{"p":18,"t":"div和span标签","d":1,"s":284},{"p":19,"t":"图像标签(上)","d":0,"s":553},{"p":20,"t":"图像标签(下)","d":0,"s":255},{"p":21,"t":"图像标签注意点","d":0,"s":163},{"p":22,"t":"目录文件夹和根目录","d":0,"s":395},{"p":23,"t":"相对路径(上)","d":0,"s":371},{"p":24,"t":"相对路径(下)","d":0,"s":177},{"p":25,"t":"绝对路径","d":0,"s":201},{"p":26,"t":"链接标签(上)","d":0,"s":519},{"p":27,"t":"链接标签(下)","d":0,"s":556},{"p":28,"t":"锚点链接","d":0,"s":428},{"p":29,"t":"注释标签和特殊字符","d":0,"s":499},{"p":30,"t":"综合案例(上)","d":0,"s":637},{"p":31,"t":"综合案例(下)","d":0,"s":314}],"sum":"HTML 骨架、DOCTYPE / 字符集、标题段落、图片与路径。"},{"name":"HTML 基础标签（下）· 表格 / 列表 / 表单","eps":[{"p":32,"t":"HTML标签(下)导读","d":0,"s":72},{"p":33,"t":"表格标签基本使用","d":0,"s":491},{"p":34,"t":"表头单元格标签","d":0,"s":152},{"p":35,"t":"表格相关属性(了解)","d":0,"s":505},{"p":36,"t":"小说排行榜案例","d":0,"s":566},{"p":37,"t":"表格结构标签","d":0,"s":286},{"p":38,"t":"合并单元格","d":0,"s":510},{"p":39,"t":"表格总结","d":0,"s":225},{"p":40,"t":"无序列表","d":0,"s":528},{"p":41,"t":"有序列表","d":0,"s":201},{"p":42,"t":"自定义列表","d":0,"s":402},{"p":43,"t":"列表总结","d":0,"s":175},{"p":44,"t":"表单使用场景以及分类","d":0,"s":261},{"p":45,"t":"表单域","d":0,"s":327},{"p":46,"t":"input之type属性文本框和密码框","d":1,"s":380},{"p":47,"t":"input之type属性单选按钮和复选框","d":0,"s":277},{"p":48,"t":"input之name和value属性","d":0,"s":353},{"p":49,"t":"input之checked和maxlength属性","d":0,"s":215},{"p":50,"t":"input表单元素四个属性使用场景课堂问答","d":0,"s":184},{"p":51,"t":"input之type属性提交和重置按钮","d":0,"s":392},{"p":52,"t":"input之type属性普通按钮和文件域","d":0,"s":255},{"p":53,"t":"label标签","d":0,"s":371},{"p":54,"t":"select下拉表单","d":0,"s":342},{"p":55,"t":"textarea文本域标签","d":0,"s":314},{"p":56,"t":"综合案例-注册页面(一)","d":0,"s":503},{"p":57,"t":"综合案例-注册页面(二)","d":0,"s":539},{"p":58,"t":"综合案例-注册页面(三)","d":0,"s":324},{"p":59,"t":"综合案例-注册页面(四)","d":0,"s":245},{"p":60,"t":"学会查阅文档","d":0,"s":375}],"sum":"表格、列表、表单三件套，注册页面就是它们的组合。"},{"name":"CSS 基础 · 选择器与文字样式","eps":[{"p":61,"t":"CSS层叠样式表导读","d":0,"s":70},{"p":62,"t":"CSS简介","d":0,"s":310},{"p":63,"t":"体验CSS语法规范","d":0,"s":438},{"p":64,"t":"CSS代码风格","d":0,"s":283},{"p":65,"t":"CSS选择器的作用","d":0,"s":210},{"p":66,"t":"标签选择器","d":0,"s":362},{"p":67,"t":"类选择器","d":1,"s":631},{"p":68,"t":"使用类选择器画盒子","d":0,"s":322},{"p":69,"t":"类选择器特殊使用-多类名","d":0,"s":483},{"p":70,"t":"id选择器","d":0,"s":380},{"p":71,"t":"通配符选择器","d":0,"s":310},{"p":72,"t":"font-family设置字体系列","d":0,"s":456},{"p":73,"t":"font-size字号大小","d":0,"s":242},{"p":74,"t":"font-weight字体粗细","d":0,"s":488},{"p":75,"t":"font-style字体样式","d":0,"s":190},{"p":76,"t":"font复合属性写法","d":0,"s":454},{"p":77,"t":"字体属性总结","d":0,"s":184},{"p":78,"t":"文本颜色color","d":0,"s":356},{"p":79,"t":"文本对齐text-align","d":0,"s":186},{"p":80,"t":"文本装饰text-decoration","d":0,"s":305},{"p":81,"t":"文本缩进text-indent","d":0,"s":328},{"p":82,"t":"行间距line-height","d":0,"s":491},{"p":83,"t":"CSS文本属性总结","d":0,"s":179},{"p":84,"t":"内部样式表","d":0,"s":266},{"p":85,"t":"行内样式表","d":0,"s":245},{"p":86,"t":"外部样式表","d":1,"s":309},{"p":87,"t":"CSS引入方式总结","d":0,"s":133},{"p":88,"t":"综合案例-新闻页面","d":0,"s":366},{"p":89,"t":"综合案例-修改样式(一)","d":0,"s":286},{"p":90,"t":"综合案例-修改样式(二)","d":0,"s":461},{"p":91,"t":"综合案例-修改样式(三)","d":0,"s":186},{"p":92,"t":"chrome调试工具使用","d":1,"s":425}],"sum":"CSS 的三种引入方式、基础选择器、字体与文本属性。"},{"name":"CSS 进阶 · 复合选择器 / 显示模式 / 背景","eps":[{"p":93,"t":"CSS第二天导读","d":0,"s":90},{"p":94,"t":"emmet语法生成html标签","d":0,"s":598},{"p":95,"t":"emmet语法快速生成css样式","d":0,"s":189},{"p":96,"t":"vscode自动格式化代码","d":0,"s":104},{"p":97,"t":"复合选择器简介","d":0,"s":97},{"p":98,"t":"后代选择器","d":0,"s":538},{"p":99,"t":"子元素选择器","d":0,"s":201},{"p":100,"t":"课堂练习","d":0,"s":170},{"p":101,"t":"并集选择器","d":0,"s":375},{"p":102,"t":"链接伪类选择器(上)","d":0,"s":580},{"p":103,"t":"链接伪类选择器(下)","d":0,"s":340},{"p":104,"t":"focus伪类选择器","d":0,"s":186},{"p":105,"t":"复合选择器总结","d":0,"s":184},{"p":106,"t":"什么是元素显示模式","d":0,"s":255},{"p":107,"t":"块元素","d":0,"s":399},{"p":108,"t":"行内元素","d":0,"s":337},{"p":109,"t":"行内块元素","d":0,"s":224},{"p":110,"t":"元素显示模式总结","d":0,"s":190},{"p":111,"t":"显示模式的转换","d":0,"s":497},{"p":112,"t":"一个小工具snipaste的使用","d":0,"s":286},{"p":113,"t":"简洁版小米侧边栏案例","d":0,"s":450},{"p":114,"t":"单行文字垂直居中的原理","d":0,"s":431},{"p":115,"t":"背景颜色","d":0,"s":242},{"p":116,"t":"背景图片","d":0,"s":266},{"p":117,"t":"背景平铺","d":0,"s":318},{"p":118,"t":"背景位置-方位名词","d":0,"s":455},{"p":119,"t":"背景位置案例一","d":0,"s":418},{"p":120,"t":"背景位置案例二-王者荣耀背景图片","d":0,"s":298},{"p":121,"t":"背景位置-精确单位","d":0,"s":242},{"p":122,"t":"背景位置-混合单位","d":0,"s":248},{"p":123,"t":"背景固定","d":0,"s":262},{"p":124,"t":"背景属性复合写法","d":0,"s":180},{"p":125,"t":"背景颜色半透明","d":0,"s":392},{"p":126,"t":"背景总结","d":0,"s":225},{"p":127,"t":"综合案例-五彩导航(上)","d":0,"s":422},{"p":128,"t":"综合案例-五彩导航(二)","d":0,"s":215}],"sum":"复合选择器、元素显示模式、背景属性与 emmet 提速。"},{"name":"CSS 三大特性 · 层叠 / 继承 / 优先级","eps":[{"p":129,"t":"CSS三大特性之层叠性","d":0,"s":259},{"p":130,"t":"CSS三大特性之继承性","d":0,"s":280},{"p":131,"t":"行高的继承","d":0,"s":573},{"p":132,"t":"CSS三大特性之优先级","d":1,"s":392},{"p":133,"t":"优先级注意的问题","d":0,"s":464},{"p":134,"t":"CSS权重的叠加","d":0,"s":408},{"p":135,"t":"权重两个练习题","d":0,"s":327}],"sum":"层叠、继承、优先级——样式打架时靠这三条判谁赢。"},{"name":"盒子模型","eps":[{"p":136,"t":"盒子模型导读","d":0,"s":71},{"p":137,"t":"看透网页布局本质","d":0,"s":238},{"p":138,"t":"盒子模型组成部分","d":1,"s":215},{"p":139,"t":"盒子模型边框border","d":0,"s":452},{"p":140,"t":"边框的复合写法","d":0,"s":470},{"p":141,"t":"表格细线边框","d":0,"s":331},{"p":142,"t":"边框会影响盒子实际大小","d":0,"s":222},{"p":143,"t":"盒子模型内边距padding","d":1,"s":251},{"p":144,"t":"padding复合属性","d":0,"s":368},{"p":145,"t":"padding会影响盒子实际大小","d":0,"s":273},{"p":146,"t":"padding应用-新浪导航栏(上)","d":0,"s":370},{"p":147,"t":"padding应用-新浪导航栏(下)","d":0,"s":348},{"p":148,"t":"小米侧边栏修改","d":0,"s":177},{"p":149,"t":"padding不会撑开盒子的情况","d":0,"s":296},{"p":150,"t":"盒子模型外边距margin","d":1,"s":395},{"p":151,"t":"外边距典型应用-块级盒子水平居中对齐","d":0,"s":223},{"p":152,"t":"行内元素和行内块元素水平居中","d":0,"s":161},{"p":153,"t":"外边距合并-嵌套块元素塌陷","d":0,"s":365},{"p":154,"t":"清除内外边距","d":0,"s":293},{"p":155,"t":"ps的基本操作","d":0,"s":341},{"p":156,"t":"综合案例-产品模块布局分析","d":0,"s":138},{"p":157,"t":"综合案例-box布局","d":0,"s":219},{"p":158,"t":"综合案例-图片和段落制作","d":0,"s":366},{"p":159,"t":"综合案例-评价和详情制作","d":0,"s":393},{"p":160,"t":"综合案例-竖线细节制作","d":0,"s":253},{"p":161,"t":"pink老师解惑","d":0,"s":316}],"sum":"content / padding / border / margin 四层，以及 margin 合并与居中。"},{"name":"综合案例 · 快报模块 / 圆角阴影","eps":[{"p":162,"t":"综合案例-快报模块布局分析","d":0,"s":132},{"p":163,"t":"综合案例-快报模块头部制作","d":0,"s":378},{"p":164,"t":"综合案例-快报模块列表制作","d":0,"s":464},{"p":165,"t":"圆角边框原理","d":0,"s":382},{"p":166,"t":"圆角边框的使用","d":0,"s":465},{"p":167,"t":"盒子阴影","d":0,"s":545},{"p":168,"t":"文字阴影","d":0,"s":115}],"sum":"圆角、阴影与快报模块，第一次把盒子拼成完整界面。"},{"name":"浮动与清除浮动","eps":[{"p":169,"t":"浮动导读","d":0,"s":122},{"p":170,"t":"传统网页布局三种方式","d":0,"s":288},{"p":171,"t":"为什么需要浮动","d":0,"s":319},{"p":172,"t":"什么是浮动","d":0,"s":291},{"p":173,"t":"浮动特性-脱标","d":0,"s":395},{"p":174,"t":"浮动特性-浮动元素一行显示","d":0,"s":229},{"p":175,"t":"浮动特性-浮动元素具有行内块特性","d":0,"s":280},{"p":176,"t":"浮动元素经常搭配标准流的父元素","d":0,"s":194},{"p":177,"t":"浮动布局练习1","d":0,"s":250},{"p":178,"t":"浮动布局练习2","d":0,"s":558},{"p":179,"t":"浮动练习-手机模块(上)","d":0,"s":366},{"p":180,"t":"浮动练习-手机模块(下)","d":0,"s":303},{"p":181,"t":"常见的网页布局","d":0,"s":642},{"p":182,"t":"浮动的两个注意点","d":0,"s":472},{"p":183,"t":"为什么清除浮动","d":0,"s":622},{"p":184,"t":"清除浮动本质以及额外标签法","d":0,"s":472},{"p":185,"t":"清除浮动之父元素overflow","d":0,"s":154},{"p":186,"t":"清除浮动之after伪元素","d":0,"s":305},{"p":187,"t":"清除浮动之双伪元素","d":0,"s":183},{"p":188,"t":"清除浮动总结","d":0,"s":170}],"sum":"浮动为什么出现、有什么副作用、怎么清除（现代布局已被 Flex 取代）。"},{"name":"PS 切图 · 学成在线案例","eps":[{"p":189,"t":"常见的图片格式","d":0,"s":225},{"p":190,"t":"ps切图-图层切图(上)了解","d":0,"s":288},{"p":191,"t":"ps切图-图层切图(下)","d":0,"s":301},{"p":192,"t":"ps切图-切片工具","d":0,"s":443},{"p":193,"t":"ps切图-cutterman安装","d":0,"s":276},{"p":194,"t":"ps切图-cutterman使用技巧","d":0,"s":365},{"p":195,"t":"像素大厨替代Photoshop","d":0,"s":549},{"p":196,"t":"学成在线案例准备工作","d":0,"s":400},{"p":197,"t":"CSS属性书写顺序(重要)","d":0,"s":294},{"p":198,"t":"页面布局整体思路","d":0,"s":342},{"p":199,"t":"学成在线-header区域制作","d":0,"s":489},{"p":200,"t":"学成在线-logo区域制作","d":0,"s":281},{"p":201,"t":"学成在线-导航栏nav区域制作(上)","d":0,"s":386},{"p":202,"t":"学成在线-导航栏nav区域制作(中)","d":0,"s":360},{"p":203,"t":"学成在线-导航栏nav区域制作(下)","d":0,"s":175},{"p":204,"t":"学成在线-搜索search模块input制作","d":0,"s":518},{"p":205,"t":"学成在线-搜索search模块button制作","d":0,"s":315},{"p":206,"t":"学成在线-用户user模块制作","d":0,"s":298},{"p":207,"t":"学成在线-banner模块制作","d":0,"s":392},{"p":208,"t":"学成在线-subnav模块制作（上）","d":0,"s":360},{"p":209,"t":"学成在线-subnav模块制作（下）","d":0,"s":198},{"p":210,"t":"学成在线-course模块制作（上）","d":0,"s":272},{"p":211,"t":"学成在线-course模块制作（中）","d":0,"s":204},{"p":212,"t":"学成在线-course模块制作（下）","d":0,"s":456},{"p":213,"t":"学成在线-精品推荐模块（上）","d":0,"s":225},{"p":214,"t":"学成在线-精品推荐模块（中）","d":0,"s":215},{"p":215,"t":"学成在线-精品推荐模块（下）","d":0,"s":294},{"p":216,"t":"学成在线-box-hd模块制作","d":0,"s":446},{"p":217,"t":"学成在线-box-bd模块制作","d":0,"s":345},{"p":218,"t":"学成在线-box模块完成","d":0,"s":357},{"p":219,"t":"学成在线-footer模块制作","d":0,"s":288},{"p":220,"t":"学成在线-copyright模块制作","d":0,"s":376},{"p":221,"t":"学成在线-links模块制作","d":0,"s":276}],"sum":"PS 切图 + 学成在线整站，从设计稿到页面的完整流程。"},{"name":"定位","eps":[{"p":222,"t":"定位导读","d":0,"s":60},{"p":223,"t":"为什么需要定位","d":0,"s":225},{"p":224,"t":"定位组成","d":0,"s":254},{"p":225,"t":"相对定位","d":1,"s":497},{"p":226,"t":"绝对定位-没有父级或者父级无定位情况","d":0,"s":441},{"p":227,"t":"绝对定位-父级有定位情况","d":1,"s":367},{"p":228,"t":"绝对定位脱标的不占有原来位置","d":0,"s":131},{"p":229,"t":"子绝父相的由来","d":0,"s":428},{"p":230,"t":"子绝父相案例-hot模块","d":0,"s":467},{"p":231,"t":"固定定位","d":1,"s":450},{"p":232,"t":"固定定位小技巧-固定到版心右侧","d":0,"s":392},{"p":233,"t":"粘性定位（了解）","d":0,"s":313},{"p":234,"t":"定位总结","d":0,"s":162},{"p":235,"t":"定位的叠放顺序","d":0,"s":442},{"p":236,"t":"绝对定位的盒子居中算法","d":0,"s":453},{"p":237,"t":"定位的特殊特性","d":0,"s":168},{"p":238,"t":"浮动元素不会压住标准流的文字定位会","d":0,"s":310},{"p":239,"t":"淘宝焦点图布局分析","d":0,"s":192},{"p":240,"t":"淘宝焦点图-大盒子制作","d":0,"s":231},{"p":241,"t":"淘宝焦点图-左侧箭头按钮制作","d":0,"s":466},{"p":242,"t":"淘宝焦点图-右侧箭头按钮制作","d":0,"s":386},{"p":243,"t":"淘宝焦点图-ul盒子模块制作","d":0,"s":213},{"p":244,"t":"淘宝焦点图-li小圆点模块制作","d":0,"s":246},{"p":245,"t":"网页布局总结","d":0,"s":262},{"p":246,"t":"display显示隐藏元素","d":0,"s":402},{"p":247,"t":"visibility显示隐藏元素","d":0,"s":153},{"p":248,"t":"overflow溢出显示隐藏","d":0,"s":499},{"p":249,"t":"土豆案例（上）","d":0,"s":478},{"p":250,"t":"土豆案例（下）","d":0,"s":225}],"sum":"relative / absolute / fixed / sticky 四种定位与 z-index 叠放。"},{"name":"CSS 高级技巧 · 精灵图 / 字体图标 / 溢出省略","eps":[{"p":251,"t":"CSS高级技巧导读","d":0,"s":87},{"p":252,"t":"为什么需要精灵技术","d":0,"s":297},{"p":253,"t":"精灵图使用（原理）","d":0,"s":376},{"p":254,"t":"精灵图使用（代码）","d":0,"s":396},{"p":255,"t":"精灵图案例-拼出自己名字","d":0,"s":455},{"p":256,"t":"字体图标产生和优点","d":0,"s":311},{"p":257,"t":"字体图标下载","d":0,"s":351},{"p":258,"t":"字体图标的使用","d":0,"s":501},{"p":259,"t":"字体图标的追加和加载原理","d":0,"s":251},{"p":260,"t":"CSS三角的做法","d":0,"s":316},{"p":261,"t":"CSS三角应用-京东效果","d":0,"s":229},{"p":262,"t":"用户界面-鼠标样式","d":0,"s":259},{"p":263,"t":"用户界面-取消表单轮廓和防止拖拽文本域","d":0,"s":277},{"p":264,"t":"vertical-align实现行内块和文字垂直居中对齐","d":0,"s":487},{"p":265,"t":"图片底侧空白缝隙解决方案","d":0,"s":266},{"p":266,"t":"单行文字溢出省略号显示","d":0,"s":306},{"p":267,"t":"多行文字溢出省略号显示","d":0,"s":302},{"p":268,"t":"布局技巧-margin负值巧妙运用（上）","d":0,"s":326},{"p":269,"t":"布局技巧-margin负值巧妙运用（下）","d":0,"s":274},{"p":270,"t":"布局技巧-文字围绕浮动元素巧妙运用","d":0,"s":454},{"p":271,"t":"布局技巧-行内块的巧妙运用","d":0,"s":506},{"p":272,"t":"布局技巧-CSS三角巧妙运用（上）","d":0,"s":370},{"p":273,"t":"布局技巧-CSS三角巧妙运用（下）","d":0,"s":423},{"p":274,"t":"CSS初始化","d":0,"s":458}],"sum":"精灵图、字体图标、CSS 三角、单行/多行溢出省略。"},{"name":"CSS3 提高 · 新特性 / 2D 3D / 动画","eps":[{"p":275,"t":"HTML5CSS3提高导读","d":0,"s":70},{"p":276,"t":"HTML5提高-新增语义化标签","d":0,"s":552},{"p":277,"t":"HTML5-新增视频标签","d":0,"s":768},{"p":278,"t":"HTML5新增音频标签","d":0,"s":317},{"p":279,"t":"HTML5新增input表单","d":0,"s":534},{"p":280,"t":"HTML5新增表单属性","d":0,"s":438},{"p":281,"t":"CSS3新增属性选择器（上）","d":0,"s":497},{"p":282,"t":"CSS3新增属性选择器（下）","d":0,"s":470},{"p":283,"t":"CSS3新增结构伪类选择器-选择第n个元素","d":0,"s":388},{"p":284,"t":"CSS3新增nth-child选择器(上）","d":0,"s":385},{"p":285,"t":"CSS3新增nth-child选择器(下）","d":0,"s":422},{"p":286,"t":"nth-child和nth-of-type的区别","d":0,"s":583},{"p":287,"t":"CSS3新增伪元素选择器使用场景和由来","d":0,"s":310},{"p":288,"t":"CSS3新增伪元素选择器基本使用","d":0,"s":444},{"p":289,"t":"伪元素选择器使用场景1-配合字体图标","d":0,"s":517},{"p":290,"t":"伪元素选择器使用场景2-仿土豆效果","d":0,"s":286},{"p":291,"t":"伪元素选择器使用场景3-伪元素清除浮动本质","d":0,"s":389},{"p":292,"t":"CSS3盒子模型border-box","d":0,"s":349},{"p":293,"t":"CSS3图片模糊处理","d":0,"s":250},{"p":294,"t":"计算盒子宽度calc函数","d":0,"s":321},{"p":295,"t":"CSS3新增属性过渡（上）","d":1,"s":421},{"p":296,"t":"CSS3新增属性过渡（下）","d":0,"s":237},{"p":297,"t":"CSS3过渡练习","d":0,"s":315},{"p":298,"t":"广义的H5(了解）","d":0,"s":145}],"sum":"HTML5 语义标签、CSS3 选择器、2D/3D 转换与动画。"},{"name":"品优购电商项目","eps":[{"p":299,"t":"品优购项目导读","d":0,"s":49},{"p":300,"t":"网站制作流程","d":0,"s":306},{"p":301,"t":"品优购项目规划","d":0,"s":438},{"p":302,"t":"品优购项目搭建","d":0,"s":468},{"p":303,"t":"品优购项目-样式的模块化开发","d":0,"s":320},{"p":304,"t":"品优购项目-favicon图标制作","d":0,"s":426},{"p":305,"t":"品优购项目-TDK三大标签SEO优化","d":0,"s":468},{"p":306,"t":"品优购首页-快捷导航shortcut结构搭建","d":0,"s":393},{"p":307,"t":"品优购首页-快捷导航左侧制作","d":0,"s":283},{"p":308,"t":"品优购首页-快捷导航右侧搭建","d":0,"s":385},{"p":309,"t":"品优购首页-快捷导航右侧字体图标","d":0,"s":457},{"p":310,"t":"品优购首页-header头部模块搭建","d":0,"s":271},{"p":311,"t":"品优购首页-logoSEO优化（上）","d":0,"s":415},{"p":312,"t":"品优购首页-logoSEO优化（下）","d":0,"s":262},{"p":313,"t":"品优购首页-search搜索模块（上）","d":0,"s":375},{"p":314,"t":"品优购首页-search搜索模块（下）","d":0,"s":318},{"p":315,"t":"品优购首页-hotwords热词模块","d":0,"s":189},{"p":316,"t":"品优购首页-shopcar模块制作","d":0,"s":375},{"p":317,"t":"品优购首页-count购物车统计模块","d":0,"s":421},{"p":318,"t":"品优购首页-nav导航模块搭建","d":0,"s":317},{"p":319,"t":"品优购首页-dropdown模块制作","d":0,"s":391},{"p":320,"t":"品优购首页-导航详细分类制作（上）","d":0,"s":398},{"p":321,"t":"品优购首页-导航详细分类制作（下）","d":0,"s":145},{"p":322,"t":"品优购首页-navitems模块制作","d":0,"s":261},{"p":323,"t":"品优购首页-footer底部模块搭建","d":0,"s":271},{"p":324,"t":"品优购首页-mod_servecie模块制作（上）","d":0,"s":457},{"p":325,"t":"品优购首页-mod_servecie模块制作（下）","d":0,"s":205},{"p":326,"t":"品优购首页-mod_help模块制作","d":0,"s":421},{"p":327,"t":"品优购首页-mod_copyright模块制作","d":0,"s":212},{"p":328,"t":"品优购首页-main主体盒子搭建","d":0,"s":558},{"p":329,"t":"品优购首页-newsflash模块搭建","d":0,"s":518},{"p":330,"t":"品优购首页-news-hd模块制作","d":0,"s":356},{"p":331,"t":"品优购首页-new-bd模块制作","d":0,"s":257},{"p":332,"t":"品优购首页-lifeservice制作（上）","d":0,"s":395},{"p":333,"t":"品优购首页-lifeservice制作（下）","d":0,"s":426},{"p":334,"t":"品优购首页-推荐模块recom（上）","d":0,"s":321},{"p":335,"t":"品优购首页-推荐模块recom（下）","d":0,"s":455},{"p":336,"t":"品优购首页-家用电器模块搭建","d":0,"s":418},{"p":337,"t":"品优购首页-家用电器模块头部制作","d":0,"s":439},{"p":338,"t":"tab栏选项卡原理布局需求","d":0,"s":395},{"p":339,"t":"品优购首页-tab_list-item布局（上）","d":0,"s":329},{"p":340,"t":"品优购首页-tab_list-item布局（中）","d":0,"s":304},{"p":341,"t":"品优购首页-tab_list-item布局（下）","d":0,"s":383},{"p":342,"t":"品优购列表-结构搭建","d":0,"s":267},{"p":343,"t":"品优购列表页-秒杀模块制作","d":0,"s":255},{"p":344,"t":"品优购列表页-导航模块修改","d":0,"s":551},{"p":345,"t":"品优购列表页-一个小问题","d":0,"s":245},{"p":346,"t":"品优购列表页-结束","d":0,"s":419},{"p":347,"t":"品优购注册页-header制作","d":0,"s":512},{"p":348,"t":"品优购列表页-注册主体模块头部制作","d":0,"s":372},{"p":349,"t":"品优购注册页-注册主体制作（上）","d":0,"s":420},{"p":350,"t":"品优购注册页-注册主体制作（下）","d":0,"s":499},{"p":351,"t":"品优购注册页-安全程度模块","d":0,"s":287},{"p":352,"t":"品优购注册页-同意模块和完成注册模块","d":0,"s":364},{"p":353,"t":"品优购项目页面相互跳转以及作业安排","d":0,"s":199},{"p":354,"t":"什么是服务器","d":0,"s":312},{"p":355,"t":"申请免费空间以及网站上传","d":0,"s":689},{"p":356,"t":"课程总结","d":0,"s":188},{"p":357,"t":"2D转换之translate","d":0,"s":791},{"p":358,"t":"让一个盒子水平垂直居中","d":0,"s":563},{"p":359,"t":"2D转换之rotate","d":0,"s":343},{"p":360,"t":"CSS3 三角","d":0,"s":445},{"p":361,"t":"设置转换中心点","d":0,"s":370},{"p":362,"t":"旋转中心点案例","d":0,"s":416},{"p":363,"t":"2D转换之scale","d":0,"s":672},{"p":364,"t":"图片放大案例","d":0,"s":229},{"p":365,"t":"分页按钮案例","d":0,"s":200},{"p":366,"t":"2D转换综合写法以及顺序问题","d":0,"s":339},{"p":367,"t":"2D转换小结","d":0,"s":190},{"p":368,"t":"CSS3动画基本使用","d":0,"s":542},{"p":369,"t":"动画序列","d":0,"s":762},{"p":370,"t":"CSS3动画常见属性","d":0,"s":973},{"p":371,"t":"CSS3动画简写","d":0,"s":441},{"p":372,"t":"大数据热点图案例（上）","d":0,"s":849},{"p":373,"t":"大数据热点图案例（下）","d":0,"s":851},{"p":374,"t":"速度曲线之steps步长","d":0,"s":509},{"p":375,"t":"奔跑的熊大案例","d":0,"s":866},{"p":376,"t":"认识3D转换","d":0,"s":318},{"p":377,"t":"3D转换translate3d","d":0,"s":478},{"p":378,"t":"透视perspective","d":0,"s":535},{"p":379,"t":"translateZ","d":0,"s":551},{"p":380,"t":"3D旋转rotateX","d":0,"s":585},{"p":381,"t":"3D旋转rotateY","d":0,"s":232},{"p":382,"t":"3D旋转rotateZ","d":0,"s":351},{"p":383,"t":"3D呈现transform-style","d":0,"s":664},{"p":384,"t":"两面翻转盒子案例","d":0,"s":779},{"p":385,"t":"3D导航栏（上）","d":0,"s":748},{"p":386,"t":"3D导航栏（下）","d":0,"s":649},{"p":387,"t":"综合案例-旋转木马案例（上）","d":0,"s":521},{"p":388,"t":"综合案例-旋转木马案例（下）","d":0,"s":516},{"p":389,"t":"浏览器私有前缀以及总结","d":0,"s":672},{"p":390,"t":"pink老师的感言和pink老师互动吧","d":0,"s":102}],"sum":"整站项目：样式模块化、SEO、首页/列表/注册三页联动。"},{"name":"移动 Web · 流式布局","eps":[{"p":391,"t":"移动WEB开发流式布局导读","d":0,"s":120},{"p":392,"t":"移动端基础","d":0,"s":559},{"p":393,"t":"视口","d":0,"s":542},{"p":394,"t":"meta视口标签","d":0,"s":417},{"p":395,"t":"物理像素与物理像素比","d":0,"s":525},{"p":396,"t":"二倍图","d":0,"s":731},{"p":397,"t":"背景缩放background-size","d":0,"s":647},{"p":398,"t":"背景二倍图以及多倍图切图","d":0,"s":339},{"p":399,"t":"移动端开发选择","d":0,"s":271},{"p":400,"t":"移动端技术解决方案","d":0,"s":631},{"p":401,"t":"移动端特殊样式","d":0,"s":295},{"p":402,"t":"移动端技术选型","d":0,"s":220},{"p":403,"t":"流式布局","d":0,"s":638},{"p":404,"t":"京东移动端首页准备工作","d":0,"s":419},{"p":405,"t":"body设置","d":0,"s":392},{"p":406,"t":"app布局","d":0,"s":512},{"p":407,"t":"app内容填充","d":0,"s":422},{"p":408,"t":"搜索模块布局","d":0,"s":559},{"p":409,"t":"搜索模块内容制作","d":0,"s":526},{"p":410,"t":"二倍精灵图的做法","d":0,"s":496},{"p":411,"t":"焦点图制作","d":0,"s":409},{"p":412,"t":"品牌日模块制作","d":0,"s":453},{"p":413,"t":"导航栏nav模块制作","d":0,"s":683},{"p":414,"t":"新闻快报模块","d":0,"s":444},{"p":415,"t":"京东移动端首页结束","d":0,"s":272}],"sum":"视口、二倍图、流式布局，京东移动端首页实战。"},{"name":"移动 Web · Flex 布局","eps":[{"p":416,"t":"移动WEB开发flex布局导读","d":0,"s":76},{"p":417,"t":"flex布局体验","d":0,"s":410},{"p":418,"t":"flex布局原理","d":1,"s":255},{"p":419,"t":"flex设置主轴方向","d":0,"s":495},{"p":420,"t":"justify-content设置主轴子元素排列","d":1,"s":606},{"p":421,"t":"flex-wrap子元素是否换行","d":0,"s":298},{"p":422,"t":"align-items设置侧轴子元素排列","d":1,"s":456},{"p":423,"t":"align-content设置侧轴子元素排列","d":0,"s":662},{"p":424,"t":"flex-flow以及总结","d":0,"s":227},{"p":425,"t":"子项flex属性使用","d":1,"s":875},{"p":426,"t":"align-self和order","d":0,"s":288},{"p":427,"t":"携程移动端首页准备工作","d":0,"s":407},{"p":428,"t":"首页布局分析以及搜索模块布局","d":0,"s":551},{"p":429,"t":"搜索模块user制作","d":0,"s":732},{"p":430,"t":"搜索模块制search制作","d":0,"s":683},{"p":431,"t":"焦点图focus模块制作","d":0,"s":170},{"p":432,"t":"local-nav布局","d":0,"s":320},{"p":433,"t":"local-nav内容制作","d":0,"s":699},{"p":434,"t":"利用属性选择器更换背景图片","d":0,"s":285},{"p":435,"t":"nav外观布局","d":0,"s":533},{"p":436,"t":"nav内容制作","d":0,"s":661},{"p":437,"t":"背景渐变linear-gradient","d":0,"s":379},{"p":438,"t":"subnav-entry模块制作","d":0,"s":563},{"p":439,"t":"热门活动模块制作","d":0,"s":591},{"p":440,"t":"更多福利模块制作","d":0,"s":372},{"p":441,"t":"sales-bd模块制作","d":0,"s":344}],"sum":"主轴 / 侧轴、换行、子项伸缩，携程首页实战。"},{"name":"移动 Web · rem 适配","eps":[{"p":442,"t":"移动WEB开发rem适配布局导读","d":0,"s":78},{"p":443,"t":"rem单位","d":0,"s":674},{"p":444,"t":"媒体查询语法简介","d":1,"s":599},{"p":445,"t":"媒体查询案例背景变色","d":0,"s":745},{"p":446,"t":"媒体查询+rem实现元素动态大小变化","d":0,"s":462},{"p":447,"t":"媒体查询引入资源","d":0,"s":553},{"p":448,"t":"CSS的弊端","d":0,"s":322},{"p":449,"t":"LESS简介以及使用变量","d":0,"s":545},{"p":450,"t":"less编译easy less插件","d":0,"s":251},{"p":451,"t":"less嵌套","d":0,"s":538},{"p":452,"t":"less运算","d":0,"s":618},{"p":453,"t":"rem适配方案原理","d":0,"s":358},{"p":454,"t":"rem最终适配方案","d":0,"s":714},{"p":455,"t":"苏宁首页common.less制作","d":0,"s":709},{"p":456,"t":"苏宁首页import导入样式","d":0,"s":284},{"p":457,"t":"苏宁首页body样式设置","d":0,"s":245},{"p":458,"t":"苏宁首页search-content模块布局","d":0,"s":448},{"p":459,"t":"苏宁首页search-content内容布局","d":0,"s":540},{"p":460,"t":"苏宁首页search模块制作","d":0,"s":654},{"p":461,"t":"苏宁首页banner和广告模块制作","d":0,"s":290},{"p":462,"t":"苏宁首页nav部分制作","d":0,"s":477},{"p":463,"t":"rem适配方案2flexible.js简介","d":0,"s":290},{"p":464,"t":"rem适配方案2苏宁首页前期准备工作","d":0,"s":268},{"p":465,"t":"rem适配方案2body样式修改","d":0,"s":210},{"p":466,"t":"一个神奇的vscode插件cssrem","d":0,"s":520},{"p":467,"t":"修改flexible默认html字体大小","d":0,"s":493},{"p":468,"t":"rem适配方案2search-content内容制作1","d":0,"s":358},{"p":469,"t":"rem适配方案2search-content内容制作2","d":0,"s":272}],"sum":"rem + 媒体查询 + LESS，苏宁首页两套适配方案。"},{"name":"黑马面面项目（实战）","eps":[{"p":470,"t":"寒暄","d":0,"s":481},{"p":471,"t":"黑马面面项目的规范要求","d":0,"s":341},{"p":472,"t":"PS安装摹客协作平台插件","d":0,"s":531},{"p":473,"t":"摹客协作平台使用-上传以及测量切图技巧","d":0,"s":506},{"p":474,"t":"黑马面面项目准备工作1","d":0,"s":813},{"p":475,"t":"黑马面面项目准备工作2","d":0,"s":279},{"p":476,"t":"黑马面面项目header和nav开始","d":0,"s":718},{"p":477,"t":"黑马面面项目nav制作中","d":0,"s":457},{"p":478,"t":"黑马面面项目nav模块结束","d":0,"s":275},{"p":479,"t":"黑马面面项目go模块制作","d":0,"s":181},{"p":480,"t":"黑马面面项目wrap大模块结束","d":0,"s":239},{"p":481,"t":"黑马面面项目content模块开始","d":0,"s":275},{"p":482,"t":"黑马面面项目con-hd布局开始","d":0,"s":352},{"p":483,"t":"黑马面面项目con-hd布局结束","d":0,"s":386},{"p":484,"t":"swiper插件准备","d":0,"s":250},{"p":485,"t":"swiper基本使用","d":0,"s":415},{"p":486,"t":"swiper根据需求定制-左右箭头","d":0,"s":424},{"p":487,"t":"swiper定制第一个slide","d":0,"s":415},{"p":488,"t":"旋转木马轮播图定制上","d":0,"s":337},{"p":489,"t":"旋转木马轮播图定制中","d":0,"s":380},{"p":490,"t":"旋转木马轮播图定制下","d":0,"s":254},{"p":491,"t":"黑马面面项目充电学习模块轮播图","d":0,"s":446},{"p":492,"t":"黑马面面项目充电轮播图定制上","d":0,"s":315},{"p":493,"t":"黑马面面项目充电轮播图定制下","d":0,"s":404},{"p":494,"t":"黑马面面项目footer底部模块开始","d":0,"s":311},{"p":495,"t":"黑马面面项目footer底部模块结束","d":0,"s":522},{"p":496,"t":"利用git提交网站到码云","d":0,"s":543},{"p":497,"t":"码云部署发布静态网站","d":0,"s":222},{"p":498,"t":"提交码云仓库另外的方式","d":0,"s":343}],"sum":"swiper 轮播、组件拆分、Git 部署上线。"},{"name":"移动 Web · 响应式布局","eps":[{"p":499,"t":"移动web开发响应式布局导读","d":0,"s":169},{"p":500,"t":"响应式开发原理","d":0,"s":182},{"p":501,"t":"响应式布局容器","d":0,"s":743},{"p":502,"t":"响应式导航案例","d":0,"s":372},{"p":503,"t":"Bootstrap简介","d":0,"s":613},{"p":504,"t":"Bootstrap使用（上）","d":0,"s":512},{"p":505,"t":"Bootstrap使用（下）","d":0,"s":321},{"p":506,"t":"Bootstrap布局容器","d":0,"s":231},{"p":507,"t":"Bootstrap栅格系统","d":0,"s":300},{"p":508,"t":"Bootstrap栅格系统使用（上）","d":0,"s":760},{"p":509,"t":"Bootstrap栅格系统使用（下）","d":0,"s":389},{"p":510,"t":"Bootstrap列嵌套","d":0,"s":492},{"p":511,"t":"Bootstarp列偏移","d":0,"s":488},{"p":512,"t":"Bootstrap列排序","d":0,"s":203},{"p":513,"t":"Bootstrap响应式工具","d":0,"s":383},{"p":514,"t":"阿里百秀需求分析","d":0,"s":357},{"p":515,"t":"阿里百秀前期准备工作","d":0,"s":239},{"p":516,"t":"修改container最大宽度","d":0,"s":231},{"p":517,"t":"阿里百秀logo制作","d":0,"s":483},{"p":518,"t":"阿里百秀nav制作引入字体图标","d":0,"s":516},{"p":519,"t":"阿里百秀news制作（上）","d":0,"s":745},{"p":520,"t":"阿里百秀news制作（下）","d":0,"s":205},{"p":521,"t":"阿里百秀publish模块制作","d":0,"s":713},{"p":522,"t":"阿里百秀aside模块制作","d":0,"s":417},{"p":523,"t":"阿里百秀logo响应式制作","d":0,"s":568},{"p":524,"t":"阿里百秀nav响应式制作","d":0,"s":292},{"p":525,"t":"阿里百秀news响应式制作","d":0,"s":336},{"p":526,"t":"阿里百秀publish响应式制作","d":0,"s":308}],"sum":"响应式原理、Bootstrap 栅格，阿里百秀实战。"},{"name":"移动 Web · vw / vh 适配","eps":[{"p":527,"t":"vw介绍","d":0,"s":1077},{"p":528,"t":"bilibili项目-结构搭建和字体图标","d":0,"s":582},{"p":529,"t":"bilibili项目-头部盒子和logo制作","d":0,"s":1041},{"p":530,"t":"bilibili项目-右侧right模块制作","d":0,"s":631},{"p":531,"t":"bilibili项目-频道模块和after模块制作","d":0,"s":784},{"p":532,"t":"bilibil项目-频道链接模块做法","d":0,"s":942},{"p":533,"t":"bilibil项目-小红线的做法","d":0,"s":665},{"p":534,"t":"bilibili项目-页面主体部分布局","d":0,"s":807},{"p":535,"t":"bilibili项目-主体链接和card模块制作","d":0,"s":879},{"p":536,"t":"bilibili项目-统计模块制作","d":0,"s":393},{"p":537,"t":"bilibili项目-主体部分完成","d":0,"s":465},{"p":538,"t":"bilibili项目-底部模块制作","d":0,"s":686},{"p":539,"t":"vw和wmin的区别","d":0,"s":205},{"p":540,"t":"大结局","d":0,"s":164}],"sum":"vw / vh 适配与 bilibili 移动端首页复刻。"}]},{"id":"B","name":"JavaScript","sub":"黑马 · JS 基础 → Web APIs → ES6 进阶","bv":"BV1Y84y1L7Nn","total":200,"chapters":[{"name":"JS 基础 · Day 1","eps":[{"p":1,"t":"JavaScript核心与进阶课程安排","d":0,"s":608},{"p":2,"t":"必看-基本软件以及准备工作","d":0,"s":1124},{"p":3,"t":"JavaScript简介和体验","d":0,"s":1285},{"p":4,"t":"JavaScript书写位置","d":0,"s":575},{"p":5,"t":"JavaScript注释和结束符","d":0,"s":310},{"p":6,"t":"js输入和输出语句和字面量","d":0,"s":902},{"p":7,"t":"变量的声明和赋值","d":0,"s":843},{"p":8,"t":"变量的更新以及输入用户名案例","d":0,"s":699},{"p":9,"t":"交互两个变量案例","d":0,"s":491},{"p":10,"t":"变量的本质和命名规则","d":0,"s":903},{"p":11,"t":"输入姓名案例以及var和let区别","d":0,"s":534},{"p":12,"t":"数组的基本使用","d":1,"s":1213},{"p":13,"t":"常量","d":0,"s":459},{"p":14,"t":"数字数据类型和算术运算符","d":0,"s":1375},{"p":15,"t":"字符串数据类型以及拼接","d":0,"s":930},{"p":16,"t":"模板字符串","d":1,"s":484},{"p":17,"t":"布尔型、null和undefined以及类型检测","d":0,"s":1197},{"p":18,"t":"隐式转换和显示转换","d":0,"s":1639},{"p":19,"t":"综合案例-渲染表格案例以及作业","d":0,"s":1687}],"sum":"变量、数据类型、运算符、输入输出——JS 的第一天。"},{"name":"JS 基础 · Day 2","eps":[{"p":20,"t":"赋值运算符","d":0,"s":509},{"p":21,"t":"自增运算符","d":0,"s":1071},{"p":22,"t":"比较运算符","d":0,"s":983},{"p":23,"t":"逻辑运算符以及优先级","d":0,"s":1331},{"p":24,"t":"if单分支语句以及判断成绩案例","d":0,"s":966},{"p":25,"t":"if双分支语句以及判断闰年案例","d":0,"s":844},{"p":26,"t":"if多分支语句以及上午总结","d":0,"s":1146},{"p":27,"t":"三元运算符以及求最大值案例","d":0,"s":767},{"p":28,"t":"数字补0案例","d":0,"s":656},{"p":29,"t":"switch分支语句","d":0,"s":1196},{"p":30,"t":"断点调试","d":0,"s":371},{"p":31,"t":"while循环","d":0,"s":1227},{"p":32,"t":"while循环大练习","d":0,"s":1088},{"p":33,"t":"退出循环以及你爱我吗案例","d":0,"s":598},{"p":34,"t":"综合案例-简易ATM取款机案例以及作业","d":0,"s":1199}],"sum":"分支、循环、断点调试，ATM 取款机案例。"},{"name":"JS 基础 · Day 3","eps":[{"p":35,"t":"for循环以及案例","d":0,"s":1286},{"p":36,"t":"遍历数组","d":0,"s":901},{"p":37,"t":"退出循环","d":0,"s":617},{"p":38,"t":"循环嵌套","d":0,"s":840},{"p":39,"t":"循环嵌套大练习","d":0,"s":910},{"p":40,"t":"99乘法表案例","d":0,"s":673},{"p":41,"t":"数组的基本使用以及案例","d":0,"s":1492},{"p":42,"t":"求数组最大值和最小值","d":0,"s":924},{"p":43,"t":"数组操作-修改","d":0,"s":590},{"p":44,"t":"数组操作-新增","d":0,"s":637},{"p":45,"t":"数组筛选案例","d":0,"s":836},{"p":46,"t":"数组操作-删除","d":0,"s":708},{"p":47,"t":"综合案例-渲染柱形图案例上","d":0,"s":744},{"p":48,"t":"综合案例-渲染柱形图案例下","d":0,"s":594},{"p":49,"t":"了解冒泡排序和作业安排","d":0,"s":1510}],"sum":"for 循环、数组增删改查、冒泡排序。"},{"name":"JS 基础 · Day 4","eps":[{"p":50,"t":"函数的基本使用以及封装练习","d":1,"s":1627},{"p":51,"t":"函数的参数以及默认参数","d":0,"s":1350},{"p":52,"t":"函数封装数组求和案例","d":0,"s":768},{"p":53,"t":"函数返回值return","d":1,"s":863},{"p":54,"t":"函数返回值细节以及上午总结","d":0,"s":1001},{"p":55,"t":"函数返回值案例-求最大值和最小值","d":0,"s":1363},{"p":56,"t":"函数复习以及断点进入函数","d":0,"s":994},{"p":57,"t":"作用域","d":0,"s":600},{"p":58,"t":"变量的访问原则","d":0,"s":763},{"p":59,"t":"匿名函数之函数表达式","d":0,"s":545},{"p":60,"t":"匿名函数之立即执行函数","d":0,"s":901},{"p":61,"t":"综合案例-封装计算时间函数","d":0,"s":1066},{"p":62,"t":"逻辑中断","d":0,"s":909},{"p":63,"t":"转换为布尔型以及作业","d":0,"s":865}],"sum":"函数、参数、返回值、作用域与匿名函数。"},{"name":"JS 基础 · Day 5","eps":[{"p":64,"t":"今日内容和实战安排","d":0,"s":481},{"p":65,"t":"什么是对象以及基本使用","d":1,"s":1002},{"p":66,"t":"对象的操作-增删改","d":0,"s":758},{"p":67,"t":"对象的操作-查的两种方法","d":0,"s":541},{"p":68,"t":"对象的方法","d":0,"s":423},{"p":69,"t":"遍历对象","d":0,"s":958},{"p":70,"t":"渲染学生信息表案例","d":0,"s":989},{"p":71,"t":"数学内置对象","d":0,"s":1590},{"p":72,"t":"随机数函数","d":0,"s":888},{"p":73,"t":"随机点名案例","d":0,"s":597},{"p":74,"t":"猜数字游戏","d":0,"s":1262},{"p":75,"t":"随机颜色案例","d":0,"s":1414},{"p":76,"t":"综合案例-渲染学成在线案例","d":0,"s":841},{"p":77,"t":"简单和引用数据类型以及作业","d":0,"s":1349}],"sum":"对象、Math 内置对象、随机数小游戏。"},{"name":"Web APIs · Day 1","eps":[{"p":78,"t":"web APIs阶段课程安排","d":0,"s":354},{"p":79,"t":"声明变量const优先","d":0,"s":1024},{"p":80,"t":"DOM树和DOM对象","d":1,"s":1002},{"p":81,"t":"获取DOM元素","d":1,"s":1541},{"p":82,"t":"DOM修改元素内容以及年会抽奖案例","d":1,"s":1177},{"p":83,"t":"DOM修改元素常见属性以及案例","d":0,"s":639},{"p":84,"t":"通过style修改样式属性","d":0,"s":865},{"p":85,"t":"通过类名修改样式","d":0,"s":562},{"p":86,"t":"通过classList修改样式","d":1,"s":640},{"p":87,"t":"随机轮播图案例-上","d":0,"s":907},{"p":88,"t":"随机轮播图案例-下","d":0,"s":1096},{"p":89,"t":"获取设置表单的值","d":1,"s":1094},{"p":90,"t":"H5自定义属性-data","d":0,"s":649},{"p":91,"t":"定时器-间歇函数","d":0,"s":1202},{"p":92,"t":"用户倒计时效果","d":0,"s":717},{"p":93,"t":"综合案例-轮播图定时版","d":0,"s":1734}],"sum":"DOM 树、选取/修改元素、classList、表单值、定时器。"},{"name":"Web APIs · Day 2","eps":[{"p":94,"t":"事件监听以及案例","d":1,"s":1140},{"p":95,"t":"随机点名案例","d":0,"s":1695},{"p":96,"t":"事件监听版本以及鼠标事件","d":0,"s":617},{"p":97,"t":"轮播图完整版-上集","d":0,"s":1744},{"p":98,"t":"轮播图完整版-下集","d":0,"s":614},{"p":99,"t":"焦点事件以及小米搜索框案例","d":0,"s":654},{"p":100,"t":"键盘事件以及发布评论案例","d":0,"s":1315},{"p":101,"t":"事件对象event以及常见属性","d":1,"s":809},{"p":102,"t":"回车发布评论案例","d":0,"s":1848},{"p":103,"t":"环境对象this以及回调函数","d":0,"s":925},{"p":104,"t":"今日综合案例-tab切换","d":0,"s":1576}],"sum":"事件监听、事件对象、鼠标/键盘/焦点事件。"},{"name":"Web APIs · Day 3","eps":[{"p":105,"t":"表单全选反选案例","d":0,"s":1827},{"p":106,"t":"事件流、事件捕获、事件冒泡以及阻止冒泡","d":0,"s":1356},{"p":107,"t":"事件解绑、mouseover和mouseenter的区别","d":0,"s":882},{"p":108,"t":"事件委托","d":0,"s":1192},{"p":109,"t":"事件委托版本tab栏切换","d":0,"s":1765},{"p":110,"t":"阻止元素默认行为","d":1,"s":358},{"p":111,"t":"页面加载事件和页面滚动事件","d":0,"s":2325},{"p":112,"t":"小兔鲜显示导航和返回顶部案例","d":0,"s":715},{"p":113,"t":"client家族和offset家族","d":0,"s":1526},{"p":114,"t":"仿京东滑动以及bilibili导航滑动案例","d":0,"s":1640},{"p":115,"t":"综合案例-电梯导航案例上集","d":0,"s":1956},{"p":116,"t":"综合案例-电梯导航案例下集","d":0,"s":2284}],"sum":"事件流与委托、阻止默认、滚动与尺寸家族。"},{"name":"Web APIs · Day 4","eps":[{"p":117,"t":"日期对象的使用","d":0,"s":1712},{"p":118,"t":"时间戳的使用","d":0,"s":1163},{"p":119,"t":"倒计时案例的制作","d":0,"s":1362},{"p":120,"t":"查找DOM节点","d":0,"s":1616},{"p":121,"t":"增加节点以及学成在线案例","d":0,"s":1554},{"p":122,"t":"克隆节点和删除节点","d":0,"s":898},{"p":123,"t":"M端事件","d":0,"s":295},{"p":124,"t":"swiper插件的使用","d":0,"s":1873},{"p":125,"t":"今日综合案例-学生信息表上集","d":0,"s":2187},{"p":126,"t":"今日综合案例-学生信息表下集","d":0,"s":1394}],"sum":"日期对象、节点增删改、swiper 插件。"},{"name":"Web APIs · Day 5","eps":[{"p":127,"t":"BOM和延迟函数setTimeout","d":0,"s":1088},{"p":128,"t":"事件循环eventloop","d":0,"s":1479},{"p":129,"t":"location对象","d":0,"s":1305},{"p":130,"t":"navigator对象和histroy对象","d":0,"s":724},{"p":131,"t":"本地存储localstorage","d":1,"s":1154},{"p":132,"t":"本地存储处理复杂数据类型","d":0,"s":1227},{"p":133,"t":"综合案例-读取本地存储数据","d":0,"s":913},{"p":134,"t":"数组map和join方法","d":1,"s":738},{"p":135,"t":"综合案例-渲染模块制作","d":0,"s":936},{"p":136,"t":"综合案例-录入模块制作","d":0,"s":1350},{"p":137,"t":"综合案例-删除模块制作以及学号处理","d":0,"s":1463}],"sum":"BOM、事件循环、location、localStorage、map/join 渲染。"},{"name":"Web APIs · Day 6","eps":[{"p":138,"t":"正则表达式使用","d":0,"s":1104},{"p":139,"t":"元字符之边界符","d":0,"s":886},{"p":140,"t":"元字符之量词","d":0,"s":1011},{"p":141,"t":"元字符之字符类","d":0,"s":1575},{"p":142,"t":"预定义类以及修饰符和替换","d":0,"s":1125},{"p":143,"t":"今日综合案例-注册页面-短信验证码模块","d":0,"s":1049},{"p":144,"t":"今日综合案例-注册页面-验证用户名模块","d":0,"s":1259},{"p":145,"t":"综合案例-注册页面-验证手机号和密码框模块","d":0,"s":1180},{"p":146,"t":"综合案例-注册页面-我同意模块以及全部提交验证","d":0,"s":1286},{"p":147,"t":"阶段案例-登录页制作","d":0,"s":1557},{"p":148,"t":"阶段案例-首页制作","d":0,"s":949}],"sum":"正则表达式与注册页表单校验。"},{"name":"Web APIs · Day 7","eps":[{"p":149,"t":"实战案例-放大镜效果-鼠标经过盒子制作","d":0,"s":1344},{"p":150,"t":"实战案例-放大镜效果-鼠标经过中等盒子制作","d":0,"s":1407},{"p":151,"t":"实战案例-放大镜效果-大盒子放大效果制作","d":0,"s":2503}],"sum":"放大镜综合实战。"},{"name":"JS 进阶 · Day 1","eps":[{"p":152,"t":"JavaScript进阶阶段安排","d":0,"s":483},{"p":153,"t":"作用域和作用域链","d":0,"s":1232},{"p":154,"t":"JS垃圾回收机制以及算法","d":0,"s":1055},{"p":155,"t":"JS闭包","d":0,"s":1648},{"p":156,"t":"变量和函数提升","d":0,"s":952},{"p":157,"t":"函数剩余参数和展开运算符","d":0,"s":1446},{"p":158,"t":"ES6箭头函数的使用","d":1,"s":2177},{"p":159,"t":"数组解构","d":0,"s":2254},{"p":160,"t":"对象解构","d":0,"s":1959},{"p":161,"t":"forEach遍历数组","d":0,"s":509},{"p":162,"t":"渲染商品案例","d":0,"s":883},{"p":163,"t":"综合案例-筛选商品案例","d":0,"s":2039}],"sum":"作用域链、闭包、提升、剩余参数、箭头函数、解构。"},{"name":"JS 进阶 · Day 2","eps":[{"p":164,"t":"今日内容和创建对象方式","d":0,"s":491},{"p":165,"t":"构造函数","d":0,"s":1177},{"p":166,"t":"new 实例化执行过程","d":0,"s":358},{"p":167,"t":"实例成员和静态成员","d":0,"s":612},{"p":168,"t":"基本包装类型","d":0,"s":350},{"p":169,"t":"Object静态方法","d":0,"s":713},{"p":170,"t":"数组reduce累计方法","d":0,"s":1509},{"p":171,"t":"数组find、every和转换为真数组","d":0,"s":2371},{"p":172,"t":"字符串常见方法","d":0,"s":1355},{"p":173,"t":"渲染赠品案例","d":0,"s":891},{"p":174,"t":"综合案例-购物车案例渲染数据","d":0,"s":1152},{"p":175,"t":"综合案例-购物车案例数据处理模块","d":0,"s":1237},{"p":176,"t":"综合案例-购物车案例合计模块","d":0,"s":629}],"sum":"构造函数、new 过程、reduce/find、字符串方法。"},{"name":"JS 进阶 · Day 3","eps":[{"p":177,"t":"今日内容和两种编程思想","d":0,"s":918},{"p":178,"t":"构造函数实现封装以及存在的问题","d":0,"s":615},{"p":179,"t":"原型对象prototype","d":0,"s":1050},{"p":180,"t":"数组扩展案例-求最大值和数组求和","d":0,"s":795},{"p":181,"t":"constructor属性以及应用","d":0,"s":784},{"p":182,"t":"对象原型__proto__","d":0,"s":1767},{"p":183,"t":"原型继承","d":0,"s":2077},{"p":184,"t":"原型链以及instanceof运算符","d":0,"s":1734},{"p":185,"t":"综合案例-模态框构造函数写法","d":0,"s":967},{"p":186,"t":"综合案例-open方法封装","d":0,"s":527},{"p":187,"t":"综合案例close封装以及小结","d":0,"s":1012}],"sum":"原型、原型链、继承、instanceof。"},{"name":"JS 进阶 · Day 4","eps":[{"p":188,"t":"今日内容和浅拷贝","d":0,"s":1087},{"p":189,"t":"递归函数","d":0,"s":610},{"p":190,"t":"深拷贝实现","d":0,"s":2106},{"p":191,"t":"利用lodash和JSON实现深拷贝","d":0,"s":880},{"p":192,"t":"异常处理-throw和try、catch以及debugger","d":1,"s":1190},{"p":193,"t":"普通函数和箭头函数的this","d":0,"s":893},{"p":194,"t":"call方法改变this指向","d":0,"s":375},{"p":195,"t":"apply方法","d":0,"s":661},{"p":196,"t":"bind方法以及总结","d":0,"s":970},{"p":197,"t":"什么是防抖以及底层实现","d":0,"s":1622},{"p":198,"t":"什么是节流以及底层实现和总结","d":0,"s":1253},{"p":199,"t":"节流综合案例-记录视频播放时间","d":0,"s":1157}],"sum":"深浅拷贝、递归、this 指向、防抖节流、异常处理。"},{"name":"其他 · 大结局","eps":[{"p":200,"t":"JavaScript核心与进阶大结局","d":0,"s":280}],"sum":"课程收尾与后续路线。"}]},{"id":"C","name":"ES6 ~ ES11","sub":"尚硅谷 · 语法新特性（补 async / Promise）","bv":"BV1uK411H7on","total":68,"chapters":[{"name":"课程介绍","eps":[{"p":1,"t":"课程介绍","d":0,"s":159},{"p":2,"t":"ECMAScript相关名词介绍","d":0,"s":379}],"sum":"ECMAScript 名词与整门课的地图。"},{"name":"let 与 const","eps":[{"p":3,"t":"let变量声明以及声明特性","d":0,"s":396},{"p":4,"t":"let经典案例实践","d":0,"s":287},{"p":5,"t":"const声明常量以及特点","d":0,"s":283}],"sum":"块级作用域、暂时性死区、const 的不可变。"},{"name":"解构 / 模板字符串 / 箭头函数 / rest / 扩展运算符","eps":[{"p":6,"t":"变量的解构赋值","d":0,"s":289},{"p":7,"t":"模板字符串","d":0,"s":308},{"p":8,"t":"对象的简化写法","d":0,"s":176},{"p":9,"t":"箭头函数以及声明特点","d":0,"s":626},{"p":10,"t":"箭头函数的实践与应用场景","d":0,"s":514},{"p":11,"t":"函数参数的默认值设置","d":0,"s":346},{"p":12,"t":"rest参数","d":0,"s":221},{"p":13,"t":"扩展运算符的介绍","d":0,"s":202},{"p":14,"t":"扩展运算符的应用","d":0,"s":267}],"sum":"解构、模板字符串、箭头函数、rest、扩展运算符。"},{"name":"Symbol · 迭代器 · 生成器","eps":[{"p":15,"t":"Symbol的介绍与创建","d":0,"s":382},{"p":16,"t":"对象添加Symbol类型的属性","d":0,"s":330},{"p":17,"t":"Symbol的内置属性","d":0,"s":414},{"p":18,"t":"迭代器介绍","d":0,"s":441},{"p":19,"t":"迭代器应用-自定义遍历数据","d":0,"s":651},{"p":20,"t":"生成器函数声明与调用","d":0,"s":440},{"p":21,"t":"生成器函数的参数传递","d":0,"s":344},{"p":22,"t":"生成器函数实例","d":0,"s":377},{"p":23,"t":"生成器函数实例-2","d":0,"s":366}],"sum":"Symbol、迭代器、生成器。"},{"name":"Promise","eps":[{"p":24,"t":"Promise介绍与基本使用","d":1,"s":345},{"p":25,"t":"Promise封装读取文件","d":0,"s":361},{"p":26,"t":"Promise封装AJAX请求","d":0,"s":399},{"p":27,"t":"Promise.prototype..then方法","d":0,"s":555},{"p":28,"t":"Promise实践练习-多个文件内容读取","d":0,"s":556},{"p":29,"t":"Promise对象catch方法","d":0,"s":167}],"sum":"Promise 三种状态、then / catch、封装请求。"},{"name":"Set 与 Map","eps":[{"p":30,"t":"集合介绍与API","d":0,"s":279},{"p":31,"t":"集合实践","d":0,"s":518},{"p":32,"t":"Map的介绍与API","d":0,"s":293}],"sum":"Set 自动去重，Map 的键可以是任意类型。"},{"name":"class 类","eps":[{"p":33,"t":"class介绍与初体验","d":0,"s":333},{"p":34,"t":"class静态成员","d":0,"s":257},{"p":35,"t":"ES5构造函数继承","d":0,"s":314},{"p":36,"t":"class的类继承","d":0,"s":254},{"p":37,"t":"子类对父类方法的重写","d":0,"s":92},{"p":38,"t":"class中getter和setter设置","d":0,"s":244}],"sum":"class、继承、静态成员、getter / setter。"},{"name":"数值与对象扩展","eps":[{"p":39,"t":"ES6的数值扩展","d":0,"s":488},{"p":40,"t":"ES6的对象方法扩展","d":0,"s":352}],"sum":"数值与对象 API 的扩展。"},{"name":"模块化","eps":[{"p":41,"t":"模块化介绍、优势以及产品","d":0,"s":232},{"p":42,"t":"浏览器使用ES6模块化引入模块","d":0,"s":213},{"p":43,"t":"ES6模块暴露数据语法汇总","d":0,"s":299},{"p":44,"t":"ES6引入模块数据语法汇总","d":0,"s":336},{"p":45,"t":"浏览器使用ES6模块化方式二","d":0,"s":165},{"p":46,"t":"babel对ES6模块化代码转换","d":0,"s":512},{"p":47,"t":"ES6模块化引入NPM包","d":0,"s":146}],"sum":"ES Module 的 import / export 与 babel 转换。"},{"name":"ES7 新特性","eps":[{"p":48,"t":"ES7新特性","d":0,"s":175}],"sum":"指数运算符与 includes。"},{"name":"ES8 · async / await","eps":[{"p":49,"t":"async函数","d":1,"s":451},{"p":50,"t":"await表达式","d":0,"s":280},{"p":51,"t":"async与await结合读取文件内容","d":0,"s":324},{"p":52,"t":"async与await结合发送AJAX请求","d":0,"s":423},{"p":53,"t":"ES8对象方法扩展","d":0,"s":376}],"sum":"async / await 与对象方法扩展。"},{"name":"ES9 新特性","eps":[{"p":54,"t":"ES9扩展运算符与rest参数","d":0,"s":318},{"p":55,"t":"ES9正则扩展-命名捕获分组","d":0,"s":327},{"p":56,"t":"ES9正则扩展-反向断言","d":0,"s":307},{"p":57,"t":"ES9正则扩展-dotAll模式","d":0,"s":441}],"sum":"命名捕获分组、反向断言、dotAll。"},{"name":"ES10 新特性","eps":[{"p":58,"t":"对象扩展方法Object.fromEntries","d":0,"s":202},{"p":59,"t":"字符串方法扩展-trimStart-trimEnd","d":0,"s":87},{"p":60,"t":"数组方法扩展-flat与flatMap","d":0,"s":232},{"p":61,"t":"Symbol.prototype.description","d":0,"s":51}],"sum":"fromEntries、trimStart / trimEnd、flat / flatMap。"},{"name":"ES11 新特性","eps":[{"p":62,"t":"私有属性","d":0,"s":227},{"p":63,"t":"Promise.allSettled方法","d":0,"s":284},{"p":64,"t":"String.prototype.matchAll方法","d":0,"s":238},{"p":65,"t":"可选链操作符","d":0,"s":191},{"p":66,"t":"动态import","d":0,"s":248},{"p":67,"t":"BigInt类型","d":0,"s":219},{"p":68,"t":"绝对全局对象globalThis","d":0,"s":95}],"sum":"私有属性、allSettled、可选链、动态 import、BigInt。"}]}];
+
+var COL_X = [26, 206, 392, 634];
+var COL_W = [148, 168, 224, 252];
+var ROW_EP = 24, ROW_OTHER = 32;
+var PAD = 40;
+var CNAME = {A:"HTML + CSS", B:"JavaScript", C:"ES6 ~ ES11"};
+
+var collapsed = new Set();
+var doneSet = new Set();
+try {
+  var sv = JSON.parse(localStorage.getItem("mm-web-done"));
+  DATA.forEach(function (co) { co.chapters.forEach(function (ch) { ch.eps.forEach(function (e) {
+    if (sv ? sv.indexOf(co.id + "-" + e.p) >= 0 : e.d) doneSet.add(co.id + "-" + e.p);
+  }); }); });
+} catch (err) { DATA.forEach(function (co) { co.chapters.forEach(function (ch) { ch.eps.forEach(function (e) {
+  if (e.d) doneSet.add(co.id + "-" + e.p);
+}); }); }); }
+
+DATA.forEach(function (co) { co.chapters.forEach(function (ch, i) { collapsed.add(co.id + "-ch" + i); }); });
+
+var filter = "all"; /* all | done | todo */
+
+var root = { id: "root", label: "前端基础", depth: 0, children: [] };
+DATA.forEach(function (co) {
+  var cn = { id: co.id, label: co.name, depth: 1, course: co.id, bv: co.bv, children: [] };
+  co.chapters.forEach(function (ch, i) {
+    var cid = co.id + "-ch" + i;
+    var chn = { id: cid, label: ch.name, depth: 2, course: co.id, bv: co.bv, children: [] };
+    ch.eps.forEach(function (e) {
+      chn.children.push({ id: co.id + "-p" + e.p, label: e.t, depth: 3, p: e.p, s: e.s,
+        course: co.id, bv: co.bv, doneKey: co.id + "-" + e.p });
+    });
+    cn.children.push(chn);
+  });
+  root.children.push(cn);
+});
+
+var TOTAL = 0;
+DATA.forEach(function (co) { co.chapters.forEach(function (ch) { TOTAL += ch.eps.length; }); });
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function passFilter(e) { return filter === "all" || (filter === "done" ? doneSet.has(e.doneKey) : !doneSet.has(e.doneKey)); }
+function filterKids(n) {
+  if (filter === "all" || n.depth === 3) return n.children;
+  if (n.depth === 2) return n.children.filter(passFilter);
+  if (n.depth === 1) return n.children.filter(function (c) { return c.children.some(passFilter); });
+  return n.children;
+}
+
+var nodes = [], edges = [], W = 0, H = 0;
+function layout() {
+  nodes = []; edges = [];
+  var cursor = PAD;
+  function walk(n, depth, parent) {
+    n.x = COL_X[depth]; n.w = COL_W[depth];
+    var isLeaf = depth === 3;
+    var open = filter !== "all" || !collapsed.has(n.id);
+    n.h = depth === 0 ? 46 : (depth === 1 ? 32 : (depth === 2 ? 26 : 20));
+    nodes.push(n);
+    if (parent) edges.push({ a: parent, b: n });
+    if (isLeaf || !open || !n.children.length) {
+      n.y = cursor; cursor += (isLeaf ? ROW_EP : ROW_OTHER); return;
+    }
+    var kids = filterKids(n);
+    kids.forEach(function (c) { walk(c, depth + 1, n); });
+    var f = kids[0], l = kids[kids.length - 1];
+    n.y = (f.y + f.h / 2 + l.y + l.h / 2) / 2 - n.h / 2;
+  }
+  walk(root, 0, null);
+  W = COL_X[3] + COL_W[3] + PAD;
+  H = Math.max(cursor + PAD, 400);
+}
+
+function render() {
+  layout();
+  var world = document.getElementById("world");
+  var sizer = document.getElementById("sizer");
+  var nodesEl = document.getElementById("nodes");
+  var svg = document.getElementById("edges");
+  var html = "";
+  nodes.forEach(function (n) {
+    var cls = "node d" + n.depth, inner = "";
+    if (n.depth === 0) {
+      cls += " root"; inner = '<span class="lbl" style="flex:none">' + esc(n.label) + '</span>';
+    } else if (n.depth === 1) {
+      cls += " course c" + n.course;
+      var c = 0, d = 0;
+      n.children.forEach(function (c2) { c2.children.forEach(function (e2) { c++;
+        if (doneSet.has(e2.doneKey)) d++; }); });
+      inner = '<span class="lbl">' + esc(n.label) + '</span><span class="badge">' + d + "/" + c + '</span>' +
+              '<span class="togg">' + (collapsed.has(n.id) ? "+" : "−") + '</span>';
+    } else if (n.depth === 2) {
+      cls += " chap";
+      var c3 = n.children.length, d3 = 0;
+      n.children.forEach(function (e3) { if (doneSet.has(e3.doneKey)) d3++; });
+      inner = '<span class="lbl">' + esc(n.label) + '</span>' +
+              (d3 ? '<span class="badge">' + d3 + "/" + c3 + '</span>' : '<span class="badge" style="opacity:.35">' + c3 + '</span>') +
+              '<span class="togg">' + (collapsed.has(n.id) ? "+" : "−") + '</span>';
+    } else {
+      var on = doneSet.has(n.doneKey);
+      cls += " ep" + (on ? " done" : "");
+      inner = '<span class="dot"></span><span class="pn">P' + n.p + '</span>' +
+              '<span class="lbl">' + esc(n.label) + '</span>' +
+              '<a class="go" href="https://www.bilibili.com/video/' + n.bv + '?p=' + n.p +
+              '" target="_blank" rel="noopener" title="打开 B 站这一集">↗</a>';
+    }
+    html += '<div class="' + cls + '" data-id="' + n.id + '" data-d="' + n.depth +
+            '" title="' + esc(n.label) + '"' + (n.doneKey ? ' data-k="' + n.doneKey + '"' : '') +
+            ' style="left:' + n.x + 'px;top:' + n.y + 'px;width:' + n.w + 'px;height:' + n.h + 'px">' +
+            inner + '</div>';
+  });
+  nodesEl.innerHTML = html;
+  world.style.width = W + "px"; world.style.height = H + "px";
+
+  var paths = "";
+  edges.forEach(function (e) {
+    var x1 = e.a.x + e.a.w, y1 = e.a.y + e.a.h / 2;
+    var x2 = e.b.x, y2 = e.b.y + e.b.h / 2;
+    var mx = (x1 + x2) / 2;
+    var isDone = e.b.doneKey && doneSet.has(e.b.doneKey);
+    var col = e.b.depth === 3 ? (isDone ? "var(--doneline)" : "#cdd8e6") :
+              (e.b.depth === 2 ? "#b8c6da" : "#9fb3cd");
+    paths += '<path d="M' + x1 + ' ' + y1 + 'C' + mx + ' ' + y1 + ',' + mx + ' ' + y2 + ',' + x2 + ' ' + y2 +
+             '" fill="none" stroke="' + col + '" stroke-width="' + (e.b.depth === 3 ? 1 : 1.6) + '"/>';
+  });
+  svg.setAttribute("width", W); svg.setAttribute("height", H);
+  svg.innerHTML = paths;
+  sizer.style.width = W * scale + "px";
+  sizer.style.height = H * scale + "px";
+  world.style.transform = "scale(" + scale + ")";
+  refreshStats();
+}
+
+/* ---------- 长链路 ---------- */
+function renderChain() {
+  var wrap = document.getElementById("chainWrap");
+  var h = "";
+  DATA.forEach(function (co, ci) {
+    var cnt = 0, dn = 0;
+    co.chapters.forEach(function (ch) { ch.eps.forEach(function (e) {
+      cnt++; if (doneSet.has(co.id + "-" + e.p)) dn++;
+    }); });
+    h += '<section class="chain-course c' + co.id + '">' +
+         '<div class="chain-title">' + esc(co.name) +
+         '<span class="cnt">' + dn + ' / ' + cnt + '</span></div>' +
+         '<div class="chain-row">';
+    co.chapters.forEach(function (ch, i) {
+      var cd = 0;
+      ch.eps.forEach(function (e) { if (doneSet.has(co.id + "-" + e.p)) cd++; });
+      h += '<div class="chain-card"><div class="cc-head">' +
+           '<span class="n">' + String(i + 1).padStart(2, "0") + '</span>' +
+           '<span style="flex:1">' + esc(ch.name) + '</span>' +
+           '<span class="cnt">' + cd + '/' + ch.eps.length + '</span></div>' +
+           '<ul class="cc-list">';
+      ch.eps.forEach(function (e) {
+        var on = doneSet.has(co.id + "-" + e.p);
+        h += '<li class="cc-item' + (on ? " done" : "") + '" data-k="' + co.id + "-" + e.p +
+             '" title="' + esc(e.t) + '">' +
+             '<span class="dot"></span><span class="pn">P' + e.p + '</span>' +
+             '<span class="t">' + esc(e.t) + '</span>' +
+             '<a class="go" href="https://www.bilibili.com/video/' + co.bv + '?p=' + e.p +
+             '" target="_blank" rel="noopener">↗</a></li>';
+      });
+      h += '</ul></div>';
+    });
+    h += '</div></section>';
+  });
+  wrap.innerHTML = h;
+  refreshStats();
+}
+
+function refreshStats() {
+  var n = doneSet.size;
+  document.getElementById("s-done").textContent = n + " / " + TOTAL;
+  var cd = document.getElementById("cDone"); if (cd) cd.textContent = n;
+  document.getElementById("lv").textContent = Math.round(scale * 100) + "%";
+}
+
+var scale = 1;
+function setScale(s) {
+  scale = Math.min(2, Math.max(0.12, s));
+  if (curKey) closePanel();
+  document.getElementById("world").style.transform = "scale(" + scale + ")";
+  document.getElementById("sizer").style.width = W * scale + "px";
+  document.getElementById("sizer").style.height = H * scale + "px";
+  refreshStats();
+}
+function fit() {
+  var st = document.getElementById("stage");
+  setScale(Math.min(1.1, Math.min(st.clientWidth / W, st.clientHeight / H) * 0.96));
+  st.scrollTop = 0; st.scrollLeft = 0;
+}
+
+function save() {
+  try { localStorage.setItem("mm-web-done", JSON.stringify(Array.from(doneSet))); } catch (e) {}
+}
+
+document.getElementById("world").addEventListener("click", function (e) {
+  var go = e.target.closest("a.go");
+  if (go) return;
+  var el = e.target.closest(".node");
+  if (!el) return;
+  var d = Number(el.getAttribute("data-d"));
+  if (d === 3) { openPanel(el.getAttribute("data-k"), el); return; }
+  var id = el.getAttribute("data-id");
+  if (collapsed.has(id)) collapsed.delete(id); else collapsed.add(id);
+  render();
+});
+
+document.getElementById("chainWrap").addEventListener("click", function (e) {
+  var go = e.target.closest("a.go");
+  if (go) return;
+  var li = e.target.closest(".cc-item");
+  if (!li) return;
+  var k = li.getAttribute("data-k");
+  if (!k) return;
+  openPanel(k, li);
+});
+
+document.getElementById("zin").onclick = function () { setScale(scale * 1.2); };
+document.getElementById("zout").onclick = function () { setScale(scale / 1.2); };
+document.getElementById("zfit").onclick = fit;
+document.getElementById("xall").onclick = function () { collapsed.clear(); render(); };
+document.getElementById("call").onclick = function () {
+  DATA.forEach(function (co) { co.chapters.forEach(function (ch, i) { collapsed.add(co.id + "-ch" + i); }); });
+  DATA.forEach(function (co) { collapsed.add(co.id); });
+  render();
+};
+document.getElementById("thm").onclick = function () {
+  var d = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", d);
+  try { localStorage.setItem("mm-theme", d); } catch (e) {}
+};
+
+var q = document.getElementById("q");
+q.addEventListener("input", function () {
+  var kw = q.value.trim().toLowerCase();
+  document.querySelectorAll(".node.hit").forEach(function (n) { n.classList.remove("hit"); });
+  if (!kw) return;
+  var hit = 0;
+  DATA.forEach(function (co) {
+    co.chapters.forEach(function (ch, i) {
+      ch.eps.forEach(function (e) {
+        if (e.t.toLowerCase().indexOf(kw) >= 0) {
+          hit++;
+          collapsed.delete(co.id); collapsed.delete(co.id + "-ch" + i);
+        }
+      });
+    });
+  });
+  if (hit) {
+    render();
+    document.querySelectorAll(".node[data-d='3']").forEach(function (n) {
+      if (n.textContent.toLowerCase().indexOf(kw) >= 0) n.classList.add("hit");
+    });
+    showTip("匹配到 " + hit + " 个知识点");
+  } else { showTip("没有匹配的知识点"); }
+});
+
+document.getElementById("chips").addEventListener("click", function (e) {
+  var b = e.target.closest("button"); if (!b) return;
+  filter = b.getAttribute("data-f");
+  document.querySelectorAll("#chips button").forEach(function (x) { x.classList.toggle("on", x === b); });
+  collapsed.clear();
+  if (filter === "all") { DATA.forEach(function (co) { co.chapters.forEach(function (ch, i) { collapsed.add(co.id + "-ch" + i); }); }); }
+  closePanel(); render(); fit();
+});
+
+var tipT;
+function showTip(t) {
+  var el = document.getElementById("tip");
+  el.textContent = t; el.classList.add("on");
+  clearTimeout(tipT); tipT = setTimeout(function () { el.classList.remove("on"); }, 1800);
+}
+
+/* ---------- 视图切换 ---------- */
+var mode = "map";
+var swBtn = document.getElementById("switch");
+swBtn.addEventListener("click", function () {
+  mode = mode === "map" ? "chain" : "map";
+  applyMode();
+});
+function applyMode() {
+  var isMap = mode === "map";
+  document.getElementById("viewMap").style.display = isMap ? "" : "none";
+  document.getElementById("viewChain").style.display = isMap ? "none" : "";
+  swBtn.textContent = isMap ? "切到长链路图" : "切到思维导图";
+  document.getElementById("searchWrap").style.display = isMap ? "" : "none";
+  document.getElementById("zoomWrap").style.display = isMap ? "" : "none";
+  document.getElementById("mapBtns").style.display = isMap ? "" : "none";
+  var st = document.getElementById("stage");
+  st.style.overflow = isMap ? "auto" : "auto";
+  if (!isMap) { renderChain(); st.scrollTop = 0; st.scrollLeft = 0; }
+}
+
+(function () {
+  var st = document.getElementById("stage"), down = false, sx = 0, sy = 0, sl = 0, stp = 0;
+  st.addEventListener("mousedown", function (e) {
+    if (e.target.closest(".node,.cc-item")) return;
+    down = true; st.classList.add("drag");
+    sx = e.clientX; sy = e.clientY; sl = st.scrollLeft; stp = st.scrollTop;
+  });
+  window.addEventListener("mousemove", function (e) {
+    if (!down) return;
+    st.scrollLeft = sl - (e.clientX - sx);
+    st.scrollTop = stp - (e.clientY - sy);
+  });
+  window.addEventListener("mouseup", function () { down = false; st.classList.remove("drag"); });
+  st.addEventListener("wheel", function (e) {
+    if (mode !== "map" || (!e.ctrlKey && !e.metaKey)) return;
+    e.preventDefault();
+    setScale(scale * (e.deltaY < 0 ? 1.1 : 0.9));
+  }, { passive: false });
+})();
+
+var savedTheme = null;
+try { savedTheme = localStorage.getItem("mm-theme"); } catch (e) {}
+if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+
+
+var ART = {};
+
+ART.skeleton = function () {
+  return '<svg viewBox="0 0 400 132">' +
+  '<rect x="10" y="8" width="380" height="116" rx="8" fill="none" stroke="#c7d2e0" stroke-width="1.5"/>' +
+  '<rect x="18" y="16" width="364" height="16" rx="4" fill="#eef2f8"/>' +
+  '<text x="26" y="28" font-size="10" fill="#64748b">&lt;head&gt; · charset / viewport / title / link</text>' +
+  '<rect x="18" y="38" width="364" height="78" rx="4" fill="#e7f8f0" stroke="#7fcfae" stroke-width="1"/>' +
+  '<text x="26" y="54" font-size="10" fill="#0b6b4c">&lt;body&gt; 页面可见内容</text>' +
+  '<rect x="30" y="62" width="100" height="20" rx="4" fill="#fff" stroke="#a7e5c8"/><text x="40" y="76" font-size="9" fill="#475569">header</text>' +
+  '<rect x="140" y="62" width="130" height="20" rx="4" fill="#fff" stroke="#a7e5c8"/><text x="150" y="76" font-size="9" fill="#475569">main</text>' +
+  '<rect x="280" y="62" width="90" height="20" rx="4" fill="#fff" stroke="#a7e5c8"/><text x="290" y="76" font-size="9" fill="#475569">footer</text>' +
+  '<text x="30" y="102" font-size="9" fill="#94a3b8">div · span · img · a · ul · form …</text></svg>';
+};
+
+ART.tag = function () {
+  return '<svg viewBox="0 0 400 120">' +
+  '<text x="14" y="26" font-family="Consolas,monospace" font-size="12" fill="#2563eb">&lt;p class="note"&gt;</text>' +
+  '<text x="150" y="26" font-family="Consolas,monospace" font-size="12" fill="#0f172a">这段文字</text>' +
+  '<text x="240" y="26" font-family="Consolas,monospace" font-size="12" fill="#2563eb">&lt;/p&gt;</text>' +
+  '<line x1="14" y1="38" x2="86" y2="62" stroke="#c7d2e0"/><text x="8" y="78" font-size="9" fill="#64748b">标签名</text>' +
+  '<line x1="96" y1="38" x2="128" y2="62" stroke="#c7d2e0"/><text x="112" y="78" font-size="9" fill="#64748b">属性</text>' +
+  '<line x1="180" y1="38" x2="196" y2="62" stroke="#c7d2e0"/><text x="176" y="78" font-size="9" fill="#64748b">内容</text>' +
+  '<rect x="14" y="88" width="372" height="22" rx="5" fill="#eef4ff"/>' +
+  '<text x="24" y="103" font-size="10" fill="#1d4ed8">浏览器读到的是一棵「元素树」，CSS 按标签/类/结构去选它们</text></svg>';
+};
+
+ART.box = function () {
+  return '<svg viewBox="0 0 400 150">' +
+  '<rect x="60" y="14" width="280" height="122" rx="6" fill="#fdf1dd" stroke="#e3b364" stroke-dasharray="4 3" stroke-width="1"/>' +
+  '<text x="70" y="30" font-size="9.5" fill="#92400e">margin 外边距（与别人的距离）</text>' +
+  '<rect x="96" y="38" width="208" height="84" rx="5" fill="#eaf1ff" stroke="#7fb0f0" stroke-width="1"/>' +
+  '<text x="106" y="53" font-size="9.5" fill="#1e40af">border 边框（盒子的边）</text>' +
+  '<rect x="126" y="60" width="148" height="46" rx="4" fill="#e7f8f0" stroke="#7fcfae" stroke-width="1"/>' +
+  '<text x="136" y="75" font-size="9.5" fill="#0b6b4c">padding 内边距</text>' +
+  '<rect x="156" y="82" width="88" height="18" rx="3" fill="#fff" stroke="#a7e5c8"/>' +
+  '<text x="168" y="95" font-size="9.5" fill="#0f172a">content</text>' +
+  '<text x="60" y="148" font-size="9" fill="#94a3b8">box-sizing: border-box 时，width 包含 padding + border</text></svg>';
+};
+
+ART.flex = function () {
+  return '<svg viewBox="0 0 400 140">' +
+  '<rect x="16" y="16" width="368" height="92" rx="7" fill="#f8fafc" stroke="#c7d2e0"/>' +
+  '<line x1="16" y1="62" x2="384" y2="62" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4"/>' +
+  '<text x="20" y="12" font-size="9.5" fill="#b45309">主轴 main axis → justify-content</text>' +
+  '<line x1="5" y1="16" x2="5" y2="108" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 4"/>' +
+  '<text x="12" y="126" font-size="9.5" fill="#1d4ed8">交叉轴 cross axis ↓ align-items</text>' +
+  '<rect x="34" y="38" width="74" height="48" rx="5" fill="#eaf1ff" stroke="#7fb0f0"/><text x="60" y="66" font-size="10" fill="#1e40af">1</text>' +
+  '<rect x="122" y="38" width="74" height="48" rx="5" fill="#eaf1ff" stroke="#7fb0f0"/><text x="148" y="66" font-size="10" fill="#1e40af">2</text>' +
+  '<rect x="210" y="38" width="150" height="48" rx="5" fill="#e7f8f0" stroke="#7fcfae"/><text x="240" y="66" font-size="10" fill="#0b6b4c">3 · flex:1 占满剩余</text></svg>';
+};
+
+ART.pos = function () {
+  return '<svg viewBox="0 0 400 142">' +
+  '<rect x="20" y="16" width="360" height="108" rx="7" fill="#f8fafc" stroke="#c7d2e0"/>' +
+  '<text x="30" y="32" font-size="9.5" fill="#64748b">父元素 position: relative（参照物）</text>' +
+  '<rect x="60" y="46" width="120" height="58" rx="5" fill="#eaf1ff" stroke="#7fb0f0"/>' +
+  '<text x="70" y="66" font-size="9.5" fill="#1e40af">普通元素</text>' +
+  '<rect x="250" y="58" width="96" height="40" rx="5" fill="#fdf1dd" stroke="#e3b364" stroke-dasharray="4 3"/>' +
+  '<text x="256" y="75" font-size="9" fill="#92400e">absolute</text>' +
+  '<text x="256" y="89" font-size="9" fill="#92400e">top/right 定位</text>' +
+  '<path d="M310 58 L310 40" stroke="#e3b364" stroke-width="1"/><text x="316" y="44" font-size="8.5" fill="#92400e">top</text>' +
+  '<path d="M346 78 L366 78" stroke="#e3b364" stroke-width="1"/><text x="356" y="72" font-size="8.5" fill="#92400e">right</text>' +
+  '<text x="30" y="138" font-size="9" fill="#94a3b8">fixed 相对浏览器窗口 · sticky 滚动到阈值后粘住</text></svg>';
+};
+
+ART.sel = function () {
+  return '<svg viewBox="0 0 400 128">' +
+  '<text x="14" y="24" font-family="Consolas,monospace" font-size="11.5" fill="#2563eb">.card &gt; h3</text>' +
+  '<text x="120" y="24" font-size="10" fill="#64748b">{ color: #2563eb; }</text>' +
+  '<rect x="14" y="40" width="180" height="74" rx="6" fill="#f8fafc" stroke="#c7d2e0"/>' +
+  '<text x="24" y="56" font-size="9" fill="#64748b">div.card</text>' +
+  '<rect x="28" y="64" width="150" height="16" rx="3" fill="#e7f8f0" stroke="#7fcfae"/>' +
+  '<text x="34" y="76" font-size="9" fill="#0b6b4c">h3 ← 被选中</text>' +
+  '<rect x="28" y="86" width="150" height="16" rx="3" fill="#fff" stroke="#dbe3ee"/>' +
+  '<text x="34" y="98" font-size="9" fill="#94a3b8">p（不会被选中）</text>' +
+  '<text x="210" y="60" font-size="9.5" fill="#475569">.class</text><text x="210" y="76" font-size="9" fill="#94a3b8">所有同名 class</text>' +
+  '<text x="210" y="94" font-size="9.5" fill="#475569">#id</text><text x="210" y="110" font-size="9" fill="#94a3b8">全页唯一</text>' +
+  '<text x="300" y="60" font-size="9.5" fill="#475569">A B</text><text x="300" y="76" font-size="9" fill="#94a3b8">后代</text>' +
+  '<text x="300" y="94" font-size="9.5" fill="#475569">A &gt; B</text><text x="300" y="110" font-size="9" fill="#94a3b8">直接子代</text></svg>';
+};
+
+ART.weight = function () {
+  return '<svg viewBox="0 0 400 118">' +
+  '<rect x="16" y="16" width="368" height="24" rx="5" fill="#eef2f8"/><text x="26" y="32" font-size="10" fill="#475569">!important</text>' +
+  '<rect x="76" y="46" width="308" height="24" rx="5" fill="#dbe7fb"/><text x="86" y="62" font-size="10" fill="#1e40af">行内 style="…"</text>' +
+  '<rect x="136" y="76" width="248" height="24" rx="5" fill="#c7e9db"/><text x="146" y="92" font-size="10" fill="#0b6b4c">#id 选择器</text>' +
+  '<rect x="196" y="106" width="188" height="10" rx="4" fill="#eef2f8"/>' +
+  '<text x="16" y="114" font-size="9" fill="#94a3b8">.class &gt; 标签选择器 · 同级后写的赢</text></svg>';
+};
+
+ART.dom = function () {
+  return '<svg viewBox="0 0 400 150">' +
+  '<rect x="160" y="8" width="80" height="22" rx="4" fill="#eaf1ff" stroke="#7fb0f0"/><text x="184" y="23" font-size="9.5" fill="#1e40af">document</text>' +
+  '<line x1="200" y1="30" x2="200" y2="42" stroke="#c7d2e0"/><line x1="90" y1="42" x2="310" y2="42" stroke="#c7d2e0"/>' +
+  '<line x1="90" y1="42" x2="90" y2="54" stroke="#c7d2e0"/><line x1="310" y1="42" x2="310" y2="54" stroke="#c7d2e0"/>' +
+  '<rect x="52" y="54" width="76" height="22" rx="4" fill="#fff" stroke="#dbe3ee"/><text x="76" y="69" font-size="9.5" fill="#475569">head</text>' +
+  '<rect x="272" y="54" width="76" height="22" rx="4" fill="#e7f8f0" stroke="#7fcfae"/><text x="296" y="69" font-size="9.5" fill="#0b6b4c">body</text>' +
+  '<line x1="310" y1="76" x2="310" y2="88" stroke="#c7d2e0"/><line x1="240" y1="88" x2="380" y2="88" stroke="#c7d2e0"/>' +
+  '<line x1="240" y1="88" x2="240" y2="100" stroke="#c7d2e0"/><line x1="380" y1="88" x2="380" y2="100" stroke="#c7d2e0"/>' +
+  '<rect x="200" y="100" width="80" height="22" rx="4" fill="#fff" stroke="#dbe3ee"/><text x="218" y="115" font-size="9.5" fill="#475569">#app</text>' +
+  '<rect x="336" y="100" width="56" height="22" rx="4" fill="#fff" stroke="#dbe3ee"/><text x="346" y="115" font-size="9.5" fill="#475569">ul</text>' +
+  '<line x1="240" y1="122" x2="240" y2="132" stroke="#c7d2e0"/>' +
+  '<rect x="196" y="132" width="88" height="16" rx="3" fill="#fdf1dd" stroke="#e3b364"/>' +
+  '<text x="202" y="144" font-size="8.5" fill="#92400e">querySelector 命中</text>' +
+  '<text x="16" y="120" font-size="9" fill="#94a3b8">页面 = 一棵树，JS 顺着树找节点</text></svg>';
+};
+
+ART.event = function () {
+  return '<svg viewBox="0 0 400 140">' +
+  '<rect x="120" y="8" width="160" height="26" rx="5" fill="#eef2f8"/><text x="140" y="25" font-size="10" fill="#475569">document</text>' +
+  '<rect x="150" y="44" width="100" height="26" rx="5" fill="#eaf1ff" stroke="#7fb0f0"/><text x="166" y="61" font-size="10" fill="#1e40af">div#app</text>' +
+  '<rect x="120" y="80" width="160" height="26" rx="5" fill="#e7f8f0" stroke="#7fcfae"/><text x="140" y="97" font-size="10" fill="#0b6b4c">ul.list  ← 委托在这里</text>' +
+  '<rect x="160" y="116" width="80" height="20" rx="4" fill="#fdf1dd" stroke="#e3b364"/><text x="172" y="130" font-size="9" fill="#92400e">li 被点击</text>' +
+  '<path d="M200 116 L200 106" stroke="#f59e0b" stroke-width="1.5"/><path d="M200 80 L200 70" stroke="#f59e0b" stroke-width="1.5"/>' +
+  '<path d="M200 44 L200 34" stroke="#f59e0b" stroke-width="1.5"/>' +
+  '<text x="214" y="126" font-size="9" fill="#b45309">冒泡 ↑ e.target 是 li</text>' +
+  '<text x="306" y="97" font-size="9" fill="#94a3b8">只需绑一次</text></svg>';
+};
+
+ART.array = function () {
+  return '<svg viewBox="0 0 400 120">' +
+  '<text x="16" y="20" font-size="10" fill="#64748b">原数组</text>' +
+  '<rect x="16" y="28" width="46" height="28" rx="4" fill="#eef2f8"/><text x="34" y="47" font-size="11" fill="#475569">1</text>' +
+  '<rect x="66" y="28" width="46" height="28" rx="4" fill="#eef2f8"/><text x="84" y="47" font-size="11" fill="#475569">2</text>' +
+  '<rect x="116" y="28" width="46" height="28" rx="4" fill="#eef2f8"/><text x="134" y="47" font-size="11" fill="#475569">3</text>' +
+  '<path d="M170 42 L206 42" stroke="#7fb0f0" stroke-width="1.5"/><path d="M200 37 L206 42 L200 47" fill="none" stroke="#7fb0f0" stroke-width="1.5"/>' +
+  '<text x="168" y="34" font-size="9" fill="#1d4ed8">map(x =&gt; …)</text>' +
+  '<text x="16" y="80" font-size="10" fill="#64748b">新数组（长度不变）</text>' +
+  '<rect x="16" y="88" width="46" height="28" rx="4" fill="#e7f8f0" stroke="#7fcfae"/><text x="34" y="107" font-size="11" fill="#0b6b4c">2</text>' +
+  '<rect x="66" y="88" width="46" height="28" rx="4" fill="#e7f8f0" stroke="#7fcfae"/><text x="84" y="107" font-size="11" fill="#0b6b4c">4</text>' +
+  '<rect x="116" y="88" width="46" height="28" rx="4" fill="#e7f8f0" stroke="#7fcfae"/><text x="134" y="107" font-size="11" fill="#0b6b4c">6</text>' +
+  '<text x="230" y="60" font-size="9.5" fill="#475569">map / filter → 返回新数组</text>' +
+  '<text x="230" y="78" font-size="9.5" fill="#475569">push / splice / sort → 改原数组</text>' +
+  '<text x="230" y="96" font-size="9.5" fill="#475569">find → 单个元素 · filter → 子集</text></svg>';
+};
+
+ART.func = function () {
+  return '<svg viewBox="0 0 400 110">' +
+  '<rect x="16" y="30" width="90" height="44" rx="6" fill="#eaf1ff" stroke="#7fb0f0"/>' +
+  '<text x="28" y="50" font-size="9.5" fill="#1e40af">参数 a, b</text><text x="28" y="66" font-size="9" fill="#64748b">入口</text>' +
+  '<path d="M106 52 L150 52" stroke="#7fb0f0" stroke-width="1.5"/><path d="M144 47 L150 52 L144 57" fill="none" stroke="#7fb0f0" stroke-width="1.5"/>' +
+  '<rect x="150" y="24" width="110" height="56" rx="6" fill="#e7f8f0" stroke="#7fcfae"/>' +
+  '<text x="164" y="46" font-size="9.5" fill="#0b6b4c">函数体</text><text x="164" y="62" font-size="9" fill="#64748b">处理逻辑</text>' +
+  '<path d="M260 52 L304 52" stroke="#7fcfae" stroke-width="1.5"/><path d="M298 47 L304 52 L298 57" fill="none" stroke="#7fcfae" stroke-width="1.5"/>' +
+  '<rect x="304" y="30" width="80" height="44" rx="6" fill="#fdf1dd" stroke="#e3b364"/>' +
+  '<text x="316" y="50" font-size="9.5" fill="#92400e">return</text><text x="316" y="66" font-size="9" fill="#92400e">返回值</text>' +
+  '<text x="16" y="98" font-size="9" fill="#94a3b8">没写 return 时函数返回 undefined · 函数是一等公民，可以当参数传</text></svg>';
+};
+
+ART.obj = function () {
+  return '<svg viewBox="0 0 400 118">' +
+  '<rect x="16" y="18" width="170" height="86" rx="6" fill="#f8fafc" stroke="#c7d2e0"/>' +
+  '<text x="26" y="34" font-size="9.5" fill="#64748b">对象</text>' +
+  '<text x="26" y="54" font-family="Consolas,monospace" font-size="11" fill="#2563eb">name</text><text x="86" y="54" font-size="11" fill="#0f172a">: "张三"</text>' +
+  '<text x="26" y="74" font-family="Consolas,monospace" font-size="11" fill="#2563eb">age</text><text x="86" y="74" font-size="11" fill="#0f172a">: 20</text>' +
+  '<text x="26" y="94" font-family="Consolas,monospace" font-size="11" fill="#2563eb">say()</text><text x="86" y="94" font-size="10" fill="#64748b">: 方法</text>' +
+  '<text x="210" y="40" font-size="10" fill="#475569">读：obj.name / obj["name"]</text>' +
+  '<text x="210" y="62" font-size="10" fill="#475569">改：obj.age = 21</text>' +
+  '<text x="210" y="84" font-size="10" fill="#475569">遍历：for (const k in obj)</text>' +
+  '<text x="210" y="106" font-size="10" fill="#475569">解构：const { name } = obj</text></svg>';
+};
+
+ART.async = function () {
+  return '<svg viewBox="0 0 400 118">' +
+  '<line x1="20" y1="60" x2="380" y2="60" stroke="#c7d2e0" stroke-width="1.5"/>' +
+  '<circle cx="34" cy="60" r="6" fill="#2563eb"/><text x="22" y="82" font-size="9" fill="#1d4ed8">发起请求</text>' +
+  '<rect x="34" y="48" width="240" height="24" rx="12" fill="#eaf1ff" stroke="#7fb0f0" stroke-dasharray="4 3"/>' +
+  '<text x="120" y="64" font-size="9.5" fill="#1e40af">等待中（不阻塞页面）</text>' +
+  '<circle cx="286" cy="60" r="6" fill="#059669"/><text x="266" y="82" font-size="9" fill="#0b6b4c">拿到结果</text>' +
+  '<text x="300" y="46" font-size="9.5" fill="#0b6b4c">await 之后才能用</text>' +
+  '<text x="20" y="106" font-size="9" fill="#94a3b8">fetch(...) 可能失败 → 一定要 try / catch</text></svg>';
+};
+
+ART.storage = function () {
+  return '<svg viewBox="0 0 400 112">' +
+  '<rect x="16" y="16" width="368" height="82" rx="7" fill="#f8fafc" stroke="#c7d2e0"/>' +
+  '<text x="28" y="34" font-size="9.5" fill="#64748b">浏览器</text>' +
+  '<rect x="28" y="44" width="150" height="40" rx="5" fill="#e7f8f0" stroke="#7fcfae"/>' +
+  '<text x="40" y="60" font-size="9.5" fill="#0b6b4c">localStorage</text><text x="40" y="76" font-size="8.5" fill="#64748b">永久，除非手动删</text>' +
+  '<rect x="192" y="44" width="80" height="40" rx="5" fill="#eef2f8" stroke="#c7d2e0"/>' +
+  '<text x="202" y="60" font-size="9" fill="#475569">sessionStorage</text><text x="202" y="76" font-size="8.5" fill="#94a3b8">关标签页没</text>' +
+  '<rect x="286" y="44" width="86" height="40" rx="5" fill="#eef2f8" stroke="#c7d2e0"/>' +
+  '<text x="296" y="60" font-size="9" fill="#475569">cookie</text><text x="296" y="76" font-size="8.5" fill="#94a3b8">会随请求带上</text>' +
+  '<text x="28" y="112" font-size="9" fill="#94a3b8">只存字符串：对象要 JSON.stringify / JSON.parse</text></svg>';
+};
+
+ART.timeline = function () {
+  return '<svg viewBox="0 0 400 110">' +
+  '<line x1="30" y1="34" x2="370" y2="34" stroke="#c7d2e0"/>' +
+  '<circle cx="60" cy="34" r="5" fill="#2563eb"/><circle cx="160" cy="34" r="5" fill="#2563eb"/>' +
+  '<circle cx="260" cy="34" r="5" fill="#2563eb"/><circle cx="350" cy="34" r="5" fill="#2563eb"/>' +
+  '<text x="44" y="22" font-size="8.5" fill="#1d4ed8">同步任务</text>' +
+  '<rect x="44" y="46" width="312" height="26" rx="6" fill="#eaf1ff" stroke="#7fb0f0"/>' +
+  '<text x="56" y="63" font-size="9.5" fill="#1e40af">宏任务队列（setTimeout / 事件回调 / 网络回调）</text>' +
+  '<rect x="44" y="80" width="200" height="22" rx="6" fill="#e7f8f0" stroke="#7fcfae"/>' +
+  '<text x="56" y="95" font-size="9.5" fill="#0b6b4c">微任务队列（Promise.then）先执行</text></svg>';
+};
+
+ART.project = function () {
+  return '<svg viewBox="0 0 400 112">' +
+  '<rect x="16" y="18" width="112" height="76" rx="6" fill="#eef2f8"/><text x="34" y="52" font-size="10" fill="#475569">拆结构</text><text x="30" y="72" font-size="8.5" fill="#94a3b8">HTML 骨架</text>' +
+  '<rect x="144" y="18" width="112" height="76" rx="6" fill="#eaf1ff" stroke="#7fb0f0"/><text x="162" y="52" font-size="10" fill="#1e40af">写样式</text><text x="158" y="72" font-size="8.5" fill="#64748b">布局 + 细节</text>' +
+  '<rect x="272" y="18" width="112" height="76" rx="6" fill="#e7f8f0" stroke="#7fcfae"/><text x="290" y="52" font-size="10" fill="#0b6b4c">加交互</text><text x="286" y="72" font-size="8.5" fill="#64748b">JS 事件</text>' +
+  '<path d="M128 56 L144 56" stroke="#c7d2e0" stroke-width="1.5"/><path d="M256 56 L272 56" stroke="#c7d2e0" stroke-width="1.5"/>' +
+  '<text x="16" y="108" font-size="9" fill="#94a3b8">项目课不必逐集跟练，抓「先结构、再样式、后交互」的顺序</text></svg>';
+};
+
+function artFor(t, art) {
+  var f = ART[art] || ART.skeleton;
+  return f();
+}
+
+var RULES = [
+  {keys:["盒模型","盒子模型","边框","内边距","外边距","padding","margin","border"], art:"box", tag:"CSS 盒模型",
+   points:["<b>四层结构</b>：content → padding → border → margin，从里到外。",
+           "<b>width 指哪一层</b>：默认指 content；设 <b>box-sizing: border-box</b> 后指 border 内沿，算布局不会错。",
+           "<b>padding 会撑大盒子</b>，margin 不会；相邻块的 margin 会合并（取大的那个）。",
+           "margin 左右 auto 可以让块级元素水平居中。"]},
+
+  {keys:["flex","主轴","侧轴","justify","align","flex-wrap","flex-flow","子项"], art:"flex", tag:"Flex 布局",
+   points:["父元素加 <b>display: flex</b>，直接子元素就排成一行。",
+           "<b>justify-content</b> 管主轴（横排时是水平），<b>align-items</b> 管交叉轴（垂直）。",
+           "<b>flex: 1</b> 让子元素占满剩余空间，是「左固定 + 右自适应」的关键。",
+           "子元素默认会被压缩，不想被压就设 <b>flex: none</b> 或 <b>min-width</b>。"]},
+
+  {keys:["定位","绝对定位","相对定位","固定定位","粘性","z-index","叠放"], art:"pos", tag:"CSS 定位",
+   points:["<b>relative</b> 相对自己原位偏移，原位置还占着——最大用途是给子元素当参照。",
+           "<b>absolute</b> 相对最近的 relative 祖先偏移，脱离文档流。",
+           "<b>fixed</b> 相对浏览器窗口，滚动不动（吸顶导航）；<b>sticky</b> 滚到阈值后粘住。",
+           "z-index 只在定位元素上生效，数字大的盖住小的。"]},
+
+  {keys:["选择器","后代选择器","子元素选择器","并集","伪类","通配符","focus","hover"], art:"sel", tag:"CSS 选择器",
+   points:["<b>.class</b> 选所有同名类，<b>#id</b> 选全页唯一的那个，<b>标签名</b> 选所有同类标签。",
+           "<b>A B</b> 是后代（任意层），<b>A &gt; B</b> 是直接子代（只一层）。",
+           "<b>:hover</b> / <b>:focus</b> 是状态伪类，鼠标移上、获得焦点时生效。",
+           "JS 里的 querySelector 用的就是同一套选择器语法。"]},
+
+  {keys:["优先级","权重","层叠","继承"], art:"weight", tag:"CSS 优先级",
+   points:["顺序：<b>!important &gt; 行内 style &gt; #id &gt; .class &gt; 标签</b>。",
+           "同优先级时，<b>后写的赢</b>（层叠）。",
+           "继承只对文字相关属性有效（color / font / line-height），布局属性不继承。",
+           "样式不生效先按 F12，看是不是被更高优先级的规则划掉了。"]},
+
+  {keys:["基本结构标签","DOCTYPE","字符集","语法规范","lang","title"], art:"skeleton", tag:"HTML 骨架",
+   points:["<b>&lt;!DOCTYPE html&gt;</b> 声明用 HTML5，不写会进怪异模式。",
+           "<b>&lt;meta charset=\"UTF-8\"&gt;</b> 防中文乱码。",
+           "<b>&lt;meta name=\"viewport\"&gt;</b> 让手机端按设备宽度渲染，少了它响应式全废。",
+           "CSS 放 head，JS 放 body 末尾（否则执行时元素还没生成）。"]},
+
+  {keys:["标题标签","段落","换行","文本格式化","div和span","注释"], art:"tag", tag:"HTML 标签",
+   points:["<b>div</b> 块级，独占一行；<b>span</b> 行内，跟着文字排。",
+           "h1–h6 是标题层级，一个页面只放一个 h1。",
+           "strong / em 有语义（强调），b / i 只是样式，优先用前者。",
+           "标签可以嵌套但不能交叉，注释写 &lt;!-- --&gt;。"]},
+
+  {keys:["图像","img","图片"], art:"tag", tag:"图片",
+   points:["<b>&lt;img src=\"…\" alt=\"…\"&gt;</b> 是自闭合标签。",
+           "alt 是图片加载失败时的替代文字，也是无障碍必须项。",
+           "路径写错是最常见的「图片不出来」原因，先用 F12 看 Network。"]},
+
+  {keys:["链接","锚点","a标签"], art:"tag", tag:"超链接",
+   points:["<b>&lt;a href=\"…\"&gt;</b> 指向别处，<b>#id</b> 指向本页锚点。",
+           "外部链接加 <b>target=\"_blank\"</b> 时建议配 rel=\"noopener\"。",
+           "a 里可以包块级元素（HTML5 允许），但别嵌套 a。"]},
+
+  {keys:["列表","无序列表","有序列表","自定义列表"], art:"tag", tag:"列表",
+   points:["<b>ul</b> 无序、<b>ol</b> 有序，子元素只能是 <b>li</b>。",
+           "导航栏几乎都用 ul + li + a 写，方便屏幕阅读器理解。",
+           "list-style: none 去掉默认圆点。"]},
+
+  {keys:["表格","表头","合并单元格","表格结构"], art:"tag", tag:"表格",
+   points:["<b>table &gt; thead/tbody &gt; tr &gt; th/td</b> 是标准结构。",
+           "<b>colspan</b> 横跨列，<b>rowspan</b> 竖跨行。",
+           "border-collapse: collapse 让相邻边框合成一条。"]},
+
+  {keys:["表单","input","label","select","textarea","button","name","value","checked"], art:"tag", tag:"表单",
+   points:["<b>input 的 type</b> 决定形态：text / password / email / number / checkbox / radio / file / date。",
+           "<b>label 的 for</b> 必须等于 input 的 id，点文字才能聚焦输入框。",
+           "<b>radio 要同 name</b> 才互斥；<b>checked</b> 是默认选中。",
+           "表单里的 submit 按钮点了会刷新页面，JS 处理时必须 preventDefault。"]},
+
+  {keys:["字体","字号","字重","行高","文本","color","text-align","缩进","装饰"], art:"tag", tag:"文字样式",
+   points:["<b>font-size</b> 字号、<b>font-weight</b> 粗细、<b>line-height</b> 行高。",
+           "<b>text-align</b> 管行内内容的水平对齐，不是块本身的居中。",
+           "单行文字垂直居中的土办法：line-height 等于容器高度（现在优先用 flex）。",
+           "颜色写 #rrggbb 或 rgb()，半透明用 rgba()。"]},
+
+  {keys:["背景"], art:"box", tag:"背景",
+   points:["background-color / background-image 可叠加。",
+           "<b>background-size: cover</b> 铺满不变形，<b>contain</b> 完整显示。",
+           "background-position: center 配合 cover 是最常用的首图写法。"]},
+
+  {keys:["圆角","阴影","过渡","变换","动画","2D","3D","渐变"], art:"box", tag:"装饰与动效",
+   points:["<b>border-radius</b> 圆角（50% 变圆），<b>box-shadow</b> 阴影。",
+           "<b>transition</b> 让属性变化变平滑，配合 :hover 做交互反馈。",
+           "<b>transform</b> 做位移 / 缩放 / 旋转，性能比改 top/left 好。",
+           "动画只是视觉糖，别为了动画牺牲可读性。"]},
+
+  {keys:["浮动"], art:"pos", tag:"浮动（已过时）",
+   points:["float 原本用于图文环绕，后来被拿来布局，现在已被 Flex / Grid 取代。",
+           "浮动元素脱离标准流，父元素会「高度塌陷」，所以才需要清除浮动。",
+           "新项目不要再用 float 布局，除非维护老代码。"]},
+
+  {keys:["媒体查询","响应式","rem","vw","vh","适配"], art:"flex", tag:"响应式",
+   points:["<b>@media (min-width: 768px)</b> 是断点，屏幕够宽时才应用里面的样式。",
+           "移动优先：默认写手机样式，再用 min-width 逐步加宽。",
+           "rem 相对根字号，vw/vh 相对视口，做整体缩放比 px 灵活。",
+           "现代项目更常用的是 flex + grid + minmax() 自适应，少写断点。"]},
+
+  {keys:["javascript","变量","数据类型","运算符","类型转换","typeof"], art:"func", tag:"JS 基础",
+   points:["<b>const</b> 优先，需要重新赋值才用 <b>let</b>，永远不用 var。",
+           "基本类型：string / number / boolean / null / undefined / symbol。",
+           "永远用 <b>===</b>，== 会做隐式类型转换。",
+           "typeof 判断类型，但 typeof null 是 \"object\"（历史遗留坑）。"]},
+
+  {keys:["函数","return","参数","作用域","匿名函数","立即执行","闭包","预解析"], art:"func", tag:"函数",
+   points:["函数是「一等公民」：可以赋值给变量、当参数传、当返回值。",
+           "<b>没有 return 就返回 undefined</b>；return 后面代码不执行。",
+           "作用域链：内层能访问外层，外层访问不到内层。",
+           "箭头函数没有自己的 this，回调里用它更安全。"]},
+
+  {keys:["对象","构造函数","原型","实例","new "], art:"obj", tag:"对象",
+   points:["对象就是键值对集合，取属性用 <b>obj.key</b> 或 <b>obj[\"key\"]</b>。",
+           "遍历用 <b>for (const k in obj)</b> 或 Object.keys / entries。",
+           "构造函数配合 new 批量造对象；原型是共享方法的挂载点。",
+           "解构 const { name, age } = obj 是现代写法。"]},
+
+  {keys:["数组","遍历","筛选","排序","去重","索引"], art:"array", tag:"数组",
+   points:["数组下标从 0 开始，<b>length</b> 是长度，<b>push</b> 尾部加。",
+           "遍历用 for / for...of / forEach。",
+           "数组是引用类型，赋值只是复制地址——要复制用 <b>[...arr]</b>。",
+           "方法分两类：返回新数组（map/filter）和改原数组（push/splice/sort）。"]},
+
+  {keys:["map","foreach","filter","reduce","find","every","some","join"], art:"array", tag:"数组方法",
+   points:["<b>map</b> 逐个转换，长度不变，返回新数组——v-for 的本质就是它。",
+           "<b>filter</b> 按条件筛选，返回子集；<b>find</b> 返回第一个匹配的元素。",
+           "<b>reduce</b> 把数组收敛成一个值（求和、计数、分组）。",
+           "<b>join(\"\")</b> 把数组合成字符串——map + join 就是把数据变成 HTML 的标准组合。"]},
+
+  {keys:["dom","获取元素","节点","innerhtml","innertext","classlist","dataset","自定义属性","表单值"], art:"dom", tag:"DOM 操作",
+   points:["页面是一棵树，<b>document.querySelector(\"选择器\")</b> 选第一个匹配的元素。",
+           "<b>textContent</b> 只取文字，<b>innerHTML</b> 会解析标签（小心 XSS）。",
+           "改样式优先改类名：<b>classList.add / remove / toggle</b>。",
+           "表单的值在 <b>.value</b>，不在 innerHTML；自定义属性用 <b>dataset</b> 读。"]},
+
+  {keys:["事件","冒泡","委托","监听","阻止默认","键盘","鼠标","焦点"], art:"event", tag:"事件",
+   points:["<b>addEventListener(事件名, 回调)</b>，回调里的 <b>e.target</b> 是真正被点的元素。",
+           "事件会冒泡：点子元素，父元素的监听也会触发。",
+           "<b>事件委托</b>：给父元素绑一次，靠 e.target 判断点了哪个子项。",
+           "表单提交 / 链接跳转的默认行为要用 <b>e.preventDefault()</b> 拦掉。"]},
+
+  {keys:["字符串","正则","替换","截取","拼接"], art:"tag", tag:"字符串",
+   points:["模板字符串用反引号，<b>${变量}</b> 直接插值，不用 + 拼。",
+           "常用方法：slice / split / includes / replace / trim。",
+           "字符串不可变，所有方法都返回新字符串。",
+           "正则适合做格式校验和批量替换，但别写太复杂。"]},
+
+  {keys:["bom","定时器","location","navigator","history","window"], art:"timeline", tag:"BOM",
+   points:["BOM 是浏览器窗口那套 API：window / location / history / navigator。",
+           "<b>setTimeout(fn, 1000)</b> 延迟一次，<b>setInterval</b> 周期执行，记得 clear。",
+           "<b>location.href</b> 跳转、<b>location.search</b> 取查询参数。",
+           "页面加载完再操作 DOM：DOMContentLoaded 或把 script 放 body 末尾。"]},
+
+  {keys:["本地存储","localstorage","sessionstorage","缓存"], art:"storage", tag:"本地存储",
+   points:["<b>localStorage</b> 永久保存，关浏览器也在；sessionStorage 关标签页就没。",
+           "只能存字符串，<b>对象要 JSON.stringify 存、JSON.parse 读</b>。",
+           "容量约 5MB，只适合存轻量配置和列表，不要当数据库用。",
+           "读的时候给默认值：<b>JSON.parse(x) || []</b>，否则第一次打开会报错。"]},
+
+  {keys:["promise","async","await","异步","回调"], art:"async", tag:"异步",
+   points:["JS 单线程，网络请求不阻塞页面，等结果回来才继续——这就是异步。",
+           "<b>async / await</b> 让异步代码看起来像同步，<b>await</b> 后面拿到的是结果本身。",
+           "await 只能写在 async 函数里；写在最外层需要模块环境。",
+           "请求可能失败，必须 <b>try / catch</b>，否则一个报错整页白掉。"]},
+
+  {keys:["箭头函数","解构","扩展运算符","剩余参数","模板字符串","默认参数","简写"], art:"func", tag:"ES6 语法",
+   points:["箭头函数 <b>() =&gt; {}</b> 没有自己的 this 和 arguments。",
+           "解构能从数组/对象里一次取出多个值：<b>const { a, b } = obj</b>。",
+           "扩展运算符 <b>...</b> 用来复制和合并：<b>{ ...obj }</b> / <b>[...arr]</b>。",
+           "参数默认值 <b>function f(a = 1)</b> 比在函数体里判断更清爽。"]},
+
+  {keys:["class","继承","静态成员","getter","setter"], art:"obj", tag:"class 类",
+   points:["class 只是构造函数的语法糖，本质还是原型。",
+           "<b>constructor</b> 里初始化实例属性，<b>extends</b> 继承父类。",
+           "子类用 super() 调父类构造函数，必须先调再用 this。",
+           "静态方法挂在类上（Math.max 那种），实例方法挂在原型上。"]},
+
+  {keys:["模块化","import","export","babel","npm"], art:"obj", tag:"模块化",
+   points:["<b>export</b> 导出、<b>import</b> 导入，一个文件就是一个模块。",
+           "默认导出 <b>export default</b> 只能有一个，命名导出可以多个。",
+           "浏览器原生支持 &lt;script type=\"module\"&gt;，工程里由 Vite / webpack 处理。",
+           "模块化解决的是「全局变量污染」和「依赖顺序」两个问题。"]},
+
+  {keys:["symbol","迭代器","生成器","set","map","数值扩展","对象扩展"], art:"obj", tag:"ES6 进阶",
+   points:["Symbol 是唯一值，常用来做对象的私有键。",
+           "迭代器让对象可以被 for...of 遍历；生成器用 function* 配合 yield 暂停执行。",
+           "Set 自动去重，Map 的键可以是任意类型（对象也行）。",
+           "这些在业务里用得少，能看懂即可。"]},
+
+  {keys:["品优购","学成在线","京东","苏宁","携程","黑马面面","项目","案例","实战"], art:"project", tag:"实战项目",
+   points:["项目课的价值在「流程」，不在代码本身：先拆结构，再写样式，最后加交互。",
+           "跟练时只抄结构，不要逐行抄样式（颜色字号随手写，练的是布局骨架）。",
+           "卡住的地方记下来，回头针对性补，别在案例里陷太久。",
+           "有自己想做的东西时，项目课可以整段跳过。"]}
+];
+
+var DEFAULT_INFO = {
+  art:"skeleton", tag:"知识点",
+  points:["这一集属于当前章节的一条具体讲解，标题已经说明了它的范围。",
+          "看之前先想：这个知识点解决什么问题？看完能不能用自己的话说一遍。",
+          "如果只是想知道「这段代码在干嘛」，可以直接跳到下面的视频定位到对应片段。"]
+};
+
+function infoFor(title) {
+  for (var i = 0; i < RULES.length; i++) {
+    var r = RULES[i];
+    for (var j = 0; j < r.keys.length; j++) {
+      if (title.toLowerCase().indexOf(r.keys[j].toLowerCase()) >= 0) return r;
+    }
+  }
+  return DEFAULT_INFO;
+}
+
+var NOTES = {"A-9":"html 包住 head 与 body：head 放 meta / title / link，body 放可见内容。VSCode 里输入 <b>!</b> 再按 Tab 可直接生成这套骨架。","A-12":"<b>DOCTYPE</b> 声明 HTML5，不写会进怪异模式；<b>charset=UTF-8</b> 防中文乱码；<b>lang</b> 影响朗读与翻译。","A-18":"<b>div</b> 块级独占一行，<b>span</b> 行内跟随文字。布局用 div，包一小段文字用 span。","A-46":"<b>input 的 type</b> 决定形态：text 单行文本、password 显示圆点；placeholder 是提示文字，value 才是真正的值。","A-67":"类选择器 <b>.card</b> 选中所有 class=\"card\" 的元素，一个元素可挂多个类名（class=\"card active\"）。","A-86":"外部样式表用 <b>&lt;link rel=\"stylesheet\" href=\"style.css\"&gt;</b>，放 head 里；三种引入方式的优先级看「行内 &gt; 内部/外部，同位置看先后」。","A-92":"F12 打开 Elements 看最终生效的样式，被划掉的就是被覆盖的；先在面板里试改，再写回文件。","A-132":"<b>!important &gt; 行内 &gt; #id &gt; .class &gt; 标签</b>；同权重时后写的赢——这就是层叠。","A-138":"盒模型 = <b>content + padding + border + margin</b>，width 默认只算 content，所以加 padding 会撑大盒子。","A-143":"padding 会撑大盒子；<b>padding: 10px 20px</b> 是上下 10、左右 20。不想被撑大就设 box-sizing: border-box。","A-150":"margin 管盒子之间的间距；左右 auto 让固定宽度块水平居中；相邻上下 margin 会合并取大值。","A-225":"<b>relative</b> 相对自己原位偏移，原位置仍占着——最大用途是给 absolute 子元素当参照。","A-227":"<b>absolute</b> 相对最近的已定位祖先偏移，没有就相对初始包含块；它会脱标、不占位置。","A-231":"<b>fixed</b> 相对浏览器窗口固定，滚动不动，吸顶导航、返回顶部常用。","A-295":"<b>transition: 属性 时长 曲线 延迟</b>；只能过渡有中间值的属性（width / opacity / transform），display 不行。","A-418":"父元素 <b>display: flex</b> 后，直接子元素默认排成一行，成为 flex item。","A-420":"<b>justify-content</b> 管主轴：flex-start / center / space-between / space-around。","A-422":"<b>align-items</b> 管交叉轴（横排时是垂直），center 最常用；多行还要配 align-content。","A-425":"<b>flex: 1</b> = grow 1 + shrink 1 + basis 0%，用来占满剩余空间，是「左固定右自适应」的关键。","A-444":"<b>@media (max-width: 768px){…}</b> 断点内覆盖样式；移动优先则反过来用 min-width 逐级加宽。","B-12":"数组用 <b>[]</b> 声明，下标从 0 开始，<b>length</b> 是长度；取值和改值都靠下标。","B-16":"模板字符串用反引号，<b>${表达式}</b> 直接插值，还能换行，比拼字符串安全。","B-50":"<b>function 名(参数){…}</b>；参数是入口，没传就是 undefined；先声明后调用。","B-53":"<b>return</b> 把结果交出去并立刻结束函数；不写 return 得到 undefined。","B-65":"对象是键值对集合；取值 <b>obj.key</b> 或 obj[\"key\"]，改值直接赋值。","B-80":"DOM 是把 HTML 解析成的一棵树，document 是根，每个标签都是一个节点对象。","B-81":"<b>querySelector</b> 返回第一个匹配，querySelectorAll 返回 NodeList（要遍历或转成数组）。","B-82":"<b>textContent</b> 只改文字，<b>innerHTML</b> 会解析标签；插入用户输入用 textContent 防 XSS。","B-86":"<b>classList.add / remove / toggle / contains</b> 改类名，比直接改 style 更好维护。","B-89":"表单控件的值在 <b>.value</b>，checkbox 用 .checked；不要用 innerHTML 去读。","B-94":"<b>addEventListener(\"click\", fn)</b>；同一元素能绑多个监听，不会互相覆盖。","B-101":"事件对象 e：<b>e.target</b> 是真正触发的元素，e.currentTarget 是绑定监听的元素。","B-110":"<b>e.preventDefault()</b> 阻止默认行为（表单提交刷新、a 跳转）；stopPropagation 才是不让冒泡。","B-131":"<b>localStorage</b> 只能存字符串；对象要 JSON.stringify 存、JSON.parse 读，读的时候给默认值防报错。","B-134":"<b>map</b> 返回新数组、<b>join(\"\")</b> 拼成字符串——把数据渲染成 HTML 的标准组合。","B-158":"箭头函数 <b>() =&gt; {}</b> 没有自己的 this，会继承外层；单表达式可以省略 return。","B-192":"<b>try{…}catch(e){…}</b> 兜住可能失败的代码，throw 主动抛错，finally 一定执行。","C-24":"Promise 三种状态 pending / fulfilled / rejected；<b>then</b> 接成功，<b>catch</b> 接失败。","C-49":"<b>async</b> 函数一定返回 Promise；<b>await</b> 等结果，失败要用 try / catch 接。"};
+
+/* ================= 就地展开的详情卡 ================= */
+var INDEX = {};
+DATA.forEach(function (co) {
+  co.chapters.forEach(function (ch, i) {
+    ch.eps.forEach(function (e) {
+      INDEX[co.id + "-" + e.p] = { c: co.id, p: e.p, t: e.t, s: e.s, ch: ch.name, sum: ch.sum,
+        ci: i, total: ch.eps.length, bv: co.bv, cname: co.name };
+    });
+  });
+});
+
+var pop = document.getElementById("pop");
+var curKey = null;
+
+function openPanel(k, el) {
+  var d = INDEX[k];
+  if (!d) { return; }
+  curKey = k;
+  var info = infoFor(d.t);
+  var on = doneSet.has(k);
+  var mins = Math.round(d.s / 60);
+
+  var pts = info.points.map(function (x) { return "<li>" + x + "</li>"; }).join("");
+
+  pop.innerHTML =
+    '<div class="pp-top">' +
+      '<span class="pp-k">P' + d.p + '</span>' +
+      '<span class="pp-c c' + d.c + '">' + esc(d.cname) + '</span>' +
+      '<span class="pp-ch">' + esc(d.ch) + '</span>' +
+      '<button class="pp-x" id="ppX" title="关闭">×</button>' +
+    '</div>' +
+    '<div class="pp-t">' + esc(d.t) + '</div>' +
+    '<div class="pp-s"><span>' + mins + ' 分钟</span><i>·</i>' +
+      '<span>本章第 ' + (d.ci + 1) + ' / ' + d.total + ' 集</span><i>·</i>' +
+      '<span>' + (on ? '已学' : '待学') + '</span></div>' +
+    (d.sum ? '<div class="pp-sum"><b class=\"lab\">本章定位</b>' + esc(d.sum) + '</div>' : '') +
+    (NOTES[k] ? '<div class="pp-note"><b class=\"lab\">你学过这一集</b>' + NOTES[k] + '</div>' : '') +
+    '<div class="pp-body">' +
+      '<div class="pp-art">' + artFor(d.t, info.art) +
+        '<div class="pp-cap">' + esc(info.tag) + ' · 示意图</div></div>' +
+      '<div class="pp-h">这个知识点在讲什么</div>' +
+      '<ul class="pp-l">' + pts + '</ul>' +
+    '</div>' +
+    '<div class="pp-foot">' +
+      '<button class="pp-mark' + (on ? ' on' : '') + '" id="ppMark">' + (on ? '已标记' : '标记已学') + '</button>' +
+      '<a class="pp-go" id="ppGo" href="https://www.bilibili.com/video/' + d.bv + '?p=' + d.p +
+        '" target="_blank" rel="noopener">在 B 站看这一集 ↗</a>' +
+    '</div>';
+
+  pop.classList.add("on");
+  place(el);
+
+  document.getElementById("ppX").onclick = function (e) { e.stopPropagation(); closePanel(); };
+  document.getElementById("ppMark").onclick = function (e) {
+    e.stopPropagation();
+    if (doneSet.has(curKey)) doneSet.delete(curKey); else doneSet.add(curKey);
+    save();
+    render();
+    if (mode === "chain") renderChain();
+    var again = document.querySelector('.node[data-k="' + curKey + '"]') ||
+                document.querySelector('.cc-item[data-k="' + curKey + '"]');
+    openPanel(curKey, again);
+  };
+}
+
+function place(el) {
+  if (!el) return;
+  var r = el.getBoundingClientRect();
+  var w = Math.min(384, window.innerWidth - 24);
+  pop.style.width = w + "px";
+  var h = pop.offsetHeight;
+  var left = r.right + 16;
+  if (left + w > window.innerWidth - 12) left = r.left - w - 16;
+  if (left < 12) left = Math.max(12, window.innerWidth - w - 12);
+  var top = r.top + r.height / 2 - h / 2;
+  top = Math.max(12, Math.min(top, window.innerHeight - h - 14));
+  pop.style.left = left + "px";
+  pop.style.top = top + "px";
+}
+
+function closePanel() {
+  pop.classList.remove("on");
+  pop.innerHTML = "";
+  curKey = null;
+}
+
+document.addEventListener("click", function (e) {
+  if (!curKey) return;
+  if (e.target.closest("#pop")) return;
+  if (e.target.closest(".node") || e.target.closest(".cc-item")) return;
+  closePanel();
+});
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePanel(); });
+
+render();
+applyMode();
+fit();
+if (scale < 0.8) setScale(0.8);
+(function () {
+  var st = document.getElementById("stage");
+  st.scrollTop = 0;
+  st.scrollLeft = Math.max(0, (W * scale - st.clientWidth) / 2);
+})();
+
+(function () {
+  var f = (location.search.match(/[?&]f=(all|done|todo)/) || [])[1];
+  var b = f && document.querySelector('#chips button[data-f="' + f + '"]');
+  if (b) b.click();
+})();
+
+(function () {
+  var op = (location.search.match(/[?&]open=([A-C]-\d+)/) || [])[1];
+  if (!op || !INDEX[op]) return;
+  var info = INDEX[op];
+  collapsed.delete(info.c);
+  collapsed.delete(info.c + "-ch" + info.ci);
+  render();
+  var el = document.querySelector('.node[data-k="' + op + '"]');
+  if (el) openPanel(op, el);
+})();
+</script>
+</body>
+</html>
