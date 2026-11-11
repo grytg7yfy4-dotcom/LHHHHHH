@@ -1639,6 +1639,8 @@ function openEpisode(k, el) {
   curKey = k;
   var info = infoFor(d.e.t), on = doneSet.has(k);
   var pts = info.points.map(function (x) { return "<li>" + x + "</li>"; }).join("");
+  var ptsBlock = (info === DEFAULT_INFO && NOTES[k]) ? "" :
+    '<div class="ph2">这个知识点在讲什么</div><ul class="plist">' + pts + "</ul>";
   var min = Math.round(d.e.s / 60);
   var sum = d.ch.sum ? '<div class="psum"><b>本章定位</b>' + esc(d.ch.sum) + "</div>" : "";
   var note = NOTES[k] ? '<div class="pnote"><b class="lab">你学过这一集</b>' + NOTES[k] + "</div>" : "";
@@ -1650,7 +1652,7 @@ function openEpisode(k, el) {
       '<span class="' + (on ? "on" : "") + '">' + (on ? "已学" : "待学") + '</span></div>' +
     '<div class="pbody">' + sum + note +
       '<div class="art">' + artFor2(d.e, d.ch) + '<div class="cap">' + esc(info.tag) + ' · 示意图</div></div>' +
-      '<div class="ph2">这个知识点在讲什么</div><ul class="plist">' + pts + "</ul></div>" +
+      ptsBlock + "</div>" +
     '<div class="pfoot"><button class="pmark' + (on ? " on" : "") + '" id="pmark">' + (on ? "已标记" : "标记已学") + "</button>" +
       '<a class="pgo" href="https://www.bilibili.com/video/' + d.co.bv + "?p=" + d.e.p + '" target="_blank" rel="noopener">在 B 站看这一集 ↗</a></div>',
     el
