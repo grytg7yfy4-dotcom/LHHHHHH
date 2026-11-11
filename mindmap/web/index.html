@@ -1113,6 +1113,261 @@ function artFor2(ep, ch) {
   return s;
 }
 
+/* ============ 每集内容生成的示意图 ============ */
+var G = {};
+function ge(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function gt(x, y, t, o) {
+  o = o || {};
+  var a = "";
+  if (o.a) a += ' text-anchor="' + o.a + '"';
+  if (o.b) a += ' font-weight="700"';
+  if (o.m) a += ' font-family="Consolas,monospace"';
+  return '<text x="' + x + '" y="' + y + '" font-size="' + (o.fs || 9) + '" fill="' + (o.c || "#475569") + '"' + a + '>' + ge(t) + "</text>";
+}
+function gr(x, y, w, h, o) {
+  o = o || {};
+  return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + (o.r || 5) + '" fill="' + (o.f || "#fff") + '"' +
+    (o.s === null ? "" : ' stroke="' + (o.s || "#dbe3ee") + '"') + (o.d ? ' stroke-dasharray="4 3"' : "") + "/>";
+}
+function gl(x1, y1, x2, y2, o) {
+  o = o || {};
+  return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + (o.c || "#c9d5e4") +
+    '" stroke-width="' + (o.w || 1) + '"' + (o.d ? ' stroke-dasharray="4 3"' : "") + "/>";
+}
+function ga(x1, y1, x2, y2, c) {
+  c = c || "#a8b6c8";
+  var ang = Math.atan2(y2 - y1, x2 - x1), L = 5;
+  var px = x2 - L * Math.cos(ang - 0.45), py = y2 - L * Math.sin(ang - 0.45);
+  var qx = x2 - L * Math.cos(ang + 0.45), qy = y2 - L * Math.sin(ang + 0.45);
+  return gl(x1, y1, x2, y2, { c: c }) + '<path d="M' + x2 + " " + y2 + "L" + px.toFixed(1) + " " + py.toFixed(1) +
+    "L" + qx.toFixed(1) + " " + qy.toFixed(1) + 'Z" fill="' + c + '"/>';
+}
+function cut(t, n) { t = String(t); return t.length > n ? t.slice(0, n) + "…" : t; }
+
+function tokens(t) {
+  var s = String(t).replace(/^\d+[.\-、]?\s*/, "").replace(/（[^）]*）|\([^)]*\)/g, "");
+  var out = [], lat = s.match(/[A-Za-z][A-Za-z0-9_.#:\-]{1,}/g) || [];
+  lat.forEach(function (w) { if (out.indexOf(w) < 0) out.push(w); });
+  s.split(/[之的和与及、，,。:：\-—/()（）\[\]【】\s]+/).forEach(function (p) {
+    p = p.replace(/[^\u4e00-\u9fa5A-Za-z0-9]/g, "");
+    if (p.length >= 2 && p.length <= 16 && out.indexOf(p) < 0) out.push(p);
+  });
+  var GEN = ["视频", "课程", "导读", "前言", "总结", "介绍", "安排", "大结局", "了解"];
+  return out.filter(function (x) { return GEN.indexOf(x) < 0; }).slice(0, 4);
+}
+
+var APIRE = /promise|async|await|fetch|axios|map\(|join|reduce|filter|foreach|find|localstorage|sessionstorage|json|settimeout|setinterval|addeventlistener|queryselector|innerhtml|innertext|classlist|dataset|onclick|addclass|todataurl/i;
+
+function kind(t) {
+  if (/try|catch|throw|异常/i.test(t)) return "try";
+  if (/调试|devtools|F12|chrome/i.test(t)) return "devtools";
+  if (/区别|对比|不同|vs|还是/i.test(t)) return "compare";
+  if (APIRE.test(t)) return "api";
+  if (/制作|流程|步骤|实现|添加|删除|修改|部署|上传|安装|配置|搭建|封装|渲染|替换|遍历|筛选|排序/i.test(t)) return "flow";
+  if (/案例|项目|首页|模块|布局|仿|复刻|整站|网站|登录|购物车/i.test(t)) return "case";
+  if (/组成|结构|原理|特性|概念|作用|机制|树|原型|链|三大/i.test(t)) return "tree";
+  if (/ES\d|第\d+天|阶段|历史|版本/i.test(t)) return "timeline";
+  return "list";
+}
+
+function sibs(ch, ep) {
+  return ch.eps.filter(function (e) { return e !== ep; }).map(function (e) { return e.t; });
+}
+
+G.try = function (tk, ep, ch) {
+  var s = "";
+  s += gr(24, 58, 120, 34, { f: "#f8fafc" });
+  s += gt(84, 79, "try { 可能失败 }", { fs: 8, c: "#475569", a: "middle", m: true });
+  s += ga(148, 75, 190, 75, "#94a3b8");
+  s += gt(169, 68, "抛错", { fs: 7, c: "#94a3b8", a: "middle" });
+  s += gr(196, 58, 110, 34, { f: "#fdf1dd", s: "#e3b364" });
+  s += gt(251, 79, "catch (e)", { fs: 8.5, c: "#92400e", a: "middle", m: true });
+  s += ga(310, 75, 344, 75, "#94a3b8");
+  s += gt(360, 79, "兜底", { fs: 8, c: "#475569" });
+  s += gt(24, 112, "可能失败的代码放进 try，出错不白屏", { fs: 8, c: "#94a3b8" });
+  s += gt(24, 126, "finally 一定会执行；throw 可以主动抛错", { fs: 8, c: "#c3ccd9" });
+  return s;
+};
+G.devtools = function (tk, ep, ch) {
+  var s = "";
+  s += gr(24, 50, 220, 74, { r: 6 });
+  s += gr(24, 50, 220, 13, { r: 6, f: "#eef2f8", s: null });
+  s += gt(34, 60, "Elements · Styles", { fs: 7, c: "#64748b", m: true });
+  s += gt(34, 80, ".box { width: 100px; }", { fs: 7.5, c: "#475569", m: true });
+  s += "<line x1=\"34\" y1=\"76\" x2=\"150\" y2=\"76\" stroke=\"#e59a9a\"/>";
+  s += gt(34, 100, ".card .box { width: 120px; }", { fs: 7.5, c: "#1d4ed8", m: true });
+  s += gt(34, 116, "被划掉的 = 被覆盖的规则", { fs: 7.5, c: "#94a3b8" });
+  s += gt(256, 72, "F12 打开", { fs: 8, c: "#94a3b8" });
+  s += gt(256, 90, "先看谁把它盖了", { fs: 8, c: "#94a3b8" });
+  s += gt(256, 108, "改完再写回文件", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+G.flow = function (tk, ep, ch) {
+  var s = "", n = Math.max(2, Math.min(4, tk.length));
+  var src = tk.slice();
+  var sb = sibs(ch, ep);
+  while (src.length < n && sb.length) src.push(sb.shift());
+  while (src.length < n) src.push("看视频");
+  var w = (360 - (n - 1) * 16) / n, x = 20;
+  for (var i = 0; i < n; i++) {
+    var cx = x + i * (w + 16);
+    s += gr(cx, 60, w, 38, { f: i === 0 ? "#eef4ff" : "#f8fafc", s: i === 0 ? "#bcd4fb" : "#e3e9f2" });
+    s += gt(cx + 7, 73, String(i + 1), { fs: 7, c: "#94a3b8", m: true });
+    s += gt(cx + 7, 88, cut(src[i], 9), { fs: 8.5, c: i === 0 ? "#1d4ed8" : "#475569" });
+    if (i < n - 1) s += ga(cx + w + 3, 79, cx + w + 12, 79);
+  }
+  return s;
+};
+
+G.tree = function (tk, ep, ch) {
+  var s = "", head = cut(tk[0] || ep.t, 10);
+  s += gr(146, 50, 108, 26, { f: "#0f172a", s: null });
+  s += gt(200, 67, head, { fs: 9, c: "#fff", a: "middle", b: true });
+  var kids = tk.slice(1), sb = sibs(ch, ep), di = 0;
+  while (kids.length < 3 && sb.length) kids.push(sb.shift());
+  ["本集前半", "本集后半", "延伸"].forEach(function (x) { if (kids.length < 3) kids.push(x); });
+  kids = kids.slice(0, 3);
+  [58, 200, 342].forEach(function (x, i) {
+    s += gl(200, 76, x, 94);
+    s += gr(x - 48, 94, 96, 26, { f: i === 0 ? "#f4f8ff" : "#fff" });
+    s += gt(x, 111, cut(kids[i], 8), { fs: 8, c: "#475569", a: "middle" });
+  });
+  s += gt(20, 132, "主题和它在本章里的上下文（灰色是相邻集）", { fs: 7.5, c: "#94a3b8" });
+  return s;
+};
+
+G.compare = function (tk, ep, ch) {
+  var s = "", a = cut(tk[0] || "写法 A", 9), b = cut(tk[1] || "写法 B", 9);
+  s += gr(24, 54, 158, 62, { f: "#f8fafc" });
+  s += gt(103, 72, a, { fs: 9.5, c: "#1d4ed8", a: "middle", b: true });
+  s += gt(103, 92, "先出现 / 旧方案", { fs: 7.5, c: "#94a3b8", a: "middle" });
+  s += gr(218, 54, 158, 62, { f: "#e7f8f0", s: "#a7e5c8" });
+  s += gt(297, 72, b, { fs: 9.5, c: "#0b6b4c", a: "middle", b: true });
+  s += gt(297, 92, "后出现 / 新方案", { fs: 7.5, c: "#94a3b8", a: "middle" });
+  s += '<circle cx="200" cy="85" r="12" fill="#fff" stroke="#dbe3ee"/>';
+  s += gt(200, 88, "VS", { fs: 7.5, c: "#94a3b8", a: "middle", b: true });
+  s += gt(24, 130, "对比着记：为什么后来换成了右边这种", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+G.case = function (tk, ep, ch) {
+  var s = "", head = cut(tk[0] || "页面", 10), sb = sibs(ch, ep);
+  s += gr(24, 50, 352, 72, { r: 6 });
+  s += gr(24, 50, 352, 13, { r: 6, f: "#eef2f8", s: null });
+  s += gt(34, 60, head, { fs: 7.5, c: "#64748b" });
+  var parts = tk.slice(1);
+  while (parts.length < 3 && sb.length) parts.push(sb.shift());
+  ["结构", "样式", "交互"].forEach(function (x) { if (parts.length < 3) parts.push(x); });
+  parts.slice(0, 3).forEach(function (p, i) {
+    var x = 38 + i * 112;
+    s += gr(x, 70, 96, 36, { f: i === 0 ? "#eef4ff" : "#f8fafc" });
+    s += gt(x + 48, 92, cut(p, 8), { fs: 8, c: "#475569", a: "middle" });
+  });
+  return s;
+};
+
+G.api = function (tk, ep, ch) {
+  var s = "", name = cut(tk[0] || "API", 14), rows = tk.slice(1), sb = sibs(ch, ep);
+  s += gr(24, 52, 164, 62, { r: 6, f: "#0f172a", s: null });
+  s += gt(36, 72, name, { fs: 9, c: "#a7f3d0", m: true });
+  s += gt(36, 92, "( … )", { fs: 9, c: "#64748b", m: true });
+  while (rows.length < 3 && sb.length) rows.push(sb.shift());
+  rows.slice(0, 3).forEach(function (r, i) {
+    var y = 64 + i * 20;
+    s += '<circle cx="204" cy="' + (y - 3) + '" r="2.5" fill="#2563eb"/>';
+    s += gt(214, y, cut(r, 12), { fs: 8.5, c: "#475569" });
+  });
+  return s;
+};
+
+G.timeline = function (tk, ep, ch) {
+  var s = "", n = Math.max(2, Math.min(4, tk.length)), src = tk.slice(), sb = sibs(ch, ep);
+  while (src.length < n && sb.length) src.push(sb.shift());
+  while (src.length < n) src.push("第 " + (src.length + 1) + " 步");
+  s += gl(40, 84, 360, 84, { c: "#c9d5e4" });
+  for (var i = 0; i < n; i++) {
+    var x = 40 + i * (320 / (n - 1));
+    s += '<circle cx="' + x + '" cy="84" r="5" fill="' + (i === 0 ? "#2563eb" : "#cbd5e1") + '"/>';
+    s += gt(x, 72, cut(src[i], 7), { fs: 7.5, c: i === 0 ? "#1d4ed8" : "#64748b", a: "middle" });
+  }
+  s += gt(20, 128, "按顺序理解这一集的脉络", { fs: 8, c: "#94a3b8" });
+  return s;
+};
+
+G.list = function (tk, ep, ch) {
+  var s = "", rows = tk.slice(0, 3), sb = sibs(ch, ep);
+  while (rows.length < 3 && sb.length) rows.push(sb.shift());
+  rows = rows.slice(0, 3);
+  rows.forEach(function (r, i) {
+    var y = 60 + i * 24;
+    s += gr(24, y - 14, 352, 19, { f: i === 0 ? "#f4f8ff" : "#fbfcfe", s: "#e9eef7" });
+    s += '<circle cx="36" cy="' + (y - 4) + '" r="2.5" fill="' + (i === 0 ? "#2563eb" : "#cbd5e1") + '"/>';
+    s += gt(48, y, cut(r, 20), { fs: 8.5, c: "#475569" });
+  });
+  s += gt(24, 132, "第一条是本集主题，下面是同章相邻集", { fs: 7.5, c: "#94a3b8" });
+  return s;
+};
+
+function strip(ch, ep) {
+  var n = ch.eps.length, i = ch.eps.indexOf(ep), s = "";
+  var show = Math.min(n, 12), step = 300 / Math.max(1, show - 1);
+  s += gt(12, 158, "章内", { fs: 7, c: "#94a3b8" });
+  for (var k = 0; k < show; k++) {
+    var idx = show === n ? k : Math.round(k * (n - 1) / (show - 1));
+    var x = 38 + k * step;
+    s += '<circle cx="' + x + '" cy="155" r="' + (idx === i ? 4 : 2.2) + '" fill="' + (idx === i ? "#059669" : (idx < i ? "#a7d9c4" : "#dbe3ee")) + '"/>';
+  }
+  return s;
+}
+
+/* 39 集已学：用准确的专用图 */
+var OVR = {
+  "A-9": "page", "A-12": "page", "A-18": "tags", "A-46": "form", "A-67": "sel",
+  "A-86": "include", "A-132": "cascade", "A-138": "box", "A-143": "box", "A-150": "box",
+  "A-225": "pos", "A-227": "pos", "A-231": "pos", "A-295": "motion", "A-418": "flex",
+  "A-420": "flex", "A-422": "flex", "A-425": "flex", "A-444": "media",
+  "B-12": "array", "B-16": "string", "B-50": "func", "B-53": "func", "B-65": "obj",
+  "B-80": "dom", "B-81": "dom", "B-82": "dom", "B-86": "dom", "B-89": "dom",
+  "B-94": "event", "B-101": "event", "B-110": "event", "B-131": "storage", "B-134": "array",
+  "B-158": "func", "C-24": "async", "C-49": "async"
+};
+
+function artFor2(ep, ch) {
+  var t = ep.t, s = '<svg viewBox="0 0 400 178">';
+  s += '<rect width="400" height="178" rx="10" fill="#fff"/>';
+  s += gt(12, 17, "P" + ep.p + " · 第 " + (ch.ci + 1) + " 章 · " + (ch.co ? ch.co.name : ""), { fs: 8, c: "#2563eb", m: true });
+  s += gt(12, 33, cut(t, 26), { fs: 11.5, c: "#0f172a", b: true });
+  s += gl(12, 42, 388, 42, { c: "#eef2f8" });
+  var key = (ch.co ? ch.co.id : "") + "-" + ep.p;
+  var body, k = kind(t), fam = null;
+  for (var fi = 0; fi < A2RULES.length; fi++) { if (A2RULES[fi].re.test(t)) { fam = A2RULES[fi].a; break; } }
+  if (OVR[key] && typeof A2 !== "undefined" && A2[OVR[key]]) body = A2[OVR[key]](ep, t);
+  else if (k === "flow" || k === "case" || k === "compare" || k === "try" || k === "devtools") body = G[k](tokens(t), ep, ch);
+  else if (fam && typeof A2 !== "undefined" && A2[fam]) body = A2[fam](ep, t);
+  else body = G.list(tokens(t), ep, ch);
+  s += body;
+  s += strip(ch, ep);
+  s += gt(388, 158, "第 " + (ch.eps.indexOf(ep) + 1) + "/" + ch.eps.length + " 集 · " + Math.round(ep.s / 60) + " 分钟", { fs: 7.5, c: "#94a3b8", a: "end" });
+  s += '<rect x="12" y="166" width="376" height="3" rx="2" fill="#eef2f8"/>';
+  s += '<rect x="12" y="166" width="' + Math.max(2, 376 * (ch.eps.indexOf(ep) + 1) / ch.eps.length) + '" height="3" rx="2" fill="#8fd9b8"/>';
+  s += "</svg>";
+  return s;
+}
+
+function infoFor(title) {
+  var low = String(title).toLowerCase();
+  if (/dom|queryselector|获取元素|修改元素|classlist|节点|innerhtml|表单的值|自定义属性/.test(low)) {
+    for (var d = 0; d < RULES.length; d++) if (RULES[d].art === "dom") return RULES[d];
+  }
+  for (var i = 0; i < RULES.length; i++) {
+    var r = RULES[i];
+    for (var j = 0; j < r.keys.length; j++) {
+      if (low.indexOf(r.keys[j].toLowerCase()) >= 0) return r;
+    }
+  }
+  return DEFAULT_INFO;
+}
+
 
 var COLOR = {A:"#2563eb",B:"#0f7a5a",C:"#b45309"};
 var TOTAL = 0;
