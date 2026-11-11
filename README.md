@@ -22,7 +22,7 @@
 | 知识地图 | `/mindmap/` | 阶段 → 节点的依赖图，点节点看说明与验收标准 | `mindmap/data.js` |
 | 机器学习导图 | `/ml/` | 吴恩达机器学习 146 集，12 章可折叠导图 + 搜索 + 掌握进度 | `ml/index.html` 内嵌数据 |
 | Python 导图 | `/mindmap/python.html` | 黑马 Python 1-123 集，13 章 90 个知识点；点开看解析、语法和示例代码，可搜索、标记已掌握，并能直接打开对应案例 | `mindmap/python/data-*.js` |
-| 前端基础导图 | `/mindmap/web/` | 黑马 HTML+CSS 540 集 + 黑马 JS 200 集 + 尚硅谷 ES6 68 集：四层知识树、已学筛选、逐集详解 | `mindmap/web/index.html` 内嵌数据 |
+| 前端基础导图 | `/mindmap/web/` | 黑马 HTML+CSS 540 集 + 黑马 JS 200 集 + 尚硅谷 ES6 68 集：全链路图 / 思维导图双视图，已学筛选、逐集详解、进度导入导出 | `mindmap/web/index.html` 内嵌数据 |
 | Vue3 导图 | `/mindmap/vue3/` | 尚硅谷 Vue3 P1–P40：6 大模块 40 集导图 + 15 张原创配图，支持搜索、按集打勾与灯箱 | `mindmap/vue3/index.html` 内嵌数据 |
 | 案例库 | `/mindmap/cases.html` | 1-123 集的综合案例：题目、思路、答案代码、运行结果（也能从导图的知识点直接打开） | `mindmap/cases-data.js` |
 
