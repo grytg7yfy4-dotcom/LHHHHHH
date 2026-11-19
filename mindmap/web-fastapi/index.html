@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FastAPI 知识网络 · 黑马 68 集</title>
+<meta name="description" content="黑马《FastAPI 从入门到实战》68 集知识网络，按章节展开，标出已学 / 用过 / 未学，每个知识点可跳到对应分集。">
+<style>
+:root{
+  --bg:#f6f8fc;--panel:#fff;--ink:#0f172a;--sub:#475569;--mut:#8b98ad;
+  --line:#e3e9f2;--line2:#d6deea;--dot:#e6ecf5;
+  --blue:#2563eb;--green:#0f7a5a;--orange:#b45309;
+  --done:#059669;--donebg:#e9f9f1;--doneline:#8fd9b8;
+  --used:#b45309;--usedbg:#fdf4e7;--usedline:#f0d3a8;
+  --shadow:0 1px 2px rgba(15,23,42,.05),0 8px 24px rgba(15,23,42,.06);
+  --mono:"Consolas","SFMono-Regular",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);height:100%;display:flex;flex-direction:column;
+  font:13px/1.55 "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",system-ui,sans-serif;overflow:hidden}
+a{color:var(--blue);text-decoration:none}
+
+/* ---------- 顶栏 ---------- */
+.hdr{flex:0 0 auto;display:flex;align-items:center;gap:20px;padding:0 18px;height:46px;
+  background:var(--panel);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:9px;white-space:nowrap}
+.brand b{font-size:14.5px;letter-spacing:-.2px}
+.brand span{font-size:11px;color:var(--mut)}
+.prog{display:flex;align-items:center;gap:8px;margin-left:auto}
+.prog .bar{width:150px;height:7px;background:#e8eef8;border-radius:99px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#059669,#10b981);transition:width .3s}
+.prog b{font-size:12px;color:var(--done)}
+.prog span{font-size:11px;color:var(--mut)}
+
+/* ---------- 工具条 ---------- */
+.bar{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:8px 18px;background:var(--panel);
+  border-bottom:1px solid var(--line);flex-wrap:wrap}
+.btn{height:28px;padding:0 11px;border:1px solid var(--line);background:#fff;color:var(--sub);
+  border-radius:7px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn:hover{color:var(--ink);border-color:var(--line2);background:#fbfcfe}
+.btn.on{background:#eef4ff;border-color:#c9dcff;color:var(--blue);font-weight:700}
+.search{flex:0 1 260px;height:28px;padding:0 10px;border:1px solid var(--line);border-radius:7px;
+  font-size:12.5px;font-family:inherit;color:var(--ink);outline:none}
+.search:focus{border-color:#9dc0ff;box-shadow:0 0 0 3px #eaf2ff}
+.legend{display:flex;align-items:center;gap:12px;margin-left:auto;font-size:11.5px;color:var(--mut)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:99px;margin-right:4px}
+
+/* ---------- 主体 ---------- */
+.main{flex:1 1 auto;overflow:auto;padding:16px 18px 60px}
+.wrap{max-width:1080px;margin:0 auto}
+
+.chapter{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+.ch-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;user-select:none}
+.ch-hd:hover{background:#fbfcfe}
+.ch-arrow{width:14px;color:var(--mut);font-size:11px;transition:transform .2s}
+.chapter.closed .ch-arrow{transform:rotate(-90deg)}
+.ch-name{font-size:14px;font-weight:700}
+.ch-sub{font-size:11.5px;color:var(--mut)}
+.ch-stat{margin-left:auto;font-size:11.5px;color:var(--mut)}
+.ch-stat b{color:var(--done);font-size:12px}
+.ch-body{border-top:1px solid var(--line)}
+.chapter.closed .ch-body{display:none}
+
+.kp{display:flex;align-items:flex-start;gap:11px;padding:10px 16px;border-bottom:1px solid #f1f5fa}
+.kp:last-child{border-bottom:none}
+.kp:hover{background:#fafcff}
+.kp-dot{flex:0 0 auto;width:9px;height:9px;border-radius:99px;margin-top:6px;background:#cfd8e6}
+.kp.done .kp-dot{background:var(--done)}
+.kp.used .kp-dot{background:var(--used)}
+.kp-main{flex:1 1 auto;min-width:0}
+.kp-t{font-size:13px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.kp-t .badge{font-size:10.5px;padding:1px 6px;border-radius:99px;font-weight:700}
+.kp.done .badge{background:var(--donebg);color:var(--done);border:1px solid var(--doneline)}
+.kp.used .badge{background:var(--usedbg);color:var(--used);border:1px solid var(--usedline)}
+.kp.todo .badge{background:#f2f5fa;color:var(--mut);border:1px solid var(--line2)}
+.kp-d{font-size:12px;color:var(--sub);margin-top:3px}
+.kp-d code{background:#eef1f5;padding:1px 4px;border-radius:3px;font-family:var(--mono);font-size:11.5px}
+.kp-tags{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+.kp-tags span{font-size:10.5px;color:#64748b;background:#f1f5f9;border-radius:4px;padding:1px 6px}
+.kp-go{flex:0 0 auto;align-self:center}
+.kp-go a{display:inline-block;padding:4px 9px;border:1px solid #c9dcff;background:#f5f9ff;
+  color:var(--blue);border-radius:7px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.kp-go a:hover{background:#eaf2ff;border-color:#9dc0ff}
+.kp.todo .kp-go a{border-color:var(--line2);background:#fff;color:var(--mut)}
+.kp.todo .kp-go a:hover{color:var(--blue);border-color:#c9dcff;background:#f5f9ff}
+
+.empty{padding:40px;text-align:center;color:var(--mut);font-size:13px;display:none}
+
+.foot{max-width:1080px;margin:6px auto 0;font-size:11.5px;color:var(--mut);line-height:1.8}
+.foot a{color:var(--blue)}
+
+@media(max-width:640px){
+  .hdr{height:auto;padding:8px 12px;flex-wrap:wrap;gap:8px}
+  .prog{margin-left:0;width:100%}
+  .bar{padding:6px 12px}
+  .main{padding:12px 10px 50px}
+  .kp{padding:9px 12px;gap:8px}
+  .legend{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="brand">
+    <b>FastAPI 知识网络</b>
+    <span>黑马《FastAPI 从入门到实战》· 68 集</span>
+  </div>
+  <div class="prog">
+    <span>已学</span>
+    <div class="bar"><i id="pbar"></i></div>
+    <b id="ptext">0 / 0</b>
+  </div>
+</div>
+
+<div class="bar">
+  <input class="search" id="q" placeholder="搜知识点、章节、标签……">
+  <button class="btn" id="onlyDone">只看已学</button>
+  <button class="btn" id="expandAll">全部展开</button>
+  <button class="btn" id="collapseAll">全部收起</button>
+  <div class="legend">
+    <span><i style="background:#059669"></i>已学</span>
+    <span><i style="background:#b45309"></i>用过没吃透</span>
+    <span><i style="background:#cfd8e6"></i>未学</span>
+  </div>
+</div>
+
+<div class="main">
+  <div class="wrap" id="list"></div>
+  <div class="foot">
+    视频都指向 <a href="https://www.bilibili.com/video/BV1zV2QBtE39" target="_blank" rel="noopener">BV1zV2QBtE39</a> 的对应分集（<code>?p=N</code>）。<br>
+    「已学」= 跟着写过、能讲清；「用过没吃透」= 项目里用过，但原理还得查；「未学」= 还没碰。
+  </div>
+</div>
+
+<script>
+const BV = "BV1zV2QBtE39";
+const DATA = [
+  {
+    ch: "第 1 章　基础入门", sub: "P2 – P14", items: [
+      { t: "框架简介", d: "FastAPI 是什么、为什么快、和 Flask/Django 的区别", p: 2, s: "done", tags: ["概念"] },
+      { t: "第一个程序", d: "app = FastAPI()，uvicorn 跑起来", p: 3, s: "done", tags: ["上手"] },
+      { t: "路由", d: "@app.get 装饰器，地址和函数绑定", p: 4, s: "done", tags: ["路由"] },
+      { t: "路径参数", d: "/items/{id}，函数参数自动取值", p: 5, s: "done", tags: ["路由", "参数"] },
+      { t: "Path 类型注解", d: "路径参数加校验：ge、gt、max_length", p: 6, s: "used", tags: ["参数", "校验"] },
+      { t: "查询参数", d: "URL 里的 ?key=value，有默认值就是选填", p: 7, s: "done", tags: ["参数"] },
+      { t: "Query 类型注解", d: "查询参数加校验和描述，会显示在 /docs", p: 7, s: "used", tags: ["参数", "校验"] },
+      { t: "请求体参数", d: "POST 的 JSON body，用 Pydantic 模型接收", p: 8, s: "done", tags: ["Pydantic"] },
+      { t: "Field 类型注解", d: "字段级校验：min_length、max_length、默认值", p: 9, s: "used", tags: ["Pydantic", "校验"] },
+      { t: "响应格式 · JSON", d: "返回 dict 自动转 JSON", p: 10, s: "done", tags: ["响应"] },
+      { t: "响应格式 · HTML", d: "HTMLResponse 返回页面", p: 11, s: "todo", tags: ["响应"] },
+      { t: "响应格式 · 文件", d: "FileResponse / StreamingResponse 下载文件", p: 12, s: "todo", tags: ["响应"] },
+      { t: "自定义响应格式", d: "response_model 控制返回字段，不泄露多余数据", p: 13, s: "used", tags: ["响应", "Pydantic"] },
+      { t: "异常响应处理", d: "HTTPException：401 / 403 / 404 / 422 怎么用", p: 14, s: "done", tags: ["异常"] }
+    ]
+  },
+  {
+    ch: "第 2 章　进阶", sub: "P15 – P16", items: [
+      { t: "中间件", d: "每个请求都会经过的一层，适合做日志、计时", p: 15, s: "used", tags: ["中间件"] },
+      { t: "依赖注入 Depends", d: "公共逻辑抽成依赖：拿数据库、校验身份", p: 16, s: "used", tags: ["依赖注入", "鉴权"] }
+    ]
+  },
+  {
+    ch: "第 3 章　ORM 数据库", sub: "P17 – P29", items: [
+      { t: "ORM 简介与安装", d: "SQLAlchemy：用 Python 类操作表", p: 17, s: "done", tags: ["ORM"] },
+      { t: "建表 · 模型定义", d: "Base、Mapped、mapped_column、外键", p: 18, s: "done", tags: ["ORM", "建表"] },
+      { t: "在路由中使用 ORM", d: "Session 依赖注入，查询后自动关", p: 19, s: "done", tags: ["ORM", "依赖注入"] },
+      { t: "查询数据", d: "db.query(Model).all() / first()", p: 20, s: "done", tags: ["ORM", "查询"] },
+      { t: "条件查询 · 比较", d: "filter(Model.age > 18)", p: 21, s: "used", tags: ["ORM", "查询"] },
+      { t: "条件查询 · 模糊/包含", d: "like、in_、or_ 组合条件", p: 22, s: "used", tags: ["ORM", "查询"] },
+      { t: "聚合查询", d: "count / sum / group_by", p: 23, s: "todo", tags: ["ORM", "查询"] },
+      { t: "分页查询", d: "offset + limit，返回 total 和 pages", p: 24, s: "used", tags: ["ORM", "分页"] },
+      { t: "查询总结", d: "几种查询方式对比与选择", p: 25, s: "todo", tags: ["ORM"] },
+      { t: "新增数据", d: "db.add + db.commit + db.refresh", p: 26, s: "done", tags: ["ORM", "写入"] },
+      { t: "更新数据", d: "改属性后 commit", p: 27, s: "done", tags: ["ORM", "写入"] },
+      { t: "删除数据", d: "db.delete + commit", p: 28, s: "done", tags: ["ORM", "写入"] },
+      { t: "ORM 总结", d: "增删改查串起来看", p: 29, s: "todo", tags: ["ORM"] }
+    ]
+  },
+  {
+    ch: "第 4 章　项目实战（头条）", sub: "P30 – P61", items: [
+      { t: "工程结构 / 分层", d: "main / routers / models / schemas 怎么拆", p: 31, s: "used", tags: ["工程化"] },
+      { t: "模块化路由", d: "APIRouter + include_router", p: 32, s: "done", tags: ["路由", "工程化"] },
+      { t: "数据库与 ORM 配置", d: "engine、SessionLocal、Base 放哪", p: 33, s: "used", tags: ["ORM", "工程化"] },
+      { t: "跨域 CORS", d: "CORSMiddleware，前端 5173 调 8000 必须配", p: 36, s: "done", tags: ["CORS"] },
+      { t: "通用成功响应封装", d: "统一 {code, msg, data} 格式", p: 45, s: "todo", tags: ["响应"] },
+      { t: "全局异常处理器", d: "@app.exception_handler，报错返回 JSON 不返回堆栈", p: 46, s: "used", tags: ["异常"] },
+      { t: "用户注册", d: "校验用户名、密码加密后入库", p: 43, s: "todo", tags: ["鉴权"] },
+      { t: "生成 Token", d: "JWT 签发：sub + exp，前端存起来", p: 44, s: "used", tags: ["鉴权", "JWT"] },
+      { t: "用户登录", d: "校验密码，发 token", p: 47, s: "done", tags: ["鉴权", "JWT"] },
+      { t: "获取 / 修改用户信息", d: "从 token 解出当前用户", p: 48, s: "todo", tags: ["鉴权"] },
+      { t: "修改密码", d: "旧密码校验 + 重新加密", p: 50, s: "todo", tags: ["鉴权"] },
+      { t: "收藏模块", d: "检查状态、添加、取消、列表、清空", p: 55, s: "todo", tags: ["业务"] },
+      { t: "浏览历史", d: "记录、列表、删除单条、清空", p: 58, s: "todo", tags: ["业务"] }
+    ]
+  },
+  {
+    ch: "第 5 章　缓存与 AI", sub: "P62 – P68", items: [
+      { t: "Redis 安装与客户端", d: "服务端安装、Python 客户端配置", p: 62, s: "todo", tags: ["缓存"] },
+      { t: "封装缓存操作方法", d: "get / set / delete 封装成工具", p: 64, s: "todo", tags: ["缓存"] },
+      { t: "设计缓存策略", d: "什么该缓存、过期时间怎么定", p: 65, s: "todo", tags: ["缓存"] },
+      { t: "AI 问答功能", d: "把模型调用接到接口里", p: 67, s: "todo", tags: ["AI"] }
+    ]
+  }
+];
+
+const STATUS_TEXT = { done: "已学", used: "用过", todo: "未学" };
+const listEl = document.getElementById("list");
+const qEl = document.getElementById("q");
+const onlyDoneBtn = document.getElementById("onlyDone");
+let onlyDone = false;
+
+/* 统计 */
+let total = 0, doneCount = 0;
+DATA.forEach(c => c.items.forEach(it => { total++; if (it.s === "done") doneCount++; }));
+document.getElementById("ptext").textContent = doneCount + " / " + total;
+document.getElementById("pbar").style.width = (doneCount / total * 100).toFixed(1) + "%";
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+function link(it) {
+  return "https://www.bilibili.com/video/" + BV + "?p=" + it.p;
+}
+
+function render(keyword) {
+  const kw = (keyword || "").trim().toLowerCase();
+  let html = "", shown = 0;
+
+  DATA.forEach((ch, ci) => {
+    const items = ch.items.filter(it => {
+      if (onlyDone && it.s !== "done") return false;
+      if (!kw) return true;
+      const hay = (it.t + " " + it.d + " " + (it.tags || []).join(" ") + " " + ch.ch).toLowerCase();
+      return hay.includes(kw);
+    });
+    if (!items.length) return;
+    shown += items.length;
+
+    const d = items.filter(i => i.s === "done").length;
+    html += '<section class="chapter" data-ci="' + ci + '">';
+    html += '<div class="ch-hd"><span class="ch-arrow">▼</span>';
+    html += '<span class="ch-name">' + esc(ch.ch) + '</span>';
+    html += '<span class="ch-sub">' + esc(ch.sub) + '</span>';
+    html += '<span class="ch-stat">已学 <b>' + d + '</b> / ' + items.length + '</span></div>';
+    html += '<div class="ch-body">';
+
+    items.forEach(it => {
+      html += '<div class="kp ' + it.s + '">';
+      html += '<span class="kp-dot"></span>';
+      html += '<div class="kp-main">';
+      html += '<div class="kp-t">' + esc(it.t) + '<span class="badge">' + STATUS_TEXT[it.s] + '</span></div>';
+      html += '<div class="kp-d">' + it.d.replace(/`([^`]+)`/g, '<code>$1</code>') + '</div>';
+      if (it.tags && it.tags.length) {
+        html += '<div class="kp-tags">' + it.tags.map(t => "<span>" + esc(t) + "</span>").join("") + '</div>';
+      }
+      html += '</div>';
+      html += '<div class="kp-go"><a href="' + link(it) + '" target="_blank" rel="noopener">第 ' + it.p + ' 集 ↗</a></div>';
+      html += '</div>';
+    });
+
+    html += '</div></section>';
+  });
+
+  if (!shown) {
+    html = '<div class="empty" style="display:block">没有匹配的知识点，换个词试试。</div>';
+  }
+  listEl.innerHTML = html;
+
+  listEl.querySelectorAll(".ch-hd").forEach(hd => {
+    hd.addEventListener("click", () => hd.parentElement.classList.toggle("closed"));
+  });
+}
+
+qEl.addEventListener("input", () => render(qEl.value));
+
+onlyDoneBtn.addEventListener("click", () => {
+  onlyDone = !onlyDone;
+  onlyDoneBtn.classList.toggle("on", onlyDone);
+  render(qEl.value);
+});
+
+document.getElementById("expandAll").addEventListener("click", () => {
+  listEl.querySelectorAll(".chapter").forEach(c => c.classList.remove("closed"));
+});
+document.getElementById("collapseAll").addEventListener("click", () => {
+  listEl.querySelectorAll(".chapter").forEach(c => c.classList.add("closed"));
+});
+
+render("");
+</script>
+</body>
+</html>
