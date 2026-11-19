@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FastAPI 知识网络 · 黑马 68 集</title>
+<meta name="description" content="黑马《FastAPI 从入门到实战》68 集，按章分板，每集可点标记已学，点标题跳 B 站对应分集。">
+<style>
+:root{
+  --bg:#f6f8fc;--panel:#fff;--ink:#0f172a;--sub:#475569;--mut:#8b98ad;
+  --line:#e3e9f2;--line2:#d6deea;--dot:#e6ecf5;
+  --blue:#2563eb;--green:#0f7a5a;--orange:#b45309;
+  --done:#059669;--donebg:#e9f9f1;--doneline:#8fd9b8;
+  --shadow:0 1px 2px rgba(15,23,42,.05),0 8px 24px rgba(15,23,42,.06);
+  --mono:"Consolas","SFMono-Regular",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);height:100%;display:flex;flex-direction:column;
+  font:13px/1.5 "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",system-ui,sans-serif;overflow:hidden}
+a{color:var(--blue);text-decoration:none}
+
+/* 顶栏 */
+.hdr{flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:0 16px;height:44px;
+  background:var(--panel);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.hdr::-webkit-scrollbar{display:none}
+.brand{display:flex;align-items:baseline;gap:8px;white-space:nowrap;flex:0 0 auto}
+.brand b{font-size:14px;letter-spacing:-.2px}
+.brand span{font-size:11px;color:var(--mut)}
+.tabs{display:flex;gap:2px;flex:0 0 auto}
+.tabs a{padding:5px 11px;border-radius:7px;color:var(--sub);font-size:12.5px;white-space:nowrap}
+.tabs a:hover{background:#f2f6fc;color:var(--ink)}
+.tabs a.on{background:#eef4ff;color:var(--blue);font-weight:700}
+
+/* 工具条 */
+.bar{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:7px 16px;background:var(--panel);
+  border-bottom:1px solid var(--line);flex-wrap:wrap}
+.btn{height:26px;padding:0 10px;border:1px solid var(--line);background:#fff;color:var(--sub);
+  border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn:hover{color:var(--ink);border-color:var(--line2);background:#fbfcfe}
+.btn.on{background:#eef4ff;border-color:#c9dcff;color:var(--blue);font-weight:700}
+.spacer{flex:1 1 auto}
+.search{height:26px;padding:0 9px;border:1px solid var(--line);border-radius:6px;font-size:12px;
+  font-family:inherit;outline:none;width:200px}
+.search:focus{border-color:#9dc0ff;box-shadow:0 0 0 3px #eaf2ff}
+.count{font-size:12px;color:var(--mut);white-space:nowrap}
+.count b{color:var(--done);font-size:12.5px}
+
+/* 主体 */
+.main{flex:1 1 auto;overflow:auto;padding:14px 16px 70px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+  overflow:hidden;display:flex;flex-direction:column}
+.card-hd{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--line);
+  background:linear-gradient(#fff,#fbfcfe);cursor:pointer;user-select:none}
+.card-no{font-family:var(--mono);font-size:11.5px;color:#fff;background:var(--blue);
+  border-radius:5px;padding:1px 6px;font-weight:700}
+.card-name{font-size:13px;font-weight:700}
+.card-stat{margin-left:auto;font-size:11.5px;color:var(--mut)}
+.card-stat b{color:var(--done)}
+.card.closed .card-body{display:none}
+.card-body{padding:4px 0}
+
+.row{display:flex;align-items:center;gap:8px;padding:4px 12px;cursor:pointer;border-left:3px solid transparent}
+.row:hover{background:#f8fbff}
+.row.done{background:var(--donebg);border-left-color:var(--doneline)}
+.row.done .row-p{color:var(--done)}
+.row.done .row-t{color:var(--green);font-weight:600}
+.row-p{font-family:var(--mono);font-size:11px;color:var(--mut);flex:0 0 34px;text-align:right}
+.row-t{flex:1 1 auto;font-size:12.4px;color:var(--sub);white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis}
+.row-go{flex:0 0 auto;font-size:11px;color:#9db3d6;padding:0 3px}
+.row-go:hover{color:var(--blue)}
+.row-mark{flex:0 0 auto;width:17px;height:17px;border-radius:99px;border:1px solid var(--line2);
+  background:#fff;color:var(--mut);font-size:10.5px;line-height:15px;text-align:center;cursor:pointer}
+.row.done .row-mark{background:var(--done);border-color:var(--done);color:#fff}
+
+.empty{padding:50px;text-align:center;color:var(--mut);font-size:13px}
+
+/* 底部 */
+.foot{position:fixed;left:0;right:0;bottom:0;height:44px;display:flex;align-items:center;
+  gap:14px;padding:0 16px;background:rgba(246,248,252,.94);border-top:1px solid var(--line);
+  backdrop-filter:blur(6px);font-size:11.5px;color:var(--mut)}
+.foot a{color:var(--sub)}
+.foot .right{margin-left:auto;display:flex;gap:8px}
+.foot .pill{padding:5px 12px;border:1px solid var(--line2);background:#fff;border-radius:99px;
+  color:var(--sub);font-size:11.5px;box-shadow:var(--shadow)}
+.foot .pill:hover{color:var(--blue);border-color:#c9dcff}
+
+@media(max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .search{width:120px}
+  .hdr{padding:6px 10px;height:auto;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="brand"><b>FastAPI 知识网络</b><span>黑马 · 68 集 / 5 章</span></div>
+  <div class="tabs">
+    <a href="../index.html">知识地图</a>
+    <a href="../web/index.html">前端基础</a>
+    <a href="../vue3/index.html">Vue3 导图</a>
+    <a href="../python/index.html">Python 导图</a>
+    <a href="../../ml/index.html">机器学习导图</a>
+    <a href="./index.html" class="on">后端 FastAPI</a>
+  </div>
+</div>
+
+<div class="bar">
+  <input class="search" id="q" placeholder="搜知识点…">
+  <button class="btn on" data-f="all">全部</button>
+  <button class="btn" data-f="done">只看已学</button>
+  <button class="btn" data-f="todo">只看待学</button>
+  <button class="btn" id="expandAll">展开章节</button>
+  <button class="btn" id="collapseAll">收起章节</button>
+  <div class="spacer"></div>
+  <div class="count">已学 <b id="cDone">0</b> · 待学 <span id="cTodo">0</span></div>
+  <button class="btn" id="exportBtn">导出标记</button>
+  <button class="btn" id="importBtn">导入标记</button>
+  <input type="file" id="importFile" accept="application/json" style="display:none">
+</div>
+
+<div class="main">
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="foot">
+  <a href="../index.html">← 知识地图</a>
+  <a href="../web/index.html">← 前端基础</a>
+  <span>点行切换已学 · 点 P 号跳 B 站 · 点卡片标题收起</span>
+  <div class="right"><a class="pill" href="../web/index.html">切到前端导图</a></div>
+</div>
+
+<script>
+const BOARD = [{"no":"01","name":"基础入门","eps":[{"p":1,"t":"导学课程","full":"01-FastAPI从入门到实战导学课程"},{"p":2,"t":"FastAPI框架简介","full":"02-FastAPI基础入门-FastAPI框架简介"},{"p":3,"t":"第一个FastAPI程序","full":"03-FastAPI基础入门-第一个FastAPI程序"},{"p":4,"t":"路由","full":"04-FastAPI基础入门-路由"},{"p":5,"t":"参数简介和路径参数","full":"05-FastAPI基础入门-参数简介和路径参数"},{"p":6,"t":"路径参数_Path类型注解","full":"06-FastAPI基础入门-路径参数_Path类型注解"},{"p":7,"t":"查询参数和Query类型注解","full":"07-FastAPI基础入门-查询参数和Query类型注解"},{"p":8,"t":"请求体参数","full":"08-FastAPI基础入门-请求体参数"},{"p":9,"t":"请求体参数_Field类型注解","full":"09-FastAPI基础入门-请求体参数_Field类型注解"},{"p":10,"t":"响应类型-JSON格式","full":"10-FastAPI基础入门-响应类型-JSON格式"},{"p":11,"t":"响应类型-HTML格式","full":"11-FastAPI基础入门-响应类型-HTML格式"},{"p":12,"t":"响应类型-文件格式","full":"12-FastAPI基础入门-响应类型-文件格式"},{"p":13,"t":"自定义响应数据格式","full":"13-FastAPI基础入门-自定义响应数据格式"},{"p":14,"t":"异常响应处理","full":"14-FastAPI基础入门-异常响应处理"}]},{"no":"02","name":"进阶","eps":[{"p":15,"t":"中间件","full":"15-FastAPI进阶-中间件"},{"p":16,"t":"依赖注入","full":"16-FastAPI进阶-依赖注入"}]},{"no":"03","name":"ORM 数据库","eps":[{"p":17,"t":"ORM简介及安装","full":"17-FastAPI进阶-ORM简介及安装"},{"p":18,"t":"ORM-建表","full":"18-FastAPI进阶-ORM-建表"},{"p":19,"t":"ORM-在路由中使用ORM","full":"19-FastAPI进阶-ORM-在路由中使用ORM"},{"p":20,"t":"ORM操作数据-查询数据","full":"20-FastAPI进阶-ORM操作数据-查询数据"},{"p":21,"t":"ORM操作数据-条件查询-比较判断","full":"21-FastAPI进阶-ORM操作数据-条件查询-比较判断"},{"p":22,"t":"ORM操作数据-条件查询-模糊&与非&包含","full":"22-FastAPI进阶-ORM操作数据-条件查询-模糊&与非&包含"},{"p":23,"t":"ORM操作数据-聚合查询","full":"23-FastAPI进阶-ORM操作数据-聚合查询"},{"p":24,"t":"ORM操作数据-分页查询","full":"24-FastAPI进阶-ORM操作数据-分页查询"},{"p":25,"t":"ORM操作数据-查询总结","full":"25-FastAPI进阶-ORM操作数据-查询总结"},{"p":26,"t":"ORM操作数据-新增数据","full":"26-FastAPI进阶-ORM操作数据-新增数据"},{"p":27,"t":"ORM操作数据-更新数据","full":"27-FastAPI进阶-ORM操作数据-更新数据"},{"p":28,"t":"ORM操作数据-删除数据","full":"28-FastAPI进阶-ORM操作数据-删除数据"},{"p":29,"t":"ORM总结","full":"29-FastAPI进阶-ORM总结"}]},{"no":"04","name":"项目实战 · 头条","eps":[{"p":30,"t":"项目及物料简介","full":"30-头条项目-项目及物料简介"},{"p":31,"t":"工程结构","full":"31-头条项目-工程结构"},{"p":32,"t":"模块化路由","full":"32-头条项目-模块化路由"},{"p":33,"t":"数据库和ORM配置","full":"33-头条项目-数据库和ORM配置"},{"p":34,"t":"获取新闻分类-模块化路由","full":"34-头条项目-获取新闻分类-模块化路由"},{"p":35,"t":"获取新闻分类-完成","full":"35-头条项目-获取新闻分类-完成"},{"p":36,"t":"解决跨域问题","full":"36-头条项目-解决跨域问题"},{"p":37,"t":"获取新闻列表","full":"37-头条项目-获取新闻列表"},{"p":38,"t":"获取新闻详情-新闻详情数据","full":"38-头条项目-获取新闻详情-新闻详情数据"},{"p":39,"t":"获取新闻详情-增加浏览量","full":"39-头条项目-获取新闻详情-增加浏览量"},{"p":40,"t":"获取新闻详情-相关推荐","full":"40-头条项目-获取新闻详情-相关推荐"},{"p":41,"t":"新闻模块总结","full":"41-头条项目-新闻模块总结"},{"p":42,"t":"用户注册-基础路由","full":"42-头条项目-用户注册-基础路由"},{"p":43,"t":"用户注册-创建用户","full":"43-头条项目-用户注册-创建用户"},{"p":44,"t":"用户注册-生成Token","full":"44-头条项目-用户注册-生成Token"},{"p":45,"t":"封装通用成功响应格式","full":"45-头条项目-封装通用成功响应格式"},{"p":46,"t":"全局异常处理器","full":"46-头条项目-全局异常处理器"},{"p":47,"t":"用户登录","full":"47-头条项目-用户登录"},{"p":48,"t":"获取用户信息","full":"48-头条项目-获取用户信息"},{"p":49,"t":"修改用户信息","full":"49-头条项目-修改用户信息"},{"p":50,"t":"修改用户密码","full":"50-头条项目-修改用户密码"},{"p":51,"t":"用户模块-总结","full":"51-头条项目-用户模块-总结"},{"p":52,"t":"检查新闻收藏状态","full":"52-头条项目-检查新闻收藏状态"},{"p":53,"t":"添加收藏","full":"53-头条项目-添加收藏"},{"p":54,"t":"取消收藏","full":"54-头条项目-取消收藏"},{"p":55,"t":"获取收藏列表","full":"55-头条项目-获取收藏列表"},{"p":56,"t":"清空收藏列表","full":"56-头条项目-清空收藏列表"},{"p":57,"t":"收藏模块-总结","full":"57-头条项目-收藏模块-总结"},{"p":58,"t":"添加浏览历史-思路分析","full":"58-头条项目-添加浏览历史-思路分析"},{"p":59,"t":"获取浏览历史列表-思路分析","full":"59-头条项目-获取浏览历史列表-思路分析"},{"p":60,"t":"删除单条浏览纪记录-思路分析","full":"60-头条项目-删除单条浏览纪记录-思路分析"},{"p":61,"t":"清空浏览历史列表-思路分析","full":"61-头条项目-清空浏览历史列表-思路分析"}]},{"no":"05","name":"缓存与 AI","eps":[{"p":62,"t":"缓存简介及安装Redis服务端","full":"62-头条项目-缓存简介及安装Redis服务端"},{"p":63,"t":"安装和配置Redis客户端","full":"63-头条项目-安装和配置Redis客户端"},{"p":64,"t":"封装缓存操作方法","full":"64-头条项目-封装缓存操作方法"},{"p":65,"t":"设计缓存策略","full":"65-头条项目-设计缓存策略"},{"p":66,"t":"缓存新闻列表","full":"66-头条项目-缓存新闻列表"},{"p":67,"t":"AI问答功能","full":"67-头条项目-AI问答功能"},{"p":68,"t":"缓存和调用模型-总结","full":"68-头条项目-缓存和调用模型-总结"}]}];
+const DEFAULT_LEARNED = [2, 3, 4, 5, 7, 8, 10, 14, 17, 18, 19, 20, 26, 27, 28, 32, 36, 47];
+const BV = "BV1zV2QBtE39";
+const KEY = "fastapi-learned-v1";
+
+let learned = load();
+let filter = "all";
+let kw = "";
+
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) return new Set(JSON.parse(raw));
+  } catch (e) {}
+  return new Set(DEFAULT_LEARNED);
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify([...learned])); } catch (e) {}
+}
+
+const gridEl = document.getElementById("grid");
+const qEl = document.getElementById("q");
+
+function totalEps() { return BOARD.reduce((s, c) => s + c.eps.length, 0); }
+
+function updateCount() {
+  const t = totalEps();
+  document.getElementById("cDone").textContent = learned.size;
+  document.getElementById("cTodo").textContent = t - learned.size;
+}
+
+function render() {
+  let html = "", shown = 0;
+  BOARD.forEach((ch, ci) => {
+    const eps = ch.eps.filter(e => {
+      const isDone = learned.has(e.p);
+      if (filter === "done" && !isDone) return false;
+      if (filter === "todo" && isDone) return false;
+      if (kw && !(e.t + " " + e.p + " " + ch.name).toLowerCase().includes(kw)) return false;
+      return true;
+    });
+    if (!eps.length) return;
+    shown += eps.length;
+
+    const d = ch.eps.filter(e => learned.has(e.p)).length;
+    html += '<section class="card" data-ci="' + ci + '">';
+    html += '<div class="card-hd"><span class="card-no">' + ch.no + '</span>';
+    html += '<span class="card-name">' + ch.name + '</span>';
+    html += '<span class="card-stat">已学 <b>' + d + '</b> / ' + ch.eps.length + '</span></div>';
+    html += '<div class="card-body">';
+    eps.forEach(e => {
+      const on = learned.has(e.p);
+      html += '<div class="row' + (on ? " done" : "") + '" data-p="' + e.p + '">';
+      html += '<span class="row-p">P' + e.p + '</span>';
+      html += '<span class="row-t" title="' + e.full.replace(/"/g, "&quot;") + '">' + e.t + '</span>';
+      html += '<a class="row-go" href="https://www.bilibili.com/video/' + BV + '?p=' + e.p +
+              '" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a>';
+      html += '<span class="row-mark">' + (on ? "✓" : "?") + '</span>';
+      html += '</div>';
+    });
+    html += '</div></section>';
+  });
+
+  if (!shown) html = '<div class="empty">没有匹配的集，换个词或切回「全部」。</div>';
+  gridEl.innerHTML = html;
+
+  gridEl.querySelectorAll(".row").forEach(row => {
+    row.addEventListener("click", () => {
+      const p = Number(row.dataset.p);
+      if (learned.has(p)) learned.delete(p); else learned.add(p);
+      save(); updateCount(); render();
+    });
+  });
+  gridEl.querySelectorAll(".card-hd").forEach(hd => {
+    hd.addEventListener("click", () => hd.parentElement.classList.toggle("closed"));
+  });
+}
+
+qEl.addEventListener("input", () => { kw = qEl.value.trim().toLowerCase(); render(); });
+
+document.querySelectorAll(".btn[data-f]").forEach(b => {
+  b.addEventListener("click", () => {
+    filter = b.dataset.f;
+    document.querySelectorAll(".btn[data-f]").forEach(x => x.classList.toggle("on", x === b));
+    render();
+  });
+});
+
+document.getElementById("expandAll").addEventListener("click", () => {
+  gridEl.querySelectorAll(".card").forEach(c => c.classList.remove("closed"));
+});
+document.getElementById("collapseAll").addEventListener("click", () => {
+  gridEl.querySelectorAll(".card").forEach(c => c.classList.add("closed"));
+});
+
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify([...learned].sort((a, b) => a - b), null, 2)],
+                        {type: "application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "fastapi-learned.json";
+  a.click();
+});
+
+document.getElementById("importBtn").addEventListener("click", () => {
+  document.getElementById("importFile").click();
+});
+document.getElementById("importFile").addEventListener("change", ev => {
+  const f = ev.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const arr = JSON.parse(reader.result);
+      learned = new Set(arr.map(Number));
+      save(); updateCount(); render();
+    } catch (e) { alert("文件格式不对，应该是一个数组，例如 [1,2,3]"); }
+  };
+  reader.readAsText(f);
+});
+
+updateCount();
+render();
+</script>
+</body>
+</html>
