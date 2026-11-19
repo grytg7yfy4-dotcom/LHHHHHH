@@ -77,6 +77,31 @@ a{color:var(--blue);text-decoration:none}
 
 .empty{padding:50px;text-align:center;color:var(--mut);font-size:13px}
 
+/* 思维导图视图 */
+.mapview{display:none}
+.mapview.on{display:block}
+.mtree{display:flex;align-items:flex-start;gap:34px;min-width:max-content;padding:8px 4px}
+.mcol{display:flex;flex-direction:column;gap:16px}
+.mnode{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+  padding:9px 14px;font-size:12.5px;white-space:nowrap}
+.mnode.root{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700;font-size:13.5px;
+  padding:14px 18px;text-align:center}
+.mnode.root span{display:block;font-size:11px;font-weight:400;opacity:.85;margin-top:3px}
+.mnode.chap{font-weight:700;border-left:4px solid var(--blue);position:relative}
+.mnode.chap i{font-style:normal;font-size:11px;color:var(--mut);font-weight:400;margin-left:6px}
+.mbranch{display:flex;align-items:center;gap:0}
+.mbranch::after{content:"";display:block;width:22px;height:1px;background:var(--line2)}
+.meps{display:flex;flex-direction:column;gap:4px;border-left:1px dashed var(--line2);padding-left:14px}
+.mep{display:flex;align-items:center;gap:6px;font-size:11.8px;color:var(--sub);
+  background:#fff;border:1px solid var(--line);border-radius:99px;padding:2px 10px 2px 7px;
+  cursor:pointer;white-space:nowrap}
+.mep:hover{border-color:#c9dcff;background:#f8fbff}
+.mep.done{background:var(--donebg);border-color:var(--doneline);color:var(--green)}
+.mep b{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--mut)}
+.mep.done b{color:var(--done)}
+.mep a{color:#9db3d6;font-size:10.5px;padding-left:2px}
+.mep a:hover{color:var(--blue)}
+
 /* 底部 */
 .foot{position:fixed;left:0;right:0;bottom:0;height:44px;display:flex;align-items:center;
   gap:14px;padding:0 16px;background:rgba(246,248,252,.94);border-top:1px solid var(--line);
@@ -102,7 +127,7 @@ a{color:var(--blue);text-decoration:none}
     <a href="../index.html">知识地图</a>
     <a href="../web/index.html">前端基础</a>
     <a href="../vue3/index.html">Vue3 导图</a>
-    <a href="../python.html">Python 导图</a>
+    <a href="../python/index.html">Python 导图</a>
     <a href="../../ml/index.html">机器学习导图</a>
     <a href="./index.html" class="on">后端 FastAPI</a>
   </div>
@@ -124,13 +149,14 @@ a{color:var(--blue);text-decoration:none}
 
 <div class="main">
   <div class="grid" id="grid"></div>
+  <div class="mapview" id="map"></div>
 </div>
 
 <div class="foot">
   <a href="../index.html">← 知识地图</a>
   <a href="../web/index.html">← 前端基础</a>
   <span>点行切换已学 · 点 P 号跳 B 站 · 点卡片标题收起</span>
-  <div class="right"><a class="pill" href="../web/index.html">切到前端导图</a></div>
+  <div class="right"><button class="pill" id="viewBtn">切到思维导图</button></div>
 </div>
 
 <script>
@@ -255,8 +281,54 @@ document.getElementById("importFile").addEventListener("change", ev => {
   reader.readAsText(f);
 });
 
+function renderMap() {
+  const mapEl = document.getElementById("map");
+  let html = '<div class="mtree"><div class="mcol"><div class="mnode root">FastAPI<span>' +
+             totalEps() + ' 集 · 已学 ' + learned.size + '</span></div></div><div class="mcol">';
+  BOARD.forEach(ch => {
+    const d = ch.eps.filter(e => learned.has(e.p)).length;
+    html += '<div class="mbranch"><div class="mnode chap">' + ch.no + ' ' + ch.name +
+            '<i>' + d + '/' + ch.eps.length + '</i></div><div class="meps">';
+    ch.eps.forEach(e => {
+      const on = learned.has(e.p);
+      html += '<span class="mep' + (on ? " done" : "") + '" data-p="' + e.p +
+              '" title="' + e.full.replace(/"/g, "&quot;") + '"><b>P' + e.p + '</b>' + e.t +
+              '<a href="https://www.bilibili.com/video/' + BV + '?p=' + e.p +
+              '" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></span>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div></div>';
+  mapEl.innerHTML = html;
+  mapEl.querySelectorAll(".mep").forEach(el => {
+    el.addEventListener("click", () => {
+      const p = Number(el.dataset.p);
+      if (learned.has(p)) learned.delete(p); else learned.add(p);
+      save(); updateCount(); render(); if (view === "map") renderMap();
+    });
+  });
+}
+
+let view = "board";
+try { view = localStorage.getItem("fastapi-view") || "board"; } catch (e) {}
+
+function applyView() {
+  document.getElementById("grid").style.display = view === "board" ? "" : "none";
+  document.getElementById("map").classList.toggle("on", view === "map");
+  document.getElementById("viewBtn").textContent = view === "board" ? "切到思维导图" : "切回看板";
+  document.querySelector(".bar").style.display = view === "board" ? "" : "none";
+  if (view === "map") renderMap();
+}
+
+document.getElementById("viewBtn").addEventListener("click", () => {
+  view = view === "board" ? "map" : "board";
+  try { localStorage.setItem("fastapi-view", view); } catch (e) {}
+  applyView();
+});
+
 updateCount();
 render();
+applyView();
 </script>
 </body>
 </html>
