@@ -2,3 +2,6 @@
 Thumbs.db
 desktop.ini
 *.log
+
+# 本地 B 站登录态（同步脚本用，禁止提交）
+工具/bili_cookie.txt

@@ -85,15 +85,17 @@
     </div></footer>`;
   }
   function shell(active, inner) {
-    $('#app').innerHTML = topbar(active) + inner + footer();
+    $('#app').innerHTML = topbar(active) + inner + footer() + '<button class="totop" id="toTop" aria-label="回到顶部" title="回到顶部">↑</button>';
     $('#themeBtn').addEventListener('click', toggleTheme);
-    // 阅读进度条
-    const bar = $('#readbar');
+    // 阅读进度条 + 回到顶部
+    const bar = $('#readbar'), toTop = $('#toTop');
     const onScroll = () => {
       const h = document.documentElement.scrollHeight - innerHeight;
       bar.style.width = h > 0 ? Math.min(100, scrollY / h * 100) + '%' : '0';
+      toTop.classList.toggle('show', scrollY > 700);
     };
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
     // 数字键快捷跳转
     document.addEventListener('keydown', e => {
       if (e.target.matches('input,textarea')) return;
@@ -275,7 +277,7 @@
           <a href="#quiz">📝 自测题</a>
           <a href="./learn-log.html">📈 学习记录</a>
           <div class="sep"></div>
-          <div class="mini">章节按钮可直接跳到 B 站对应时间点。</div>
+          <div class="mini">章节按钮可直接跳到 B 站对应时间点；键盘 ← / → 切换上下集。</div>
         </aside>
 
         <article class="content">
@@ -328,6 +330,13 @@
       else progress.done[no] = Date.now();
       saveProgress();
       location.reload();
+    });
+
+    // ← / → 切换上下集
+    addEventListener('keydown', e => {
+      if (e.target.matches('input,textarea,select')) return;
+      if (e.key === 'ArrowLeft' && prev) location.href = `./ep${String(prev.no).padStart(2, '0')}.html`;
+      if (e.key === 'ArrowRight' && next) location.href = `./ep${String(next.no).padStart(2, '0')}.html`;
     });
   }
 
