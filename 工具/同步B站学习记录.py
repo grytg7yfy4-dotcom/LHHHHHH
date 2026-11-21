@@ -107,8 +107,9 @@ def fetch_history(sessdata, max_pages=12):
                                     'business': cursor.get('business', ''), 'ps': 30})
         j = api_get('https://api.bilibili.com/x/web-interface/history/cursor?' + q, sessdata)
         if j.get('code') != 0:
-            if j.get('code') == -101:
-                die('SESSDATA 无效或已过期（-101 未登录）。请重新登录 B 站后复制新的 SESSDATA。')
+            if j.get('code') in (-101, -400):
+                die('SESSDATA 无效 / 已过期 / 被风控（%s）。请重新登录 B 站，'
+                    'F12 → Application → Cookies → bilibili.com → 复制新的 SESSDATA 再试。' % j.get('code'))
             die('B 站接口返回：%s %s' % (j.get('code'), j.get('message')))
         data = j.get('data') or {}
         lst = data.get('list') or []
