@@ -81,6 +81,16 @@ def read_sessdata(cli):
             if line.upper().startswith('SESSDATA='):
                 line = line.split('=', 1)[1].strip()
             return line.strip('"').strip("'")
+    # 交互式运行（双击 .bat）时直接粘贴
+    try:
+        if sys.stdin and sys.stdin.isatty():
+            print('没有找到 工具/bili_cookie.txt。')
+            print('SESSDATA 获取：浏览器登录 B 站 → F12 → Application → Cookies → bilibili.com → SESSDATA')
+            s = input('直接粘贴 SESSDATA（回车退出）：').strip().strip('"').strip("'")
+            if s:
+                return s.split('=', 1)[1].strip() if s.upper().startswith('SESSDATA=') else s
+    except (EOFError, OSError):
+        pass
     die('没有找到 SESSDATA。\n'
         '  方式一：新建 工具/bili_cookie.txt，里面写一行 SESSDATA=你的值\n'
         '  方式二：python 工具/同步B站学习记录.py --cookie "SESSDATA=你的值"\n'
@@ -133,24 +143,31 @@ def build_log(items):
         if not no:
             continue
         view_at = int(it.get('view_at') or 0)
-        progress = int(it.get('progress') or 0)
+        raw = int(it.get('progress') or 0)
         duration = int(it.get('duration') or META[no][0])
+        # B 站历史里 progress = -1 表示「已看完」（player 接口对应 last_play_time=-1000ms）
+        finished = raw < 0
+        progress = duration if finished else raw
         cur = best.get(no)
         if (not cur) or view_at > cur['view_at'] or (view_at == cur['view_at'] and progress > cur['progress']):
-            best[no] = {'view_at': view_at, 'progress': progress, 'duration': duration}
+            best[no] = {'view_at': view_at, 'progress': progress, 'duration': duration, 'finished': finished}
     entries = []
     for no, r in sorted(best.items(), key=lambda kv: kv[1]['view_at'], reverse=True):
         dt = datetime.datetime.fromtimestamp(r['view_at'])
-        pct = min(100, round(r['progress'] / max(1, r['duration']) * 100))
+        pct = 100 if r['finished'] else min(100, round(r['progress'] / max(1, r['duration']) * 100))
         watched = pct >= 85
+        if r['finished']:
+            detail = '已看完（B 站进度标记为完整观看）'
+        elif pct >= 85:
+            detail = '观看 %s / %s，进度 %d%%（接近看完）' % (mmss(r['progress']), mmss(r['duration']), pct)
+        else:
+            detail = '观看 %s / %s，进度 %d%%' % (mmss(r['progress']), mmss(r['duration']), pct)
         entries.append({
             'no': no,
             'date': dt.strftime('%Y-%m-%d'),
             'time': dt.strftime('%H:%M'),
             'title': 'EP%02d %s' % (no, TITLES[no]),
-            'detail': '观看 %s / %s，进度 %d%%%s' % (
-                mmss(r['progress']), mmss(r['duration']), pct,
-                '，已看完' if watched else ''),
+            'detail': detail,
             'module': META[no][1],
             'watched': watched,
             'viewAt': r['view_at'],

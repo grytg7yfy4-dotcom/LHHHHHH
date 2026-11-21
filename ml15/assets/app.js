@@ -42,10 +42,15 @@
   const LOG = (window.ML15_LOG && window.ML15_LOG.entries) || (C.log && C.log.entries) || [];
   const logByNo = {};
   LOG.forEach(en => { if (en && en.no) logByNo[en.no] = en; });
-  const isDone = no => !!progress.done[no] || !!logByNo[no];
+  const isDone = no => !!progress.done[no] || !!(logByNo[no] && logByNo[no].watched);
   function saveProgress() { progress.updated = new Date().toISOString(); try { localStorage.setItem(PKEY, JSON.stringify(progress)); } catch (e) { } }
   const doneCount = () => C.episodes.filter(e => isDone(e.no)).length;
-  const doneSec = () => C.episodes.filter(e => isDone(e.no)).reduce((s, e) => s + e.duration, 0);
+  // 已投入时长 = 本地标记的整集 + 日志里实际播放的秒数
+  const doneSec = () => C.episodes.reduce((s, e) => {
+    if (progress.done[e.no]) return s + e.duration;
+    const rec = logByNo[e.no];
+    return s + (rec ? Math.min(rec.progress || 0, e.duration) : 0);
+  }, 0);
 
   /* ---------------- 主题 ---------------- */
   (function initTheme() {
@@ -411,7 +416,10 @@
 
     const rows = C.episodes.map(e => {
       const d = progress.done[e.no], rec = logByNo[e.no];
-      const when = d ? '✓ ' + fmtDate(d) : rec ? '✓ ' + rec.date : '—';
+      let when = '—';
+      if (d) when = '✓ ' + fmtDate(d);
+      else if (rec && rec.watched) when = '✓ ' + rec.date;
+      else if (rec) when = '▶ ' + Math.round((rec.progress || 0) / Math.max(1, rec.duration || e.duration) * 100) + '%';
       return `<tr class="${isDone(e.no) ? 'done' : ''}" style="--mc:${COLORS[e.module]}">
         <td>EP${String(e.no).padStart(2, '0')}</td>
         <td><a href="./ep${String(e.no).padStart(2, '0')}.html">${esc(e.short)}</a></td>
