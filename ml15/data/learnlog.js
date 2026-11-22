@@ -1,31 +1,71 @@
 window.ML15_LOG = {
- "syncedAt": "2026-11-21 18:40",
+ "syncedAt": "2026-11-22 17:06",
  "source": "bilibili",
  "season": "https://www.bilibili.com/video/BV1M8D7BWEVQ",
  "entries": [
   {
    "no": 12,
-   "date": "2026-11-21",
-   "time": "18:19",
+   "date": "2026-11-22",
+   "time": "15:06",
    "title": "EP12 集成学习之 Boosting 模型——XGBoost、LightGBM、CatBoost",
-   "detail": "观看 8:52 / 23:50，进度 37%",
+   "detail": "观看 0:01 / 23:50，进度 0%",
    "module": "ensemble",
    "watched": false,
-   "viewAt": 1795256341,
-   "progress": 532,
-   "duration": 1430
+   "viewAt": 1795331192,
+   "progress": 1,
+   "duration": 1430,
+   "confirmed": "2026-11-22",
+   "note": "B 站最后一次记录未到结尾，按本人确认标记为已学完"
+  },
+  {
+   "no": 15,
+   "date": "2026-11-22",
+   "time": "15:05",
+   "title": "EP15 机器学习课程总结与深度学习展望",
+   "detail": "已看完（B 站进度标记为完整观看）",
+   "module": "summary",
+   "watched": true,
+   "viewAt": 1795331130,
+   "progress": 1354,
+   "duration": 1354
+  },
+  {
+   "no": 14,
+   "date": "2026-11-22",
+   "time": "14:24",
+   "title": "EP14 PCA 主成分分析，机器学习最后一个模型",
+   "detail": "已看完（B 站进度标记为完整观看）",
+   "module": "unsupervised",
+   "watched": true,
+   "viewAt": 1795328690,
+   "progress": 1339,
+   "duration": 1339
+  },
+  {
+   "no": 13,
+   "date": "2026-11-22",
+   "time": "13:57",
+   "title": "EP13 K-Means 聚类",
+   "detail": "已看完（B 站进度标记为完整观看）",
+   "module": "unsupervised",
+   "watched": true,
+   "viewAt": 1795327046,
+   "progress": 1046,
+   "duration": 1046
   },
   {
    "no": 11,
    "date": "2026-11-21",
-   "time": "17:44",
+   "time": "21:36",
    "title": "EP11 随机森林——决策树模型升级版",
-   "detail": "已看完（B 站进度标记为完整观看）",
+   "detail": "观看 1:27 / 12:57，进度 11%",
    "module": "ensemble",
-   "watched": true,
-   "viewAt": 1795254274,
-   "progress": 777,
-   "duration": 777
+   "watched": false,
+   "viewAt": 1795268201,
+   "progress": 87,
+   "duration": 777,
+   "confirmed": "2026-11-22",
+   "note": "B 站最后一次记录未到结尾，按本人确认标记为已学完"
   },
   {
    "no": 10,
@@ -49,7 +89,9 @@ window.ML15_LOG = {
    "watched": false,
    "viewAt": 1795250231,
    "progress": 13,
-   "duration": 1322
+   "duration": 1322,
+   "confirmed": "2026-11-22",
+   "note": "B 站最后一次记录未到结尾，按本人确认标记为已学完"
   },
   {
    "no": 9,
@@ -149,8 +191,10 @@ window.ML15_LOG = {
   }
  ],
  "summary": {
-  "episodes": 12,
-  "watched": 10,
-  "watchedSeconds": 12748
- }
+  "episodes": 15,
+  "watched": 15,
+  "watchedSeconds": 19239,
+  "completedAt": "2026-11-22"
+ },
+ "finishedAt": "2026-11-22"
 };

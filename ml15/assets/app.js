@@ -42,14 +42,17 @@
   const LOG = (window.ML15_LOG && window.ML15_LOG.entries) || (C.log && C.log.entries) || [];
   const logByNo = {};
   LOG.forEach(en => { if (en && en.no) logByNo[en.no] = en; });
-  const isDone = no => !!progress.done[no] || !!(logByNo[no] && logByNo[no].watched);
+  const logDone = rec => !!(rec && (rec.watched || rec.confirmed));
+  const isDone = no => !!progress.done[no] || logDone(logByNo[no]);
   function saveProgress() { progress.updated = new Date().toISOString(); try { localStorage.setItem(PKEY, JSON.stringify(progress)); } catch (e) { } }
   const doneCount = () => C.episodes.filter(e => isDone(e.no)).length;
   // 已投入时长 = 本地标记的整集 + 日志里实际播放的秒数
   const doneSec = () => C.episodes.reduce((s, e) => {
     if (progress.done[e.no]) return s + e.duration;
     const rec = logByNo[e.no];
-    return s + (rec ? Math.min(rec.progress || 0, e.duration) : 0);
+    if (!rec) return s;
+    if (rec.watched || rec.confirmed) return s + e.duration;
+    return s + Math.min(rec.progress || 0, e.duration);
   }, 0);
 
   /* ---------------- 主题 ---------------- */
@@ -177,7 +180,7 @@
         <div class="ring">${ringSvg(pct)}<div class="pct">${pct}%<small>完成</small></div></div>
         <div class="progress-info">
           <h3>我的学习进度</h3>
-          <p>进度存在浏览器本地，换设备会丢；学完一集在分集页点「标记已学完」。</p>
+          <p>${pct === 100 ? '🎉 15 集全部学完，课程完结！可以回头刷速查表和自测题了。' : '进度存在浏览器本地，换设备会丢；学完一集在分集页点「标记已学完」。'}</p>
           <div class="pbar"><i style="width:${pct}%"></i></div>
           <div class="progress-nums">
             <span>已学 <b>${doneCount()}</b> / ${C.episodes.length} 集</span>
@@ -407,7 +410,7 @@
     const timeline = entries.length ? entries.map(en => `<div class="tl" style="--mc:${COLORS[en.module] || '#2563eb'}">
         <div class="when">${esc(en.date)}${en.time ? ' · ' + esc(en.time) : ''}</div>
         <div class="what">${esc(en.title)}</div>
-        <div class="detail">${inline(en.detail || '')}</div></div>`).join('')
+        <div class="detail">${inline(en.detail || '')}${en.confirmed && !en.watched ? ' · <b style="color:var(--ok)">本人确认已学完</b>' : ''}</div></div>`).join('')
       : (C.episodes || []).slice().sort((a, b) => (a.publish < b.publish ? 1 : -1)).map(e => `<div class="tl" style="--mc:${COLORS[e.module]}">
         <div class="when">${esc(e.publish || '')} · 课程更新</div>
         <div class="what">EP${String(e.no).padStart(2, '0')} ${esc(e.short)}</div>
@@ -419,6 +422,7 @@
       let when = '—';
       if (d) when = '✓ ' + fmtDate(d);
       else if (rec && rec.watched) when = '✓ ' + rec.date;
+      else if (rec && rec.confirmed) when = '<span title="B 站进度未记录完整，本人确认已学完">✓ ' + rec.confirmed + ' *</span>';
       else if (rec) when = '▶ ' + Math.round((rec.progress || 0) / Math.max(1, rec.duration || e.duration) * 100) + '%';
       return `<tr class="${isDone(e.no) ? 'done' : ''}" style="--mc:${COLORS[e.module]}">
         <td>EP${String(e.no).padStart(2, '0')}</td>
@@ -432,12 +436,13 @@
       <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>学习记录</span></div>
       <h1>学习记录 · 时间与投入</h1>
       <p class="sub">把 B 站合集里的观看时间同步到这里：每集看了多少、什么时候看的、累计投入多少小时。数据保存在仓库的 <code>data/learnlog.js</code> 里，换设备也在。</p>
+      ${done === C.episodes.length ? '<div class="finish-badge">🎉 课程已完结 · 2026-11-22 学完 15 集，共 5 小时 20 分</div>' : ''}
     </div></div>
 
     <div class="wrap"><div class="loghero">
       <div class="logsum">
         <div style="font-size:12px;color:var(--muted);letter-spacing:1px;font-weight:700">累计学习时长</div>
-        <div class="big">${Math.floor(doneT / 3600)}<small> 小时 </small>${Math.round(doneT % 3600 / 60)}<small> 分</small></div>
+        <div class="big">${Math.floor(doneT / 3600)}<small> 小时 </small>${Math.floor(doneT % 3600 / 60)}<small> 分</small></div>
         <div class="pbar"><i style="width:${pct}%"></i></div>
         <div class="rows">
           <div><b>${done}/${C.episodes.length}</b><span>完成集数</span></div>
@@ -467,6 +472,7 @@
 
     <section class="block"><div class="sec-head"><h2><span class="no">TABLE</span>逐集明细</h2><p>按课程顺序</p></div>
       <div class="tablewrap"><table class="logtable"><thead><tr><th>集</th><th>标题</th><th>模块</th><th class="num">时长</th><th class="num">完成时间</th></tr></thead><tbody>${rows}</tbody></table></div>
+      ${C.episodes.some(e => logByNo[e.no] && logByNo[e.no].confirmed) ? '<p class="hint" style="margin:8px 2px 0">* 这几集 B 站最后一次进度没记录到结尾，按本人确认标记为已学完；其余为 B 站同步的真实进度。</p>' : ''}
       <div class="mapcard" style="margin-top:16px"><div data-fig="fig-log-timeline" id="logFig"></div></div>
     </section>
     </div></main>`);

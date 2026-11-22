@@ -183,7 +183,21 @@ def mmss(s):
 
 
 def write_log(entries):
-    total = sum(e['duration'] for e in entries if e['watched'])
+    # 保留手动确认过的「本人确认已学完」标记（B 站进度没记录完整时用）
+    confirmed = {}
+    if os.path.exists(OUT_FILE):
+        try:
+            old = open(OUT_FILE, encoding='utf-8').read()
+            d = json.loads(old[old.index('{'):old.rindex('}') + 1])
+            for e in d.get('entries', []):
+                if e.get('confirmed'):
+                    confirmed[e['no']] = e['confirmed']
+        except Exception:
+            pass
+    for e in entries:
+        if e['no'] in confirmed:
+            e['confirmed'] = confirmed[e['no']]
+    total = sum(e['duration'] for e in entries if e['watched'] or e.get('confirmed'))
     payload = {
         'syncedAt': datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
         'source': 'bilibili',
