@@ -713,6 +713,107 @@
     return S(s, 256);
   };
 
+  /* 补充：神经网络结构 */
+  F['fig-nn'] = () => {
+    let s = '';
+    const LY = [[80, [72, 150, 228], '输入层'], [300, [54, 122, 190, 258], '隐藏层 (ReLU)'], [520, [156], '输出层']];
+    // 连线
+    for (let i = 0; i < 3; i++) for (let j = 0; j < 4; j++) {
+      s += L(LY[0][0], LY[0][1][i], LY[1][0], LY[1][1][j], { stroke: LINE, opacity: .9, sw: 1 });
+    }
+    for (let j = 0; j < 4; j++) s += L(LY[1][0], LY[1][1][j], LY[2][0], LY[2][1][0], { stroke: LINE, opacity: .9, sw: 1 });
+    // 节点
+    LY[0][1].forEach((y, i) => { s += C(LY[0][0], y, 15, { fill: PANEL, stroke: C1, sw: 2 }) + T(LY[0][0], y + 4, 'x' + (i + 1), { size: 10, anchor: 'middle', fill: INK, weight: 700 }); });
+    LY[1][1].forEach((y, j) => { s += C(LY[1][0], y, 15, { fill: C1, opacity: .12 }) + C(LY[1][0], y, 15, { fill: 'none', stroke: C1, sw: 1.8 }) + T(LY[1][0], y + 4, 'a' + (j + 1), { size: 9.5, anchor: 'middle', fill: C1, weight: 700 }); });
+    LY[2][1].forEach(y => { s += C(LY[2][0], y, 17, { fill: C5, opacity: .14 }) + C(LY[2][0], y, 17, { fill: 'none', stroke: C5, sw: 2 }) + T(LY[2][0], y + 4, 'ŷ', { size: 12, anchor: 'middle', fill: C5, weight: 700 }); });
+    // 层标注
+    [[80, '输入层', '3 维特征'], [300, '隐藏层', '4 个神经元 + ReLU'], [520, '输出层', 'Sigmoid']].forEach(([x, a, b]) => {
+      s += T(x, 300, a, { size: 11, anchor: 'middle', fill: INK, weight: 700 });
+      s += T(x, 318, b, { size: 9.5, anchor: 'middle', fill: MUT });
+    });
+    s += T(300, 26, '前向传播：z = Wx + b，a = g(z)', { size: 11, anchor: 'middle', fill: C1, weight: 700 });
+    return S(s, 332);
+  };
+
+  /* 补充：异常检测高斯密度 */
+  F['fig-anomaly'] = () => {
+    let s = R(10, 16, 620, 246, { rx: 14, fill: 'var(--panel-2)', stroke: LINE });
+    const cx = 300, cy = 140;
+    // 等高椭圆
+    [[76, 44], [120, 70], [164, 96]].forEach(([rx, ry], i) => {
+      s += `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="${C2}" stroke-opacity="${0.5 - i * 0.12}" stroke-width="1.5" stroke-dasharray="5 4" transform="rotate(-18 ${cx} ${cy})"/>`;
+    });
+    // 正常点
+    const pts = [[250, 120], [270, 150], [300, 128], [320, 156], [340, 130], [280, 100], [330, 108],
+      [260, 170], [310, 176], [350, 160], [230, 140], [360, 140], [290, 150], [340, 170], [255, 108],
+      [375, 120], [240, 158]];
+    pts.forEach(([x, y]) => { s += C(x, y, 3.6, { fill: C1, opacity: .75 }); });
+    // 异常点
+    [[420, 60], [470, 200], [180, 200], [500, 220]].forEach(([x, y]) => {
+      s += C(x, y, 5, { fill: C4, opacity: .9 });
+      s += C(x, y, 10, { fill: 'none', stroke: C4, sw: 1.2, opacity: .5 });
+    });
+    s += T(cx, 34, '正常样本：p(x) 大', { size: 11, fill: C2, anchor: 'middle', weight: 700 });
+    s += T(468, 84, 'p(x) < ε', { size: 10.5, fill: C4, weight: 700 });
+    s += T(22, 250, '每个特征估 μ、σ，连乘得到 p(x)；阈值 ε 用验证集选，p(x) 低于 ε 判异常。', { size: 10, fill: MUT });
+    return S(s, 272);
+  };
+
+  /* 补充：推荐系统矩阵分解 */
+  F['fig-reco'] = () => {
+    let s = '';
+    const cell = (x, y, w, h, fill, stroke) => R(x, y, w, h, { rx: 3, fill: fill, stroke: stroke || LINE, sw: 1 });
+    // R 矩阵
+    s += T(70, 28, '评分矩阵 R', { size: 11, anchor: 'middle', fill: INK, weight: 700 });
+    for (let r = 0; r < 5; r++) for (let c = 0; c < 5; c++) {
+      const has = (r * 5 + c) % 3 !== 0;
+      s += cell(20 + c * 22, 42 + r * 22, 20, 20, has ? C1 : 'none', has ? C1 : LINE);
+      if (has) s += T(30 + c * 22, 56 + r * 22, '5', { size: 8, fill: '#fff', anchor: 'middle', weight: 700 });
+    }
+    s += T(70, 178, '稀疏：大部分格子未知', { size: 9.5, anchor: 'middle', fill: MUT });
+    // 箭头
+    s += ARR(150, 92, 190, 92, { stroke: MUT, opacity: .7, len: 7 });
+    s += T(170, 78, '分解', { size: 9.5, anchor: 'middle', fill: MUT });
+    // X
+    s += T(252, 28, '用户矩阵 X', { size: 11, anchor: 'middle', fill: INK, weight: 700 });
+    for (let r = 0; r < 5; r++) for (let c = 0; c < 3; c++) s += cell(212 + c * 22, 42 + r * 22, 20, 20, C1, 0.12);
+    s += T(252, 178, '5 用户 × k 维', { size: 9.5, anchor: 'middle', fill: MUT });
+    // ×
+    s += T(340, 108, '×', { size: 18, fill: MUT, anchor: 'middle' });
+    // Θ^T
+    s += T(420, 28, '物品矩阵 Θᵀ', { size: 11, anchor: 'middle', fill: INK, weight: 700 });
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) s += cell(376 + c * 22, 42 + r * 22, 20, 20, C5, 0.12);
+    s += T(420, 126, 'k × 5 物品', { size: 9.5, anchor: 'middle', fill: MUT });
+    // 预测
+    s += ARR(486, 92, 526, 92, { stroke: MUT, opacity: .7, len: 7 });
+    s += R(530, 64, 86, 56, { rx: 10, fill: PANEL, stroke: C2, sw: 1.5 });
+    s += T(573, 88, 'r̂ = xᵀθ', { size: 11, anchor: 'middle', fill: C2, weight: 700 });
+    s += T(573, 106, '预测评分', { size: 9, anchor: 'middle', fill: MUT });
+    s += T(20, 214, '只对已知评分算损失；学出的隐向量点积就是缺失格子的预测值。', { size: 10, fill: MUT });
+    return S(s, 236);
+  };
+
+  /* 补充：强化学习循环 */
+  F['fig-rl'] = () => {
+    let s = '';
+    s += R(90, 70, 130, 66, { rx: 14, fill: C1, opacity: .12 });
+    s += T(155, 100, '智能体', { size: 14, anchor: 'middle', fill: C1, weight: 800 });
+    s += T(155, 120, 'Agent', { size: 9.5, anchor: 'middle', fill: MUT });
+    s += R(390, 70, 130, 66, { rx: 14, fill: C5, opacity: .12 });
+    s += T(455, 100, '环境', { size: 14, anchor: 'middle', fill: C5, weight: 800 });
+    s += T(455, 120, 'Environment', { size: 9.5, anchor: 'middle', fill: MUT });
+    s += ARR(225, 92, 385, 92, { stroke: C1, sw: 2 });
+    s += T(305, 82, '动作 a', { size: 10.5, anchor: 'middle', fill: C1, weight: 700 });
+    s += ARR(385, 118, 225, 118, { stroke: C3, sw: 2 });
+    s += T(305, 136, '状态 s′ + 奖励 r', { size: 10.5, anchor: 'middle', fill: C3, weight: 700 });
+    // 循环
+    s += P('M 130 160 C 120 200, 210 214, 300 206', { stroke: C2, sw: 1.6, dash: '5 4' });
+    s += P('M 480 160 C 490 200, 400 214, 310 206', { stroke: C2, sw: 1.6, dash: '5 4' });
+    s += T(305, 222, '策略 π 根据回报不断调整', { size: 10, anchor: 'middle', fill: C2 });
+    s += T(305, 258, '目标：max E[ r₀ + γr₁ + γ²r₂ + … ]', { size: 11, anchor: 'middle', fill: INK, weight: 700 });
+    return S(s, 276);
+  };
+
   /* ---------- 导出 ---------- */
   function render(key, el) {
     const fn = F[key];

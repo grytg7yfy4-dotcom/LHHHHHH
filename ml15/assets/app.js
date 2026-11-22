@@ -73,6 +73,8 @@
     const nav = [
       ['home', '课程首页', './index.html'],
       ['cheat', '速查表', './cheatsheet.html'],
+      ['compare', '对比表', './compare.html'],
+      ['suppl', '知识点补充', './supplement.html'],
       ['log', '学习记录', './learn-log.html'],
       ['ml', '吴恩达 ML', '../ml/'],
       ['map', '知识地图', '../mindmap/'],
@@ -173,6 +175,25 @@
         <p>6 个模块、15 集，按依赖顺序排好了，别跳着看</p></div>
       <div class="modrail">${modsHtml}</div>
       <div class="mapcard"><div data-fig="fig-course-map"></div></div>
+    </div></section>
+
+    <section class="block"><div class="wrap">
+      <div class="sec-head"><h2><span class="no">对比</span>15 讲还缺什么</h2>
+        <p>和吴恩达《机器学习》逐知识点对比，缺的已经补齐</p></div>
+      <div class="cmp-home">
+        <a class="cmp-card" href="./compare.html">
+          <div class="cmp-card-top"><span class="cst full">已覆盖 ${(window.ML15_COMPARE && ML15_COMPARE.summary.full) || 18}</span><span class="cst partial">部分 ${(window.ML15_COMPARE && ML15_COMPARE.summary.partial) || 8}</span><span class="cst missing">缺失 ${(window.ML15_COMPARE && ML15_COMPARE.summary.missing) || 7}</span></div>
+          <h3>📊 对比吴恩达 · ${(window.ML15_COMPARE && ML15_COMPARE.rows.length) || 33} 个知识点</h3>
+          <p>谦行 15 集（5h20m）vs 吴恩达 12 章（144 集 / 21.6h）：哪些讲到了、哪些只讲了一半、哪些完全没讲，一页看清。</p>
+          <span class="cmp-link">打开对比表 →</span>
+        </a>
+        <a class="cmp-card" href="./supplement.html">
+          <div class="cmp-card-top"><span class="cst partial">${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.length) || 6} 个补充模块</span><span class="cst full">${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.reduce((s, x) => s + x.concepts.length, 0)) || 23} 张卡片</span></div>
+          <h3>🧩 知识点补充</h3>
+          <p>神经网络、误差分析与上限分析、异常检测、推荐系统、强化学习，以及收敛判断 / 多分类 / 正则化实现等细节，按吴恩达章节补齐。</p>
+          <span class="cmp-link">去补知识点 →</span>
+        </a>
+      </div>
     </div></section>
 
     <section class="block"><div class="wrap">
@@ -348,7 +369,8 @@
     });
   }
 
-  function conceptHtml(c, i, col) {
+  function conceptHtml(c, i, col, prefix) {
+    prefix = prefix || '';
     const parts = [];
     if (c.lead) parts.push(`<div class="lead">${inline(c.lead)}</div>`);
     if (c.body) parts.push(paras(c.body));
@@ -369,7 +391,7 @@
     if (c.pitfall) parts.push(`<div class="callout warn"><span class="ic">⚠</span><div><b>易错点：</b>${inline(c.pitfall)}</div></div>`);
     if (c.tip) parts.push(`<div class="callout tip"><span class="ic">💡</span><div><b>记忆技巧：</b>${inline(c.tip)}</div></div>`);
     if (c.note) parts.push(`<div class="callout note"><span class="ic">📌</span><div>${inline(c.note)}</div></div>`);
-    return `<section class="concept" id="c-${i}">
+    return `<section class="concept" id="${prefix}c-${i}">
       <h3><span class="idx">${String(i + 1).padStart(2, '0')}</span>${esc(c.h)}</h3>
       ${parts.join('\n')}</section>`;
   }
@@ -488,10 +510,149 @@
     });
   }
 
+  /* ---------------- 对比吴恩达 ---------------- */
+  function pageCompare() {
+    const D = window.ML15_COMPARE || { rows: [], summary: {} };
+    const rows = D.rows || [];
+    const cats = [];
+    rows.forEach(r => { if (!cats.includes(r.cat)) cats.push(r.cat); });
+    const stMap = { full: ['已覆盖', 'full'], partial: ['部分覆盖', 'partial'], missing: ['未覆盖', 'missing'] };
+    const counts = { full: 0, partial: 0, missing: 0 };
+    rows.forEach(r => { counts[r.status] = (counts[r.status] || 0) + 1; });
+
+    const tbl = cats.map(cat => {
+      const crs = rows.filter(r => r.cat === cat);
+      const trs = crs.map(r => {
+        const st = stMap[r.status] || ['?', 'missing'];
+        const supp = r.suppl ? ` <a class="mini-link" href="./supplement.html#${r.suppl}">去补充 →</a>` : '';
+        return `<tr data-status="${r.status}">
+          <td>${esc(r.topic)}</td>
+          <td class="ng">${esc(r.ng)}</td>
+          <td class="qx">${esc(r.qx)}</td>
+          <td><span class="cst ${st[1]}">${st[0]}</span></td>
+          <td>${inline(r.note || '')}${supp}</td></tr>`;
+      }).join('');
+      return `<section class="cmp-cat" data-cat="${esc(cat)}">
+        <h3>${esc(cat)}<span>${crs.length} 项</span></h3>
+        <div class="tablewrap"><table class="cmptable">
+          <thead><tr><th>知识点</th><th>吴恩达</th><th>15 讲</th><th>覆盖度</th><th>说明 / 补充</th></tr></thead>
+          <tbody>${trs}</tbody></table></div></section>`;
+    }).join('');
+
+    shell('compare', `<main>
+      <div class="pagehead"><div class="wrap">
+        <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>对比吴恩达</span></div>
+        <h1>谦行 15 讲 vs 吴恩达 12 章</h1>
+        <p class="sub">15 集只有 5 小时 20 分，吴恩达完整课程 12 章 144 集约 21.6 小时——时长差了 4 倍，必然有取舍。这张表逐知识点标出：哪些讲透了、哪些只讲一半、哪些没讲。没讲的部分已经整理成 <a href="./supplement.html">知识点补充</a>。</p>
+        <div class="stats" style="margin-top:16px">
+          <div class="stat"><b>${rows.length}</b><span>对比知识点</span></div>
+          <div class="stat"><b style="color:var(--ok)">${counts.full}</b><span>已覆盖</span></div>
+          <div class="stat"><b style="color:var(--warn)">${counts.partial}</b><span>部分覆盖</span></div>
+          <div class="stat"><b style="color:var(--bad)">${counts.missing}</b><span>未覆盖（已补充）</span></div>
+        </div>
+        <div class="hero-meta" style="margin-top:14px">
+          <span class="pill">谦行：<b>15 集</b> / 321 分钟 / 6 模块</span>
+          <span class="pill">吴恩达：<b>12 章</b> / 144 集 / 约 1298 分钟</span>
+          <span class="pill">补充：<b>${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.length) || 6}</b> 模块 · <b>${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.reduce((s, x) => s + x.concepts.length, 0)) || 23}</b> 张卡</span>
+        </div>
+        <div class="cmptoolbar">
+          <button class="cflt on" data-f="all">全部 ${rows.length}</button>
+          <button class="cflt" data-f="full">已覆盖 ${counts.full}</button>
+          <button class="cflt" data-f="partial">部分 ${counts.partial}</button>
+          <button class="cflt" data-f="missing">未覆盖 ${counts.missing}</button>
+          <a class="btn sm" href="./supplement.html">🧩 打开知识点补充</a>
+        </div>
+        <div class="cmp-legend">
+          <span class="cst full">已覆盖</span> 谦行讲清楚了，能直接用来做题 / 面试
+          <span class="cst partial">部分覆盖</span> 讲了主干，但细节点或工程流程缺失
+          <span class="cst missing">未覆盖</span> 15 讲里没有，点「去补充」看吴恩达对应内容
+        </div>
+      </div></div>
+      <div class="wrap">${tbl}</div>
+    </main>`);
+    $$('.cflt').forEach(btn => btn.addEventListener('click', () => {
+      $$('.cflt').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.f;
+      $$('.cmp-cat').forEach(sec => {
+        let any = false;
+        $$('tr[data-status]', sec).forEach(tr => {
+          const ok = f === 'all' || tr.dataset.status === f;
+          tr.style.display = ok ? '' : 'none';
+          if (ok) any = true;
+        });
+        sec.style.display = any ? '' : 'none';
+      });
+    }));
+  }
+
+  /* ---------------- 知识点补充 ---------------- */
+  function pageSupplement() {
+    const D = window.ML15_SUPPLEMENT || { sections: [] };
+    const secs = D.sections || [];
+    const total = secs.reduce((s, x) => s + (x.concepts || []).length, 0);
+    const COLORS6 = ['#7c3aed', '#d97706', '#0ea5e9', '#2563eb', '#dc2626', '#16a34a'];
+    const toc = secs.map((s, i) => `<a href="#${s.id}" data-toc="${s.id}"><span class="no">${String(i + 1).padStart(2, '0')}</span>${esc(s.title)}</a>`).join('');
+    const body = secs.map((s, si) => {
+      const col = COLORS6[si % COLORS6.length];
+      const cards = (s.concepts || []).map((c, i) => conceptHtml(c, i, col, s.id + '-')).join('');
+      return `<section class="suppl-sec" id="${s.id}" style="--mc:${col}">
+        <div class="suppl-head">
+          <div class="suppl-from">${esc(s.from || '')}</div>
+          <h2>${esc(s.title)}</h2>
+          <p>${inline(s.intro || '')}</p>
+        </div>${cards}</section>`;
+    }).join('');
+
+    shell('suppl', `<main>
+      <div class="pagehead"><div class="wrap">
+        <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>知识点补充</span></div>
+        <h1>知识点补充 · 吴恩达课程里 15 讲没讲的部分</h1>
+        <p class="sub">${inline(D.intro || '')}</p>
+        <div class="hero-meta" style="margin-top:14px">
+          <span class="pill"><b>${secs.length}</b> 个模块</span>
+          <span class="pill"><b>${total}</b> 张知识卡</span>
+          <span class="pill">来源：吴恩达《机器学习》第 3–12 章</span>
+          <a class="pill" href="./compare.html" style="text-decoration:none">← 先看对比表</a>
+        </div>
+      </div></div>
+      <div class="wrap"><div class="doc" style="--mc:#2563eb">
+        <aside class="toc">
+          <div class="t">补充模块</div>
+          ${toc}
+          <div class="sep"></div>
+          <a href="./compare.html">📊 对比吴恩达</a>
+          <a href="./cheatsheet.html">📋 一页速查</a>
+          <div class="mini">每张卡都标了对应的吴恩达章节，方便回原课对照。</div>
+        </aside>
+        <article class="content">${body}</article>
+      </div></div>
+    </main>`);
+
+    hydrateFigures();
+    // 目录高亮
+    const links = $$('.toc a[data-toc]');
+    if (links.length && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if (en.isIntersecting) links.forEach(a => a.classList.toggle('on', a.dataset.toc === en.target.id));
+        });
+      }, { rootMargin: '-15% 0px -70% 0px' });
+      $$('.suppl-sec').forEach(s => io.observe(s));
+    }
+    links.forEach(a => a.addEventListener('click', ev => {
+      ev.preventDefault();
+      const el = $('#' + a.dataset.toc);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }));
+  }
+
   /* ---------------- 启动 ---------------- */
   const page = document.body.dataset.page;
   if (page === 'home') pageHome();
   else if (page === 'episode') pageEpisode();
   else if (page === 'cheat') pageCheat();
   else if (page === 'log') pageLog();
+  else if (page === 'compare') pageCompare();
+  else if (page === 'supplement') pageSupplement();
 })();

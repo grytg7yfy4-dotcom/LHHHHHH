@@ -430,6 +430,44 @@ footer.site a{color:var(--sub)}
 .fadein{opacity:0;transform:translateY(8px);animation:fade .45s ease forwards}
 @keyframes fade{to{opacity:1;transform:none}}
 
+/* ---------------- 对比吴恩达 / 知识点补充 ---------------- */
+.cmp-home{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cmp-card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 22px;
+  box-shadow:var(--shadow-sm);transition:transform .15s,border-color .15s,box-shadow .15s;color:var(--ink)}
+.cmp-card:hover{text-decoration:none;transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent) 40%,var(--line));box-shadow:var(--shadow)}
+.cmp-card-top{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.cmp-card h3{margin:0 0 6px;font-size:17px;letter-spacing:-.2px}
+.cmp-card p{margin:0;font-size:13px;color:var(--sub);line-height:1.75}
+.cmp-link{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);font-weight:700}
+
+.cst{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap;line-height:1.7}
+.cst.full{color:var(--ok);background:var(--ok-soft);border:1px solid color-mix(in srgb,var(--ok) 28%,transparent)}
+.cst.partial{color:var(--warn);background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent)}
+.cst.missing{color:var(--bad);background:var(--bad-soft);border:1px solid color-mix(in srgb,var(--bad) 28%,transparent)}
+
+.cmptoolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:16px 0 4px}
+.cflt{font-size:12.5px;color:var(--sub);background:var(--panel);border:1px solid var(--line);border-radius:999px;
+  padding:6px 13px;box-shadow:var(--shadow-sm)}
+.cflt:hover{color:var(--accent);border-color:var(--accent)}
+.cflt.on{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 45%,transparent);color:var(--accent);font-weight:700}
+.cmp-legend{font-size:12px;color:var(--muted);margin:14px 0 4px;line-height:2.1;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+
+.cmp-cat{margin:22px 0}
+.cmp-cat h3{margin:0 0 9px;font-size:15px;display:flex;align-items:center;gap:9px}
+.cmp-cat h3 span{font-size:11px;color:var(--muted);font-weight:400}
+.cmptable{font-size:13px}
+.cmptable td.ng,.cmptable td.qx{white-space:nowrap;color:var(--muted);font-size:12px}
+.cmptable td:first-child{min-width:180px;color:var(--ink);font-weight:600}
+.mini-link{font-size:11.5px;white-space:nowrap;margin-left:4px}
+
+.suppl-sec{padding-top:14px}
+.suppl-head{background:linear-gradient(135deg,color-mix(in srgb,var(--mc) 9%,var(--panel)),var(--panel));
+  border:1px solid color-mix(in srgb,var(--mc) 24%,var(--line));border-radius:18px;padding:20px 24px;margin:10px 0 6px;box-shadow:var(--shadow-sm)}
+.suppl-from{display:inline-flex;font-size:11px;font-weight:700;color:var(--mc);background:color-mix(in srgb,var(--mc) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--mc) 26%,transparent);border-radius:999px;padding:3px 10px}
+.suppl-head h2{margin:10px 0 6px;font-size:21px;letter-spacing:-.3px}
+.suppl-head p{margin:0;color:var(--sub);font-size:13.5px;line-height:1.8}
+
 /* ---------------- 响应式 ---------------- */
 @media (max-width:1080px){
   .epgrid{grid-template-columns:repeat(2,1fr)}
@@ -443,7 +481,7 @@ footer.site a{color:var(--sub)}
   .topnav a.hide-m{display:none}
   .stats{grid-template-columns:repeat(2,1fr)}
   .epgrid{grid-template-columns:1fr}
-  .cheat-grid,.loghero,.prevnext{grid-template-columns:1fr}
+  .cheat-grid,.loghero,.prevnext,.cmp-home{grid-template-columns:1fr}
   .progress-panel{grid-template-columns:1fr;gap:16px;justify-items:start}
   .concept{padding:18px 16px}
   .hero{padding:34px 0 18px}
