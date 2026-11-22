@@ -89,9 +89,10 @@
       </nav></div></header><div class="readbar" id="readbar"></div>`;
   }
   function footer() {
+    const ver = (document.querySelector('meta[name="ml15-version"]') || {}).content || '';
     return `<footer class="site"><div class="inner">
       <span>内容整理自 B 站 <a href="${C.meta.seasonUrl}" target="_blank" rel="noopener">@${esc(C.meta.up)}《机器学习》</a> · 15 集 / ${Math.floor(C.meta.totalSec / 3600)} 小时 ${Math.round(C.meta.totalSec % 3600 / 60)} 分 · 仅供学习交流</span>
-      <span>${esc(C.meta.owner)} · <a href="${C.meta.repo}" target="_blank" rel="noopener">GitHub 仓库</a> · 建议配合原视频食用</span>
+      <span>${esc(C.meta.owner)} · <a href="${C.meta.repo}" target="_blank" rel="noopener">GitHub 仓库</a> · 建议配合原视频食用${ver ? ' · v' + esc(ver) : ''}</span>
     </div></footer>`;
   }
   function shell(active, inner) {
