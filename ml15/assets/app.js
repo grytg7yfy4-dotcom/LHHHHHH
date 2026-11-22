@@ -607,12 +607,13 @@
     shell('suppl', `<main>
       <div class="pagehead"><div class="wrap">
         <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>知识点补充</span></div>
-        <h1>知识点补充 · 吴恩达课程里 15 讲没讲的部分</h1>
+        <h1>知识点补充 · 谦行 15 讲没讲到的部分</h1>
         <p class="sub">${inline(D.intro || '')}</p>
         <div class="hero-meta" style="margin-top:14px">
           <span class="pill"><b>${secs.length}</b> 个模块</span>
           <span class="pill"><b>${total}</b> 张知识卡</span>
-          <span class="pill">来源：吴恩达《机器学习》第 3–12 章</span>
+          <span class="pill">补充对象：<b>谦行 15 讲</b>的缺口</span>
+          <span class="pill">参考教材：吴恩达第 <b>3–12</b> 章</span>
           <a class="pill" href="./compare.html" style="text-decoration:none">← 先看对比表</a>
         </div>
       </div></div>
