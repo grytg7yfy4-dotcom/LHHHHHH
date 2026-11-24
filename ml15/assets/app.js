@@ -5,6 +5,7 @@
   'use strict';
 
   const C = window.ML15_COURSE || { episodes: [], modules: [] };
+  const U = (C.meta && C.meta.ui) || {};
   const PKEY = 'ml15.progress.v1';
   const TKEY = 'ml15.theme';
   const MOD = {};
@@ -73,16 +74,14 @@
     const nav = [
       ['home', '课程首页', './index.html'],
       ['cheat', '速查表', './cheatsheet.html'],
-      ['compare', '对比表', './compare.html'],
-      ['suppl', '知识点补充', './supplement.html'],
-      ['log', '学习记录', './learn-log.html'],
-      ['ml', '吴恩达 ML', '../ml/'],
-      ['map', '知识地图', '../mindmap/'],
-      ['blog', '博客', '../blog/']
+      ['log', '学习记录', './learn-log.html']
     ];
+    if (window.ML15_COMPARE) nav.splice(2, 0, ['compare', '对比表', './compare.html']);
+    if (window.ML15_SUPPLEMENT) nav.splice(nav.length - 1, 0, ['suppl', '知识点补充', './supplement.html']);
+    (U.navExtra || []).forEach(item => nav.push(item));
     return `<header class="topbar"><div class="inner">
       <a class="brand" href="./index.html"><span class="logo">ML</span>
-        <span>机器学习 15 讲<small> · 图解笔记</small></span></a>
+        <span>${esc(C.meta.short)}<small> · 图解笔记</small></span></a>
       <nav class="topnav">
         ${nav.map(([k, t, u]) => `<a href="${u}" class="${active === k ? 'on' : ''}${k === 'ml' || k === 'map' || k === 'blog' ? ' hide-m' : ''}">${t}</a>`).join('')}
         <button class="iconbtn" id="themeBtn" title="切换深色 / 浅色" aria-label="切换主题">◐</button>
@@ -91,7 +90,7 @@
   function footer() {
     const ver = (document.querySelector('meta[name="ml15-version"]') || {}).content || '';
     return `<footer class="site"><div class="inner">
-      <span>内容整理自 B 站 <a href="${C.meta.seasonUrl}" target="_blank" rel="noopener">@${esc(C.meta.up)}《机器学习》</a> · 15 集 / ${Math.floor(C.meta.totalSec / 3600)} 小时 ${Math.round(C.meta.totalSec % 3600 / 60)} 分 · 仅供学习交流</span>
+      <span>内容整理自 B 站 <a href="${C.meta.seasonUrl}" target="_blank" rel="noopener">@${esc(C.meta.up)}《${esc(U.footerSeries || C.meta.short)}》</a> · ${C.episodes.length} 集 / ${Math.floor(C.meta.totalSec / 3600)} 小时 ${Math.round(C.meta.totalSec % 3600 / 60)} 分 · 仅供学习交流</span>
       <span>${esc(C.meta.owner)} · <a href="${C.meta.repo}" target="_blank" rel="noopener">GitHub 仓库</a> · 建议配合原视频食用${ver ? ' · v' + esc(ver) : ''}</span>
     </div></footer>`;
   }
@@ -140,13 +139,33 @@
         <div class="epgrid">${eps.map(epCard).join('')}</div></div>`;
     }).join('');
 
+    const compareBlock = window.ML15_COMPARE ? `
+    <section class="block"><div class="wrap">
+      <div class="sec-head"><h2><span class="no">对比</span>${esc(U.compareLabel || '和参考课程的对比')}</h2>
+        <p>逐知识点对比，缺的已经补齐</p></div>
+      <div class="cmp-home">
+        <a class="cmp-card" href="./compare.html">
+          <div class="cmp-card-top"><span class="cst full">已覆盖 ${ML15_COMPARE.summary.full}</span><span class="cst partial">部分 ${ML15_COMPARE.summary.partial}</span><span class="cst missing">缺失 ${ML15_COMPARE.summary.missing}</span></div>
+          <h3>📊 对比参考课程 · ${ML15_COMPARE.rows.length} 个知识点</h3>
+          <p>本课程 vs 参考课程：哪些讲到了、哪些只讲了一半、哪些完全没讲，一页看清。</p>
+          <span class="cmp-link">打开对比表 →</span>
+        </a>
+        ${window.ML15_SUPPLEMENT ? `<a class="cmp-card" href="./supplement.html">
+          <div class="cmp-card-top"><span class="cst partial">${ML15_SUPPLEMENT.sections.length} 个补充模块</span><span class="cst full">${ML15_SUPPLEMENT.sections.reduce((s, x) => s + x.concepts.length, 0)} 张卡片</span></div>
+          <h3>🧩 知识点补充</h3>
+          <p>把参考课程里本课程没讲、或只讲一半的知识点补齐，每张卡都注明出处。</p>
+          <span class="cmp-link">去补知识点 →</span>
+        </a>` : ''}
+      </div>
+    </div></section>` : '';
+
     shell('home', `
     <main>
-      <section class="hero"><div class="wrap"><div class="hero-grid">
+      <section class="hero"><div class="wrap"><div class="hero-grid${U.heroFigure === false ? ' solo' : ''}">
         <div>
-          <span class="kicker">B 站 · 谦行AIing · 15 集全</span>
-          <h1>会 <span class="grad">if…else</span><br>就能懂的机器学习</h1>
-          <p class="lead">从「什么是智能」到「决策树、随机森林、XGBoost、K-Means、PCA」——把 15 集视频拆成 15 页知识笔记、${concepts} 个知识点、20+ 张示意图，配公式、代码、易错点和自测题。看完能讲清楚，也能上手调包。</p>
+          <span class="kicker">${esc(U.kicker || ('B 站 · ' + C.meta.up + ' · ' + C.episodes.length + ' 集'))}</span>
+          <h1>${U.heroTitle || esc(C.meta.short)}</h1>
+          <p class="lead">${esc((U.heroLead || '把 ' + C.episodes.length + ' 集视频拆成 ' + C.episodes.length + ' 页知识笔记、{concepts} 个知识点，配公式、代码、易错点和自测题。').replace('{concepts}', concepts))}</p>
           <div class="hero-meta">
             <span class="pill">总时长 <b>${fmtSec(total)}</b></span>
             <span class="pill">知识点 <b>${concepts}</b> 个</span>
@@ -154,13 +173,13 @@
             <span class="pill">配套 <b>公式 · 代码 · 自测</b></span>
           </div>
           <div class="hero-actions">
-            <a class="btn primary" href="./ep01.html">从第 1 集开始 →</a>
+            <a class="btn primary" href="./ep01.html">${esc(U.cta || '从第 1 集开始 →')}</a>
             <a class="btn" href="./cheatsheet.html">📋 速查表</a>
             <a class="btn ghost" href="${C.meta.seasonUrl}" target="_blank" rel="noopener">在 B 站看原片 ↗</a>
           </div>
         </div>
-        <div class="hero-art"><div class="frame"><div data-fig="fig-hero" style="color:${COLORS.intro}"></div>
-          <div class="cap">同一份数据：左边学出「边界」，右边学出「规则」——这就是机器学习</div></div></div>
+        ${U.heroFigure === false ? '' : `<div class="hero-art"><div class="frame"><div data-fig="${esc(U.heroFigure || 'fig-hero')}" style="color:${COLORS.intro}"></div>
+          <div class="cap">${esc(U.heroCaption || '')}</div></div></div>`}
       </div>
 
       <div class="stats">
@@ -173,36 +192,19 @@
 
     <section class="block"><div class="wrap">
       <div class="sec-head"><h2><span class="no">MAP</span>课程地图</h2>
-        <p>6 个模块、15 集，按依赖顺序排好了，别跳着看</p></div>
+        <p>${(C.modules || []).length} 个模块、${C.episodes.length} 集，按依赖顺序排好了，别跳着看</p></div>
       <div class="modrail">${modsHtml}</div>
       <div class="mapcard"><div data-fig="fig-course-map"></div></div>
     </div></section>
 
-    <section class="block"><div class="wrap">
-      <div class="sec-head"><h2><span class="no">对比</span>15 讲还缺什么</h2>
-        <p>和吴恩达《机器学习》逐知识点对比，缺的已经补齐</p></div>
-      <div class="cmp-home">
-        <a class="cmp-card" href="./compare.html">
-          <div class="cmp-card-top"><span class="cst full">已覆盖 ${(window.ML15_COMPARE && ML15_COMPARE.summary.full) || 18}</span><span class="cst partial">部分 ${(window.ML15_COMPARE && ML15_COMPARE.summary.partial) || 8}</span><span class="cst missing">缺失 ${(window.ML15_COMPARE && ML15_COMPARE.summary.missing) || 7}</span></div>
-          <h3>📊 对比吴恩达 · ${(window.ML15_COMPARE && ML15_COMPARE.rows.length) || 33} 个知识点</h3>
-          <p>谦行 15 集（5h20m）vs 吴恩达 12 章（144 集 / 21.6h）：哪些讲到了、哪些只讲了一半、哪些完全没讲，一页看清。</p>
-          <span class="cmp-link">打开对比表 →</span>
-        </a>
-        <a class="cmp-card" href="./supplement.html">
-          <div class="cmp-card-top"><span class="cst partial">${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.length) || 6} 个补充模块</span><span class="cst full">${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.reduce((s, x) => s + x.concepts.length, 0)) || 23} 张卡片</span></div>
-          <h3>🧩 知识点补充</h3>
-          <p>神经网络、误差分析与上限分析、异常检测、推荐系统、强化学习，以及收敛判断 / 多分类 / 正则化实现等细节，按吴恩达章节补齐。</p>
-          <span class="cmp-link">去补知识点 →</span>
-        </a>
-      </div>
-    </div></section>
+    ${compareBlock}
 
     <section class="block"><div class="wrap">
       <div class="progress-panel">
         <div class="ring">${ringSvg(pct)}<div class="pct">${pct}%<small>完成</small></div></div>
         <div class="progress-info">
           <h3>我的学习进度</h3>
-          <p>${pct === 100 ? '🎉 15 集全部学完，课程完结！可以回头刷速查表和自测题了。' : '进度存在浏览器本地，换设备会丢；学完一集在分集页点「标记已学完」。'}</p>
+          <p>${pct === 100 ? `🎉 ${C.episodes.length} 集全部学完，课程完结！可以回头刷速查表和自测题了。` : '进度存在浏览器本地，换设备会丢；学完一集在分集页点「标记已学完」。'}</p>
           <div class="pbar"><i style="width:${pct}%"></i></div>
           <div class="progress-nums">
             <span>已学 <b>${doneCount()}</b> / ${C.episodes.length} 集</span>
@@ -287,7 +289,7 @@
     shell('ep', `
     <main>
       <div class="pagehead" style="--mc:${col}"><div class="wrap">
-        <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>${esc(mod.name || '')}</span><span>/</span><span>第 ${no} 集</span></div>
+        <div class="crumbs"><a href="./index.html">${esc(C.meta.short)}</a><span>/</span><span>${esc(mod.name || '')}</span><span>/</span><span>第 ${no} 集</span></div>
         <h1>EP ${String(no).padStart(2, '0')} · ${esc(e.title)}</h1>
         <p class="sub">${esc(e.oneLiner)}</p>
         <div class="meta-row">
@@ -337,7 +339,7 @@
       </div></div>
     </main>`);
     hydrateFigures();
-    document.title = `EP${String(no).padStart(2, '0')} ${e.title} · 机器学习 15 讲`;
+    document.title = `EP${String(no).padStart(2, '0')} ${e.title} · ${C.meta.short}`;
 
     // 目录高亮
     const links = $$('.toc a[data-toc]');
@@ -401,7 +403,7 @@
   function pageCheat() {
     const items = C.cheatsheet || [];
     shell('cheat', `<main><div class="pagehead"><div class="wrap">
-      <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>速查表</span></div>
+      <div class="crumbs"><a href="./index.html">${esc(C.meta.short)}</a><span>/</span><span>速查表</span></div>
       <h1>一页速查 · 公式、参数、选型</h1>
       <p class="sub">考前 / 面试前翻这一页。每个公式都给了「什么时候用」和「最容易错的地方」。</p>
       <div class="searchbox"><span class="ic">⌕</span><input id="cq" type="search" placeholder="搜：正则化 / 召回率 / 肘部法 …"><kbd>/</kbd></div>
@@ -456,7 +458,7 @@
     }).join('');
 
     shell('log', `<main><div class="pagehead"><div class="wrap">
-      <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>学习记录</span></div>
+      <div class="crumbs"><a href="./index.html">${esc(C.meta.short)}</a><span>/</span><span>学习记录</span></div>
       <h1>学习记录 · 时间与投入</h1>
       <p class="sub">把 B 站合集里的观看时间同步到这里：每集看了多少、什么时候看的、累计投入多少小时。数据保存在仓库的 <code>data/learnlog.js</code> 里，换设备也在。</p>
       ${done === C.episodes.length ? '<div class="finish-badge">🎉 课程已完结 · 2026-11-22 学完 15 集，共 5 小时 20 分</div>' : ''}
@@ -515,6 +517,7 @@
   function pageCompare() {
     const D = window.ML15_COMPARE || { rows: [], summary: {} };
     const rows = D.rows || [];
+    const CM = D.meta || {}, QM = CM.qx || {}, NM = CM.ng || {};
     const cats = [];
     rows.forEach(r => { if (!cats.includes(r.cat)) cats.push(r.cat); });
     const stMap = { full: ['已覆盖', 'full'], partial: ['部分覆盖', 'partial'], missing: ['未覆盖', 'missing'] };
@@ -542,9 +545,9 @@
 
     shell('compare', `<main>
       <div class="pagehead"><div class="wrap">
-        <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>对比吴恩达</span></div>
-        <h1>谦行 15 讲 vs 吴恩达 12 章</h1>
-        <p class="sub">15 集只有 5 小时 20 分，吴恩达完整课程 12 章 144 集约 21.6 小时——时长差了 4 倍，必然有取舍。这张表逐知识点标出：哪些讲透了、哪些只讲一半、哪些没讲。没讲的部分已经整理成 <a href="./supplement.html">知识点补充</a>。</p>
+        <div class="crumbs"><a href="./index.html">${esc(C.meta.short)}</a><span>/</span><span>对比吴恩达</span></div>
+        <h1>${esc(U.compareTitle || '本课程 vs 参考课程')}</h1>
+        <p class="sub">${U.compareSub || '逐知识点对比：哪些讲透了、哪些只讲一半、哪些没讲。'}</p>
         <div class="stats" style="margin-top:16px">
           <div class="stat"><b>${rows.length}</b><span>对比知识点</span></div>
           <div class="stat"><b style="color:var(--ok)">${counts.full}</b><span>已覆盖</span></div>
@@ -552,8 +555,8 @@
           <div class="stat"><b style="color:var(--bad)">${counts.missing}</b><span>未覆盖（已补充）</span></div>
         </div>
         <div class="hero-meta" style="margin-top:14px">
-          <span class="pill">谦行：<b>15 集</b> / 321 分钟 / 6 模块</span>
-          <span class="pill">吴恩达：<b>12 章</b> / 144 集 / 约 1298 分钟</span>
+          <span class="pill">${esc(U.qxName || QM.name || '本课程')}：<b>${QM.episodes || C.episodes.length} 集</b> / ${QM.minutes || Math.round(C.meta.totalSec / 60)} 分钟 / ${(C.modules || []).length} 模块</span>
+          <span class="pill">${esc(U.refName || NM.name || '参考课程')}：<b>${NM.chapters || '-'} 章</b> / ${NM.parts || '-'} 集 / 约 ${NM.minutes || '-'} 分钟</span>
           <span class="pill">补充：<b>${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.length) || 6}</b> 模块 · <b>${(window.ML15_SUPPLEMENT && ML15_SUPPLEMENT.sections.reduce((s, x) => s + x.concepts.length, 0)) || 23}</b> 张卡</span>
         </div>
         <div class="cmptoolbar">
@@ -564,7 +567,7 @@
           <a class="btn sm" href="./supplement.html">🧩 打开知识点补充</a>
         </div>
         <div class="cmp-legend">
-          <span class="cst full">已覆盖</span> 谦行讲清楚了，能直接用来做题 / 面试
+          <span class="cst full">已覆盖</span> 本课程讲清楚了，能直接用来做题 / 面试
           <span class="cst partial">部分覆盖</span> 讲了主干，但细节点或工程流程缺失
           <span class="cst missing">未覆盖</span> 15 讲里没有，点「去补充」看吴恩达对应内容
         </div>
@@ -607,13 +610,13 @@
 
     shell('suppl', `<main>
       <div class="pagehead"><div class="wrap">
-        <div class="crumbs"><a href="./index.html">机器学习 15 讲</a><span>/</span><span>知识点补充</span></div>
-        <h1>知识点补充 · 谦行 15 讲没讲到的部分</h1>
+        <div class="crumbs"><a href="./index.html">${esc(C.meta.short)}</a><span>/</span><span>知识点补充</span></div>
+        <h1>${esc(U.suppTitle || '知识点补充')}</h1>
         <p class="sub">${inline(D.intro || '')}</p>
         <div class="hero-meta" style="margin-top:14px">
           <span class="pill"><b>${secs.length}</b> 个模块</span>
           <span class="pill"><b>${total}</b> 张知识卡</span>
-          <span class="pill">补充对象：<b>谦行 15 讲</b>的缺口</span>
+          <span class="pill">补充对象：<b>${esc(U.qxName || '本课程')}</b>的缺口</span>
           <span class="pill">参考教材：吴恩达第 <b>3–12</b> 章</span>
           <a class="pill" href="./compare.html" style="text-decoration:none">← 先看对比表</a>
         </div>

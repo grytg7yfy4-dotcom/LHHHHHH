@@ -110,6 +110,8 @@ code,kbd,pre{font-family:var(--mono)}
 /* ---------------- 首页 hero ---------------- */
 .hero{padding:54px 0 30px}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+.hero-grid.solo{grid-template-columns:1fr}
+.hero-grid.solo p.lead{max-width:760px}
 .kicker{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--accent);
   background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);
   padding:5px 11px;border-radius:999px;letter-spacing:.6px}

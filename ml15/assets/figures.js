@@ -86,35 +86,55 @@
     return S(s, 330);
   };
 
-  /* 课程地图：15 集 × 6 模块 */
+  /* 课程地图：按 course-data 的模块与分集动态生成，换系列不用改代码 */
   F['fig-course-map'] = () => {
-    const eps = [
-      ['01', '通识', C1], ['02', '是什么', C1], ['03', '类型', C1],
-      ['04', '线性回归', C2], ['05', '梯度下降', C2], ['06', '预处理', C2], ['07', '评估', C2], ['08', '过拟合', C2],
-      ['09', '逻辑回归', C3], ['10', '决策树', C3],
-      ['11', '随机森林', C4], ['12', 'Boosting', C4],
-      ['13', 'K-Means', C5], ['14', 'PCA', C5],
-      ['15', '总结', '#0d9488']
-    ];
-    const mods = [['通识', C1, 0, 2], ['回归', C2, 3, 7], ['分类', C3, 8, 9], ['集成', C4, 10, 11], ['无监督', C5, 12, 13], ['总结', '#0d9488', 14, 14]];
-    const x0 = 48, step = 38, y = 172;
+    const C0 = window.ML15_COURSE || { modules: [], episodes: [] };
+    const eps = C0.episodes || [];
+    const mods = C0.modules || [];
+    const PAL = { intro: '#0ea5e9', regression: '#16a34a', classification: '#d97706', ensemble: '#dc2626', unsupervised: '#7c3aed', summary: '#0d9488' };
+    const DEF = ['#2563eb', '#0ea66b', '#f59e0b', '#ef4444', '#8b5cf6', '#0d9488'];
+    const groups = [];
+    mods.forEach((m, i) => {
+      const list = eps.filter(e => e.module === m.id);
+      if (list.length) groups.push({ name: m.name, col: PAL[m.id] || DEF[i % 6], list });
+    });
+    if (!groups.length && eps.length) groups.push({ name: '全部', col: DEF[0], list: eps });
+    const n = Math.max(1, eps.length);
+    const x0 = 42, y = 166;
+    const step = n <= 20 ? 38 : Math.max(12, Math.min(30, 560 / n));
+    const pos = {};
+    eps.forEach((e, i) => { pos[e.no] = i; });
     let s = '';
-    mods.forEach(([name, col, a, b]) => {
-      const xa = x0 + a * step - 21, xb = x0 + b * step + 21;
-      s += R(xa, 108, xb - xa, 142, { rx: 12, fill: col, opacity: .07 });
-      s += T((xa + xb) / 2, 130, name, { size: 11.5, weight: 700, fill: col, anchor: 'middle' });
+    groups.forEach(g => {
+      const idx = g.list.map(e => pos[e.no]);
+      const a = Math.min(...idx), b = Math.max(...idx);
+      const pad = step * 0.55;
+      const xa = Math.max(8, x0 + a * step - pad), xb = Math.min(632, x0 + b * step + pad);
+      const w = Math.max(step + 8, xb - xa);
+      s += R(xa, 104, w, 146, { rx: 12, fill: g.col, opacity: .07 });
+      const fs = n > 30 ? 9 : 10.5;
+      const maxc = Math.max(2, Math.floor((w - 8) / fs));
+      s += T((xa + xb) / 2, 126, g.name.slice(0, maxc), { size: fs, weight: 700, fill: g.col, anchor: 'middle' });
     });
-    s += L(x0 - 24, y, x0 + 14 * step + 26, y, { stroke: LINE, sw: 3 });
-    eps.forEach(([no, name, col], i) => {
+    if (eps.length) s += L(x0 - 24, y, x0 + (n - 1) * step + 26, y, { stroke: LINE, sw: 3 });
+    const r = n > 30 ? 7 : n > 18 ? 10 : 12.5;
+    eps.forEach((e, i) => {
       const x = x0 + i * step;
-      s += C(x, y, 12.5, { fill: PANEL, stroke: col, sw: 2 });
-      s += T(x, y + 3.6, no, { size: 9.5, weight: 700, fill: col, anchor: 'middle', mono: true });
-      s += T(x, y + 34, name, { size: 8.2, fill: SUB, anchor: 'middle' });
+      const g = groups.find(g => g.list.includes(e));
+      const col = g ? g.col : DEF[0];
+      s += C(x, y, r, { fill: PANEL, stroke: col, sw: 2 });
+      s += T(x, y + 3.4, String(e.no).padStart(2, '0'), { size: n > 30 ? 6.5 : 9.5, weight: 700, fill: col, anchor: 'middle', mono: true });
+      if (n <= 26 && step >= 32) {
+        const label = String(e.short || e.title || '').slice(0, n > 18 ? 4 : 4);
+        s += T(x, y + 30, label, { size: n > 18 ? 7.2 : 7.8, fill: SUB, anchor: 'middle' });
+      }
     });
-    s += T(320, 62, '15 集 · 6 个模块 · 5 小时 20 分', { size: 13, fill: INK, weight: 700, anchor: 'middle' });
-    s += T(320, 82, '先建立直觉，再回填公式，最后用一张决策表选模型', { size: 10.5, fill: MUT, anchor: 'middle' });
-    s += T(320, 274, '模块之间是递进关系：不懂回归就学不动梯度下降，不懂树就学不动随机森林', { size: 9.5, fill: MUT, anchor: 'middle' });
-    return S(s, 292);
+    const totalMin = Math.floor(eps.reduce((a, e) => a + (e.duration || 0), 0) / 60);
+    const h = Math.floor(totalMin / 60), m = totalMin % 60;
+    s += T(320, 58, `${eps.length} 集 · ${groups.length} 个模块 · ${h ? h + ' 小时 ' + m + ' 分' : m + ' 分钟'}`, { size: 13, fill: INK, weight: 700, anchor: 'middle' });
+    s += T(320, 80, '模块按依赖顺序排列，建议按顺序学，别跳着看', { size: 10.5, fill: MUT, anchor: 'middle' });
+    s += T(320, 268, '圆圈里的数字是分集编号，颜色对应所属模块', { size: 9.5, fill: MUT, anchor: 'middle' });
+    return S(s, 284);
   };
 
   /* EP01 三阶段 */

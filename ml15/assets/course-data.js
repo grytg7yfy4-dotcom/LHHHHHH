@@ -10,7 +10,38 @@ window.ML15_COURSE = {
   "repo": "https://github.com/grytg7yfy4-dotcom/LHHHHHH",
   "site": "https://grytg7yfy4-dotcom.github.io/LHHHHHH/ml15/",
   "totalSec": 19239,
-  "builtAt": "2026-11-21"
+  "builtAt": "2026-11-21",
+  "ui": {
+   "kicker": "B 站 · 谦行AIing · 15 集全",
+   "heroTitle": "会 <span class=\"grad\">if…else</span><br>就能懂的机器学习",
+   "heroLead": "从「什么是智能」到「决策树、随机森林、XGBoost、K-Means、PCA」——把 15 集视频拆成 15 页知识笔记、{concepts} 个知识点、20+ 张示意图，配公式、代码、易错点和自测题。看完能讲清楚，也能上手调包。",
+   "heroCaption": "同一份数据：左边学出「边界」，右边学出「规则」——这就是机器学习",
+   "cta": "从第 1 集开始 →",
+   "footerSeries": "机器学习",
+   "compareLabel": "15 讲还缺什么",
+   "compareTitle": "谦行 15 讲 vs 吴恩达 12 章",
+   "compareSub": "15 集只有 5 小时 20 分，吴恩达完整课程 12 章 144 集约 21.6 小时——时长差了 4 倍，必然有取舍。这张表逐知识点标出：哪些讲透了、哪些只讲一半、哪些没讲。没讲的部分已经整理成 <a href=\"./supplement.html\">知识点补充</a>。",
+   "suppTitle": "知识点补充 · 谦行 15 讲没讲到的部分",
+   "qxName": "谦行",
+   "refName": "吴恩达",
+   "navExtra": [
+    [
+     "ml",
+     "吴恩达 ML",
+     "../ml/"
+    ],
+    [
+     "map",
+     "知识地图",
+     "../mindmap/"
+    ],
+    [
+     "blog",
+     "博客",
+     "../blog/"
+    ]
+   ]
+  }
  },
  "modules": [
   {
