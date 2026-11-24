@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "示例系列 · 图解笔记",
+    "short": "示例系列",
+    "up": "UP主",
+    "owner": "廖恒",
+    "bvid": "",
+    "seasonUrl": "",
+    "repo": "https://github.com/grytg7yfy4-dotcom/LHHHHHH",
+    "site": "",
+    "totalSec": 0,
+    "builtAt": "",
+    "ui": {
+      "kicker": "",
+      "heroTitle": "",
+      "heroLead": "把本系列拆成 {concepts} 个知识点，配公式、图、代码、易错点和自测题。",
+      "heroCaption": "",
+      "cta": "从第 1 集开始 →",
+      "footerSeries": "示例系列",
+      "compareLabel": "对比参考课程",
+      "compareTitle": "本课程 vs 参考课程",
+      "compareSub": "逐知识点对比：哪些讲透了、哪些只讲一半、哪些没讲。",
+      "suppTitle": "知识点补充",
+      "qxName": "本课程",
+      "refName": "参考课程",
+      "navExtra": []
+    }
+  },
+  "modules": [
+    { "id": "all", "name": "全部", "desc": "按课程顺序" }
+  ],
+  "episodes": [
+    {
+      "no": 1,
+      "bvid": "",
+      "aid": 0,
+      "cid": 0,
+      "title": "第一集标题",
+      "short": "第一集",
+      "module": "all",
+      "duration": 0,
+      "publish": "",
+      "tags": [],
+      "oneLiner": "一句话概括本集",
+      "core": "一句话讲透本集核心",
+      "takeaways": [],
+      "chapters": []
+    }
+  ],
+  "cheatsheet": []
+}
