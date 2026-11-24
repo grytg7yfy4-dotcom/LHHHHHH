@@ -54,27 +54,6 @@ python 规范/内容体检.py --series series/xxx
 
 参考实例：[机器学习 15 讲](ml15/)（124 个知识卡 / 74 道自测 / 28 张图 / 对比吴恩达 / 知识点补充）。
 
-## 知识网络规范（导图页那套）
-
-上面那套是「一集一张卡片」的总结站；这套是**看板 + 三视图的导图页**，用在 `mindmap/` 下面，两套各自独立、互不影响。
-
-| 内容 | 说明 |
-| --- | --- |
-| [知识网络规范 v1](规范/知识网络规范.md) | 页面要有哪六样、知识点怎么写（`要点 —— 解释`）、代码图要求、数据 schema、四道门禁 |
-| [模板](规范/知识网络模板/) | `template.html` + `build.py` + `content/示例.json`，改 JSON 就能出页面 |
-| [生成器](工具/新建知识网络.py) | 拉 B 站真实分集 → 生成 content JSON 骨架 → 渲染 index.html |
-| [体检](规范/知识网络体检.py) | 21 项：内容 / 代码图覆盖 / 渲染 / 链接 / JS 语法 |
-
-```powershell
-python 工具/新建知识网络.py --name redis --bv BV1xxxx --chapter "01:基础:1-30"
-# 填完 pts / code 后重新渲染
-python 工具/新建知识网络.py --name redis --bv BV1xxxx --chapter "01:基础:1-30" --build-only
-# 体检
-python 规范/知识网络体检.py --content mindmap/redis/content/content.json --html mindmap/redis/index.html
-```
-
-参考实例：[数据库导图](mindmap/database/)（46 集，26 集带 SQL 代码图 + 执行顺序流程图）。
-
 ## 目录
 
 ```
