@@ -94,6 +94,26 @@ a{color:var(--blue);text-decoration:none}
 .mep a{color:#9db3d6;font-size:10.5px;padding-left:2px}
 .mep a:hover{color:var(--blue)}
 
+/* 数据看板 */
+.dash{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
+  padding:16px 18px;margin-bottom:14px;display:grid;
+  grid-template-columns:200px 1fr 1fr;gap:22px;align-items:center}
+.dash-h{font-size:11.5px;font-weight:700;color:var(--mut);letter-spacing:.4px;margin-bottom:8px}
+.donut{position:relative;width:150px;height:150px;margin:0 auto}
+.donut svg{transform:rotate(-90deg)}
+.donut .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:1px}
+.donut .val b{font-size:26px;color:var(--done);line-height:1}
+.donut .val span{font-size:10.5px;color:var(--mut)}
+.hb{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:11.5px}
+.hb .nm{flex:0 0 108px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hb .track{flex:1 1 auto;height:9px;background:#eef2f8;border-radius:99px;overflow:hidden}
+.hb .track i{display:block;height:100%;border-radius:99px;background:var(--done)}
+.hb .num{flex:0 0 56px;text-align:right;font-size:11px;color:var(--mut);font-variant-numeric:tabular-nums}
+.hb .num b{color:var(--done)}
+.hb.warm .track i{background:#e0a53c}
+.hb.cold .track i{background:#c3ccda}
+
 /* 知识块视图 */
 .blockview{display:none}
 .blockview.on{display:block}
@@ -421,8 +441,52 @@ try { checks = JSON.parse(localStorage.getItem(BLOCK_KEY) || "{}"); } catch (e) 
 
 function saveChecks() { try { localStorage.setItem(BLOCK_KEY, JSON.stringify(checks)); } catch (e) {} }
 
+function dashHTML() {
+  const total = totalEps();
+  const pct = total ? Math.round(learned.size / total * 100) : 0;
+
+  // 环形
+  const R = 62, C = 2 * Math.PI * R;
+  const dash = C * pct / 100;
+  let h = '<div class="dash">';
+
+  h += '<div><div class="dash-h">总进度</div><div class="donut">' +
+       '<svg width="150" height="150" viewBox="0 0 150 150">' +
+       '<circle cx="75" cy="75" r="' + R + '" fill="none" stroke="#eef2f8" stroke-width="14"/>' +
+       '<circle cx="75" cy="75" r="' + R + '" fill="none" stroke="#059669" stroke-width="14" ' +
+       'stroke-linecap="round" stroke-dasharray="' + dash.toFixed(1) + ' ' + C.toFixed(1) + '"/>' +
+       '</svg><div class="val"><b>' + pct + '%</b><span>' + learned.size + ' / ' + total + ' 集</span></div></div></div>';
+
+  // 章节横条
+  h += '<div><div class="dash-h">各章进度</div>';
+  BOARD.forEach(ch => {
+    const d = ch.eps.filter(e => learned.has(e.p)).length;
+    const p = Math.round(d / ch.eps.length * 100);
+    const cls = p === 0 ? "cold" : (p < 50 ? "warm" : "");
+    h += '<div class="hb ' + cls + '"><span class="nm">' + ch.no + ' ' + ch.name + '</span>' +
+         '<span class="track"><i style="width:' + p + '%"></i></span>' +
+         '<span class="num"><b>' + d + '</b>/' + ch.eps.length + '</span></div>';
+  });
+  h += '</div>';
+
+  // 知识块掌握度（按自测打勾算）
+  h += '<div><div class="dash-h">七块知识 · 自测完成度</div>';
+  KNOW.forEach(k => {
+    const done = (checks[k.key] || []).length;
+    const p = Math.round(done / k.qs.length * 100);
+    const cls = p === 0 ? "cold" : (p < 100 ? "warm" : "");
+    h += '<div class="hb ' + cls + '"><span class="nm">' + k.name + '</span>' +
+         '<span class="track"><i style="width:' + p + '%"></i></span>' +
+         '<span class="num"><b>' + done + '</b>/' + k.qs.length + '</span></div>';
+  });
+  h += '</div>';
+
+  h += '</div>';
+  return h;
+}
+
 function renderBlocks() {
-  let html = '<div class="bgrid">';
+  let html = dashHTML() + '<div class="bgrid">';
   KNOW.forEach((k, i) => {
     const no = String(i + 1).padStart(2, "0");
     const lv = k.level === "ok" ? '<span class="blv ok">比较熟</span>' : '<span class="blv half">能写说不清</span>';
