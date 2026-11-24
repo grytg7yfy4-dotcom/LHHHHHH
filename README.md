@@ -14,7 +14,7 @@
 - 案例库：<https://grytg7yfy4-dotcom.github.io/LHHHHHH/mindmap/cases.html>
 - 计划：2026-10-26 → 2026-12-26
 
-## 九个页面
+## 十一个页面
 
 | 页面 | 入口 | 管什么 | 数据在哪 |
 | --- | --- | --- | --- |
@@ -27,6 +27,8 @@
 | 前端基础导图 | `/mindmap/web/` | 黑马 HTML+CSS 540 集 + 黑马 JS 200 集 + 尚硅谷 ES6 68 集：全链路图 / 思维导图双视图，已学筛选、逐集详解、进度导入导出 | `mindmap/web/index.html` 内嵌数据 |
 | Vue3 导图 | `/mindmap/vue3/` | 尚硅谷 Vue3 P1–P40：6 大模块 40 集导图 + 15 张原创配图，支持搜索、按集打勾与灯箱 | `mindmap/vue3/index.html` 内嵌数据 |
 | 案例库 | `/mindmap/cases.html` | 1-123 集的综合案例：题目、思路、答案代码、运行结果（也能从导图的知识点直接打开） | `mindmap/cases-data.js` |
+| Python 后端导图 | `/mindmap/fastapi/` | 黑马 FastAPI 68 集：看板 / 知识块 / 思维导图三视图，逐集知识点、可跳 B 站分集、按集打勾 | `mindmap/fastapi/index.html` 内嵌数据 |
+| 数据库导图 | `/mindmap/database/` | 黑马 MySQL 按学习计划收窄到 46 集（建表/增删改查/连接/约束/事务 + SQLAlchemy）：三视图 + 26 集 SQL 代码图 + 执行顺序流程图 | `mindmap/database/index.html` 内嵌数据 |
 
 博客和主页用的是**同一份笔记数据**，不会出现「主页有、博客没有」。加一篇笔记，两边同时多一篇。
 
@@ -51,6 +53,27 @@ python 规范/内容体检.py --series series/xxx
 ```
 
 参考实例：[机器学习 15 讲](ml15/)（124 个知识卡 / 74 道自测 / 28 张图 / 对比吴恩达 / 知识点补充）。
+
+## 知识网络规范（导图页那套）
+
+上面那套是「一集一张卡片」的总结站；这套是**看板 + 三视图的导图页**，用在 `mindmap/` 下面，两套各自独立、互不影响。
+
+| 内容 | 说明 |
+| --- | --- |
+| [知识网络规范 v1](规范/知识网络规范.md) | 页面要有哪六样、知识点怎么写（`要点 —— 解释`）、代码图要求、数据 schema、四道门禁 |
+| [模板](规范/知识网络模板/) | `template.html` + `build.py` + `content/示例.json`，改 JSON 就能出页面 |
+| [生成器](工具/新建知识网络.py) | 拉 B 站真实分集 → 生成 content JSON 骨架 → 渲染 index.html |
+| [体检](规范/知识网络体检.py) | 21 项：内容 / 代码图覆盖 / 渲染 / 链接 / JS 语法 |
+
+```powershell
+python 工具/新建知识网络.py --name redis --bv BV1xxxx --chapter "01:基础:1-30"
+# 填完 pts / code 后重新渲染
+python 工具/新建知识网络.py --name redis --bv BV1xxxx --chapter "01:基础:1-30" --build-only
+# 体检
+python 规范/知识网络体检.py --content mindmap/redis/content/content.json --html mindmap/redis/index.html
+```
+
+参考实例：[数据库导图](mindmap/database/)（46 集，26 集带 SQL 代码图 + 执行顺序流程图）。
 
 ## 目录
 

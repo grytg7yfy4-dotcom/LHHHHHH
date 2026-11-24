@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "title": "示例 · 知识网络（10 集）",
+    "brand": "示例 · 模板演示",
+    "brand_sub": "10 集 / 2 章 · 用来验证模板",
+    "desc": "这是模板自带的示例内容，复制一份改成自己的就行。",
+    "bv": "BV1Kr4y1i7ru",
+    "out": "示例输出/index.html",
+    "active_tab": "数据库"
+  },
+  "learned": [6, 7, 15],
+  "chapters": [
+    {
+      "no": "01",
+      "name": "建表 · DDL",
+      "eps": [
+        {
+          "p": 6,
+          "t": "DDL-数据库操作",
+          "full": "06. 基础-SQL-DDL-数据库操作",
+          "pts": [
+            "建库 —— CREATE DATABASE，库名要唯一",
+            "切库 —— USE 库名，之后的操作都在这个库里",
+            "坑 —— 库名带横线时要用反引号包起来"
+          ],
+          "code": "-- 建库 / 切库 / 删库\nCREATE DATABASE IF NOT EXISTS demo DEFAULT CHARSET utf8mb4;\nUSE demo;\nDROP DATABASE IF EXISTS demo;"
+        },
+        {
+          "p": 7,
+          "t": "DDL-表操作-创建&查询",
+          "full": "07. 基础-SQL-DDL-表操作-创建&查询",
+          "pts": [
+            "建表 —— CREATE TABLE，字段名 + 类型 + 约束",
+            "查结构 —— DESC 表名，看字段和类型",
+            "看建表语句 —— SHOW CREATE TABLE，能验证字符集"
+          ],
+          "code": "CREATE TABLE tb_user (\n    id       INT PRIMARY KEY AUTO_INCREMENT,\n    username VARCHAR(20) NOT NULL UNIQUE\n);\nDESC tb_user;"
+        }
+      ]
+    },
+    {
+      "no": "02",
+      "name": "增删改查",
+      "eps": [
+        {
+          "p": 15,
+          "t": "DQL-基础查询",
+          "full": "15. 基础-SQL-DQL-基础查询",
+          "pts": [
+            "基础查询 —— SELECT 字段 FROM 表",
+            "别名 —— AS 起别名，方便读和排序",
+            "去重 —— DISTINCT，作用在整行上"
+          ],
+          "code": "SELECT id, username FROM tb_user;\nSELECT username AS 名字 FROM tb_user;\nSELECT DISTINCT age FROM tb_user;"
+        },
+        {
+          "p": 16,
+          "t": "DQL-条件查询",
+          "full": "16. 基础-SQL-DQL-条件查询",
+          "pts": [
+            "比较 —— = > < >= <= <>",
+            "范围 —— BETWEEN … AND 是闭区间",
+            "模糊 —— LIKE，% 任意多个字符、_ 一个字符",
+            "坑 —— NULL 不能用 = 判断，要用 IS NULL"
+          ],
+          "code": "SELECT * FROM tb_user WHERE age > 20;\nSELECT * FROM tb_user WHERE age BETWEEN 18 AND 30;\nSELECT * FROM tb_user WHERE username LIKE '张%';"
+        }
+      ]
+    }
+  ],
+  "knowledge": [
+    {
+      "key": "ddl",
+      "name": "DDL 建表",
+      "level": "ok",
+      "desc": "建库建表、字段类型、改表删表",
+      "eps": [6, 7],
+      "qs": ["varchar 和 char 有什么区别", "怎么查一张表的建表语句"]
+    },
+    {
+      "key": "dql",
+      "name": "DQL 查询",
+      "level": "half",
+      "desc": "条件、聚合、分组、排序、分页",
+      "eps": [15, 16],
+      "qs": ["WHERE 和 HAVING 的区别", "NULL 怎么判断"]
+    }
+  ]
+}
