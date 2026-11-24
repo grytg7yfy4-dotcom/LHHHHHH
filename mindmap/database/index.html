@@ -94,6 +94,26 @@ a{color:var(--blue);text-decoration:none}
 .mep a{color:#9db3d6;font-size:10.5px;padding-left:2px}
 .mep a:hover{color:var(--blue)}
 
+/* 代码块 */
+.codeblk{background:#1e2733;border-radius:9px;padding:12px 14px;margin:10px 0 4px;overflow-x:auto}
+.codeblk pre{margin:0;font-family:var(--mono);font-size:11.5px;line-height:1.65;
+  color:#d6dee8;white-space:pre;tab-size:2}
+.codeblk .ck{color:#82aaff}      /* 关键字 */
+.codeblk .cs{color:#8fd9a8}      /* 字符串 */
+.codeblk .cn{color:#f6c177}      /* 数字 */
+.codeblk .cc{color:#6b7889;font-style:italic}  /* 注释 */
+
+/* SQL 执行顺序流程图 */
+.flow{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
+  padding:14px 16px;margin-bottom:14px}
+.flow-h{font-size:11.5px;font-weight:700;color:var(--mut);letter-spacing:.4px;margin-bottom:10px}
+.flow-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.flow .st{background:#eef4ff;border:1px solid #c9dcff;color:var(--blue);border-radius:7px;
+  padding:5px 11px;font-family:var(--mono);font-size:11.5px;font-weight:700;white-space:nowrap}
+.flow .st.last{background:var(--donebg);border-color:var(--doneline);color:var(--done)}
+.flow .ar{color:#b9c3d2;font-size:12px;padding:0 2px}
+.flow-note{font-size:11px;color:var(--mut);margin-top:8px}
+
 /* 数据看板 */
 .dash{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
   padding:16px 18px;margin-bottom:14px;display:grid;
@@ -241,6 +261,8 @@ a{color:var(--blue);text-decoration:none}
   <div class="dw-body">
     <div class="dw-h">这一集讲什么</div>
     <div id="dwPts"></div>
+    <div class="dw-h" id="dwCodeH" style="display:none">语法 / 示例</div>
+    <div id="dwCode"></div>
   </div>
   <div class="dw-ft">
     <a class="dw-link" id="dwLink" target="_blank" rel="noopener">到 B 站看这一集 ↗</a>
@@ -258,7 +280,7 @@ a{color:var(--blue);text-decoration:none}
 </div>
 
 <script>
-const BOARD = [{"no":"01","name":"建表 · DDL","eps":[{"p":4,"t":"概述-数据模型","full":"04. 基础-概述-数据模型","pts":["表结构 —— 行是记录、列是字段","主键标识一行","表和表之间靠外键关联"]},{"p":5,"t":"SQL-通用语法及分类","full":"05. 基础-SQL-通用语法及分类","pts":["SQL 通用语法 —— 分号结尾、大小写不敏感","三类 —— DDL / DML / DQL（还有 DCL）","注释写法 -- 和 /* */"]},{"p":6,"t":"SQL-DDL-数据库操作","full":"06. 基础-SQL-DDL-数据库操作","pts":["DDL 管结构 —— 建库、删库、切库","CREATE DATABASE / DROP / USE","IF NOT EXISTS 防止重复建"]},{"p":7,"t":"SQL-DDL-表操作-创建&查询","full":"07. 基础-SQL-DDL-表操作-创建&查询","pts":["建表 —— CREATE TABLE 字段 类型 约束","查表结构 —— DESC 表名","查建表语句 —— SHOW CREATE TABLE"]},{"p":8,"t":"SQL-DDL-数据类型及案例","full":"08. 基础-SQL-DDL-数据类型及案例","pts":["常用类型 —— int / varchar / char / date / datetime","varchar 与 char 的区别（变长 vs 定长）","类型选错会浪费空间或截断数据"]},{"p":9,"t":"SQL-DDL-表操作-修改&删除","full":"09. 基础-SQL-DDL-表操作-修改&删除","pts":["改表 —— ALTER TABLE 加列 / 改列 / 改名","删表 —— DROP TABLE","删列 —— DROP COLUMN，数据一起没"]},{"p":10,"t":"SQL-DDL小结","full":"10. 基础-SQL-DDL小结","pts":["DDL 小结 —— 建库建表改表删表","结构变更要谨慎，生产上先备份"]},{"p":11,"t":"SQL-图形化界面工具DataGrip","full":"11. 基础-SQL-图形化界面工具DataGrip","pts":["DataGrip —— 图形化客户端","比命令行看得清表结构","连库思路和代码里一样：地址 + 端口 + 账号"]}]},{"no":"02","name":"增删改查 · DML/DQL","eps":[{"p":12,"t":"SQL-DML-插入","full":"12. 基础-SQL-DML-插入","pts":["DML 管数据 —— INSERT 插行","一次插一行 / 批量插多行","字段和值要一一对应"]},{"p":13,"t":"SQL-DML-更新和删除","full":"13. 基础-SQL-DML-更新和删除","pts":["UPDATE 改数据 —— 一定要带 WHERE","DELETE 删数据 —— 也一定要带 WHERE","不加 WHERE 就是全表操作"]},{"p":14,"t":"SQL-DML小结","full":"14. 基础-SQL-DML小结","pts":["DML 小结 —— 增、改、删","改和删之前先 SELECT 验一遍条件"]},{"p":15,"t":"SQL-DQL-基础查询","full":"15. 基础-SQL-DQL-基础查询","pts":["基础查询 —— SELECT 字段 FROM 表","起别名 AS","去重 DISTINCT"]},{"p":16,"t":"SQL-DQL-条件查询","full":"16. 基础-SQL-DQL-条件查询","pts":["条件查询 —— WHERE + 比较 / 逻辑运算符","范围 BETWEEN … AND","模糊 LIKE %_、集合 IN、NULL 用 IS NULL"]},{"p":17,"t":"SQL-DQL-聚合函数","full":"17. 基础-SQL-DQL-聚合函数","pts":["聚合函数 —— count / max / min / avg / sum","聚合会忽略 NULL","count(*) 和 count(字段) 不一样"]},{"p":18,"t":"SQL-DQL-分组查询","full":"18. 基础-SQL-DQL-分组查询","pts":["分组查询 —— GROUP BY + 聚合","HAVING 过滤分组后的结果","WHERE 在分组前，HAVING 在分组后"]},{"p":19,"t":"SQL-DQL-排序查询","full":"19. 基础-SQL-DQL-排序查询","pts":["排序 —— ORDER BY 字段 ASC/DESC","多字段排序 —— 先按 A 再按 B"]},{"p":20,"t":"SQL-DQL-分页查询","full":"20. 基础-SQL-DQL-分页查询","pts":["分页 —— LIMIT 起始, 条数","起始 = (页码-1) × 每页条数","这是后端分页接口的底层逻辑"]},{"p":21,"t":"SQL-DQL-案例练习","full":"21. 基础-SQL-DQL-案例练习","pts":["综合练习 —— 条件 + 分组 + 排序 + 分页","把几个子句拼起来用"]},{"p":22,"t":"SQL-DQL-执行顺序","full":"22. 基础-SQL-DQL-执行顺序","pts":["执行顺序 —— FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT","顺序错了别名会用不了","记住这个顺序，报错能自己查"]},{"p":23,"t":"SQL-DQL小结","full":"23. 基础-SQL-DQL小结","pts":["DQL 小结 —— 查、筛、聚、分、排、页"]}]},{"no":"03","name":"约束与外键","eps":[{"p":32,"t":"约束-概述","full":"32. 基础-约束-概述","pts":["约束是什么 —— 建表时给字段定规矩","常见 —— 非空、唯一、主键、默认、检查","约束是数据库最后一道防线"]},{"p":33,"t":"约束-演示","full":"33. 基础-约束-演示","pts":["约束演示 —— NOT NULL / UNIQUE / DEFAULT","唯一约束和主键的区别","主键 = 唯一 + 非空"]},{"p":34,"t":"约束-外键约束","full":"34. 基础-约束-外键约束","pts":["外键 —— 让一列指向另一张表的主键","加外键后插错的 id 插不进去","外键保证引用完整性"]},{"p":35,"t":"约束-外键删除更新行为","full":"35. 基础-约束-外键删除更新行为","pts":["外键的删除 / 更新行为 —— CASCADE / SET NULL / RESTRICT","默认 RESTRICT：有引用就删不掉","级联删除要慎用"]},{"p":36,"t":"约束-小结","full":"36. 基础-约束-小结","pts":["约束小结 —— 五类约束 + 外键行为"]}]},{"no":"04","name":"多表连接查询","eps":[{"p":37,"t":"多表查询-多表关系介绍","full":"37. 基础-多表查询-多表关系介绍","pts":["多表关系 —— 一对一 / 一对多 / 多对多","一对多：多的一方存外键","多对多：要一张中间表"]},{"p":38,"t":"多表查询-概述","full":"38. 基础-多表查询-概述","pts":["多表查询的坑 —— 直接查两张表会笛卡尔积","要写连接条件","连表条件是 外键 = 主键"]},{"p":39,"t":"多表查询-内连接","full":"39. 基础-多表查询-内连接","pts":["内连接 —— INNER JOIN，只留两边都匹配的","隐式写法 WHERE a.id = b.aid","结果集可能比任一张表都小"]},{"p":40,"t":"多表查询-外连接","full":"40. 基础-多表查询-外连接","pts":["外连接 —— LEFT / RIGHT JOIN，保留一边全部","左连接：左表全留，右表没匹配就 NULL","统计「没有关联数据的行」用它"]},{"p":41,"t":"多表查询-自连接","full":"41. 基础-多表查询-自连接","pts":["自连接 —— 一张表当两张用，必须起别名","典型场景 —— 员工和上级同一张表"]},{"p":42,"t":"多表查询-联合查询union","full":"42. 基础-多表查询-联合查询union","pts":["联合查询 —— UNION 把两次查询结果上下拼起来","列数、类型要一致","UNION 去重，UNION ALL 不去重"]},{"p":43,"t":"多表查询-子查询介绍","full":"43. 基础-多表查询-子查询介绍","pts":["子查询 —— 查询里再套查询","按结果分 —— 标量 / 列 / 行 / 表","能写成 join 的优先 join，性能更好"]},{"p":44,"t":"多表查询-标量子查询","full":"44. 基础-多表查询-标量子查询","pts":["标量子查询 —— 子查询返回一个值","一般放 WHERE 或 SELECT 里比较"]},{"p":45,"t":"多表查询-列子查询","full":"45. 基础-多表查询-列子查询","pts":["列子查询 —— 子查询返回一列","配合 IN / NOT IN / ANY / ALL"]},{"p":46,"t":"多表查询-行子查询","full":"46. 基础-多表查询-行子查询","pts":["行子查询 —— 子查询返回一行多列","用 (a, b) = (子查询) 比较"]},{"p":47,"t":"多表查询-表子查询","full":"47. 基础-多表查询-表子查询","pts":["表子查询 —— 子查询返回一张表","当成临时表放在 FROM 里"]},{"p":48,"t":"多表查询-练习1","full":"48. 基础-多表查询-练习1","pts":["多表查询练习 1 —— 按业务拼条件"]},{"p":49,"t":"多表查询-练习2","full":"49. 基础-多表查询-练习2","pts":["多表查询练习 2 —— 再复杂一点的组合"]},{"p":50,"t":"多表查询-小结","full":"50. 基础-多表查询-小结","pts":["多表查询小结 —— 内 / 外 / 自 / 联合 / 子查询"]}]},{"no":"05","name":"事务","eps":[{"p":51,"t":"事务-简介","full":"51. 基础-事务-简介","pts":["事务 —— 一组操作要么全成、要么全不成","典型 —— 转账：扣钱和加钱必须一起成功"]},{"p":52,"t":"事务-操作演示","full":"52. 基础-事务-操作演示","pts":["事务操作 —— START TRANSACTION / COMMIT / ROLLBACK","没 commit 之前，别人看不到你的修改","出异常要 rollback"]},{"p":53,"t":"事务-四大特性ACID","full":"53. 基础-事务-四大特性ACID","pts":["ACID —— 原子性、一致性、隔离性、持久性","原子性：不可分割","持久性：commit 之后就落盘"]},{"p":54,"t":"事务-并发事务问题","full":"54. 基础-事务-并发事务问题","pts":["并发问题 —— 脏读 / 不可重复读 / 幻读","三种问题严重程度递增"]},{"p":55,"t":"事务-并发事务演示及隔离级别","full":"55. 基础-事务-并发事务演示及隔离级别","pts":["隔离级别 —— 读未提交 / 读已提交 / 可重复读 / 串行化","级别越高越安全、越慢","MySQL 默认是可重复读"]},{"p":56,"t":"事务-小结","full":"56. 基础-事务-小结","pts":["事务小结 —— 是什么、怎么用、ACID、隔离级别"]}]},{"no":"06","name":"SQLAlchemy 接入","eps":[{"p":1,"t":"初识 SQLAlchemy 2.0","full":"SQLAlchemy数据库操作-01.初识SQLAlchemy 2.0","pts":["SQLAlchemy 是什么 —— Python 最常用的 ORM","和手写 SQL 的区别 —— 用类和方法操作表","装 —— pip install sqlalchemy","看完能对上：项目里 models.py / database.py 在干什么"],"bv":"BV1Gz4y1P76z"}]}];
+const BOARD = [{"no":"01","name":"建表 · DDL","eps":[{"p":4,"t":"概述-数据模型","full":"04. 基础-概述-数据模型","pts":["表结构 —— 行是记录、列是字段","主键标识一行","表和表之间靠外键关联"],"code":""},{"p":5,"t":"SQL-通用语法及分类","full":"05. 基础-SQL-通用语法及分类","pts":["SQL 通用语法 —— 分号结尾、大小写不敏感","三类 —— DDL / DML / DQL（还有 DCL）","注释写法 -- 和 /* */"],"code":""},{"p":6,"t":"SQL-DDL-数据库操作","full":"06. 基础-SQL-DDL-数据库操作","pts":["DDL 管结构 —— 建库、删库、切库","CREATE DATABASE / DROP / USE","IF NOT EXISTS 防止重复建"],"code":"-- 建库 / 切库 / 删库\nCREATE DATABASE IF NOT EXISTS itcast DEFAULT CHARSET utf8mb4;\nUSE itcast;\nDROP DATABASE IF EXISTS itcast;"},{"p":7,"t":"SQL-DDL-表操作-创建&查询","full":"07. 基础-SQL-DDL-表操作-创建&查询","pts":["建表 —— CREATE TABLE 字段 类型 约束","查表结构 —— DESC 表名","查建表语句 —— SHOW CREATE TABLE"],"code":"-- 建表\nCREATE TABLE tb_user (\n    id       INT PRIMARY KEY AUTO_INCREMENT,\n    username VARCHAR(20) NOT NULL UNIQUE,\n    age      INT\n);\n\n-- 看表结构\nDESC tb_user;\nSHOW CREATE TABLE tb_user;"},{"p":8,"t":"SQL-DDL-数据类型及案例","full":"08. 基础-SQL-DDL-数据类型及案例","pts":["常用类型 —— int / varchar / char / date / datetime","varchar 与 char 的区别（变长 vs 定长）","类型选错会浪费空间或截断数据"],"code":"-- 常用类型\nid      INT            -- 整数\nname    VARCHAR(20)    -- 变长字符串\ncode    CHAR(6)        -- 定长字符串\nbirth   DATE           -- 日期\ncreate  DATETIME       -- 日期时间"},{"p":9,"t":"SQL-DDL-表操作-修改&删除","full":"09. 基础-SQL-DDL-表操作-修改&删除","pts":["改表 —— ALTER TABLE 加列 / 改列 / 改名","删表 —— DROP TABLE","删列 —— DROP COLUMN，数据一起没"],"code":"-- 改表\nALTER TABLE tb_user ADD COLUMN phone VARCHAR(11);\nALTER TABLE tb_user MODIFY COLUMN phone CHAR(11);\nALTER TABLE tb_user RENAME COLUMN phone TO tel;\nALTER TABLE tb_user DROP COLUMN tel;\n\n-- 删表\nDROP TABLE IF EXISTS tb_user;"},{"p":10,"t":"SQL-DDL小结","full":"10. 基础-SQL-DDL小结","pts":["DDL 小结 —— 建库建表改表删表","结构变更要谨慎，生产上先备份"],"code":""},{"p":11,"t":"SQL-图形化界面工具DataGrip","full":"11. 基础-SQL-图形化界面工具DataGrip","pts":["DataGrip —— 图形化客户端","比命令行看得清表结构","连库思路和代码里一样：地址 + 端口 + 账号"],"code":""}]},{"no":"02","name":"增删改查 · DML/DQL","eps":[{"p":12,"t":"SQL-DML-插入","full":"12. 基础-SQL-DML-插入","pts":["DML 管数据 —— INSERT 插行","一次插一行 / 批量插多行","字段和值要一一对应"],"code":"-- 插入\nINSERT INTO tb_user (username, age) VALUES ('张三', 20);\nINSERT INTO tb_user (username, age)\nVALUES ('李四', 21), ('王五', 22);   -- 批量"},{"p":13,"t":"SQL-DML-更新和删除","full":"13. 基础-SQL-DML-更新和删除","pts":["UPDATE 改数据 —— 一定要带 WHERE","DELETE 删数据 —— 也一定要带 WHERE","不加 WHERE 就是全表操作"],"code":"-- 改（一定要带 WHERE）\nUPDATE tb_user SET age = 23 WHERE username = '张三';\n\n-- 删（也一定要带 WHERE）\nDELETE FROM tb_user WHERE id = 3;"},{"p":14,"t":"SQL-DML小结","full":"14. 基础-SQL-DML小结","pts":["DML 小结 —— 增、改、删","改和删之前先 SELECT 验一遍条件"],"code":""},{"p":15,"t":"SQL-DQL-基础查询","full":"15. 基础-SQL-DQL-基础查询","pts":["基础查询 —— SELECT 字段 FROM 表","起别名 AS","去重 DISTINCT"],"code":"-- 基础查询\nSELECT id, username FROM tb_user;\nSELECT * FROM tb_user;\nSELECT username AS 名字 FROM tb_user;   -- 起别名\nSELECT DISTINCT age FROM tb_user;        -- 去重"},{"p":16,"t":"SQL-DQL-条件查询","full":"16. 基础-SQL-DQL-条件查询","pts":["条件查询 —— WHERE + 比较 / 逻辑运算符","范围 BETWEEN … AND","模糊 LIKE %_、集合 IN、NULL 用 IS NULL"],"code":"-- 条件查询\nSELECT * FROM tb_user WHERE age > 20;\nSELECT * FROM tb_user WHERE age BETWEEN 18 AND 30;\nSELECT * FROM tb_user WHERE username LIKE '张%';\nSELECT * FROM tb_user WHERE age IN (18, 20, 22);\nSELECT * FROM tb_user WHERE phone IS NULL;"},{"p":17,"t":"SQL-DQL-聚合函数","full":"17. 基础-SQL-DQL-聚合函数","pts":["聚合函数 —— count / max / min / avg / sum","聚合会忽略 NULL","count(*) 和 count(字段) 不一样"],"code":"-- 聚合函数\nSELECT COUNT(*) FROM tb_user;\nSELECT MAX(age), MIN(age), AVG(age) FROM tb_user;\nSELECT SUM(age) FROM tb_user;"},{"p":18,"t":"SQL-DQL-分组查询","full":"18. 基础-SQL-DQL-分组查询","pts":["分组查询 —— GROUP BY + 聚合","HAVING 过滤分组后的结果","WHERE 在分组前，HAVING 在分组后"],"code":"-- 分组 + 过滤分组\nSELECT age, COUNT(*) AS 人数\nFROM tb_user\nGROUP BY age\nHAVING COUNT(*) > 1;"},{"p":19,"t":"SQL-DQL-排序查询","full":"19. 基础-SQL-DQL-排序查询","pts":["排序 —— ORDER BY 字段 ASC/DESC","多字段排序 —— 先按 A 再按 B"],"code":"-- 排序\nSELECT * FROM tb_user ORDER BY age DESC;\nSELECT * FROM tb_user ORDER BY age ASC, id DESC;"},{"p":20,"t":"SQL-DQL-分页查询","full":"20. 基础-SQL-DQL-分页查询","pts":["分页 —— LIMIT 起始, 条数","起始 = (页码-1) × 每页条数","这是后端分页接口的底层逻辑"],"code":"-- 分页：LIMIT 起始, 条数\nSELECT * FROM tb_user LIMIT 0, 10;    -- 第 1 页\nSELECT * FROM tb_user LIMIT 10, 10;   -- 第 2 页\n\n-- 起始 = (页码 - 1) * 每页条数"},{"p":21,"t":"SQL-DQL-案例练习","full":"21. 基础-SQL-DQL-案例练习","pts":["综合练习 —— 条件 + 分组 + 排序 + 分页","把几个子句拼起来用"],"code":""},{"p":22,"t":"SQL-DQL-执行顺序","full":"22. 基础-SQL-DQL-执行顺序","pts":["执行顺序 —— FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT","顺序错了别名会用不了","记住这个顺序，报错能自己查"],"code":"-- 真实执行顺序（不是书写顺序）\nFROM  →  WHERE  →  GROUP BY  →  HAVING\n      →  SELECT  →  ORDER BY  →  LIMIT"},{"p":23,"t":"SQL-DQL小结","full":"23. 基础-SQL-DQL小结","pts":["DQL 小结 —— 查、筛、聚、分、排、页"],"code":""}]},{"no":"03","name":"约束与外键","eps":[{"p":32,"t":"约束-概述","full":"32. 基础-约束-概述","pts":["约束是什么 —— 建表时给字段定规矩","常见 —— 非空、唯一、主键、默认、检查","约束是数据库最后一道防线"],"code":"-- 五类约束\nCREATE TABLE tb_user (\n    id       INT PRIMARY KEY AUTO_INCREMENT,   -- 主键\n    username VARCHAR(20) NOT NULL UNIQUE,      -- 非空 + 唯一\n    age      INT CHECK (age > 0),              -- 检查\n    status   TINYINT DEFAULT 1                 -- 默认值\n);"},{"p":33,"t":"约束-演示","full":"33. 基础-约束-演示","pts":["约束演示 —— NOT NULL / UNIQUE / DEFAULT","唯一约束和主键的区别","主键 = 唯一 + 非空"],"code":""},{"p":34,"t":"约束-外键约束","full":"34. 基础-约束-外键约束","pts":["外键 —— 让一列指向另一张表的主键","加外键后插错的 id 插不进去","外键保证引用完整性"],"code":"-- 外键\nCREATE TABLE tb_article (\n    id        INT PRIMARY KEY AUTO_INCREMENT,\n    title     VARCHAR(200),\n    author_id INT,\n    CONSTRAINT fk_author\n        FOREIGN KEY (author_id) REFERENCES tb_user(id)\n);"},{"p":35,"t":"约束-外键删除更新行为","full":"35. 基础-约束-外键删除更新行为","pts":["外键的删除 / 更新行为 —— CASCADE / SET NULL / RESTRICT","默认 RESTRICT：有引用就删不掉","级联删除要慎用"],"code":"-- 外键的删除 / 更新行为\nFOREIGN KEY (author_id) REFERENCES tb_user(id)\n    ON UPDATE CASCADE      -- 主表改，子表跟着改\n    ON DELETE SET NULL;    -- 主表删，子表置空\n\n-- 默认是 RESTRICT：有引用就删不掉"},{"p":36,"t":"约束-小结","full":"36. 基础-约束-小结","pts":["约束小结 —— 五类约束 + 外键行为"],"code":""}]},{"no":"04","name":"多表连接查询","eps":[{"p":37,"t":"多表查询-多表关系介绍","full":"37. 基础-多表查询-多表关系介绍","pts":["多表关系 —— 一对一 / 一对多 / 多对多","一对多：多的一方存外键","多对多：要一张中间表"],"code":""},{"p":38,"t":"多表查询-概述","full":"38. 基础-多表查询-概述","pts":["多表查询的坑 —— 直接查两张表会笛卡尔积","要写连接条件","连表条件是 外键 = 主键"],"code":""},{"p":39,"t":"多表查询-内连接","full":"39. 基础-多表查询-内连接","pts":["内连接 —— INNER JOIN，只留两边都匹配的","隐式写法 WHERE a.id = b.aid","结果集可能比任一张表都小"],"code":"-- 内连接：只留两边都匹配的\nSELECT a.title, u.username\nFROM tb_article a\nINNER JOIN tb_user u ON a.author_id = u.id;"},{"p":40,"t":"多表查询-外连接","full":"40. 基础-多表查询-外连接","pts":["外连接 —— LEFT / RIGHT JOIN，保留一边全部","左连接：左表全留，右表没匹配就 NULL","统计「没有关联数据的行」用它"],"code":"-- 左外连接：左表全留，右表没匹配就 NULL\nSELECT u.username, a.title\nFROM tb_user u\nLEFT JOIN tb_article a ON u.id = a.author_id;"},{"p":41,"t":"多表查询-自连接","full":"41. 基础-多表查询-自连接","pts":["自连接 —— 一张表当两张用，必须起别名","典型场景 —— 员工和上级同一张表"],"code":"-- 自连接：一张表当两张用，必须起别名\nSELECT e.name AS 员工, m.name AS 上级\nFROM tb_emp e\nLEFT JOIN tb_emp m ON e.manager_id = m.id;"},{"p":42,"t":"多表查询-联合查询union","full":"42. 基础-多表查询-联合查询union","pts":["联合查询 —— UNION 把两次查询结果上下拼起来","列数、类型要一致","UNION 去重，UNION ALL 不去重"],"code":"-- 联合查询：上下拼结果\nSELECT username FROM tb_user WHERE age < 20\nUNION\nSELECT username FROM tb_user WHERE age > 30;\n\n-- UNION 去重，UNION ALL 不去重"},{"p":43,"t":"多表查询-子查询介绍","full":"43. 基础-多表查询-子查询介绍","pts":["子查询 —— 查询里再套查询","按结果分 —— 标量 / 列 / 行 / 表","能写成 join 的优先 join，性能更好"],"code":"-- 子查询：查询里套查询\nSELECT * FROM tb_article\nWHERE author_id IN (\n    SELECT id FROM tb_user WHERE age > 30\n);"},{"p":44,"t":"多表查询-标量子查询","full":"44. 基础-多表查询-标量子查询","pts":["标量子查询 —— 子查询返回一个值","一般放 WHERE 或 SELECT 里比较"],"code":""},{"p":45,"t":"多表查询-列子查询","full":"45. 基础-多表查询-列子查询","pts":["列子查询 —— 子查询返回一列","配合 IN / NOT IN / ANY / ALL"],"code":""},{"p":46,"t":"多表查询-行子查询","full":"46. 基础-多表查询-行子查询","pts":["行子查询 —— 子查询返回一行多列","用 (a, b) = (子查询) 比较"],"code":""},{"p":47,"t":"多表查询-表子查询","full":"47. 基础-多表查询-表子查询","pts":["表子查询 —— 子查询返回一张表","当成临时表放在 FROM 里"],"code":"-- 表子查询：子查询当成一张临时表\nSELECT * FROM (\n    SELECT * FROM tb_article ORDER BY create_time DESC\n) t\nGROUP BY t.category_id;"},{"p":48,"t":"多表查询-练习1","full":"48. 基础-多表查询-练习1","pts":["多表查询练习 1 —— 按业务拼条件"],"code":""},{"p":49,"t":"多表查询-练习2","full":"49. 基础-多表查询-练习2","pts":["多表查询练习 2 —— 再复杂一点的组合"],"code":""},{"p":50,"t":"多表查询-小结","full":"50. 基础-多表查询-小结","pts":["多表查询小结 —— 内 / 外 / 自 / 联合 / 子查询"],"code":""}]},{"no":"05","name":"事务","eps":[{"p":51,"t":"事务-简介","full":"51. 基础-事务-简介","pts":["事务 —— 一组操作要么全成、要么全不成","典型 —— 转账：扣钱和加钱必须一起成功"],"code":"-- 转账：扣钱和加钱必须一起成功\n-- 否则会出现「钱凭空消失」"},{"p":52,"t":"事务-操作演示","full":"52. 基础-事务-操作演示","pts":["事务操作 —— START TRANSACTION / COMMIT / ROLLBACK","没 commit 之前，别人看不到你的修改","出异常要 rollback"],"code":"-- 事务\nSTART TRANSACTION;\n\nUPDATE account SET money = money - 100 WHERE id = 1;\nUPDATE account SET money = money + 100 WHERE id = 2;\n\nCOMMIT;      -- 全成功才提交\n-- ROLLBACK; -- 出异常就回滚"},{"p":53,"t":"事务-四大特性ACID","full":"53. 基础-事务-四大特性ACID","pts":["ACID —— 原子性、一致性、隔离性、持久性","原子性：不可分割","持久性：commit 之后就落盘"],"code":"-- ACID\nA 原子性  -- 要么全成，要么全不成\nC 一致性  -- 从一种正确状态到另一种\nI 隔离性  -- 事务之间互不干扰\nD 持久性  -- commit 之后就落盘"},{"p":54,"t":"事务-并发事务问题","full":"54. 基础-事务-并发事务问题","pts":["并发问题 —— 脏读 / 不可重复读 / 幻读","三种问题严重程度递增"],"code":""},{"p":55,"t":"事务-并发事务演示及隔离级别","full":"55. 基础-事务-并发事务演示及隔离级别","pts":["隔离级别 —— 读未提交 / 读已提交 / 可重复读 / 串行化","级别越高越安全、越慢","MySQL 默认是可重复读"],"code":"-- 四种隔离级别\nREAD UNCOMMITTED   -- 脏读\nREAD COMMITTED     -- 不可重复读\nREPEATABLE READ    -- 幻读（MySQL 默认）\nSERIALIZABLE       -- 最安全、最慢\n\nSET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;"},{"p":56,"t":"事务-小结","full":"56. 基础-事务-小结","pts":["事务小结 —— 是什么、怎么用、ACID、隔离级别"],"code":""}]},{"no":"06","name":"SQLAlchemy 接入","eps":[{"p":1,"t":"初识 SQLAlchemy 2.0","full":"SQLAlchemy数据库操作-01.初识SQLAlchemy 2.0","pts":["SQLAlchemy 是什么 —— Python 最常用的 ORM","和手写 SQL 的区别 —— 用类和方法操作表","装 —— pip install sqlalchemy","看完能对上：项目里 models.py / database.py 在干什么"],"bv":"BV1Gz4y1P76z","code":""}]}];
 const DEFAULT_LEARNED = [5, 6, 7, 8, 9, 12, 13, 15, 16, 17, 20, 32, 33, 34, 35, 51, 52, 53];
 const KNOW = [{"key":"http","name":"HTTP 基础","level":"ok","desc":"方法、状态码、请求头、JSON body、跨域","eps":[4,5,7,10,14,36],"qs":["401 和 403 的区别","GET 和 POST 差在哪","为什么接口要返回 JSON","CORS 报错是谁拦的"]},{"key":"fw","name":"FastAPI 框架","level":"ok","desc":"路由、参数来源、依赖注入、中间件、异常处理、生命周期","eps":[3,4,15,16,32,46],"qs":["路径参数和查询参数怎么区分","Depends 解决了什么问题","中间件能做什么","启动时建表是在哪个钩子里"]},{"key":"pyd","name":"Pydantic 校验","level":"half","desc":"模型定义、Field 约束、response_model 过滤字段","eps":[8,9,13,45],"qs":["参数错了为什么会自动 422","Field 和 Query 有什么区别","response_model 能防什么泄露"]},{"key":"sql","name":"SQL 与建表","level":"half","desc":"建表、主键、外键、索引、联表查询、事务","eps":[17,18,25],"qs":["外键限制了什么事","索引为什么不能乱加","join 是怎么把两张表对上的"]},{"key":"orm","name":"SQLAlchemy ORM","level":"half","desc":"模型映射、Session、查询、增删改、关系","eps":[19,20,21,22,23,24,26,27,28],"qs":["Session 是什么，为什么要 close","query().all() 和 get() 有什么区别","commit 之前数据在哪","relationship 什么时候会查库"]},{"key":"auth","name":"鉴权 JWT","level":"half","desc":"密码哈希、JWT 签发与校验、Bearer 头、角色判断","eps":[42,43,44,47,48],"qs":["密码为什么不能存明文","JWT 为什么伪造不了","token 放请求头还是放 cookie","越权是在哪一层拦的"]},{"key":"eng","name":"工程化","level":"half","desc":"分层、配置、日志、异常兜底","eps":[31,32,33,46],"qs":["为什么要把 api.py 拆开","日志里为什么不打印 token","全局异常处理器解决了什么"]}];
 const BV = "BV1Kr4y1i7ru";
@@ -280,6 +302,42 @@ function load() {
 function save() { try { localStorage.setItem(KEY, JSON.stringify([...learned])); } catch (e) {} }
 function totalEps() { return BOARD.reduce((s, c) => s + c.eps.length, 0); }
 function esc(s) { return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+const KW = ["SELECT","FROM","WHERE","GROUP BY","HAVING","ORDER BY","LIMIT","INSERT INTO",
+  "VALUES","UPDATE","SET","DELETE","CREATE TABLE","CREATE DATABASE","DROP TABLE","DROP DATABASE",
+  "ALTER TABLE","ADD COLUMN","MODIFY COLUMN","RENAME COLUMN","DROP COLUMN","PRIMARY KEY",
+  "FOREIGN KEY","REFERENCES","NOT NULL","UNIQUE","DEFAULT","AUTO_INCREMENT","CONSTRAINT",
+  "INNER JOIN","LEFT JOIN","RIGHT JOIN","JOIN","ON","AS","AND","OR","IN","LIKE","BETWEEN",
+  "IS NULL","UNION ALL","UNION","START TRANSACTION","COMMIT","ROLLBACK","DESC","ASC","CASE","WHEN"];
+
+function hl(code) {
+  let s = esc(code);
+  const store = [];
+  const P0 = 0xE000;
+
+  // 注释和字符串先抠出来，防止里面的关键字被二次上色
+  s = s.replace(/(--[^\n]*)/g, m => {
+    store.push('<span class="cc">' + m + '</span>');
+    return String.fromCharCode(P0 + store.length - 1);
+  });
+  s = s.replace(/'([^'\n]*)'/g, m => {
+    store.push('<span class="cs">' + m + '</span>');
+    return String.fromCharCode(P0 + store.length - 1);
+  });
+
+  // 数字
+  s = s.replace(/\b(\d+)\b/g, '<span class="cn">$1</span>');
+
+  // 关键字：长词优先，避免 "GROUP BY" 被 "BY" 拆开
+  KW.slice().sort((a, b) => b.length - a.length).forEach(k => {
+    const re = new RegExp("\\b" + k.replace(/ /g, "\\s+") + "\\b", "g");
+    s = s.replace(re, m => '<span class="ck">' + m + '</span>');
+  });
+
+  // 还原注释和字符串
+  s = s.replace(/[\uE000-\uF8FF]/g, ch => store[ch.charCodeAt(0) - P0]);
+  return s;
+}
+
 function epUrl(p, bv) { return "https://www.bilibili.com/video/" + (bv || BV) + "?p=" + p; }
 
 function findEp(p) {
@@ -409,6 +467,17 @@ function openDetail(p) {
   }
   document.getElementById("dwPts").innerHTML = pts;
 
+  // 代码块
+  const codeH = document.getElementById("dwCodeH");
+  const codeEl = document.getElementById("dwCode");
+  if (e.code) {
+    codeEl.innerHTML = '<div class="codeblk"><pre>' + hl(e.code) + '</pre></div>';
+    codeH.style.display = "";
+  } else {
+    codeEl.innerHTML = "";
+    codeH.style.display = "none";
+  }
+
   const mk = document.getElementById("dwMark");
   mk.textContent = on ? "已学（点击取消）" : "标记为已学";
   mk.className = "btn dw-mark" + (on ? " on" : "");
@@ -489,8 +558,20 @@ function dashHTML() {
   return h;
 }
 
+function flowHTML() {
+  const steps = ["FROM", "WHERE", "GROUP BY", "HAVING", "SELECT", "ORDER BY", "LIMIT"];
+  let h = '<div class="flow"><div class="flow-h">SQL 真实执行顺序（不是书写顺序）</div><div class="flow-row">';
+  steps.forEach((s, i) => {
+    const last = i === steps.length - 1;
+    h += '<span class="st' + (last ? " last" : "") + '">' + s + '</span>';
+    if (!last) h += '<span class="ar">→</span>';
+  });
+  h += '</div><div class="flow-note">先找表、再筛行、再分组、再筛组，最后才挑字段、排序、截取——所以 WHERE 里不能用 SELECT 起的别名。</div></div>';
+  return h;
+}
+
 function renderBlocks() {
-  let html = dashHTML() + '<div class="bgrid">';
+  let html = dashHTML() + flowHTML() + '<div class="bgrid">';
   KNOW.forEach((k, i) => {
     const no = String(i + 1).padStart(2, "0");
     const lv = k.level === "ok" ? '<span class="blv ok">比较熟</span>' : '<span class="blv half">能写说不清</span>';
